@@ -1,5 +1,6 @@
 "use client";
 
+import { cta } from "@/lib/cta";
 import { useState } from "react";
 import { formatEuro, planInclusions, plans, type BillingPeriod } from "@/lib/site";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -89,7 +90,7 @@ export function PricingTable() {
 
               <div className="mt-8">
                 <ButtonLink
-                  href="/essai-gratuit"
+                  href={cta.trialApp}
                   className="w-full !py-3.5"
                   variant={plan.highlight ? "primary" : "secondary"}
                   event="trial_start"

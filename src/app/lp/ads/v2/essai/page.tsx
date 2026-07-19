@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AdsV2TrialForm } from "@/components/sections/ads-v2/AdsV2TrialForm";
+import { cta } from "@/lib/cta";
 
 export const metadata: Metadata = {
   title: "Créer mon compte — Essai 2 mois PROGESTI",
@@ -104,7 +105,7 @@ export default function AdsV2EssaiPage() {
           </div>
           <p className="mt-5 text-center text-xs text-[#6B7280]">
             Vous préférez juste regarder ?{" "}
-            <Link href="/demo" className="font-bold text-[#067647] hover:underline">
+            <Link href={cta.demo} className="font-bold text-[#067647] hover:underline">
               Voir une démo
             </Link>
             {" · "}

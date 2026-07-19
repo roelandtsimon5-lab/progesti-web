@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Comparatifs",
   description: "Comparatif logiciels pour entreprises de nettoyage — PROGESTI vs alternatives.",
@@ -25,7 +26,7 @@ export default function ComparatifsPage() {
             <li>• Différenciation PROGESTI : essai 2 mois, parcours conversion, accompagnement données</li>
           </ul>
           <div className="mt-6 flex flex-wrap gap-3">
-            <ButtonLink href="/essai-gratuit">Tester PROGESTI</ButtonLink>
+            <ButtonLink href={cta.trialApp}>Tester PROGESTI</ButtonLink>
             <Link href="/blog/progesti-vs-propret" className="font-semibold text-emerald-dark underline">
               Lire l’article comparatif
             </Link>

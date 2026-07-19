@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { AdsV2LeadForm } from "./AdsV2LeadForm";
 
+import { cta } from "@/lib/cta";
 export type AdsSalesContent = {
   campaign: string;
   badge: string;
@@ -73,7 +74,7 @@ export function AdsSalesLanding(c: AdsSalesContent) {
                 {c.primaryCtaLabel}
               </ButtonLink>
               <ButtonLink
-                href={c.secondaryHref ?? "/essai-gratuit"}
+                href={c.secondaryHref ?? cta.trialApp}
                 size="lg"
                 variant="secondary"
                 event="trial_start"
@@ -309,7 +310,7 @@ export function AdsSalesLanding(c: AdsSalesContent) {
               {c.primaryCtaLabel}
             </a>
             <Link
-              href="/essai-gratuit"
+              href={cta.trialApp}
               className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-xl border border-white/40 px-6 font-display text-sm font-extrabold text-white transition hover:bg-white hover:text-[#0F1F33]"
             >
               Créer mon essai 2 mois sans CB

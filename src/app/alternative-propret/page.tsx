@@ -3,6 +3,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import Link from "next/link";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Alternative à Propret",
   description:
@@ -17,7 +18,7 @@ export default function AlternativePropretPage() {
         eyebrow="Comparaison"
         title="PROGESTI, une alternative à Propret"
         lead="Même niche (entreprises de nettoyage). Différences clés : essai 2 mois, parcours conversion moderne, accompagnement migration possible."
-        primaryHref="/essai-gratuit"
+        primaryHref={cta.trialApp}
         primaryLabel="Tester PROGESTI 2 mois"
         secondaryHref="/comparatifs"
         secondaryLabel="Voir les comparatifs"

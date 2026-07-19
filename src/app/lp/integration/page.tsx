@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LandingTemplate } from "@/components/sections/LandingTemplate";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Intégration rapide de vos données",
   robots: { index: false },
@@ -13,7 +14,7 @@ export default function LandingIntegrationPage() {
       headline="Nous intégrons vos données rapidement pour vous"
       subhead="La peur du changement bloque souvent plus que le prix. On s’occupe de la reprise."
       primaryCta={{ href: "/rendez-vous", label: "Planifier l’intégration" }}
-      secondaryCta={{ href: "/essai-gratuit", label: "Essayer d’abord" }}
+      secondaryCta={{ href: cta.trialApp, label: "Essayer d’abord" }}
       benefits={[
         "Reprise clients / sites / contrats",
         "Paramétrage planning et équipes",

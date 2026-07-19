@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { cta } from "@/lib/cta";
 import { track } from "@/lib/tracking";
 
 type Mode = "trial" | "demo";
@@ -197,6 +198,13 @@ export function ProductShell({ mode }: Props) {
             </p>
           </div>
           <div className="flex items-center gap-2">
+            <a
+              href={cta.trialApp}
+              onClick={() => track("trial_start", { source: `product_shell_${mode}` })}
+              className="rounded-xl bg-emerald px-3 py-2 text-xs font-extrabold text-navy transition hover:bg-emerald-dark hover:text-white sm:px-4 sm:text-sm"
+            >
+              Créer mon essai réel
+            </a>
             <span className="hidden rounded-full bg-emerald/15 px-3 py-1 text-xs font-bold text-emerald-dark sm:inline">
               {mode === "demo" ? "Mode démo" : "Essai gratuit"}
             </span>

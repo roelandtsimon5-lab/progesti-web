@@ -40,12 +40,20 @@ export function ButtonLink({
   event = "cta_click",
   eventPayload,
 }: Props) {
+  const classNames = `inline-flex items-center justify-center gap-2 rounded-xl font-display font-extrabold transition duration-200 ${variants[variant]} ${sizes[size]} ${className}`;
+  const onClick = () => track(event, { href, ...eventPayload });
+  const external = /^https?:\/\//i.test(href);
+
+  if (external) {
+    return (
+      <a href={href} onClick={onClick} className={classNames} rel="noopener noreferrer">
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      onClick={() => track(event, { href, ...eventPayload })}
-      className={`inline-flex items-center justify-center gap-2 rounded-xl font-display font-extrabold transition duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
-    >
+    <Link href={href} onClick={onClick} className={classNames}>
       {children}
     </Link>
   );

@@ -3,13 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { appUrl } from "@/lib/env";
+import { cta } from "@/lib/cta";
 import { navLinks, site } from "@/lib/site";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const loginHref = appUrl("/login");
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
@@ -41,13 +40,13 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <ButtonLink href={loginHref} variant="ghost" eventPayload={{ cta: "header_login" }}>
+          <ButtonLink href={cta.login} variant="ghost" eventPayload={{ cta: "header_login" }}>
             Connexion
           </ButtonLink>
-          <ButtonLink href="/demo" variant="secondary" eventPayload={{ cta: "header_demo" }}>
+          <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "header_demo" }}>
             Démo
           </ButtonLink>
-          <ButtonLink href="/essai-gratuit" eventPayload={{ cta: "header_trial" }}>
+          <ButtonLink href={cta.trialApp} eventPayload={{ cta: "header_trial" }}>
             Essai gratuit
           </ButtonLink>
         </div>
@@ -76,13 +75,13 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <ButtonLink href="/essai-gratuit" eventPayload={{ cta: "mobile_trial" }}>
+            <ButtonLink href={cta.trialApp} eventPayload={{ cta: "mobile_trial" }}>
               Commencez gratuitement
             </ButtonLink>
-            <ButtonLink href="/demo" variant="secondary" eventPayload={{ cta: "mobile_demo" }}>
+            <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "mobile_demo" }}>
               Voir une démonstration
             </ButtonLink>
-            <ButtonLink href={loginHref} variant="ghost" eventPayload={{ cta: "mobile_login" }}>
+            <ButtonLink href={cta.login} variant="ghost" eventPayload={{ cta: "mobile_login" }}>
               Connexion
             </ButtonLink>
           </div>

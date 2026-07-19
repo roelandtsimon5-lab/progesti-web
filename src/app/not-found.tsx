@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
+import { cta } from "@/lib/cta";
 export default function NotFound() {
   return (
     <section className="section bg-white">
@@ -12,7 +13,7 @@ export default function NotFound() {
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <ButtonLink href="/">Accueil</ButtonLink>
-          <ButtonLink href="/essai-gratuit" variant="secondary">
+          <ButtonLink href={cta.trialApp} variant="secondary">
             Essai gratuit
           </ButtonLink>
         </div>

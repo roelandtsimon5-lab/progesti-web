@@ -1,5 +1,6 @@
 "use client";
 
+import { cta } from "@/lib/cta";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -56,7 +57,7 @@ export default function DemoPage() {
           </ul>
           <p className="mt-8 text-sm text-muted">
             Vous préférez un essai complet 2 mois ?{" "}
-            <Link href="/essai-gratuit" className="font-bold text-emerald-dark hover:underline">
+            <Link href={cta.trialApp} className="font-bold text-emerald-dark hover:underline">
               Créer un compte
             </Link>
           </p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AdsSalesLanding } from "@/components/sections/ads-v2/AdsSalesLanding";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Récupérez 8h d’admin — Logiciel nettoyage PROGESTI",
   description:
@@ -20,7 +21,7 @@ export default function AdsV2TempsPage() {
       formCta="Voir comment gagner du temps →"
       primaryCtaLabel="Récupérer mon temps"
       secondaryCtaLabel="Créer mon essai 2 mois"
-      secondaryHref="/essai-gratuit"
+      secondaryHref={cta.trialApp}
       trustItems={["Sans carte bancaire", "Tous modules ouverts", "Dès 29,99€ HT/mois"]}
       proofStrip={[
         "Conçu pour la propreté",

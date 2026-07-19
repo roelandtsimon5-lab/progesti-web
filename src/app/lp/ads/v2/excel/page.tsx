@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AdsSalesLanding } from "@/components/sections/ads-v2/AdsSalesLanding";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Stop Excel & WhatsApp — Logiciel planning nettoyage",
   description:
@@ -20,7 +21,7 @@ export default function AdsV2ExcelPage() {
       formCta="Ouvrir le planning PROGESTI →"
       primaryCtaLabel="Voir mon planning métier"
       secondaryCtaLabel="Créer mon essai gratuit"
-      secondaryHref="/essai-gratuit"
+      secondaryHref={cta.trialApp}
       trustItems={["Sans double saisie", "Mobile terrain", "Dès 29,99€ HT/mois"]}
       proofStrip={[
         "Planning agents / sites",

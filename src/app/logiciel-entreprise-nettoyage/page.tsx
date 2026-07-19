@@ -5,6 +5,7 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { Reveal } from "@/components/ui/Reveal";
 import Link from "next/link";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Logiciel entreprise de nettoyage",
   description:
@@ -34,7 +35,7 @@ export default function PillarNettoyagePage() {
         eyebrow="Page pilier SEO"
         title="Logiciel pour entreprise de nettoyage"
         lead="Planifiez vos agents, suivez vos sites et facturez le réalisé — un logiciel pensé pour la propreté, pas un ERP générique."
-        primaryHref="/essai-gratuit"
+        primaryHref={cta.trialApp}
         primaryLabel="Commencez gratuitement"
         secondaryHref="/demo"
         secondaryLabel="Voir une démonstration"

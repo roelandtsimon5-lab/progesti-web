@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { modules } from "@/lib/site";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Fonctionnalités",
   description:
@@ -16,7 +17,7 @@ export default function FonctionnalitesPage() {
         eyebrow="Produit"
         title="Une suite complète pour le métier de la propreté"
         lead="Du planning à la facture, du pointage terrain à la supervision : PROGESTI couvre le cycle opérationnel des entreprises de nettoyage."
-        primaryHref="/essai-gratuit"
+        primaryHref={cta.trialApp}
         primaryLabel="Essayer 2 mois"
         secondaryHref="/demo"
         secondaryLabel="Voir la démo"

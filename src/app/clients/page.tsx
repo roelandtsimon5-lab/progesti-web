@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Clients",
   description: "PROGESTI accompagne les professionnels de la propreté. Références clients à venir.",
@@ -14,7 +15,7 @@ export default function ClientsPage() {
         eyebrow="Clients"
         title="Conçu pour les pros du nettoyage"
         lead="Auto-entrepreneurs, TPE et structures multi-sites. Les logos et références publiques seront publiés avec l’accord des early users."
-        primaryHref="/essai-gratuit"
+        primaryHref={cta.trialApp}
         primaryLabel="Rejoindre les early users"
         secondaryHref="/cas-clients"
         secondaryLabel="Cas clients"
@@ -28,7 +29,7 @@ export default function ClientsPage() {
           ))}
         </div>
         <div className="container mt-8 text-center">
-          <ButtonLink href="/demo" variant="secondary">
+          <ButtonLink href={cta.demo} variant="secondary">
             Voir la démo produit
           </ButtonLink>
         </div>

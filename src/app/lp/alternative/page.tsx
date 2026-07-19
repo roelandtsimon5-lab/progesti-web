@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LandingTemplate } from "@/components/sections/LandingTemplate";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Passez à une solution plus performante",
   robots: { index: false },
@@ -12,7 +13,7 @@ export default function LandingAlternativePage() {
       badge="Landing switch"
       headline="Passez à une solution plus performante"
       subhead="Vous utilisez déjà un logiciel (Propret ou autre) ? Comparez sans risque pendant 2 mois."
-      primaryCta={{ href: "/essai-gratuit", label: "Tester PROGESTI 2 mois" }}
+      primaryCta={{ href: cta.trialApp, label: "Tester PROGESTI 2 mois" }}
       secondaryCta={{ href: "/alternative-propret", label: "Voir la comparaison" }}
       benefits={[
         "Même niche : entreprises de nettoyage",

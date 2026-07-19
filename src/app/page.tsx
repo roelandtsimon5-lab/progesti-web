@@ -15,6 +15,7 @@ import {
   whyPoints,
 } from "@/lib/site";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Logiciel pour entreprises de nettoyage",
   description: site.description,
@@ -66,14 +67,14 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink
-                href="/essai-gratuit"
+                href={cta.trialApp}
                 size="lg"
                 event="trial_start"
                 eventPayload={{ cta: "home_hero" }}
               >
                 Commencez gratuitement
               </ButtonLink>
-              <ButtonLink href="/demo" size="lg" variant="secondary" eventPayload={{ cta: "home_demo" }}>
+              <ButtonLink href={cta.demo} size="lg" variant="secondary" eventPayload={{ cta: "home_demo" }}>
                 Voir une démonstration
               </ButtonLink>
             </div>
@@ -225,10 +226,10 @@ export default function HomePage() {
               fictifs — compréhensible en moins de 30 secondes.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/demo" size="lg">
+              <ButtonLink href={cta.demo} size="lg">
                 Lancer la démo
               </ButtonLink>
-              <ButtonLink href="/essai-gratuit" size="lg" variant="secondary" event="trial_start">
+              <ButtonLink href={cta.trialApp} size="lg" variant="secondary" event="trial_start">
                 Essai 2 mois
               </ButtonLink>
             </div>
@@ -302,7 +303,7 @@ export default function HomePage() {
                 </ol>
               </div>
               <div className="text-center md:text-right">
-                <ButtonLink href="/essai-gratuit" event="trial_start">
+                <ButtonLink href={cta.trialApp} event="trial_start">
                   Commencer l’essai
                 </ButtonLink>
                 <p className="mt-3 text-xs text-muted">
@@ -361,11 +362,11 @@ export default function HomePage() {
               Essai immédiat dans l’application — ou démo interactive en 30 secondes.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <ButtonLink href="/essai-gratuit" size="lg" variant="white" event="trial_start">
+              <ButtonLink href={cta.trialApp} size="lg" variant="white" event="trial_start">
                 Commencez gratuitement
               </ButtonLink>
               <ButtonLink
-                href="/demo"
+                href={cta.demo}
                 size="lg"
                 variant="secondary"
                 className="!border-white !bg-transparent !text-white hover:!bg-white hover:!text-navy"

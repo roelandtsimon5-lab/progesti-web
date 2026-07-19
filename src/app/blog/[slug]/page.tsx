@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { cta } from "@/lib/cta";
 import { blogPosts } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -34,7 +35,7 @@ export default async function BlogPostPage({ params }: Props) {
             ))}
           </div>
           <div className="mt-10 flex flex-wrap gap-3 border-t border-line pt-6">
-            <ButtonLink href="/essai-gratuit">Essai gratuit 2 mois</ButtonLink>
+            <ButtonLink href={cta.trialApp}>Essai gratuit 2 mois</ButtonLink>
             <ButtonLink href="/fonctionnalites" variant="secondary">
               Voir les fonctionnalités
             </ButtonLink>

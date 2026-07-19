@@ -1,6 +1,7 @@
 "use client";
 
 import { ProductShell } from "@/components/product/ProductShell";
+import { cta } from "@/lib/cta";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -21,7 +22,7 @@ export default function AppPage() {
       setMode("demo");
       return;
     }
-    router.replace("/essai-gratuit");
+    window.location.href = cta.trialApp;
   }, [router]);
 
   if (!mode) {

@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
+import { cta } from "@/lib/cta";
 const columns = [
   {
     title: "Produit",
     links: [
       { href: "/fonctionnalites", label: "Fonctionnalités" },
       { href: "/tarifs", label: "Tarifs" },
-      { href: "/demo", label: "Démo" },
-      { href: "/essai-gratuit", label: "Essai gratuit" },
+      { href: cta.demo, label: "Démo" },
+      { href: cta.trialApp, label: "Essai gratuit" },
       { href: "/integrations", label: "Intégrations" },
     ],
   },
@@ -72,13 +73,26 @@ export function Footer() {
                 {col.title}
               </p>
               <ul className="mt-4 space-y-2">
-                {col.links.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-white/70 hover:text-emerald">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const external = /^https?:\/\//i.test(link.href);
+                  return (
+                    <li key={link.href}>
+                      {external ? (
+                        <a
+                          href={link.href}
+                          className="text-sm text-white/70 hover:text-emerald"
+                          rel="noopener noreferrer"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link href={link.href} className="text-sm text-white/70 hover:text-emerald">
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

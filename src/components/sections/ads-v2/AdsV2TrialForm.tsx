@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { appUrl } from "@/lib/env";
+import { trialAppUrl } from "@/lib/cta";
 import { track } from "@/lib/tracking";
 
 type Props = {
@@ -28,34 +28,41 @@ export function AdsV2TrialForm({
       return;
     }
 
+    const company = String(data.company || "");
+    const name = String(data.name || "");
+    const email = String(data.email || "");
+
     try {
-      const res = await fetch("/api/lead", {
+      await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ intent: "trial", campaign, ...data }),
       });
-      if (!res.ok) throw new Error("fail");
-
-      sessionStorage.setItem(
-        "progesti_trial",
-        JSON.stringify({
-          name: String(data.name || ""),
-          email: String(data.email || ""),
-          company: String(data.company || ""),
-          campaign,
-          createdAt: Date.now(),
-        }),
-      );
-
-      track("form_submit", { intent: "trial", campaign });
-      track("signup_start", { source: "ads_v2_essai", campaign });
-      track("trial_start", { source: "ads_v2_essai", campaign });
-
-      window.location.href = appUrl("/creer-mon-espace");
     } catch {
-      setError("Une erreur est survenue. Réessayez ou écrivez à contact@progesti.fr");
-      setLoading(false);
+      setError("Lead non enregistré — ouverture de l’inscription…");
     }
+
+    sessionStorage.setItem(
+      "progesti_trial",
+      JSON.stringify({
+        name,
+        email,
+        company,
+        campaign,
+        createdAt: Date.now(),
+      }),
+    );
+
+    track("form_submit", { intent: "trial", campaign });
+    track("signup_start", { source: "ads_v2_essai", campaign });
+    track("trial_start", { source: "ads_v2_essai", campaign });
+
+    window.location.href = trialAppUrl({
+      company,
+      name,
+      email,
+      source: `ads:${campaign}`,
+    });
   }
 
   const field =

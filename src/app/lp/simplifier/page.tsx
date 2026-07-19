@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LandingTemplate } from "@/components/sections/LandingTemplate";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Simplifiez la gestion de votre entreprise de nettoyage",
   robots: { index: false },
@@ -12,7 +13,7 @@ export default function LandingSimplifierPage() {
       badge="Landing conversion"
       headline="Le logiciel qui simplifie radicalement la gestion de votre entreprise de nettoyage"
       subhead="Stop Excel et WhatsApp. Planning, pointage et facturation dans un seul outil."
-      primaryCta={{ href: "/essai-gratuit", label: "Commencez gratuitement" }}
+      primaryCta={{ href: cta.trialApp, label: "Commencez gratuitement" }}
       secondaryCta={{ href: "/demo", label: "Voir une démonstration" }}
       benefits={[
         "Planning agents / sites sans double saisie",

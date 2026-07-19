@@ -3,6 +3,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { site } from "@/lib/site";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Cas clients",
   description: "Études de cas PROGESTI pour entreprises de nettoyage — publication en cours.",
@@ -17,7 +18,7 @@ export default function CasClientsPage() {
         lead="Les études de cas détaillées (avant/après planning, facturation, temps gagné) seront publiées avec métriques validées."
         primaryHref="/contact"
         primaryLabel="Devenir cas client"
-        secondaryHref="/essai-gratuit"
+        secondaryHref={cta.trialApp}
         secondaryLabel="Tester sur mon activité"
       />
       <section className="section !pt-0">

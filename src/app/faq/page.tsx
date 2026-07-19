@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { cta } from "@/lib/cta";
 import { faqItems } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -31,9 +32,9 @@ export default function FaqPage() {
         eyebrow="FAQ"
         title="Toutes les réponses avant de vous lancer"
         lead="Essai, sécurité, mobile, résiliation, import — tout ce qu’il faut pour décider sereinement."
-        primaryHref="/essai-gratuit"
+        primaryHref={cta.trialApp}
         primaryLabel="Commencez gratuitement"
-        secondaryHref="/demo"
+        secondaryHref={cta.demo}
         secondaryLabel="Voir une démonstration"
       />
       <section className="section !pt-0">
@@ -43,7 +44,7 @@ export default function FaqPage() {
             <p className="font-medium text-anthracite">Une question reste sans réponse ?</p>
             <div className="mt-4 flex flex-wrap justify-center gap-3">
               <ButtonLink href="/contact">Nous contacter</ButtonLink>
-              <ButtonLink href="/essai-gratuit" variant="secondary">
+              <ButtonLink href={cta.trialApp} variant="secondary">
                 Essayer quand même
               </ButtonLink>
             </div>

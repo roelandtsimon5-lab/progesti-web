@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { cta } from "@/lib/cta";
 import { modules } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -31,9 +32,9 @@ export default async function ModulePage({ params }: Props) {
         eyebrow="Module"
         title={mod.title}
         lead={mod.short}
-        primaryHref="/essai-gratuit"
+        primaryHref={cta.trialApp}
         primaryLabel="Tester ce module"
-        secondaryHref="/demo"
+        secondaryHref={cta.demo}
         secondaryLabel="Voir la démo"
       />
       <section className="section !pt-0">
@@ -55,7 +56,7 @@ export default async function ModulePage({ params }: Props) {
               L’essai 2 mois ouvre tous les modules, y compris {mod.title.toLowerCase()}.
             </p>
             <div className="mt-6 flex flex-col gap-3">
-              <ButtonLink href="/essai-gratuit">Commencez gratuitement</ButtonLink>
+              <ButtonLink href={cta.trialApp}>Commencez gratuitement</ButtonLink>
               <ButtonLink href="/tarifs" variant="secondary">
                 Voir les tarifs
               </ButtonLink>

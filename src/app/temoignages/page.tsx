@@ -3,6 +3,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { site } from "@/lib/site";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Témoignages",
   description: "Avis d’entreprises de nettoyage sur PROGESTI. Publication dès validation.",
@@ -15,7 +16,7 @@ export default function TemoignagesPage() {
         eyebrow="Témoignages"
         title="La preuve par le terrain"
         lead="Nous ne publions que des avis réels. En attendant, testez le produit vous-même en démo ou essai 2 mois."
-        primaryHref="/essai-gratuit"
+        primaryHref={cta.trialApp}
         primaryLabel="Essai gratuit"
         secondaryHref="/demo"
         secondaryLabel="Démo interactive"

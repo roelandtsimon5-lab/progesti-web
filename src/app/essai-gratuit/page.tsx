@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { appUrl } from "@/lib/env";
+import { cta, trialAppUrl } from "@/lib/cta";
 import { track } from "@/lib/tracking";
 
 export default function EssaiGratuitPage() {
@@ -14,6 +14,9 @@ export default function EssaiGratuitPage() {
     setError(false);
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
+    const company = String(data.company || "");
+    const name = String(data.name || "");
+    const email = String(data.email || "");
 
     try {
       await fetch("/api/lead", {
@@ -21,26 +24,30 @@ export default function EssaiGratuitPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ intent: "trial", ...data }),
       });
-
-      sessionStorage.setItem(
-        "progesti_trial",
-        JSON.stringify({
-          name: String(data.name || ""),
-          email: String(data.email || ""),
-          company: String(data.company || ""),
-          createdAt: Date.now(),
-        }),
-      );
-
-      track("signup_start", { source: "essai-gratuit" });
-      track("trial_start", { source: "essai-gratuit" });
-
-      // Compte réel = self-serve Railway
-      window.location.href = appUrl("/creer-mon-espace");
     } catch {
+      // On continue vers l'app même si le lead échoue
       setError(true);
-      setLoading(false);
     }
+
+    sessionStorage.setItem(
+      "progesti_trial",
+      JSON.stringify({
+        name,
+        email,
+        company,
+        createdAt: Date.now(),
+      }),
+    );
+
+    track("signup_start", { source: "essai-gratuit" });
+    track("trial_start", { source: "essai-gratuit" });
+
+    window.location.href = trialAppUrl({
+      company,
+      name,
+      email,
+      source: "essai-gratuit",
+    });
   }
 
   const field =
@@ -72,30 +79,39 @@ export default function EssaiGratuitPage() {
           </ul>
           <p className="mt-8 text-sm text-muted">
             Déjà un compte ?{" "}
-            <a href={appUrl("/login")} className="font-bold text-emerald-dark hover:underline">
+            <a href={cta.login} className="font-bold text-emerald-dark hover:underline">
               Se connecter
             </a>
           </p>
         </div>
 
-        <form onSubmit={onSubmit} className="rounded-2xl border border-line bg-white p-7 shadow-[0_24px_70px_rgba(11,21,36,0.08)] md:p-8">
+        <form
+          onSubmit={onSubmit}
+          className="rounded-2xl border border-line bg-white p-7 shadow-[0_24px_70px_rgba(11,21,36,0.08)] md:p-8"
+        >
           <h2 className="text-2xl font-extrabold text-ink">Commencer maintenant</h2>
           <div className="mt-6 space-y-3">
             <input className={field} name="company" placeholder="Entreprise *" required />
             <input className={field} name="name" placeholder="Votre nom *" required />
-            <input className={field} name="email" type="email" placeholder="Email professionnel *" required />
+            <input
+              className={field}
+              name="email"
+              type="email"
+              placeholder="Email professionnel *"
+              required
+            />
             <input className={field} name="phone" type="tel" placeholder="Téléphone (optionnel)" />
             <button
               type="submit"
               disabled={loading}
               className="w-full rounded-xl bg-emerald py-4 font-display text-sm font-extrabold text-navy transition hover:bg-emerald-dark hover:text-white disabled:opacity-70"
             >
-              {loading ? "Création du compte…" : "Créer mon essai et ouvrir l’app"}
+              {loading ? "Ouverture de l’app…" : "Créer mon essai et ouvrir l’app"}
             </button>
           </div>
           {error ? (
-            <p className="mt-3 text-sm font-semibold text-danger">
-              Une erreur est survenue. Réessayez ou écrivez à contact@progesti.fr
+            <p className="mt-3 text-sm font-semibold text-amber-700">
+              Lead non enregistré, redirection vers l’inscription en cours…
             </p>
           ) : null}
           <p className="mt-4 text-xs leading-relaxed text-muted">
@@ -104,7 +120,7 @@ export default function EssaiGratuitPage() {
           </p>
           <p className="mt-3 text-center text-xs text-muted">
             Ou{" "}
-            <a href={appUrl("/creer-mon-espace")} className="font-bold text-emerald-dark hover:underline">
+            <a href={cta.trialApp} className="font-bold text-emerald-dark hover:underline">
               ouvrir directement l’inscription
             </a>
           </p>

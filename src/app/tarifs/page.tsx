@@ -4,6 +4,7 @@ import { PricingTable } from "@/components/pricing/PricingTable";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Tarifs",
   description:
@@ -42,7 +43,7 @@ export default function TarifsPage() {
               <FaqAccordion items={pricingFaq} />
             </div>
             <div className="mt-8 text-center">
-              <ButtonLink href="/essai-gratuit">Commencez gratuitement</ButtonLink>
+              <ButtonLink href={cta.trialApp}>Commencez gratuitement</ButtonLink>
             </div>
           </div>
         </div>

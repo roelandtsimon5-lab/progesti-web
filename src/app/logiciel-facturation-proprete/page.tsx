@@ -3,6 +3,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import Link from "next/link";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Logiciel facturation propreté",
   description:
@@ -17,7 +18,7 @@ export default function PillarFacturationPage() {
         eyebrow="Facturation"
         title="Logiciel de facturation pour la propreté"
         lead="Passez du terrain à la facture sans ressaisie. Moins de retards, moins de litiges."
-        primaryHref="/essai-gratuit"
+        primaryHref={cta.trialApp}
         primaryLabel="Commencer l’essai"
         secondaryHref="/fonctionnalites/facturation"
         secondaryLabel="Module facturation"

@@ -3,6 +3,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { site } from "@/lib/site";
 
+import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "À propos",
   description: `À propos de ${site.name} — logiciel de gestion pour entreprises de nettoyage, édité par ${site.company.legalName}.`,
@@ -15,7 +16,7 @@ export default function AProposPage() {
         eyebrow="À propos"
         title="PROGESTI, conçu pour le terrain de la propreté"
         lead="Nous construisons un logiciel simple et complet pour les auto-entrepreneurs et petites entreprises de nettoyage qui veulent arrêter Excel et WhatsApp."
-        primaryHref="/essai-gratuit"
+        primaryHref={cta.trialApp}
         primaryLabel="Essayer 2 mois"
         secondaryHref="/contact"
         secondaryLabel="Nous contacter"
