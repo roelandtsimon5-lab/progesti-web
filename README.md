@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PROGESTI — Site commercial
 
-## Getting Started
-
-First, run the development server:
+## Démarrer
 
 ```bash
+cd web
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Variables d'environnement
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Rôle |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | URL canonique landing (`https://progesti.fr`) |
+| `NEXT_PUBLIC_AUTH_URL` | URL du **logiciel** Railway (login / essai) |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager (après consentement cookies) |
+| `NEXT_PUBLIC_GOOGLE_CALENDAR_URL` | Lien Appointment Schedules sur `/rendez-vous` |
+| `LEAD_WEBHOOK_URL` | Webhook CRM sur chaque lead |
+| `RESEND_API_KEY` | Email de notification lead |
+| `LEAD_NOTIFY_EMAIL` | Destinataire (défaut contact@progesti.fr) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Défaut `NEXT_PUBLIC_AUTH_URL` si vide :
+`https://new-era-planning-mvp-production.up.railway.app`
 
-## Learn More
+## Branchement logiciel (Railway)
 
-To learn more about Next.js, take a look at the following resources:
+| CTA landing | Destination |
+|---|---|
+| Connexion | `{AUTH_URL}/login` |
+| Essai | lead `/api/lead` puis `{AUTH_URL}/creer-mon-espace` |
+| Mot de passe oublié | `{AUTH_URL}/forgot-password` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Sur le service **app** (planning-mvp)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Ajouter / vérifier :
 
-## Deploy on Vercel
+```
+SELF_SERVE_SIGNUP_ENABLED=true
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Sans ça, `/creer-mon-espace` affiche « inscription fermée ».
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Emails invites / reset : `EMAIL_PROVIDER=brevo` + `BREVO_API_KEY` + `EMAIL_FROM`.
+
+### Hébergement recommandé : 2 services Railway
+
+| Service | Repo / dossier | Domaine |
+|---|---|---|
+| `planning-mvp` | New ERA / planning-mvp | app (ex. `app.progesti.fr`) |
+| `progesti-web` | Progesti / web | `progesti.fr` |
+
+Sur le service landing : `NEXT_PUBLIC_AUTH_URL` = URL publique du service app.
+
+## Leads
+
+`POST /api/lead` :
+- validation email/nom
+- honeypot `website`
+- rate-limit IP
+- écriture locale `.data/leads.jsonl`
+- webhook + Resend si configurés
+
+## Parcours
+
+- Essai : `/essai-gratuit` → lead → app Railway `/creer-mon-espace`
+- Démo : `/demo` → `/demo/live` (maquette produit)
+- Login : redirect → app Railway `/login`
+- SEO : `/logiciel-entreprise-nettoyage`
+
+## Build
+
+```bash
+npm run build
+```
+
+Éditeur : MSNE SAS — contact@progesti.fr
