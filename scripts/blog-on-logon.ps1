@@ -1,5 +1,5 @@
 # Blog on Windows logon — PROGESTI
-# Cadence: Tuesday + Thursday only, once per day max.
+# Cadence: Tuesday only, once per day max.
 # Install: .\scripts\install-blog-logon-task.ps1
 
 param(
@@ -8,7 +8,6 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# This file lives in web/scripts/
 $WebRoot = Split-Path $PSScriptRoot -Parent
 $RepoRoot = Split-Path $WebRoot -Parent
 $Workspace = if (Test-Path (Join-Path $RepoRoot "web")) { $RepoRoot } else { $WebRoot }
@@ -23,11 +22,11 @@ function Write-Log([string]$msg) {
 }
 
 $today = Get-Date
-$dow = [int]$today.DayOfWeek  # 0=Sun … 2=Tue … 4=Thu
-$isPublishDay = ($dow -eq 2) -or ($dow -eq 4)
+$dow = [int]$today.DayOfWeek  # 0=Sun … 2=Tue
+$isPublishDay = ($dow -eq 2)
 
 if (-not $Force -and -not $isPublishDay) {
-  Write-Log "Skip: not Tue/Thu ($($today.ToString('dddd')))."
+  Write-Log "Skip: not Tuesday ($($today.ToString('dddd')))."
   exit 0
 }
 
@@ -54,7 +53,7 @@ Ouvre le chat Cursor et envoie :
 
 File : @docs/blog/editorial-queue.md
 
-Créé au démarrage PC (mardi / jeudi). Supprime après publication.
+Créé au démarrage PC (mardi). Supprime après publication.
 "@ | Set-Content -Path $flagPath -Encoding UTF8
 
 Set-Content -Path $LockFile -Value $stamp -Encoding UTF8
