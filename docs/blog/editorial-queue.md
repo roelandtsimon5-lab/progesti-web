@@ -19,12 +19,13 @@ Format d’une ligne :
 
 ## File (à traiter dans l’ordre)
 
-- status: todo
+- status: done
   date: 2026-07-21
   slug: cout-cache-excel-whatsapp-entreprise-nettoyage
   category: conseils-metier
   title: Le vrai coût d’Excel + WhatsApp pour une entreprise de nettoyage
   angle: Temps perdu, erreurs, litiges — chiffrer le coût caché vs un outil dédié.
+  published: 2026-07-20
 
 - status: todo
   date: 2026-07-28
