@@ -1,24 +1,24 @@
 # Automation Cursor — Blog PROGESTI
 
 > Cadence : **1 article / semaine** (mardi 9h Europe/Paris).  
-> Une fois Active + prompt correct → plus rien à faire (sauf remplir la file quand elle est vide).
+> Objectif : **commit + push sur `master`** pour déployer sans intervention.
 
-## Réglages
+## Réglages UI (Cursor Automations)
 
 | Champ | Valeur |
 |--------|--------|
 | Nom | `SEO AUTOMATION` |
-| Trigger | **1 seul** : Every week on Tuesday at 09:00 |
-| Cron | `0 9 * * 2` |
+| Trigger | **1 seul** : Tuesday 09:00 (`0 9 * * 2`) |
 | Repo | `roelandtsimon5-lab/progesti-web` · branche **`master`** |
-| Outils | Open PR (ou push) + Memories |
+| Outils | **Open Pull or Merge Request** + Memories |
 
-Pas de 2ᵉ trigger (l’UI n’en garde qu’un et affiche un warning).
+Dans l’outil PR : active **Merge** / autorise l’écriture sur `master` si proposé.  
+Sinon l’agent crée une draft et rien n’apparaît en prod.
 
-## Instructions (coller dans le prompt — rien d’autre)
+## Instructions (remplacer TOUT le prompt actuel par ceci)
 
 ```
-Tu publies UN article de blog PROGESTI pour le SEO.
+Tu publies UN article de blog PROGESTI pour le SEO, puis tu le mets EN LIGNE.
 
 1. Ouvre docs/blog/editorial-queue.md
 2. Prends la première entrée status: todo
@@ -28,15 +28,19 @@ Tu publies UN article de blog PROGESTI pour le SEO.
 6. CTA final vers /essai-gratuit
 7. date + updatedAt = date du jour (Europe/Paris)
 8. Passe la ligne de la file à status: done + published: YYYY-MM-DD
-9. Commit: "blog: publish {slug}"
-10. Push sur master (ou PR puis merge) pour déployer
+9. git add les fichiers touchés (article + editorial-queue.md)
+10. git commit -m "blog: publish {slug}"
+11. OBLIGATOIRE pour publier :
+    - Préférence A : push direct sur master
+    - Sinon : ouvre une PR NON-draft vers master, puis MERGE immédiatement la PR
+12. Ne laisse JAMAIS une PR draft ouverte sans merge — le site ne se mettrait pas à jour
 
 Règles: pas de faux avis, pas de chiffres inventés, un seul article par run.
 Réf: docs/PROMPT-BLOG-AUTO.md
 ```
 
-## Après
+## Après un run réussi
 
-1. Deploy auto sur push `master`.
-2. Sitemap mis à jour via `getAllPosts()`.
-3. File < 4 `todo` → demander de la prolonger.
+- Commit visible sur `master`
+- Article sur https://progesti.fr/blog/{slug} après deploy
+- File éditoriale mise à jour (`done`)

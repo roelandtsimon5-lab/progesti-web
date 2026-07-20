@@ -38,7 +38,11 @@ keywords: ["…", "…"]
    - 1 article blog voisin si pertinent
 8. CTA final clair vers essai 2 mois sans CB (lien `/essai-gratuit`).
 9. Passe la ligne de la file à `status: done` + `published: YYYY-MM-DD`.
-10. Commit **uniquement** si l’utilisateur a demandé un commit ; sinon laisse les fichiers prêts.
+10. **Commit + push obligatoires** (automation cloud) :
+    - `git add` l’article MDX + `docs/blog/editorial-queue.md`
+    - `git commit -m "blog: publish {slug}"`
+    - Push sur **`master`**, ou PR **non-draft** puis **merge immédiat**
+    - Ne jamais laisser une PR draft sans merge
 
 ## Règles
 
@@ -47,7 +51,8 @@ keywords: ["…", "…"]
 - Pas de conseils juridiques définitifs (disclaimer si réglementation).
 - Pas de cards / emojis inutiles dans le MDX.
 - Un article = un fichier = un sujet de la file. Ne pas réécrire la file entière.
+- Toujours committer et merger sur `master` en fin de run automation.
 
 ## Fin
 
-Réponse courte : slug publié, titre, 3 liens internes utilisés, prochaine ligne `todo` de la file.
+Réponse courte : slug publié, SHA / URL PR mergée, titre, 3 liens internes, prochaine ligne `todo`.
