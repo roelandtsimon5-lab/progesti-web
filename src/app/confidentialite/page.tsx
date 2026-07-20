@@ -16,7 +16,7 @@ export default function ConfidentialitePage() {
         lead="Traitement des données personnelles collectées via le site et les formulaires PROGESTI."
       />
       <section className="section !pt-0">
-        <div className="container max-w-3xl space-y-6 rounded-2xl border border-line bg-white p-8 text-sm leading-relaxed text-anthracite">
+        <div className="container max-w-3xl space-y-6 text-sm leading-relaxed text-anthracite">
           <section>
             <h2 className="font-extrabold text-ink">Responsable de traitement</h2>
             <p className="mt-2">

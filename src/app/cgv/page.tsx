@@ -18,7 +18,7 @@ export default function CgvPage() {
         lead="Cadre contractuel de l’abonnement PROGESTI. Document à faire valider par votre conseil avant usage commercial définitif."
       />
       <section className="section !pt-0">
-        <div className="container max-w-3xl space-y-8 rounded-2xl border border-line bg-white p-8 text-sm leading-relaxed text-anthracite">
+        <div className="container max-w-3xl space-y-8 text-sm leading-relaxed text-anthracite">
           <section>
             <h2 className="text-lg font-extrabold text-ink">1. Objet</h2>
             <p className="mt-2">

@@ -44,9 +44,11 @@ export function LandingTemplate({
   return (
     <>
       <section className="surface-dark relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,rgba(18,183,106,0.2),transparent_65%)]" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,rgba(47,158,107,0.18),transparent_65%)]" />
         <div className="container relative max-w-3xl py-14 text-center md:py-20">
-          <p className="eyebrow !text-emerald">{badge}</p>
+          <p className="font-display text-sm font-bold uppercase tracking-[0.22em] text-emerald">
+            {badge}
+          </p>
           <h1 className="mt-4 text-[2.15rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-5xl">
             {headline}
           </h1>
@@ -57,7 +59,7 @@ export function LandingTemplate({
               size="lg"
               variant="white"
               event="trial_start"
-              eventPayload={{ campaign, cta: "lp_hero_primary" }}
+              eventPayload={{ campaign, cta: "v2_lp_hero_primary" }}
             >
               {primaryCta.label}
             </ButtonLink>
@@ -67,7 +69,7 @@ export function LandingTemplate({
                 size="lg"
                 variant="secondary"
                 className="!border-white !bg-transparent !text-white hover:!bg-white hover:!text-navy"
-                eventPayload={{ campaign, cta: "lp_hero_secondary" }}
+                eventPayload={{ campaign, cta: "v2_lp_hero_secondary" }}
               >
                 {secondaryCta.label}
               </ButtonLink>
@@ -75,14 +77,9 @@ export function LandingTemplate({
           </div>
           <p className="mt-5 text-sm font-medium text-white/65">{trustLine}</p>
           {proofPoints?.length ? (
-            <ul className="mx-auto mt-8 grid max-w-2xl gap-2 text-left sm:grid-cols-3">
+            <ul className="mx-auto mt-8 flex max-w-2xl flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-semibold text-white/85">
               {proofPoints.map((p) => (
-                <li
-                  key={p}
-                  className="rounded-xl border border-white/15 bg-white/5 px-3 py-3 text-center text-xs font-semibold text-white/85"
-                >
-                  {p}
-                </li>
+                <li key={p}>{p}</li>
               ))}
             </ul>
           ) : null}
@@ -106,15 +103,12 @@ export function LandingTemplate({
         </section>
       ) : null}
 
-      <section className={`section ${steps?.length ? "bg-fog" : "bg-white"}`}>
+      <section className={`section ${steps?.length ? "surface-atmosphere" : "bg-white"}`}>
         <div className="container">
           <h2 className="text-3xl font-extrabold text-ink">Ce que vous gagnez concrètement</h2>
-          <ul className="mt-8 grid gap-3 md:grid-cols-2">
+          <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {benefits.map((b) => (
-              <li
-                key={b}
-                className="flex gap-3 rounded-xl border border-line bg-white px-4 py-4 text-anthracite shadow-[0_8px_24px_rgba(11,21,36,0.04)]"
-              >
+              <li key={b} className="flex gap-3 border-t border-line pt-4 text-anthracite">
                 <span className="font-bold text-emerald-dark" aria-hidden>
                   ✓
                 </span>
@@ -125,17 +119,17 @@ export function LandingTemplate({
         </div>
       </section>
 
-      <section className="section !pt-0 bg-fog">
+      <section className="section !pt-0">
         <div className="container grid gap-10 lg:grid-cols-2">
           <div>
             <h2 className="text-3xl font-extrabold text-ink">Questions fréquentes</h2>
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 space-y-1">
               {objections.map((o) => (
                 <details
                   key={o.q}
-                  className="group rounded-xl border border-line bg-white open:border-emerald/40"
+                  className="group border-b border-line open:border-emerald/30"
                 >
-                  <summary className="cursor-pointer list-none px-5 py-4 font-display text-base font-bold text-ink marker:content-none">
+                  <summary className="cursor-pointer list-none py-4 font-display text-base font-bold text-ink marker:content-none">
                     <span className="flex items-start justify-between gap-3">
                       {o.q}
                       <span className="text-emerald-dark transition group-open:rotate-45" aria-hidden>
@@ -143,14 +137,14 @@ export function LandingTemplate({
                       </span>
                     </span>
                   </summary>
-                  <p className="border-t border-line px-5 py-4 text-sm text-muted">{o.a}</p>
+                  <p className="pb-4 text-sm text-muted">{o.a}</p>
                 </details>
               ))}
             </div>
           </div>
 
           {formIntent ? (
-            <div className="rounded-2xl border border-line bg-white p-6 shadow-[0_20px_60px_rgba(11,21,36,0.08)] md:p-8">
+            <div className="border border-line bg-white p-6 md:p-8">
               <h2 className="text-2xl font-extrabold text-ink">{formTitle}</h2>
               <p className="mt-2 text-sm text-muted">{formLead}</p>
               <div className="mt-6">
@@ -158,7 +152,7 @@ export function LandingTemplate({
               </div>
             </div>
           ) : (
-            <div className="rounded-2xl border border-line bg-white p-6 md:p-8">
+            <div className="border border-line bg-white p-6 md:p-8">
               <h2 className="text-2xl font-extrabold text-ink">Prêt à tester ?</h2>
               <p className="mt-3 text-sm text-muted">
                 Créez votre essai en 2 minutes. Vous arrivez directement dans l’application.
@@ -169,7 +163,7 @@ export function LandingTemplate({
                   size="lg"
                   className="w-full"
                   event="trial_start"
-                  eventPayload={{ campaign, cta: "lp_side_cta" }}
+                  eventPayload={{ campaign, cta: "v2_lp_side_cta" }}
                 >
                   {primaryCta.label}
                 </ButtonLink>
@@ -194,7 +188,7 @@ export function LandingTemplate({
               size="lg"
               variant="white"
               event="trial_start"
-              eventPayload={{ campaign, cta: "lp_final" }}
+              eventPayload={{ campaign, cta: "v2_lp_final" }}
             >
               {primaryCta.label}
             </ButtonLink>
@@ -204,7 +198,7 @@ export function LandingTemplate({
                 size="lg"
                 variant="secondary"
                 className="!border-white !bg-transparent !text-white hover:!bg-white hover:!text-navy"
-                eventPayload={{ campaign, cta: "lp_final_secondary" }}
+                eventPayload={{ campaign, cta: "v2_lp_final_secondary" }}
               >
                 {secondaryCta.label}
               </ButtonLink>

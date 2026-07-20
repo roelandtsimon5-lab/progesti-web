@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -38,8 +39,8 @@ export default async function ModulePage({ params }: Props) {
         secondaryLabel="Voir la démo"
       />
       <section className="section !pt-0">
-        <div className="container grid max-w-4xl gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl border border-line bg-white p-8">
+        <div className="container grid max-w-4xl gap-12 lg:grid-cols-2">
+          <div>
             <h2 className="text-2xl font-extrabold text-ink">Le problème sur le terrain</h2>
             <p className="mt-3 text-muted">{mod.pain}</p>
             <h2 className="mt-8 text-2xl font-extrabold text-ink">Ce que change PROGESTI</h2>
@@ -49,19 +50,49 @@ export default async function ModulePage({ params }: Props) {
               <li>Inclus dans Starter, Pro et Premium — pas de module payant en plus.</li>
               <li>Relie planning, terrain et facturation dans le même flux.</li>
             </ul>
+            <p className="mt-6 text-sm text-muted">
+              Adapté aux{" "}
+              <Link href="/solutions/bureaux" className="font-semibold text-emerald-dark hover:underline">
+                bureaux
+              </Link>
+              ,{" "}
+              <Link href="/solutions/syndics" className="font-semibold text-emerald-dark hover:underline">
+                syndics
+              </Link>
+              ,{" "}
+              <Link
+                href="/solutions/professionnels"
+                className="font-semibold text-emerald-dark hover:underline"
+              >
+                professionnels
+              </Link>{" "}
+              et{" "}
+              <Link
+                href="/solutions/fin-de-chantier"
+                className="font-semibold text-emerald-dark hover:underline"
+              >
+                fin de chantier
+              </Link>
+              .
+            </p>
           </div>
-          <div className="rounded-2xl border border-line bg-fog p-8">
+          <div className="border-t border-line pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
             <h2 className="text-xl font-extrabold text-ink">Passer à l’action</h2>
             <p className="mt-3 text-sm text-muted">
               L’essai 2 mois ouvre tous les modules, y compris {mod.title.toLowerCase()}.
             </p>
             <div className="mt-6 flex flex-col gap-3">
-              <ButtonLink href={cta.trialApp}>Commencez gratuitement</ButtonLink>
-              <ButtonLink href="/tarifs" variant="secondary">
+              <ButtonLink href={cta.trialApp} eventPayload={{ cta: "v2_module_trial" }}>
+                Commencez gratuitement
+              </ButtonLink>
+              <ButtonLink href="/tarifs" variant="secondary" eventPayload={{ cta: "v2_module_tarifs" }}>
                 Voir les tarifs
               </ButtonLink>
               <ButtonLink href="/fonctionnalites" variant="ghost">
                 ← Toutes les fonctionnalités
+              </ButtonLink>
+              <ButtonLink href="/blog" variant="ghost">
+                Lire le blog →
               </ButtonLink>
             </div>
           </div>

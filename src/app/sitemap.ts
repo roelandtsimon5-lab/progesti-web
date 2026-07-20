@@ -1,11 +1,14 @@
 import type { MetadataRoute } from "next";
-import { blogPosts, modules, site } from "@/lib/site";
+import { getAllPosts } from "@/lib/blog";
+import { glossaryTerms } from "@/lib/glossary";
+import { blogCategories, modules, site, solutions } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url;
   const staticRoutes = [
     "",
     "/fonctionnalites",
+    "/solutions",
     "/tarifs",
     "/demo",
     "/essai-gratuit",
@@ -15,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq",
     "/blog",
     "/ressources",
+    "/glossaire",
     "/guides",
     "/comparatifs",
     "/clients",
@@ -33,13 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/lp/essai-2-mois",
     "/lp/alternative",
     "/lp/integration",
-    "/lp/ads/probleme",
-    "/lp/ads/logiciel",
-    "/lp/ads/concurrent",
-    "/lp/ads/essai",
-    "/lp/ads/v2/temps",
-    "/lp/ads/v2/excel",
-    "/lp/ads/v2/essai",
   ];
 
   return [
@@ -47,7 +44,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}${path}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
-      priority: path === "" ? 1 : path.startsWith("/logiciel") || path.startsWith("/alternative") ? 0.85 : 0.7,
+      priority:
+        path === ""
+          ? 1
+          : path.startsWith("/logiciel") || path.startsWith("/alternative") || path.startsWith("/solutions")
+            ? 0.85
+            : 0.7,
+    })),
+    ...solutions.map((s) => ({
+      url: `${base}/solutions/${s.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
     })),
     ...modules.map((m) => ({
       url: `${base}/fonctionnalites/${m.slug}`,
@@ -55,11 +63,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
-    ...blogPosts.map((p) => ({
-      url: `${base}/blog/${p.slug}`,
+    ...blogCategories.map((c) => ({
+      url: `${base}/blog/categorie/${c.slug}`,
       lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+    })),
+    ...getAllPosts().map((p) => ({
+      url: `${base}/blog/${p.slug}`,
+      lastModified: new Date(p.updatedAt || p.date),
       changeFrequency: "monthly" as const,
       priority: 0.55,
+    })),
+    ...glossaryTerms.map((t) => ({
+      url: `${base}/glossaire/${t.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.4,
     })),
   ];
 }

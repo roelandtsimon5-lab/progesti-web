@@ -12,7 +12,7 @@ export function PricingTable() {
     <div>
       <div className="mb-10 flex justify-center">
         <div
-          className="inline-flex rounded-full border border-line bg-white p-1.5 shadow-sm"
+          className="inline-flex border border-line bg-white p-1"
           role="tablist"
           aria-label="Période de facturation"
         >
@@ -28,10 +28,8 @@ export function PricingTable() {
               role="tab"
               aria-selected={period === value}
               onClick={() => setPeriod(value)}
-              className={`rounded-full px-5 py-2.5 font-display text-sm font-bold transition ${
-                period === value
-                  ? "bg-navy text-white shadow-sm"
-                  : "text-anthracite hover:text-ink"
+              className={`px-5 py-2.5 font-display text-sm font-bold transition ${
+                period === value ? "bg-navy text-white" : "text-anthracite hover:text-ink"
               }`}
             >
               {label}
@@ -40,21 +38,19 @@ export function PricingTable() {
         </div>
       </div>
 
-      <div className="grid items-stretch gap-5 lg:grid-cols-3 lg:gap-6">
+      <div className="grid items-stretch gap-6 lg:grid-cols-3">
         {plans.map((plan) => {
           const price = period === "month" ? plan.monthly : plan.yearly;
           const strike = period === "year" ? plan.yearlyStrike : null;
           return (
             <article
               key={plan.id}
-              className={`relative flex flex-col rounded-2xl border bg-white p-7 transition ${
-                plan.highlight
-                  ? "border-emerald shadow-[0_24px_60px_rgba(18,183,106,0.18)] lg:-translate-y-2 lg:scale-[1.02]"
-                  : "border-line shadow-[0_10px_30px_rgba(11,21,36,0.04)]"
+              className={`relative flex flex-col border bg-white p-7 ${
+                plan.highlight ? "border-emerald border-2" : "border-line"
               }`}
             >
               {plan.highlight ? (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-emerald px-4 py-1.5 font-display text-xs font-extrabold tracking-wide text-navy">
+                <span className="absolute -top-3 left-6 bg-emerald px-3 py-1 font-display text-xs font-extrabold tracking-wide text-ink">
                   Le plus populaire
                 </span>
               ) : null}
@@ -94,7 +90,7 @@ export function PricingTable() {
                   className="w-full !py-3.5"
                   variant={plan.highlight ? "primary" : "secondary"}
                   event="trial_start"
-                  eventPayload={{ plan: plan.id, period }}
+                  eventPayload={{ plan: plan.id, period, cta: "v2_pricing" }}
                 >
                   Commencez gratuitement
                 </ButtonLink>

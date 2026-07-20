@@ -3,8 +3,9 @@ import { PageHero } from "@/components/sections/PageHero";
 import { PricingTable } from "@/components/pricing/PricingTable";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-
+import { trustBadges } from "@/lib/site";
 import { cta } from "@/lib/cta";
+
 export const metadata: Metadata = {
   title: "Tarifs",
   description:
@@ -34,16 +35,25 @@ export default function TarifsPage() {
         title="Choisissez selon votre équipe"
         lead="Prix publics, modules complets, essai 2 mois sans carte bancaire. Aucun frais caché."
       />
-      <section className="section !pt-0 bg-fog">
+      <section className="section !pt-0 surface-atmosphere">
         <div className="container">
           <PricingTable />
+          <ul className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm font-semibold text-anthracite">
+            {trustBadges.map((b) => (
+              <li key={b.title}>
+                <span className="text-emerald-dark">{b.title}</span> — {b.text}
+              </li>
+            ))}
+          </ul>
           <div className="mx-auto mt-14 max-w-2xl">
             <h2 className="text-2xl font-extrabold text-ink">Questions tarifs</h2>
             <div className="mt-6">
               <FaqAccordion items={pricingFaq} />
             </div>
             <div className="mt-8 text-center">
-              <ButtonLink href={cta.trialApp}>Commencez gratuitement</ButtonLink>
+              <ButtonLink href={cta.trialApp} eventPayload={{ cta: "v2_tarifs_cta" }}>
+                Commencez gratuitement
+              </ButtonLink>
             </div>
           </div>
         </div>

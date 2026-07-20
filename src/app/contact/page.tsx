@@ -17,8 +17,8 @@ export default function ContactPage() {
         lead="Commercial, essai, migration ou partenariat — l’équipe PROGESTI vous répond."
       />
       <section className="section !pt-0">
-        <div className="container grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-2xl bg-navy p-6 text-white">
+        <div className="container grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="bg-navy p-7 text-white">
             <h2 className="text-xl font-bold text-white">Coordonnées</h2>
             <p className="mt-4 text-sm text-white/80">{site.company.legalName}</p>
             <p className="mt-1 text-sm text-white/80">
@@ -37,7 +37,7 @@ export default function ContactPage() {
               TVA {site.company.tva} · RCS {site.company.rcs}
             </p>
           </div>
-          <div className="rounded-2xl border border-line bg-white p-6">
+          <div className="border border-line bg-white p-6">
             <LeadForm intent="contact" submitLabel="Envoyer le message" />
           </div>
         </div>

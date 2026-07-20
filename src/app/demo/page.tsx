@@ -9,30 +9,62 @@ import { track } from "@/lib/tracking";
 export default function DemoPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    setError("");
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
 
-    await fetch("/api/lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        intent: "demo",
-        name: data.name,
-        email: data.email,
-        company: "Démo interactive",
-      }),
-    }).catch(() => null);
+    // Honeypot
+    if (String(data.website || "").trim()) {
+      setLoading(false);
+      return;
+    }
 
-    sessionStorage.setItem(
-      "progesti_demo",
-      JSON.stringify({ name: String(data.name), email: String(data.email), createdAt: Date.now() }),
-    );
-    track("demo_view", { source: "demo_gate" });
-    await new Promise((r) => setTimeout(r, 400));
-    router.push("/demo/live");
+    const name = String(data.name || "").trim();
+    const email = String(data.email || "").trim();
+    const phone = String(data.phone || "").trim();
+    const company = String(data.company || "").trim() || "Démo interactive";
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          intent: "demo",
+          name,
+          email,
+          phone: phone || undefined,
+          company,
+        }),
+      });
+      if (!res.ok) {
+        if (res.status === 429) {
+          throw new Error("Trop de tentatives. Réessayez dans une minute.");
+        }
+        throw new Error("Envoi impossible. Réessayez ou écrivez-nous à contact@progesti.fr");
+      }
+
+      sessionStorage.setItem(
+        "progesti_demo",
+        JSON.stringify({
+          name,
+          email,
+          phone: phone || null,
+          company,
+          createdAt: Date.now(),
+        }),
+      );
+      track("form_submit", { intent: "demo" });
+      track("demo_view", { source: "demo_gate" });
+      router.push("/demo/live");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Envoi impossible. Réessayez.");
+      setLoading(false);
+    }
   }
 
   const field =
@@ -47,8 +79,8 @@ export default function DemoPage() {
             Testez PROGESTI en moins de 30 secondes
           </h1>
           <p className="mt-5 text-lg text-muted">
-            Indiquez votre nom et votre email — vous entrez immédiatement dans une démo interactive
-            avec des données fictives réalistes.
+            Laissez vos coordonnées — vous entrez immédiatement dans une démo interactive avec des
+            données fictives réalistes. Nous vous recontactons uniquement si vous le souhaitez.
           </p>
           <ul className="mt-6 space-y-2 text-sm font-medium text-anthracite">
             <li>✓ Aucune carte bancaire</li>
@@ -65,6 +97,15 @@ export default function DemoPage() {
 
         <form onSubmit={onSubmit} className="rounded-2xl border border-line bg-fog p-7 md:p-8">
           <h2 className="text-xl font-extrabold text-ink">Accéder à la démo</h2>
+          <p className="mt-1 text-sm text-muted">Vos coordonnées sont enregistrées avant l’ouverture.</p>
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            className="absolute left-[-9999px] h-0 w-0 opacity-0"
+            aria-hidden
+          />
           <div className="mt-5 space-y-3">
             <input className={field} name="name" placeholder="Nom *" required autoComplete="name" />
             <input
@@ -75,6 +116,20 @@ export default function DemoPage() {
               required
               autoComplete="email"
             />
+            <input
+              className={field}
+              name="phone"
+              type="tel"
+              placeholder="Téléphone"
+              autoComplete="tel"
+            />
+            <input
+              className={field}
+              name="company"
+              placeholder="Entreprise"
+              autoComplete="organization"
+            />
+            {error ? <p className="text-sm font-medium text-red-600">{error}</p> : null}
             <button
               type="submit"
               disabled={loading}

@@ -8,12 +8,12 @@ type Size = "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-emerald text-navy hover:bg-emerald-dark hover:text-white shadow-[0_12px_28px_rgba(18,183,106,0.28)] active:translate-y-px",
+    "bg-emerald text-ink hover:bg-emerald-dark hover:text-white shadow-[0_10px_24px_rgba(47,158,107,0.22)] active:translate-y-px",
   secondary:
-    "bg-white text-ink border-2 border-ink/90 hover:bg-ink hover:text-white active:translate-y-px",
+    "bg-transparent text-ink border border-ink/80 hover:bg-ink hover:text-white active:translate-y-px",
   ghost: "bg-transparent text-anthracite hover:text-ink hover:bg-fog-2",
   white:
-    "bg-white text-navy hover:bg-fog border border-white shadow-[0_12px_28px_rgba(0,0,0,0.14)] active:translate-y-px",
+    "bg-white text-navy hover:bg-air border border-white/80 shadow-[0_10px_24px_rgba(0,0,0,0.1)] active:translate-y-px",
 };
 
 const sizes: Record<Size, string> = {
@@ -40,7 +40,7 @@ export function ButtonLink({
   event = "cta_click",
   eventPayload,
 }: Props) {
-  const classNames = `inline-flex items-center justify-center gap-2 rounded-xl font-display font-extrabold transition duration-200 ${variants[variant]} ${sizes[size]} ${className}`;
+  const classNames = `inline-flex items-center justify-center gap-2 rounded-lg font-display font-bold tracking-tight transition duration-200 ${variants[variant]} ${sizes[size]} ${className}`;
   const onClick = () => track(event, { href, ...eventPayload });
   const external = /^https?:\/\//i.test(href);
 

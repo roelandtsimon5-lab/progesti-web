@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Source_Sans_3 } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Gtm } from "@/components/analytics/Gtm";
@@ -7,15 +7,15 @@ import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const display = Bricolage_Grotesque({
+  variable: "--font-display-family",
   subsets: ["latin"],
   weight: ["600", "700", "800"],
   display: "swap",
 });
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const body = Source_Sans_3({
+  variable: "--font-body-family",
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   display: "swap",
@@ -24,7 +24,7 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Logiciel gestion entreprises de nettoyage`,
+    default: `${site.name} — Logiciel de gestion pour entreprises de nettoyage`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -67,7 +67,7 @@ const orgJsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" data-scroll-behavior="smooth" className={`${montserrat.variable} ${openSans.variable} h-full`}>
+    <html lang="fr" data-scroll-behavior="smooth" className={`${display.variable} ${body.variable} h-full`}>
       <body className="flex min-h-full flex-col antialiased">
         <a
           href="#contenu-principal"

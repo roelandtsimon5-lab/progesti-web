@@ -1,9 +1,9 @@
 export const site = {
   name: "PROGESTI",
   tagline: "GÉREZ. OPTIMISEZ. PERFORMEZ.",
-  usp: "L'intelligence organisée au service de vos performances",
+  usp: "Organisez votre nettoyage professionnel — planning, terrain, facture",
   description:
-    "Logiciel de gestion pour entreprises de nettoyage et de propreté. Planning, facturation, RH et pointage terrain — conçu pour auto-entrepreneurs et petites structures.",
+    "Logiciel de gestion pour entreprises de nettoyage et de propreté. Planifiez vos agents, pointez le terrain et facturez — bureaux, syndics, professionnels et fin de chantier.",
   url: "https://progesti.fr",
   email: "contact@progesti.fr",
   phone: null as string | null,
@@ -22,9 +22,53 @@ export const site = {
 
 export const navLinks = [
   { href: "/fonctionnalites", label: "Fonctionnalités" },
+  { href: "/solutions", label: "Solutions" },
   { href: "/tarifs", label: "Tarifs" },
+  { href: "/blog", label: "Blog" },
   { href: "/demo", label: "Démo" },
-  { href: "/faq", label: "FAQ" },
+] as const;
+
+export const solutions = [
+  {
+    slug: "bureaux",
+    title: "Nettoyage de bureaux",
+    navHint: "Tertiaire, open spaces, multi-étages",
+    headline: "Organisez le ménage des bureaux comme un métier, pas comme un tableur",
+    lead:
+      "Fréquences, accès, équipes de nuit ou tôt le matin : PROGESTI structure vos sites tertiaires du planning à la facture.",
+  },
+  {
+    slug: "syndics",
+    title: "Syndics & copropriétés",
+    navHint: "Parties communes, multi-immeubles",
+    headline: "Parties communes multi-sites : planning, preuves et reporting syndic",
+    lead:
+      "Halls, cages d’escalier, locaux techniques : pilotez les passages récurrents et documentez la qualité pour vos interlocuteurs immobiliers.",
+  },
+  {
+    slug: "professionnels",
+    title: "Professionnels & commerces",
+    navHint: "Cabinets, commerces, restaurants",
+    headline: "Locaux pros avec contraintes d’horaires et d’accès",
+    lead:
+      "Cabinets médicaux, commerces et restaurants : horaires serrés, accès sensibles, preuves de passage — sans chaos WhatsApp.",
+  },
+  {
+    slug: "fin-de-chantier",
+    title: "Fin de chantier",
+    navHint: "Remise en état, prestations ponctuelles",
+    headline: "Remise en état : planning serré, preuves photos, facturation rapide",
+    lead:
+      "Prestations ponctuelles après travaux : organisez les équipes, capturez les preuves et facturez dès la livraison.",
+  },
+  {
+    slug: "auto-entrepreneurs",
+    title: "Auto-entrepreneurs & petites équipes",
+    navHint: "Indépendants, TPE propreté",
+    headline: "Démarrer sans usine à gaz — dès 29,99 € HT/mois",
+    lead:
+      "Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures, avec essai 2 mois sans carte bancaire.",
+  },
 ] as const;
 
 export const modules = [
@@ -269,108 +313,15 @@ export const faqItems = [
 ] as const;
 
 export const blogCategories = [
-  { slug: "guides", label: "Guides" },
-  { slug: "conseils-metier", label: "Conseils métier" },
-  { slug: "comparatifs", label: "Comparatifs" },
+  { slug: "guides", label: "Guides opérationnels" },
+  { slug: "conseils-metier", label: "Conseils métier propreté" },
+  { slug: "comparatifs", label: "Comparatifs & alternatives" },
   { slug: "etudes-de-cas", label: "Études de cas" },
   { slug: "nouveautes", label: "Nouveautés produit" },
-] as const;
-
-export const blogPosts = [
-  {
-    slug: "organiser-planning-equipe-nettoyage",
-    title: "Comment organiser le planning d’une équipe de nettoyage",
-    category: "guides",
-    excerpt:
-      "Méthode simple pour éviter les trous de planning, les doublons et les interventions oubliées.",
-    body: [
-      "Un planning de nettoyage solide commence par une liste claire des sites, des fréquences et des compétences agents.",
-      "Étape 1 : cartographier vos sites (adresse, durée estimée, contraintes d’accès). Étape 2 : définir des créneaux récurrents. Étape 3 : affecter un agent titulaire + un backup.",
-      "Évitez WhatsApp comme outil de planification : gardez-le pour l’urgence, pas pour la structure.",
-      "Avec PROGESTI, le planning alimente ensuite le pointage et la facturation — c’est là que le gain de temps apparaît.",
-    ],
-  },
-  {
-    slug: "facturer-plus-vite-entreprise-proprete",
-    title: "Facturer plus vite sans perdre en conformité",
-    category: "conseils-metier",
-    excerpt:
-      "Les étapes concrètes pour passer du terrain à la facture sans Excel ni relances chaotiques.",
-    body: [
-      "Le retard de facturation vient souvent d’une information terrain incomplète : heures non validées, bons manquants, sites mal identifiés.",
-      "Mettez en place une règle simple : pas de facture sans pointage validé (ou bon d’intervention signé).",
-      "Regroupez par client / site / période. Automatisez les relances sur les factures non payées.",
-      "PROGESTI relie ces étapes pour réduire la double saisie et accélérer l’émission.",
-    ],
-  },
-  {
-    slug: "progesti-vs-propret",
-    title: "PROGESTI vs Propret : comment choisir ?",
-    category: "comparatifs",
-    excerpt:
-      "Critères concrets pour une entreprise de nettoyage qui veut tester avant d’acheter.",
-    body: [
-      "Les deux solutions ciblent le métier de la propreté. Comparez surtout : durée d’essai, clarté des tarifs, accompagnement migration, et confort d’usage au quotidien.",
-      "PROGESTI propose un essai de 2 mois sans carte bancaire et des tarifs publics dès 29,99€ HT/mois, tous modules inclus.",
-      "Le meilleur critère reste un test sur vos propres sites. Lancez la démo interactive ou l’essai gratuit.",
-    ],
-  },
-  {
-    slug: "passer-de-excel-a-un-logiciel-nettoyage",
-    title: "Passer d’Excel à un logiciel de nettoyage sans chaos",
-    category: "guides",
-    excerpt: "Un plan de migration en 4 étapes pour quitter les tableaux sans perdre le fil.",
-    body: [
-      "Exportez d’abord clients, sites et fréquences. Ne cherchez pas la perfection : importez le cœur, affinez ensuite.",
-      "Formez 1 référent (vous) avant toute l’équipe. Puis basculez le planning semaine par semaine.",
-      "Gardez Excel en lecture seule 15 jours comme filet de sécurité, puis archivez-le.",
-    ],
-  },
-  {
-    slug: "pointage-mobile-agents-proprete",
-    title: "Pointage mobile : ce qui change pour vos agents",
-    category: "conseils-metier",
-    excerpt: "Pourquoi le pointage mobile réduit les litiges et accélère la prépaie.",
-    body: [
-      "Le pointage papier crée des contestations. Le mobile horodate et localise le passage.",
-      "Expliquez le “pourquoi” aux agents : moins de discussions sur les heures, paie plus juste.",
-      "Couplé aux bons d’intervention, vous obtenez une preuve utile en cas de litige client.",
-    ],
-  },
-  {
-    slug: "choisir-offre-starter-pro-premium",
-    title: "Starter, Pro ou Premium : quelle offre choisir ?",
-    category: "guides",
-    excerpt: "Grille simple selon le nombre d’utilisateurs et la taille de votre équipe.",
-    body: [
-      "Starter : idéal AE / 1 administrateur.",
-      "Pro : jusqu’à 5 utilisateurs — petite équipe terrain + admin.",
-      "Premium : jusqu’à 20 utilisateurs — multi-sites et croissance.",
-      "Dans tous les cas, les modules sont inclus. L’essai 2 mois permet de valider avant de payer.",
-    ],
-  },
-  {
-    slug: "eviter-oublis-interventions-nettoyage",
-    title: "Comment éviter les oublis d’interventions",
-    category: "conseils-metier",
-    excerpt: "Check-list opérationnelle pour sécuriser vos passages clients.",
-    body: [
-      "Chaque site doit avoir un titulaire nommé et une fréquence visible.",
-      "Relisez le planning la veille. Confirmez les accès spéciaux (badges, codes).",
-      "Le lendemain, vérifiez les pointages non validés avant 12h.",
-    ],
-  },
-  {
-    slug: "essai-gratuit-logiciel-nettoyage-checklist",
-    title: "Checklist : réussir son essai gratuit logiciel nettoyage",
-    category: "guides",
-    excerpt: "Ce qu’il faut tester en 14 jours (même si l’essai PROGESTI dure 2 mois).",
-    body: [
-      "Jour 1-2 : créer 5 sites et 3 agents. Jour 3-5 : planifier une semaine réelle.",
-      "Jour 6-10 : pointer et émettre une facture test. Jour 11-14 : décider avec votre checklist.",
-      "Si un point bloque, demandez un accompagnement via /rendez-vous.",
-    ],
-  },
+  { slug: "bureaux-tertiaire", label: "Bureaux & tertiaire" },
+  { slug: "syndics-immobilier", label: "Syndics & immobilier" },
+  { slug: "fin-de-chantier", label: "Fin de chantier" },
+  { slug: "reglementation", label: "Réglementation & bonnes pratiques" },
 ] as const;
 
 export function formatEuro(value: number) {

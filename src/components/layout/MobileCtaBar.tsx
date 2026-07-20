@@ -10,7 +10,7 @@ export function MobileCtaBar() {
         href={cta.trialApp}
         className="flex-1 !py-3.5"
         event="trial_start"
-        eventPayload={{ cta: "mobile_sticky" }}
+        eventPayload={{ cta: "v2_mobile_sticky" }}
       >
         Essai gratuit
       </ButtonLink>
@@ -18,7 +18,7 @@ export function MobileCtaBar() {
         href={cta.demo}
         variant="secondary"
         className="flex-1 !py-3.5"
-        eventPayload={{ cta: "mobile_sticky_demo" }}
+        eventPayload={{ cta: "v2_mobile_sticky_demo" }}
       >
         Démo
       </ButtonLink>

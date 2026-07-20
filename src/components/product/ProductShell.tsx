@@ -67,8 +67,31 @@ const ONBOARDING = [
   },
 ];
 
-function readUser(mode: Mode) {
-  if (typeof window === "undefined") return { name: "Utilisateur", email: "" };
+/** Persona affichée dans le chrome (pas le prospect capturé sur la landing). */
+const DEMO_PERSONAS = [
+  "Camille Martin",
+  "Thomas Bernard",
+  "Sophie Dubois",
+  "Lucas Petit",
+  "Emma Roux",
+  "Nicolas Moreau",
+  "Léa Fontaine",
+  "Hugo Girard",
+] as const;
+
+function initials(name: string) {
+  return name
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p.charAt(0).toUpperCase())
+    .join("");
+}
+
+/** Contact prospect (landing) — stocké pour la session, pas affiché comme identité UI. */
+function readProspect(mode: Mode) {
+  if (typeof window === "undefined") return { name: "", email: "" };
   const keys =
     mode === "demo"
       ? ["progesti_demo", "progesti_trial", "progesti_session"]
@@ -79,21 +102,44 @@ function readUser(mode: Mode) {
       if (!raw) continue;
       const parsed = JSON.parse(raw) as { name?: string; email?: string };
       return {
-        name: parsed.name || parsed.email?.split("@")[0] || "Utilisateur",
+        name: parsed.name || "",
         email: parsed.email || "",
       };
     } catch {
       /* ignore */
     }
   }
-  return { name: "Utilisateur", email: "" };
+  return { name: "", email: "" };
+}
+
+function readOrPickPersona(mode: Mode) {
+  if (typeof window === "undefined") return DEMO_PERSONAS[0];
+  const key = `progesti_persona_${mode}`;
+  try {
+    const existing = sessionStorage.getItem(key);
+    if (existing) return existing;
+  } catch {
+    /* ignore */
+  }
+  const picked = DEMO_PERSONAS[Math.floor(Math.random() * DEMO_PERSONAS.length)];
+  try {
+    sessionStorage.setItem(key, picked);
+  } catch {
+    /* ignore */
+  }
+  return picked;
 }
 
 export function ProductShell({ mode }: Props) {
   const [tab, setTab] = useState<(typeof NAV)[number]>("Tableau de bord");
   const [selected, setSelected] = useState<SiteRow | null>(null);
   const [step, setStep] = useState<number | null>(null);
-  const user = useMemo(() => readUser(mode), [mode]);
+  const [persona, setPersona] = useState<string>(DEMO_PERSONAS[0]);
+  const prospect = useMemo(() => readProspect(mode), [mode]);
+
+  useEffect(() => {
+    setPersona(readOrPickPersona(mode));
+  }, [mode]);
 
   useEffect(() => {
     const key = `progesti_onboarded_${mode}`;
@@ -174,7 +220,9 @@ export function ProductShell({ mode }: Props) {
           </button>
         ))}
         <div className="mt-auto space-y-2 px-1 pt-6">
-          <p className="px-2 text-xs text-white/45">{user.email || "session locale"}</p>
+          <p className="px-2 text-xs text-white/45">
+            {prospect.email || "session locale"}
+          </p>
           <Link
             href="/"
             className="block"
@@ -187,9 +235,12 @@ export function ProductShell({ mode }: Props) {
 
       <div className="flex min-h-0 flex-col overflow-auto">
         <header className="flex items-center justify-between border-b border-line bg-white px-4 py-3 md:px-6">
-          <div>
+          <div className="min-w-0">
+            <p className="font-display text-base font-extrabold tracking-tight text-ink md:hidden">
+              PROGESTI
+            </p>
             <p className="font-display text-sm font-bold text-ink md:text-base">
-              Bonjour {user.name.split(" ")[0] || "vous"}
+              {tab}
             </p>
             <p className="text-xs text-muted md:text-sm">
               {mode === "demo"
@@ -197,17 +248,29 @@ export function ProductShell({ mode }: Props) {
                 : "Essai actif — explorez librement votre espace"}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <a
               href={cta.trialApp}
               onClick={() => track("trial_start", { source: `product_shell_${mode}` })}
-              className="rounded-xl bg-emerald px-3 py-2 text-xs font-extrabold text-navy transition hover:bg-emerald-dark hover:text-white sm:px-4 sm:text-sm"
+              className="hidden rounded-xl bg-emerald px-3 py-2 text-xs font-extrabold text-navy transition hover:bg-emerald-dark hover:text-white sm:inline-flex sm:px-4 sm:text-sm"
             >
               Créer mon essai réel
             </a>
-            <span className="hidden rounded-full bg-emerald/15 px-3 py-1 text-xs font-bold text-emerald-dark sm:inline">
+            <span className="hidden rounded-full bg-emerald/15 px-3 py-1 text-xs font-bold text-emerald-dark lg:inline">
               {mode === "demo" ? "Mode démo" : "Essai gratuit"}
             </span>
+            <div className="flex items-center gap-2 border-l border-line pl-2 sm:pl-3">
+              <div className="hidden text-right sm:block">
+                <p className="text-xs font-bold text-ink">{persona}</p>
+                <p className="text-[10px] text-muted">Gérant</p>
+              </div>
+              <div
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-navy text-[10px] font-bold text-white"
+                title={persona}
+              >
+                {initials(persona)}
+              </div>
+            </div>
             <Link
               href="/"
               className="rounded-md border border-line px-3 py-2 text-xs font-bold text-ink md:hidden"

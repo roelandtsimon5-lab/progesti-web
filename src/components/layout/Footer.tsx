@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { site } from "@/lib/site";
-
+import { site, solutions } from "@/lib/site";
 import { cta } from "@/lib/cta";
+
 const columns = [
   {
     title: "Produit",
@@ -16,11 +16,9 @@ const columns = [
   {
     title: "Solutions",
     links: [
+      ...solutions.map((s) => ({ href: `/solutions/${s.slug}`, label: s.title })),
       { href: "/logiciel-entreprise-nettoyage", label: "Logiciel nettoyage" },
-      { href: "/logiciel-planning-nettoyage", label: "Planning" },
-      { href: "/logiciel-facturation-proprete", label: "Facturation" },
       { href: "/alternative-propret", label: "Alternative Propret" },
-      { href: "/rendez-vous", label: "Rendez-vous" },
     ],
   },
   {
@@ -28,8 +26,8 @@ const columns = [
     links: [
       { href: "/blog", label: "Blog" },
       { href: "/ressources", label: "Ressources" },
+      { href: "/glossaire", label: "Glossaire" },
       { href: "/guides", label: "Guides" },
-      { href: "/comparatifs", label: "Comparatifs" },
       { href: "/faq", label: "FAQ" },
     ],
   },
@@ -38,8 +36,8 @@ const columns = [
     links: [
       { href: "/contact", label: "Contact" },
       { href: "/a-propos", label: "À propos" },
-      { href: "/clients", label: "Clients" },
       { href: "/temoignages", label: "Témoignages" },
+      { href: "/cas-clients", label: "Cas clients" },
       { href: "/mentions-legales", label: "Mentions légales" },
       { href: "/confidentialite", label: "Confidentialité" },
       { href: "/cgv", label: "CGV" },
@@ -49,9 +47,9 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-navy text-white">
+    <footer className="border-t border-white/10 bg-navy text-white">
       <div className="container section !py-14">
-        <div className="grid gap-10 md:grid-cols-[1.2fr_repeat(4,1fr)]">
+        <div className="grid gap-10 md:grid-cols-[1.25fr_repeat(4,1fr)]">
           <div>
             <p className="font-display text-2xl font-extrabold tracking-tight">{site.name}</p>
             <p className="mt-2 text-sm uppercase tracking-[0.14em] text-emerald">{site.tagline}</p>
@@ -76,17 +74,20 @@ export function Footer() {
                 {col.links.map((link) => {
                   const external = /^https?:\/\//i.test(link.href);
                   return (
-                    <li key={link.href}>
+                    <li key={`${col.title}-${link.href}`}>
                       {external ? (
                         <a
                           href={link.href}
-                          className="text-sm text-white/70 hover:text-emerald"
+                          className="text-sm text-white/70 transition hover:text-emerald"
                           rel="noopener noreferrer"
                         >
                           {link.label}
                         </a>
                       ) : (
-                        <Link href={link.href} className="text-sm text-white/70 hover:text-emerald">
+                        <Link
+                          href={link.href}
+                          className="text-sm text-white/70 transition hover:text-emerald"
+                        >
                           {link.label}
                         </Link>
                       )}

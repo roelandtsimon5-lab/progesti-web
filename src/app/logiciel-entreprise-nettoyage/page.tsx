@@ -65,16 +65,42 @@ export default function PillarNettoyagePage() {
               <h2 className="text-xl font-extrabold text-ink">Pour qui ?</h2>
               <ul className="mt-4 space-y-3 text-sm text-anthracite">
                 <li>
-                  <strong className="text-ink">Auto-entrepreneurs</strong> — démarrer simple, sans
-                  usine à gaz.
+                  <strong className="text-ink">Bureaux / tertiaire</strong> —{" "}
+                  <Link href="/solutions/bureaux" className="text-emerald-dark hover:underline">
+                    open spaces & immeubles
+                  </Link>
+                  .
                 </li>
                 <li>
-                  <strong className="text-ink">Petites entreprises</strong> — structurer équipes et
-                  multi-sites.
+                  <strong className="text-ink">Syndics</strong> —{" "}
+                  <Link href="/solutions/syndics" className="text-emerald-dark hover:underline">
+                    parties communes multi-sites
+                  </Link>
+                  .
                 </li>
                 <li>
-                  <strong className="text-ink">Structures en croissance</strong> — passer de Pro à
-                  Premium sans changer d’outil.
+                  <strong className="text-ink">Pros & fin de chantier</strong> —{" "}
+                  <Link href="/solutions/professionnels" className="text-emerald-dark hover:underline">
+                    commerces
+                  </Link>
+                  ,{" "}
+                  <Link
+                    href="/solutions/fin-de-chantier"
+                    className="text-emerald-dark hover:underline"
+                  >
+                    remise en état
+                  </Link>
+                  .
+                </li>
+                <li>
+                  <strong className="text-ink">Auto-entrepreneurs</strong> —{" "}
+                  <Link
+                    href="/solutions/auto-entrepreneurs"
+                    className="text-emerald-dark hover:underline"
+                  >
+                    démarrer simple
+                  </Link>
+                  .
                 </li>
               </ul>
               <p className="mt-6 text-sm text-muted">
@@ -88,6 +114,10 @@ export default function PillarNettoyagePage() {
                   className="font-semibold text-emerald-dark"
                 >
                   facturation
+                </Link>
+                ,{" "}
+                <Link href="/blog" className="font-semibold text-emerald-dark">
+                  blog
                 </Link>
                 ,{" "}
                 <Link href="/alternative-propret" className="font-semibold text-emerald-dark">

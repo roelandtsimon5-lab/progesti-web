@@ -12,7 +12,7 @@ export default function MentionsLegalesPage() {
     <>
       <PageHero eyebrow="Légal" title="Mentions légales" lead={`Éditeur du site ${site.name}.`} />
       <section className="section !pt-0">
-        <div className="container max-w-3xl space-y-4 rounded-2xl border border-line bg-white p-8 text-sm text-anthracite">
+        <div className="container max-w-3xl space-y-4 text-sm text-anthracite">
           <p>
             <strong>Éditeur :</strong> {c.legalName}
           </p>
