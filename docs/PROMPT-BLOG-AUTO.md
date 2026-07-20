@@ -1,0 +1,53 @@
+# Prompt — Publication auto blog PROGESTI
+
+À coller / lancer quand le script de démarrage ouvre cette tâche.
+
+## Mission
+
+Publie **un seul** article de blog PROGESTI, le prochain de la file `docs/blog/editorial-queue.md`.
+
+Cadence cible : **2 articles / semaine** (mardi + jeudi). Ne jamais publier plus d’un article par exécution.
+
+## Étapes (dans l’ordre)
+
+1. Ouvre `docs/blog/editorial-queue.md`.
+2. Prends la **première ligne `status: todo`**. Si aucune → stop, dis « file vide ».
+3. Vérifie qu’aucun fichier `content/blog/{slug}.mdx` n’existe déjà pour ce slug.
+4. Lis 1–2 articles existants proches (même catégorie) pour le ton et le maillage.
+5. Crée `content/blog/{slug}.mdx` avec frontmatter complet :
+
+```yaml
+---
+title: "…"
+slug: "…"
+category: "…"   # une des blogCategories de src/lib/site.ts
+excerpt: "…"
+date: "YYYY-MM-DD"   # date du jour (Europe/Paris)
+updatedAt: "YYYY-MM-DD"
+readingTime: N
+seoTitle: "…"
+seoDescription: "…"
+keywords: ["…", "…"]
+---
+```
+
+6. Corps : **900–1400 mots**, FR, H2/H3, listes, ton gérant d’entreprise de nettoyage.
+7. Maillage obligatoire (au moins 3 liens internes) parmi :
+   - piliers `/logiciel-entreprise-nettoyage`, `/logiciel-planning-nettoyage`, `/logiciel-facturation-proprete`
+   - `/alternative-propret`, `/solutions/…`, `/fonctionnalites/…`, `/essai-gratuit`, `/tarifs`
+   - 1 article blog voisin si pertinent
+8. CTA final clair vers essai 2 mois sans CB (lien `/essai-gratuit`).
+9. Passe la ligne de la file à `status: done` + `published: YYYY-MM-DD`.
+10. Commit **uniquement** si l’utilisateur a demandé un commit ; sinon laisse les fichiers prêts.
+
+## Règles
+
+- Ne pas inventer d’avis clients / chiffres non sourcés.
+- Ne pas modifier les slugs d’articles déjà publiés.
+- Pas de conseils juridiques définitifs (disclaimer si réglementation).
+- Pas de cards / emojis inutiles dans le MDX.
+- Un article = un fichier = un sujet de la file. Ne pas réécrire la file entière.
+
+## Fin
+
+Réponse courte : slug publié, titre, 3 liens internes utilisés, prochaine ligne `todo` de la file.

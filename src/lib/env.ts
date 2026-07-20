@@ -5,6 +5,8 @@ export const env = {
   /** Conteneur GTM PROGESTI — override possible via env hébergeur. */
   gtmId: process.env.NEXT_PUBLIC_GTM_ID?.trim() || "GTM-K65MM8Q4",
   googleCalendarUrl: process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL || "",
+  /** Meta verification Google Search Console (token fourni par GSC). */
+  googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() || "",
   leadWebhookUrl: process.env.LEAD_WEBHOOK_URL || "",
   resendApiKey: process.env.RESEND_API_KEY || "",
   leadNotifyEmail: process.env.LEAD_NOTIFY_EMAIL || "contact@progesti.fr",

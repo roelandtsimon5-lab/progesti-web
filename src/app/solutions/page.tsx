@@ -6,12 +6,14 @@ import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { solutions } from "@/lib/site";
 import { cta } from "@/lib/cta";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Solutions — bureaux, syndics, professionnels, fin de chantier",
   description:
     "PROGESTI pour le nettoyage de bureaux, syndics & copropriétés, professionnels & commerces, fin de chantier et auto-entrepreneurs.",
-};
+  path: "/solutions",
+});
 
 export default function SolutionsIndexPage() {
   return (

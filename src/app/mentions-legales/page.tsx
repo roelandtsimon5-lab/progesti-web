@@ -30,6 +30,10 @@ export default function MentionsLegalesPage() {
           </p>
           <p>
             <strong>Contact :</strong>{" "}
+            <a className="text-emerald-dark" href={`tel:${site.phoneTel}`}>
+              {site.phone}
+            </a>
+            {" · "}
             <a className="text-emerald-dark" href={`mailto:${site.email}`}>
               {site.email}
             </a>

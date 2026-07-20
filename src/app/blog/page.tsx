@@ -4,12 +4,14 @@ import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { PageHero } from "@/components/sections/PageHero";
 import { getAllPosts, getCategoryLabel } from "@/lib/blog";
 import { blogCategories } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Blog — guides nettoyage & propreté",
   description:
     "Guides opérationnels, conseils métier, comparatifs et verticales (bureaux, syndics, fin de chantier) pour entreprises de nettoyage.",
-};
+  path: "/blog",
+});
 
 export default function BlogPage() {
   const posts = getAllPosts();

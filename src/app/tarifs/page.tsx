@@ -7,12 +7,14 @@ import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { PageHero } from "@/components/sections/PageHero";
 import { trustBadges } from "@/lib/site";
 import { cta } from "@/lib/cta";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Tarifs",
   description:
     "Tarifs PROGESTI : Starter, Pro, Premium. Essai gratuit 2 mois. Tous modules inclus.",
-};
+  path: "/tarifs",
+});
 
 const pricingFaq = [
   {

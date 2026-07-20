@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
 type Props = {
@@ -223,6 +224,16 @@ export function AdsCaptureLanding({
 
               <p className="mt-6 text-center text-xs font-medium leading-relaxed text-slate sm:text-[0.8rem]">
                 Sans carte bancaire · Pas d’engagement · On peut vous rappeler
+              </p>
+              <p className="mt-3 text-center text-sm font-semibold text-blue-deep">
+                Ou appelez{" "}
+                <a
+                  href={`tel:${site.phoneTel}`}
+                  className="text-green-deep underline underline-offset-2 hover:text-blue-deep"
+                  onClick={() => track("cta_click", { cta: "ads_phone", campaign })}
+                >
+                  {site.phone}
+                </a>
               </p>
             </div>
           </div>

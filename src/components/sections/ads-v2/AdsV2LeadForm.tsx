@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
 type Props = {
@@ -178,6 +179,16 @@ export function AdsV2LeadForm({
       </button>
       <p className="text-center text-xs font-medium leading-relaxed text-[#6B7280]">
         Sans carte bancaire · Pas d’engagement · Réponse sous 24h si besoin d’aide
+      </p>
+      <p className="text-center text-sm font-semibold text-[#111827]">
+        Ou appelez{" "}
+        <a
+          href={`tel:${site.phoneTel}`}
+          className="text-[#067647] underline underline-offset-2 hover:text-[#111827]"
+          onClick={() => track("cta_click", { cta: "v2_phone", campaign })}
+        >
+          {site.phone}
+        </a>
       </p>
     </form>
   );

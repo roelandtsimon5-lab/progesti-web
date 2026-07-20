@@ -4,11 +4,13 @@ import { LeadForm } from "@/components/forms/LeadForm";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { site } from "@/lib/site";
 import { cta } from "@/lib/cta";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Contact",
   description: "Contactez MSNE SAS / PROGESTI — support commercial et questions produit.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
@@ -53,7 +55,13 @@ export default function ContactPage() {
               {site.company.city}
             </p>
             <p className="mt-6">
-              <a className="text-lg font-semibold text-green-action hover:underline" href={`mailto:${site.email}`}>
+              <a
+                className="block text-lg font-semibold text-green-action hover:underline"
+                href={`tel:${site.phoneTel}`}
+              >
+                {site.phone}
+              </a>
+              <a className="mt-2 block text-lg font-semibold text-green-action hover:underline" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
             </p>

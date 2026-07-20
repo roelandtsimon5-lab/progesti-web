@@ -7,12 +7,14 @@ import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { modules } from "@/lib/site";
 import { cta } from "@/lib/cta";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Fonctionnalités",
   description:
     "Toutes les fonctionnalités PROGESTI pour piloter une entreprise de nettoyage : planning, RH, facturation, terrain.",
-};
+  path: "/fonctionnalites",
+});
 
 export default function FonctionnalitesPage() {
   return (

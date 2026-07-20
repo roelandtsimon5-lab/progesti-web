@@ -266,9 +266,11 @@ export function solutionMetadata(content: SolutionContent): Metadata {
   return {
     title: `${content.title} — logiciel nettoyage`,
     description: content.seoDescription,
+    alternates: { canonical: `/solutions/${content.slug}` },
     openGraph: {
       title: `${content.title} | ${site.name}`,
       description: content.seoDescription,
+      url: `${site.url}/solutions/${content.slug}`,
     },
   };
 }

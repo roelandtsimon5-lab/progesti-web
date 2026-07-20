@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { trialAppUrl } from "@/lib/cta";
+import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
 type Props = {
@@ -139,6 +140,16 @@ export function AdsV2TrialForm({
       </button>
       <p className="text-center text-xs font-medium leading-relaxed text-[#6B7280]">
         Sans carte bancaire · Tous modules · Accès immédiat à l’application
+      </p>
+      <p className="text-center text-sm font-semibold text-[#111827]">
+        Ou appelez{" "}
+        <a
+          href={`tel:${site.phoneTel}`}
+          className="text-[#067647] underline underline-offset-2 hover:text-[#111827]"
+          onClick={() => track("cta_click", { cta: "v2_trial_phone", campaign })}
+        >
+          {site.phone}
+        </a>
       </p>
     </form>
   );

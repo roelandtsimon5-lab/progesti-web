@@ -80,6 +80,13 @@ export function Footer() {
             <p className="text-sm uppercase tracking-[0.14em] text-[#B8F5D4]">{site.tagline}</p>
             <p className="mt-4 max-w-sm text-sm text-white/90">{site.description}</p>
             <p className="mt-6 text-sm">
+              <a
+                className="font-semibold text-white underline underline-offset-2 hover:text-[#B8F5D4]"
+                href={`tel:${site.phoneTel}`}
+              >
+                {site.phone}
+              </a>
+              <br />
               <a className="font-semibold text-white underline underline-offset-2 hover:text-[#B8F5D4]" href={`mailto:${site.email}`}>
                 {site.email}
               </a>

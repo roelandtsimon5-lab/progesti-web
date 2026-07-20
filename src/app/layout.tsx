@@ -9,6 +9,7 @@ import {
   GtmPageviews,
 } from "@/components/analytics/Gtm";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
+import { env } from "@/lib/env";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -41,6 +42,30 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description: site.description,
+  },
+  ...(env.googleSiteVerification
+    ? { verification: { google: env.googleSiteVerification } }
+    : {}),
+};
+
+const provider = {
+  "@type": "Organization" as const,
+  name: site.company.legalName,
+  url: site.url,
+  email: site.email,
+  ...(site.phone ? { telephone: site.phone } : {}),
+  address: {
+    "@type": "PostalAddress" as const,
+    streetAddress: site.company.address,
+    addressLocality: "Tournefeuille",
+    postalCode: "31170",
+    addressCountry: "FR",
+  },
+  ...(site.sameAs.length > 0 ? { sameAs: [...site.sameAs] } : {}),
 };
 
 const orgJsonLd = {
@@ -56,18 +81,7 @@ const orgJsonLd = {
     price: "29.99",
     priceCurrency: "EUR",
   },
-  provider: {
-    "@type": "Organization",
-    name: site.company.legalName,
-    email: site.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: site.company.address,
-      addressLocality: "Tournefeuille",
-      postalCode: "31170",
-      addressCountry: "FR",
-    },
-  },
+  provider,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

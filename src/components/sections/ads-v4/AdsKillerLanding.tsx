@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { trialAppUrl } from "@/lib/cta";
+import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
 export type AdsKillerContent = {
@@ -192,6 +193,16 @@ function KillerForm({
 
       <p className="mt-4 text-center text-xs font-medium leading-relaxed text-[#5A6876]">
         Sans carte bancaire · Pas d’engagement · Accès immédiat
+      </p>
+      <p className="mt-3 text-center text-sm font-semibold text-[#0B3D6E]">
+        Ou appelez{" "}
+        <a
+          href={`tel:${site.phoneTel}`}
+          className="text-[#157A4E] underline underline-offset-2 hover:text-[#0B3D6E]"
+          onClick={() => track("cta_click", { cta: "v4_phone", campaign: c.campaign })}
+        >
+          {site.phone}
+        </a>
       </p>
     </div>
   );

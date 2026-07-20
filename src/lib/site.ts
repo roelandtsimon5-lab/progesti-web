@@ -6,7 +6,15 @@ export const site = {
     "Logiciel de gestion pour entreprises de nettoyage et de propreté. Planifiez vos agents, pointez le terrain et facturez — bureaux, syndics, professionnels et fin de chantier.",
   url: "https://progesti.fr",
   email: "contact@progesti.fr",
-  phone: null as string | null,
+  /** Téléphone public (affichage FR). */
+  phone: "05 82 95 09 19",
+  /** Lien tel: (E.164). */
+  phoneTel: "+33582950919",
+  /**
+   * Profils publics (fiche Google Business, LinkedIn, etc.).
+   * Ajouter l’URL GMB après création — voir docs/SEO-GMB-CHECKLIST.md.
+   */
+  sameAs: [] as readonly string[],
   trialMonths: 2,
   company: {
     legalName: "MSNE SAS",
