@@ -1,51 +1,42 @@
-# Automation Cursor — Blog PROGESTI (à créer)
+# Automation Cursor — Blog PROGESTI
 
-> **Pourquoi ça** : 2 articles / semaine fixes → meilleur signal SEO qu’un boot PC aléatoire.  
-> **Toi** : créer l’automation une fois, puis plus rien (sauf fill up la file quand elle est vide).
+> Cadence : **1 article / semaine** (mardi 9h Europe/Paris).  
+> Une fois Active + prompt correct → plus rien à faire (sauf remplir la file quand elle est vide).
 
-## Réglages à mettre dans Cursor → Automations
+## Réglages
 
 | Champ | Valeur |
 |--------|--------|
-| Nom | `PROGESTI — Blog mardi/jeudi` |
-| Description | Publie 1 article MDX depuis la file éditoriale, 2×/semaine. |
-| Déclencheur | **2 automations** (l’UI n’accepte pas `2,4` dans un seul cron) |
-| Cron mardi | `0 9 * * 2` |
-| Cron jeudi | `0 9 * * 4` |
+| Nom | `SEO AUTOMATION` |
+| Trigger | **1 seul** : Every week on Tuesday at 09:00 |
+| Cron | `0 9 * * 2` |
 | Repo | `roelandtsimon5-lab/progesti-web` · branche **`master`** |
-| Outils | Open PR (ou push master) + Memories OK |
+| Outils | Open PR (ou push) + Memories |
 
-## Instructions (coller dans le prompt de l’automation)
+Pas de 2ᵉ trigger (l’UI n’en garde qu’un et affiche un warning).
+
+## Instructions (coller dans le prompt — rien d’autre)
 
 ```
 Tu publies UN article de blog PROGESTI pour le SEO.
 
 1. Ouvre docs/blog/editorial-queue.md
 2. Prends la première entrée status: todo
-3. Si aucune → arrête et note "file vide" dans un commentaire de fin de run
+3. Si aucune → arrête et note "file vide"
 4. Crée content/blog/{slug}.mdx (frontmatter complet + 900–1400 mots FR)
-5. Maillage : au moins 3 liens internes (piliers /solutions /fonctionnalites /essai-gratuit /tarifs /alternative-propret ou article voisin)
-6. CTA final vers /essai-gratuit (essai 2 mois sans CB)
+5. Maillage : au moins 3 liens internes (piliers /solutions /fonctionnalites /essai-gratuit /tarifs /alternative-propret)
+6. CTA final vers /essai-gratuit
 7. date + updatedAt = date du jour (Europe/Paris)
 8. Passe la ligne de la file à status: done + published: YYYY-MM-DD
-9. Commit avec message: "blog: publish {slug}"
-10. Push sur la branche de déploiement pour que le sitemap se mette à jour
+9. Commit: "blog: publish {slug}"
+10. Push sur master (ou PR puis merge) pour déployer
 
-Règles: pas de faux avis clients, pas de chiffres inventés, un seul article par run, ne pas toucher aux slugs déjà publiés.
-Référence détaillée: docs/PROMPT-BLOG-AUTO.md
+Règles: pas de faux avis, pas de chiffres inventés, un seul article par run.
+Réf: docs/PROMPT-BLOG-AUTO.md
 ```
 
-## Après création
+## Après
 
-1. Vérifie que le deploy (Vercel / hébergeur) part bien sur chaque push `main`.
-2. Search Console : le sitemap reprend déjà les nouveaux posts automatiquement.
-3. Quand la file a < 4 `todo`, demande d’en regénérer 8–12.
-
-## Plan B (déjà installé)
-
-Tâche Windows `Progesti-Blog-OnLogon` : ouvre Cursor au boot mardi/jeudi.  
-Utile seulement si tu n’actives pas l’Automation cloud. Sinon tu peux la désactiver :
-
-```powershell
-Unregister-ScheduledTask -TaskName Progesti-Blog-OnLogon -Confirm:$false
-```
+1. Deploy auto sur push `master`.
+2. Sitemap mis à jour via `getAllPosts()`.
+3. File < 4 `todo` → demander de la prolonger.

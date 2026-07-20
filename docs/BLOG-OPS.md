@@ -1,17 +1,17 @@
 # Blog ops — PROGESTI
 
-Cadence cible : **2 articles / semaine** (mardi + jeudi).
+Cadence cible : **1 article / semaine** (mardi 9h).
 
 ## Publication auto (recommandé pour Google)
 
-**Cursor Automation cloud** mardi + jeudi 9h — setup : [`docs/blog/AUTOMATION-SETUP.md`](./blog/AUTOMATION-SETUP.md)
+**Cursor Automation cloud** mardi 9h — setup : [`docs/blog/AUTOMATION-SETUP.md`](./blog/AUTOMATION-SETUP.md)
 
 - File : [`docs/blog/editorial-queue.md`](./blog/editorial-queue.md)
 - Prompt détaillé : [`docs/PROMPT-BLOG-AUTO.md`](./PROMPT-BLOG-AUTO.md)
 
-Pourquoi pas le boot PC comme principal : Google préfère une cadence **fixe** ; le cloud publie même si ton PC est éteint.
+Pourquoi le cloud : Google préfère une cadence **fixe** ; publie même si ton PC est éteint.
 
-### Plan B — démarrage Windows
+### Plan B — démarrage Windows (mardi seulement)
 
 ```powershell
 cd web

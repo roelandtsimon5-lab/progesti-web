@@ -6,7 +6,7 @@
 
 Publie **un seul** article de blog PROGESTI, le prochain de la file `docs/blog/editorial-queue.md`.
 
-Cadence cible : **2 articles / semaine** (mardi + jeudi). Ne jamais publier plus d’un article par exécution.
+Cadence cible : **1 article / semaine** (mardi). Ne jamais publier plus d’un article par exécution.
 
 ## Étapes (dans l’ordre)
 
