@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { GtmHead, GtmNoscript } from "@/components/analytics/Gtm";
+import {
+  GtmConsentBootstrap,
+  GtmHead,
+  GtmNoscript,
+  GtmPageviews,
+} from "@/components/analytics/Gtm";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -73,6 +78,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className="flex min-h-full flex-col antialiased">
         <GtmNoscript />
+        <GtmConsentBootstrap />
+        <GtmPageviews />
         <a
           href="#contenu-principal"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-blue-deep focus:px-4 focus:py-2 focus:text-white"

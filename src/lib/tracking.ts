@@ -4,7 +4,8 @@ export type TrackEvent =
   | "signup_start"
   | "demo_view"
   | "rdv_click"
-  | "trial_start";
+  | "trial_start"
+  | "page_view";
 
 declare global {
   interface Window {
@@ -12,8 +13,15 @@ declare global {
   }
 }
 
+/** Push événement dataLayer pour GTM / GA4 / Google Ads. */
 export function track(event: TrackEvent, payload: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event, ...payload });
+  window.dataLayer.push({
+    event,
+    event_name: event,
+    page_path: window.location.pathname,
+    page_location: window.location.href,
+    ...payload,
+  });
 }

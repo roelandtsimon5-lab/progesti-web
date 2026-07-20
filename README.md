@@ -15,7 +15,7 @@ npm run dev
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | URL canonique landing (`https://progesti.fr`) |
 | `NEXT_PUBLIC_AUTH_URL` | URL du **logiciel** Railway (login / essai) |
-| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager (après consentement cookies) |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager (défaut `GTM-K65MM8Q4`, Consent Mode v2) |
 | `NEXT_PUBLIC_GOOGLE_CALENDAR_URL` | Lien Appointment Schedules sur `/rendez-vous` |
 | `LEAD_WEBHOOK_URL` | Webhook CRM sur chaque lead |
 | `RESEND_API_KEY` | Email de notification lead |

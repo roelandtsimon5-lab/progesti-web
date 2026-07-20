@@ -2,7 +2,8 @@ const DEFAULT_AUTH_URL = "https://app.progesti.fr";
 
 export const env = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://progesti.fr",
-  gtmId: process.env.NEXT_PUBLIC_GTM_ID || "",
+  /** Conteneur GTM PROGESTI — override possible via env hébergeur. */
+  gtmId: process.env.NEXT_PUBLIC_GTM_ID?.trim() || "GTM-K65MM8Q4",
   googleCalendarUrl: process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL || "",
   leadWebhookUrl: process.env.LEAD_WEBHOOK_URL || "",
   resendApiKey: process.env.RESEND_API_KEY || "",

@@ -63,7 +63,11 @@ export default function ConfidentialitePage() {
           <section>
             <h2 className="font-extrabold text-ink">Cookies / mesure d’audience</h2>
             <p className="mt-2">
-              Google Tag Manager / GA4 sont activés uniquement si `NEXT_PUBLIC_GTM_ID` est configuré.
+              Le site utilise Google Tag Manager (conteneur {`GTM-K65MM8Q4`}) avec le mode Consentement
+              Google (Consent Mode v2). Sur les pages marketing, les cookies analytics / pubs ne sont
+              déposés qu’après acceptation via le bandeau. Sur les landing pages publicitaires
+              (`/lp/ads/*`), la mesure de campagne est activée pour attribuer les conversions Google
+              Ads. Vous pouvez vous opposer en écrivant à {site.email}.
             </p>
           </section>
         </div>
