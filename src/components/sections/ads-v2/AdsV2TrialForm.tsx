@@ -112,13 +112,15 @@ export function AdsV2TrialForm({
       </div>
       <div>
         <label htmlFor={`trial-phone-${campaign}`} className="mb-1.5 block text-sm font-bold text-[#111827]">
-          Téléphone <span className="font-medium text-[#6B7280]">(optionnel)</span>
+          Téléphone *
         </label>
         <input
           id={`trial-phone-${campaign}`}
           name="phone"
           type="tel"
+          required
           autoComplete="tel"
+          inputMode="tel"
           placeholder="06 12 34 56 78"
           className={field}
         />

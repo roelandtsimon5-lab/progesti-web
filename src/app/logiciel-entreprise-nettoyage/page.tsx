@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { Reveal } from "@/components/ui/Reveal";
 import Link from "next/link";
@@ -129,14 +130,15 @@ export default function PillarNettoyagePage() {
           </Reveal>
         </div>
       </section>
-      <section className="section bg-fog">
+      <section className="section bg-[#F5F8FB]">
         <div className="container max-w-3xl">
-          <h2 className="text-3xl font-extrabold text-ink">FAQ</h2>
+          <h2 className="text-3xl font-extrabold text-blue-deep">FAQ</h2>
           <div className="mt-8">
             <FaqAccordion items={faq} />
           </div>
         </div>
       </section>
+      <ConversionBlock variant="essai" />
     </>
   );
 }

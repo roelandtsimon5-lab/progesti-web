@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { PageHero } from "@/components/sections/PageHero";
 import {
   categoryExists,
@@ -39,24 +40,24 @@ export default async function BlogCategoryPage({ params }: Props) {
         title={label}
         lead={`Articles de la catégorie « ${label} » pour gérants d’entreprises de nettoyage et de propreté.`}
       />
-      <section className="section !pt-0">
+      <section className="section !pt-0 bg-white">
         <div className="container max-w-3xl">
           <p className="mb-8 text-sm">
-            <Link href="/blog" className="font-semibold text-emerald-dark hover:underline">
+            <Link href="/blog" className="font-semibold text-blue-royal hover:underline">
               ← Tout le blog
             </Link>
           </p>
           {posts.length === 0 ? (
-            <p className="text-muted">Aucun article dans cette catégorie pour le moment.</p>
+            <p className="text-slate">Aucun article dans cette catégorie pour le moment.</p>
           ) : (
-            <ul className="divide-y divide-line">
+            <ul className="divide-y divide-blue-mist">
               {posts.map((post) => (
                 <li key={post.slug} className="py-6">
                   <Link href={`/blog/${post.slug}`} className="group block">
-                    <h2 className="font-display text-xl font-bold text-ink group-hover:text-emerald-dark">
+                    <h2 className="font-display text-xl font-bold text-blue-deep group-hover:text-blue-royal">
                       {post.title}
                     </h2>
-                    <p className="mt-2 text-muted">{post.excerpt}</p>
+                    <p className="mt-2 text-slate">{post.excerpt}</p>
                   </Link>
                 </li>
               ))}
@@ -64,6 +65,7 @@ export default async function BlogCategoryPage({ params }: Props) {
           )}
         </div>
       </section>
+      <ConversionBlock variant="essai" />
     </>
   );
 }

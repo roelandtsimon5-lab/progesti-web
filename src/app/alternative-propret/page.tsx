@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import Link from "next/link";
 import { cta } from "@/lib/cta";
 
@@ -66,24 +67,26 @@ export default function AlternativePropretPage() {
             Le meilleur moyen de comparer reste un essai sur vos propres sites.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/lp/alternative" eventPayload={{ cta: "v2_alt_propret_lp" }}>
+            <ButtonLink
+              href={cta.trialApp}
+              event="trial_start"
+              eventPayload={{ cta: "v3_alt_propret_trial" }}
+            >
+              Essai gratuit 2 mois
+            </ButtonLink>
+            <ButtonLink href="/lp/alternative" variant="secondary" eventPayload={{ cta: "v3_alt_propret_lp" }}>
               Landing switch
             </ButtonLink>
             <Link
               href="/blog/progesti-vs-propret"
-              className="inline-flex items-center font-bold text-emerald-dark underline-offset-4 hover:underline"
+              className="inline-flex items-center font-bold text-blue-royal underline-offset-4 hover:underline"
             >
               Article détaillé
-            </Link>
-            <Link
-              href="/solutions"
-              className="inline-flex items-center font-bold text-emerald-dark underline-offset-4 hover:underline"
-            >
-              Solutions métier
             </Link>
           </div>
         </div>
       </section>
+      <ConversionBlock variant="essai" />
     </>
   );
 }

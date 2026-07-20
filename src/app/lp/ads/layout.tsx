@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { Suspense } from "react";
+import { PreviewBackBar } from "@/components/preview/PreviewBackBar";
 
 export default function AdsLayout({ children }: { children: ReactNode }) {
   return (
@@ -24,6 +26,9 @@ export default function AdsLayout({ children }: { children: ReactNode }) {
           min-height: 100vh;
         }
       `}</style>
+      <Suspense fallback={null}>
+        <PreviewBackBar />
+      </Suspense>
       {children}
     </>
   );

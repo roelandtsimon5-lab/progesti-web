@@ -1,0 +1,46 @@
+Campaign,Link Text,Description 1,Description 2,Final URL
+PROGESTI Search ROI,Essai 2 mois,Sans carte bancaire,Tous modules ouverts,https://progesti.fr/lp/ads/v3/roi?utm_source=google&utm_medium=cpc&utm_campaign=roi&utm_content=sitelink_essai
+PROGESTI Search ROI,Tarifs mensuels,Dès 29,99€ HT/mois,Starter Pro Premium,https://progesti.fr/lp/ads/v3/roi?utm_source=google&utm_medium=cpc&utm_campaign=roi&utm_content=sitelink_tarifs
+PROGESTI Search ROI,Voir une démo,Découvrez l'outil,En quelques minutes,https://progesti.fr/demo?utm_source=google&utm_medium=cpc&utm_campaign=roi&utm_content=sitelink_demo
+PROGESTI Search ROI,Fonctionnalités,Planning pointage facture,Conçu pour le nettoyage,https://progesti.fr/fonctionnalites?utm_source=google&utm_medium=cpc&utm_campaign=roi&utm_content=sitelink_features
+PROGESTI Search Planning,Essai 2 mois,Sans carte bancaire,Tous modules ouverts,https://progesti.fr/lp/ads/v3/planning?utm_source=google&utm_medium=cpc&utm_campaign=planning&utm_content=sitelink_essai
+PROGESTI Search Planning,Tarifs mensuels,Dès 29,99€ HT/mois,Starter Pro Premium,https://progesti.fr/lp/ads/v3/planning?utm_source=google&utm_medium=cpc&utm_campaign=planning&utm_content=sitelink_tarifs
+PROGESTI Search Planning,Voir une démo,Découvrez l'outil,En quelques minutes,https://progesti.fr/demo?utm_source=google&utm_medium=cpc&utm_campaign=planning&utm_content=sitelink_demo
+PROGESTI Search Planning,Fonctionnalités,Planning pointage facture,Conçu pour le nettoyage,https://progesti.fr/fonctionnalites?utm_source=google&utm_medium=cpc&utm_campaign=planning&utm_content=sitelink_features
+PROGESTI Search Syndic,Essai 2 mois,Sans carte bancaire,Tous modules ouverts,https://progesti.fr/lp/ads/v3/syndic?utm_source=google&utm_medium=cpc&utm_campaign=syndic&utm_content=sitelink_essai
+PROGESTI Search Syndic,Solution syndics,Parties communes,Multi-immeubles,https://progesti.fr/solutions/syndics?utm_source=google&utm_medium=cpc&utm_campaign=syndic&utm_content=sitelink_syndics
+PROGESTI Search Syndic,Voir une démo,Découvrez l'outil,En quelques minutes,https://progesti.fr/demo?utm_source=google&utm_medium=cpc&utm_campaign=syndic&utm_content=sitelink_demo
+PROGESTI Search Syndic,Tarifs mensuels,Dès 29,99€ HT/mois,Starter Pro Premium,https://progesti.fr/lp/ads/v3/syndic?utm_source=google&utm_medium=cpc&utm_campaign=syndic&utm_content=sitelink_tarifs
+Campaign,Callout text
+PROGESTI Search ROI,Sans carte bancaire
+PROGESTI Search ROI,Essai 2 mois offerts
+PROGESTI Search ROI,Dès 29,99€ HT/mois
+PROGESTI Search ROI,Tous modules inclus
+PROGESTI Search ROI,Mobile Android & iOS
+PROGESTI Search ROI,Mise en place offerte
+PROGESTI Search ROI,Résiliable à tout moment
+PROGESTI Search ROI,Spécial entreprises propreté
+PROGESTI Search Planning,Sans carte bancaire
+PROGESTI Search Planning,Essai 2 mois offerts
+PROGESTI Search Planning,Dès 29,99€ HT/mois
+PROGESTI Search Planning,Tous modules inclus
+PROGESTI Search Planning,Mobile Android & iOS
+PROGESTI Search Planning,Mise en place offerte
+PROGESTI Search Planning,Résiliable à tout moment
+PROGESTI Search Planning,Spécial entreprises propreté
+PROGESTI Search Syndic,Sans carte bancaire
+PROGESTI Search Syndic,Essai 2 mois offerts
+PROGESTI Search Syndic,Dès 29,99€ HT/mois
+PROGESTI Search Syndic,Tous modules inclus
+PROGESTI Search Syndic,Mobile Android & iOS
+PROGESTI Search Syndic,Reporting syndic
+PROGESTI Search Syndic,Multi-sites illimités
+PROGESTI Search Syndic,Preuves de passage
+Campaign,Structured snippet header,Structured snippet values
+PROGESTI Search ROI,Services,"Planning;Pointage;Facturation;Gestion RH;Stock"
+PROGESTI Search Planning,Services,"Planning;Pointage;Facturation;Gestion RH;Stock"
+PROGESTI Search Syndic,Services,"Planning;Pointage;Facturation;Reporting syndic;Preuves"
+Campaign,Price extension type,Language,Currency code,Price qualifier,Header 1,Price 1,Unit 1,Description 1,Final URL 1,Header 2,Price 2,Unit 2,Description 2,Final URL 2,Header 3,Price 3,Unit 3,Description 3,Final URL 3
+PROGESTI Search ROI,Brands,fr,EUR,From,Starter,29.99,Per month,1 administrateur · tous modules,https://progesti.fr/lp/ads/v3/roi,Pro,49.99,Per month,5 utilisateurs · tous modules,https://progesti.fr/lp/ads/v3/roi,Premium,99.99,Per month,20 utilisateurs · tous modules,https://progesti.fr/lp/ads/v3/roi
+PROGESTI Search Planning,Brands,fr,EUR,From,Starter,29.99,Per month,1 administrateur · tous modules,https://progesti.fr/lp/ads/v3/planning,Pro,49.99,Per month,5 utilisateurs · tous modules,https://progesti.fr/lp/ads/v3/planning,Premium,99.99,Per month,20 utilisateurs · tous modules,https://progesti.fr/lp/ads/v3/planning
+PROGESTI Search Syndic,Brands,fr,EUR,From,Starter,29.99,Per month,1 administrateur · tous modules,https://progesti.fr/lp/ads/v3/syndic,Pro,49.99,Per month,5 utilisateurs · tous modules,https://progesti.fr/lp/ads/v3/syndic,Premium,99.99,Per month,20 utilisateurs · tous modules,https://progesti.fr/lp/ads/v3/syndic

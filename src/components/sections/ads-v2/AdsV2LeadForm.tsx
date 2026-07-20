@@ -54,6 +54,11 @@ export function AdsV2LeadForm({
       setLoading(false);
       return;
     }
+    if (phone.replace(/\D/g, "").length < 8) {
+      setError("Indiquez un numéro de téléphone valide.");
+      setLoading(false);
+      return;
+    }
 
     try {
       const res = await fetch("/api/lead", {
@@ -64,7 +69,7 @@ export function AdsV2LeadForm({
           campaign,
           name,
           email,
-          phone: phone || undefined,
+          phone,
           company: company || "Lead Google Ads v2",
           companySize: companySize || undefined,
         }),
@@ -130,12 +135,13 @@ export function AdsV2LeadForm({
       </div>
       <div>
         <label htmlFor={`v2-phone-${campaign}`} className="mb-1.5 block text-sm font-bold text-[#111827]">
-          Téléphone <span className="font-medium text-[#6B7280]">(optionnel)</span>
+          Téléphone *
         </label>
         <input
           id={`v2-phone-${campaign}`}
           name="phone"
           type="tel"
+          required
           autoComplete="tel"
           inputMode="tel"
           value={phone}

@@ -2,10 +2,11 @@
 
 import Script from "next/script";
 import { useEffect, useState } from "react";
+import { env } from "@/lib/env";
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const GTM_ID = env.gtmId;
 
-export function Gtm() {
+function useGtmConsent() {
   const [allowed, setAllowed] = useState(false);
 
   useEffect(() => {
@@ -22,26 +23,39 @@ export function Gtm() {
     return () => window.removeEventListener("progesti-consent", onConsent);
   }, []);
 
-  if (!GTM_ID || !allowed) return null;
+  return Boolean(GTM_ID && allowed);
+}
+
+/** Script GTM — à placer dans <head> */
+export function GtmHead() {
+  const allowed = useGtmConsent();
+  if (!allowed) return null;
 
   return (
-    <>
-      <Script id="gtm" strategy="afterInteractive">{`
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${GTM_ID}');
-      `}</Script>
-      <noscript>
-        <iframe
-          src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-          height="0"
-          width="0"
-          style={{ display: "none", visibility: "hidden" }}
-          title="gtm"
-        />
-      </noscript>
-    </>
+    <Script id="gtm" strategy="afterInteractive">{`
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','${GTM_ID}');
+    `}</Script>
+  );
+}
+
+/** Fallback noscript — à placer juste après <body> */
+export function GtmNoscript() {
+  const allowed = useGtmConsent();
+  if (!allowed) return null;
+
+  return (
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0"
+        width="0"
+        style={{ display: "none", visibility: "hidden" }}
+        title="gtm"
+      />
+    </noscript>
   );
 }

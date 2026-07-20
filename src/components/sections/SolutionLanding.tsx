@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { Eyebrow, Lead, Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
@@ -13,6 +14,7 @@ export type SolutionContent = {
   title: string;
   headline: string;
   lead: string;
+  badge: string;
   pains: { title: string; text: string }[];
   responses: { moduleSlug: string; text: string }[];
   day: { time: string; text: string }[];
@@ -20,151 +22,239 @@ export type SolutionContent = {
   seoDescription: string;
 };
 
-export function SolutionLanding({ content }: { content: SolutionContent }) {
-  const relatedModules = content.responses
-    .map((r) => modules.find((m) => m.slug === r.moduleSlug))
-    .filter(Boolean);
+const proofBar = [
+  { value: "2 mois", label: "d’essai sans CB" },
+  { value: "29,99 €", label: "HT/mois dès Starter" },
+  { value: "11", label: "modules inclus" },
+  { value: "0 €", label: "frais d’installation" },
+];
 
+export function SolutionLanding({ content }: { content: SolutionContent }) {
   return (
     <>
-      <section className="surface-atmosphere border-b border-line">
-        <div className="container section !pb-16 !pt-14">
-          <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-petrol">
-            {site.name} · Solutions
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight md:text-5xl">
-            {content.headline}
-          </h1>
-          <Lead className="mt-5">{content.lead}</Lead>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink
-              href={cta.trialApp}
-              size="lg"
-              event="trial_start"
-              eventPayload={{ cta: `v2_solution_${content.slug}_hero` }}
-            >
-              Essai gratuit 2 mois
-            </ButtonLink>
-            <ButtonLink
-              href={cta.demo}
-              size="lg"
-              variant="secondary"
-              eventPayload={{ cta: `v2_solution_${content.slug}_demo` }}
-            >
-              Voir la démo
-            </ButtonLink>
+      {/* Hero — même famille que HomeValidated */}
+      <section className="relative overflow-hidden bg-[#F5F8FB]">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(31,168,107,0.12),transparent)]"
+          aria-hidden
+        />
+        <div className="container relative grid items-center gap-10 pb-12 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:pb-16 lg:pt-16">
+          <div className="anim-rise">
+            <p className="inline-flex items-center gap-2 rounded-full border border-green-action/25 bg-green-action/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-deep">
+              {site.name} · {content.badge}
+            </p>
+            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-blue-deep md:text-[3rem]">
+              {content.headline}
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate">{content.lead}</p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <ButtonLink
+                href={cta.trialApp}
+                size="lg"
+                event="trial_start"
+                eventPayload={{ cta: `v3_solution_${content.slug}_hero` }}
+              >
+                Essai gratuit 2 mois
+              </ButtonLink>
+              <ButtonLink
+                href={cta.demo}
+                size="lg"
+                variant="secondary"
+                eventPayload={{ cta: `v3_solution_${content.slug}_demo` }}
+              >
+                Voir la démo
+              </ButtonLink>
+            </div>
+            <p className="mt-5 text-sm font-medium text-slate">
+              <span className="text-green-deep">✓</span> Sans carte bancaire{" "}
+              <span className="mx-2 text-blue-mist">·</span>
+              <span className="text-green-deep">✓</span> Dès{" "}
+              <strong className="text-blue-deep">29,99 € HT/mois</strong>{" "}
+              <span className="mx-2 text-blue-mist">·</span>
+              <span className="text-green-deep">✓</span> Tous modules inclus
+            </p>
+          </div>
+
+          <div className="anim-rise-delay relative">
+            <div className="overflow-hidden rounded-2xl border border-blue-mist/80 bg-white shadow-[0_28px_80px_rgba(11,61,110,0.14)]">
+              <Image
+                src="/dashboard-mockup-opt.webp"
+                alt={`Interface PROGESTI — ${content.title}`}
+                width={900}
+                height={560}
+                priority
+                className="h-auto w-full"
+                sizes="(max-width: 1024px) 100vw, 520px"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <Section>
+      {/* Proof bar */}
+      <section className="border-y border-blue-mist bg-white">
+        <div className="container grid grid-cols-2 gap-6 py-8 md:grid-cols-4 md:gap-4">
+          {proofBar.map((item) => (
+            <div key={item.label} className="text-center md:text-left">
+              <p className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+                {item.value}
+              </p>
+              <p className="mt-1 text-sm font-medium text-slate">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Douleurs */}
+      <section className="section bg-white">
         <div className="container">
           <Reveal>
-            <Eyebrow>Douleurs métier</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold">Ce qui freine au quotidien</h2>
+            <p className="eyebrow">Le problème</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-extrabold text-blue-deep md:text-4xl">
+              Ce qui freine le {content.title.toLowerCase()} au quotidien
+            </h2>
           </Reveal>
-          <ul className="mt-10 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
             {content.pains.map((p, i) => (
-              <Reveal key={p.title} delayMs={i * 50}>
-                <li className="border-t border-line pt-5">
-                  <h3 className="font-display text-lg font-bold">{p.title}</h3>
-                  <p className="mt-2 text-muted">{p.text}</p>
-                </li>
+              <Reveal key={p.title} delayMs={i * 60}>
+                <div className="border-t-2 border-blue-royal pt-5">
+                  <h3 className="font-display text-lg font-bold text-blue-deep">{p.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate">{p.text}</p>
+                </div>
               </Reveal>
             ))}
-          </ul>
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <Section atmosphere>
+      {/* Réponses modules */}
+      <section className="section bg-[#F5F8FB]">
         <div className="container">
           <Reveal>
-            <Eyebrow>Comment PROGESTI répond</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold">Modules liés à ce métier</h2>
+            <p className="eyebrow">Comment PROGESTI répond</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-extrabold text-blue-deep md:text-4xl">
+              Modules liés à ce métier
+            </h2>
+            <p className="lead mt-4">
+              Tout inclus dans chaque offre — planning, terrain et facturation reliés.
+            </p>
           </Reveal>
-          <ul className="mt-10 space-y-6">
-            {content.responses.map((r) => {
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2">
+            {content.responses.map((r, i) => {
               const mod = modules.find((m) => m.slug === r.moduleSlug);
               return (
-                <li key={r.moduleSlug} className="border-t border-line pt-5 md:flex md:gap-10">
-                  <Link
-                    href={`/fonctionnalites/${r.moduleSlug}`}
-                    className="shrink-0 font-display text-lg font-bold text-emerald-dark hover:underline"
-                  >
-                    {mod?.title ?? r.moduleSlug}
-                  </Link>
-                  <p className="mt-2 text-muted md:mt-0">{r.text}</p>
-                </li>
+                <Reveal key={r.moduleSlug} delayMs={i * 40}>
+                  <li>
+                    <Link
+                      href={`/fonctionnalites/${r.moduleSlug}`}
+                      className="group block h-full rounded-xl border border-blue-mist bg-white p-6 transition hover:border-blue-royal hover:shadow-[0_12px_36px_rgba(11,61,110,0.08)]"
+                    >
+                      <h3 className="font-display text-lg font-bold text-blue-deep group-hover:text-blue-royal">
+                        {mod?.title ?? r.moduleSlug}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-slate">{r.text}</p>
+                      <span className="mt-4 inline-block text-sm font-bold text-green-deep">
+                        Voir le module →
+                      </span>
+                    </Link>
+                  </li>
+                </Reveal>
               );
             })}
           </ul>
-          {relatedModules.length ? (
-            <p className="mt-8 text-sm text-muted">
-              Voir aussi :{" "}
-              {relatedModules.map((m, i) =>
-                m ? (
-                  <span key={m.slug}>
-                    {i > 0 ? " · " : null}
-                    <Link href={`/fonctionnalites/${m.slug}`} className="font-semibold text-ink hover:underline">
-                      {m.title}
-                    </Link>
-                  </span>
-                ) : null,
-              )}
-            </p>
-          ) : null}
+          <div className="mt-12 overflow-hidden rounded-2xl border border-blue-mist bg-white shadow-[0_20px_60px_rgba(11,61,110,0.1)]">
+            <Image
+              src="/hero-mockup-opt.webp"
+              alt="PROGESTI — planning et interventions terrain"
+              width={1200}
+              height={700}
+              className="h-auto w-full"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <Section>
+      {/* Journée type */}
+      <section className="section bg-white">
         <div className="container max-w-3xl">
           <Reveal>
-            <Eyebrow>Journée type</Eyebrow>
-            <h2 className="mt-3 text-3xl font-extrabold">Un fil de journée avec PROGESTI</h2>
+            <p className="eyebrow">Journée type</p>
+            <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
+              Un fil de journée avec PROGESTI
+            </h2>
           </Reveal>
-          <ol className="mt-10 space-y-6">
-            {content.day.map((d) => (
-              <li key={d.time} className="grid gap-2 border-l-2 border-emerald pl-5 sm:grid-cols-[6rem_1fr]">
-                <span className="font-display text-sm font-bold text-petrol">{d.time}</span>
-                <p className="text-anthracite">{d.text}</p>
-              </li>
+          <ol className="mt-10 space-y-0">
+            {content.day.map((d, i) => (
+              <Reveal key={`${d.time}-${i}`} delayMs={i * 40}>
+                <li className="grid gap-2 border-t border-blue-mist py-6 sm:grid-cols-[7rem_1fr] sm:gap-8">
+                  <span className="font-display text-sm font-bold text-blue-royal">{d.time}</span>
+                  <p className="text-slate">{d.text}</p>
+                </li>
+              </Reveal>
             ))}
           </ol>
         </div>
-      </Section>
+      </section>
 
-      <Section atmosphere>
+      {/* Pourquoi / différenciation */}
+      <section className="section bg-blue-deep text-white">
         <div className="container max-w-3xl">
-          <h2 className="text-3xl font-extrabold">FAQ — {content.title}</h2>
+          <Reveal>
+            <p className="font-display text-xs font-bold uppercase tracking-[0.18em] text-[#B8F5D4]">
+              Pourquoi PROGESTI
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold text-white md:text-4xl">
+              Testez 2 mois sur vos vrais sites
+            </h2>
+            <p className="mt-4 text-lg text-white/90">
+              Beaucoup d’outils du marché proposent 14 jours d’essai. Chez PROGESTI :{" "}
+              <strong className="text-white">2 mois complets</strong>, sans carte bancaire, tous
+              modules inclus — pour valider sur votre activité de {content.title.toLowerCase()}.
+            </p>
+            <div className="mt-8">
+              <ButtonLink
+                href={cta.trialApp}
+                size="lg"
+                event="trial_start"
+                eventPayload={{ cta: `v3_solution_${content.slug}_why` }}
+              >
+                Démarrer l’essai 2 mois
+              </ButtonLink>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section bg-[#F5F8FB]">
+        <div className="container max-w-3xl">
+          <Reveal>
+            <p className="eyebrow">FAQ</p>
+            <h2 className="mt-3 text-3xl font-extrabold text-blue-deep">
+              Questions — {content.title}
+            </h2>
+          </Reveal>
           <div className="mt-8">
             <FaqAccordion items={content.faq} />
           </div>
-        </div>
-      </Section>
-
-      <Section dark>
-        <div className="container text-center">
-          <h2 className="text-3xl font-extrabold text-white">
-            Testez sur vos propres sites
-          </h2>
-          <p className="mx-auto mt-3 max-w-lg text-white/75">
-            Essai 2 mois sans CB · tous modules inclus · dès 29,99 € HT/mois
+          <p className="mt-6 text-sm">
+            <Link href="/faq" className="font-bold text-blue-royal hover:underline">
+              Toute la FAQ →
+            </Link>
+            {" · "}
+            <Link href="/tarifs" className="font-bold text-blue-royal hover:underline">
+              Tarifs →
+            </Link>
+            {" · "}
+            <Link href="/solutions" className="font-bold text-blue-royal hover:underline">
+              Toutes les solutions →
+            </Link>
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <ButtonLink
-              href={cta.trialApp}
-              size="lg"
-              event="trial_start"
-              eventPayload={{ cta: `v2_solution_${content.slug}_final` }}
-            >
-              Commencer l’essai
-            </ButtonLink>
-            <ButtonLink href="/tarifs" size="lg" variant="white" eventPayload={{ cta: `v2_solution_${content.slug}_tarifs` }}>
-              Voir les tarifs
-            </ButtonLink>
-          </div>
         </div>
-      </Section>
+      </section>
+
+      <ConversionBlock variant="essai" />
 
       <div className="h-20 lg:hidden" aria-hidden />
       <MobileCtaBar />

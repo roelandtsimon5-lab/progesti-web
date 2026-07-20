@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import Link from "next/link";
 import { cta } from "@/lib/cta";
 
@@ -51,18 +52,20 @@ export default function PillarPlanningPage() {
             </Link>
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={cta.demo} eventPayload={{ cta: "v2_pillar_planning_demo" }}>
+            <ButtonLink
+              href={cta.trialApp}
+              event="trial_start"
+              eventPayload={{ cta: "v3_pillar_planning_trial" }}
+            >
+              Essai gratuit 2 mois
+            </ButtonLink>
+            <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "v3_pillar_planning_demo" }}>
               Voir en démo
             </ButtonLink>
-            <Link
-              href="/logiciel-entreprise-nettoyage"
-              className="inline-flex items-center font-bold text-emerald-dark underline-offset-4 hover:underline"
-            >
-              Retour page pilier
-            </Link>
           </div>
         </div>
       </section>
+      <ConversionBlock variant="essai" />
     </>
   );
 }

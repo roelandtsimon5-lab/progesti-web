@@ -6,7 +6,7 @@ export const cta = {
   demo: "/demo",
   /** Funnel lead puis redirection vers l'app. */
   trial: "/essai-gratuit",
-  /** Inscription self-serve sur le logiciel Railway. */
+  /** Inscription self-serve sur l’app (app.progesti.fr). */
   trialApp: appUrl("/creer-mon-espace"),
   /** Connexion logiciel. */
   login: appUrl("/login"),

@@ -4,6 +4,7 @@ export const solutionPages: Record<string, SolutionContent> = {
   bureaux: {
     slug: "bureaux",
     title: "Nettoyage de bureaux",
+    badge: "Bureaux & tertiaire",
     headline: "Organisez le ménage des bureaux comme un métier, pas comme un tableur",
     lead:
       "Open spaces, immeubles de bureaux, coworking : fréquences, accès et équipes tôt le matin ou en soirée — sans double saisie Excel / WhatsApp.",
@@ -42,10 +43,26 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
     ],
     day: [
-      { time: "06:30", text: "Les agents consultent le planning du jour sur mobile — sites et créneaux à jour." },
-      { time: "09:30", text: "Pointages validés sur les premiers open spaces ; alertes sur les absences." },
-      { time: "14:00", text: "Vous réaffectez un backup sur un immeuble sans toucher à Excel." },
-      { time: "17:30", text: "Préparation facturation sur les passages validés de la semaine." },
+      {
+        time: "06:30",
+        text: "Les agents consultent le planning du jour sur mobile — sites et créneaux à jour.",
+      },
+      {
+        time: "09:30",
+        text: "Pointages validés sur les premiers open spaces ; alertes sur les absences.",
+      },
+      {
+        time: "14:00",
+        text: "Vous réaffectez un backup sur un immeuble sans toucher à Excel.",
+      },
+      {
+        time: "17:30",
+        text: "Préparation facturation sur les passages validés de la semaine.",
+      },
+      {
+        time: "Fin de mois",
+        text: "Prépaie et tableaux de bord : charge réelle vs contrats, sans nuit blanche.",
+      },
     ],
     faq: [
       {
@@ -60,11 +77,20 @@ export const solutionPages: Record<string, SolutionContent> = {
         q: "Combien de temps pour démarrer ?",
         a: "Quelques minutes pour créer le compte et ajouter vos premiers sites. Essai 2 mois sans carte bancaire.",
       },
+      {
+        q: "Les modules sont-ils payants en plus ?",
+        a: "Non. Planning, pointage, facturation, RH… tout est inclus dès 29,99 € HT/mois.",
+      },
+      {
+        q: "Peut-on remplacer Excel progressivement ?",
+        a: "Oui. Beaucoup démarrent par le planning + pointage, puis branchent la facturation. L’essai 2 mois laisse le temps de migrer sans stress.",
+      },
     ],
   },
   syndics: {
     slug: "syndics",
     title: "Syndics & copropriétés",
+    badge: "Syndics & immobilier",
     headline: "Parties communes multi-sites : planning, preuves et reporting",
     lead:
       "Halls, cages d’escalier, locaux techniques : pilotez les passages récurrents et documentez la qualité pour vos interlocuteurs immobiliers.",
@@ -104,9 +130,16 @@ export const solutionPages: Record<string, SolutionContent> = {
     ],
     day: [
       { time: "07:00", text: "Tournées parties communes affichées par immeuble." },
-      { time: "11:00", text: "Bons d’intervention et photos archivés sur les halls prioritaires." },
+      {
+        time: "11:00",
+        text: "Bons d’intervention et photos archivés sur les halls prioritaires.",
+      },
       { time: "15:00", text: "Relance d’un site non pointé avant la fin de journée." },
-      { time: "18:00", text: "Export / vue pour préparer un point avec le syndic." },
+      { time: "18:00", text: "Vue claire pour préparer un point avec le syndic." },
+      {
+        time: "Mensuel",
+        text: "Suivi des contrats multi-sites et renouvellements sans tableur fragile.",
+      },
     ],
     faq: [
       {
@@ -121,11 +154,20 @@ export const solutionPages: Record<string, SolutionContent> = {
         q: "Y a-t-il un engagement long ?",
         a: "Non. Essai 2 mois sans CB, puis abonnement résiliable selon les conditions de l’offre.",
       },
+      {
+        q: "Convient-il aux parties communes uniquement ?",
+        a: "Oui, et vous pouvez aussi gérer d’autres prestations (bureaux, locaux pros) dans le même compte.",
+      },
+      {
+        q: "Comment gérer les remplacements d’agents ?",
+        a: "Titulaire + backup par site dans le planning : vous évitez les halls orphelins quand quelqu’un est absent.",
+      },
     ],
   },
   professionnels: {
     slug: "professionnels",
     title: "Professionnels & commerces",
+    badge: "Locaux pros & commerces",
     headline: "Locaux pros avec contraintes d’horaires et d’accès",
     lead:
       "Cabinets médicaux, commerces, restaurants : horaires serrés, accès sensibles et preuves de passage — sans chaos WhatsApp.",
@@ -164,10 +206,20 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
     ],
     day: [
-      { time: "05:45", text: "Passage cabinet avant ouverture — créneau et accès dans le planning." },
-      { time: "10:00", text: "Pointage validé ; alerte si un commerce n’a pas été couvert." },
+      {
+        time: "05:45",
+        text: "Passage cabinet avant ouverture — créneau et accès dans le planning.",
+      },
+      {
+        time: "10:00",
+        text: "Pointage validé ; alerte si un commerce n’a pas été couvert.",
+      },
       { time: "13:30", text: "Réaffectation suite à une absence agent." },
       { time: "16:00", text: "Préparation des factures de la période sur le réalisé." },
+      {
+        time: "Soir",
+        text: "Checklists d’ouverture / fermeture documentées si votre process le demande.",
+      },
     ],
     faq: [
       {
@@ -180,13 +232,22 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Quels tarifs ?",
-        a: "Dès 29,99 € HT/mois (Starter), tous modules inclus. Voir /tarifs.",
+        a: "Dès 29,99 € HT/mois (Starter), tous modules inclus. Voir la page Tarifs.",
+      },
+      {
+        q: "Faut-il une app pour les agents ?",
+        a: "Oui — Android & iOS pour le pointage et les bons. Le bureau pilote depuis le cloud.",
+      },
+      {
+        q: "WhatsApp reste-t-il utile ?",
+        a: "Pour le relationnel, éventuellement. Pour structurer absences, sites et preuves : PROGESTI remplace le chaos des fils.",
       },
     ],
   },
   "fin-de-chantier": {
     slug: "fin-de-chantier",
     title: "Fin de chantier",
+    badge: "Remise en état",
     headline: "Remise en état : planning serré, preuves photos, facturation rapide",
     lead:
       "Prestations ponctuelles après travaux : organisez les équipes, capturez les preuves et facturez dès la livraison.",
@@ -229,6 +290,10 @@ export const solutionPages: Record<string, SolutionContent> = {
       { time: "12:00", text: "Avancement pointé ; photos des zones livrées." },
       { time: "16:30", text: "Bon d’intervention signé avec le client / conducteur." },
       { time: "17:30", text: "Facture émise sur le réalisé + extras validés." },
+      {
+        time: "J+1",
+        text: "Archive des preuves disponible si litige ou demande du maître d’ouvrage.",
+      },
     ],
     faq: [
       {
@@ -243,11 +308,20 @@ export const solutionPages: Record<string, SolutionContent> = {
         q: "Combien de temps dure l’essai ?",
         a: "2 mois complets, sans carte bancaire, tous modules inclus.",
       },
+      {
+        q: "Comment facturer des extras ?",
+        a: "Documentez-les sur le terrain (bon / photos), puis intégrez-les à la facture sans ressaisie chaotique.",
+      },
+      {
+        q: "Convient-il aux petites équipes ponctuelles ?",
+        a: "Oui — de l’indépendant à la PME. L’offre Starter démarre à 29,99 € HT/mois.",
+      },
     ],
   },
   "auto-entrepreneurs": {
     slug: "auto-entrepreneurs",
     title: "Auto-entrepreneurs & petites équipes",
+    badge: "Indépendants & TPE",
     headline: "Démarrer sans usine à gaz — dès 29,99 € HT/mois",
     lead:
       "Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures, avec essai 2 mois sans carte bancaire.",
@@ -289,7 +363,14 @@ export const solutionPages: Record<string, SolutionContent> = {
       { time: "Matin", text: "Consultez le planning du jour et les accès clients." },
       { time: "Terrain", text: "Pointez chaque site ; joignez un bon si besoin." },
       { time: "Soir", text: "Vérifiez les pointages et préparez la facturation hebdo." },
-      { time: "Fin de mois", text: "Prépaie et factures clients sans nuit blanche Excel." },
+      {
+        time: "Fin de mois",
+        text: "Prépaie et factures clients sans nuit blanche Excel.",
+      },
+      {
+        time: "Croissance",
+        text: "Passez à Pro ou Premium quand l’équipe grandit — mêmes modules, pas de migration douloureuse.",
+      },
     ],
     faq: [
       {
@@ -303,6 +384,14 @@ export const solutionPages: Record<string, SolutionContent> = {
       {
         q: "Y a-t-il des frais cachés ?",
         a: "Non. Pas de frais d’entrée ni d’installation. Mise en place offerte.",
+      },
+      {
+        q: "Puis-je tester avant de payer ?",
+        a: "Oui : essai 2 mois sans carte bancaire, accès à tous les modules.",
+      },
+      {
+        q: "PROGESTI est-il réservé aux grandes entreprises ?",
+        a: "Non. Il est pensé aussi pour les AE et petites équipes — prix public dès 29,99 € HT/mois.",
       },
     ],
   },

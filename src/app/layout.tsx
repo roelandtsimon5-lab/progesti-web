@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Source_Sans_3 } from "next/font/google";
+import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { Gtm } from "@/components/analytics/Gtm";
+import { GtmHead, GtmNoscript } from "@/components/analytics/Gtm";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const display = Plus_Jakarta_Sans({
   variable: "--font-display-family",
   subsets: ["latin"],
   weight: ["600", "700", "800"],
   display: "swap",
 });
 
-const body = Source_Sans_3({
+const body = DM_Sans({
   variable: "--font-body-family",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -68,10 +68,14 @@ const orgJsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" data-scroll-behavior="smooth" className={`${display.variable} ${body.variable} h-full`}>
+      <head>
+        <GtmHead />
+      </head>
       <body className="flex min-h-full flex-col antialiased">
+        <GtmNoscript />
         <a
           href="#contenu-principal"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-blue-deep focus:px-4 focus:py-2 focus:text-white"
         >
           Aller au contenu
         </a>
@@ -79,7 +83,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <Gtm />
         <Header />
         <main id="contenu-principal" className="flex-1">
           {children}

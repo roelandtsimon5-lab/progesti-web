@@ -3,17 +3,19 @@
 import Link from "next/link";
 import { track, type TrackEvent } from "@/lib/tracking";
 
-type Variant = "primary" | "secondary" | "ghost" | "white";
+type Variant = "primary" | "secondary" | "ghost" | "white" | "outline-white";
 type Size = "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-emerald text-ink hover:bg-emerald-dark hover:text-white shadow-[0_10px_24px_rgba(47,158,107,0.22)] active:translate-y-px",
+    "bg-green-action !text-white hover:bg-green-deep shadow-[0_10px_28px_rgba(31,168,107,0.35)] active:translate-y-px",
   secondary:
-    "bg-transparent text-ink border border-ink/80 hover:bg-ink hover:text-white active:translate-y-px",
-  ghost: "bg-transparent text-anthracite hover:text-ink hover:bg-fog-2",
+    "bg-transparent text-blue-deep border-2 border-blue-royal hover:bg-blue-royal hover:text-white active:translate-y-px",
+  ghost: "bg-transparent text-slate hover:text-ink hover:bg-blue-sky/80",
   white:
-    "bg-white text-navy hover:bg-air border border-white/80 shadow-[0_10px_24px_rgba(0,0,0,0.1)] active:translate-y-px",
+    "bg-white text-blue-deep hover:bg-blue-sky border border-white/90 shadow-[0_10px_28px_rgba(11,61,110,0.18)] active:translate-y-px",
+  "outline-white":
+    "bg-transparent !text-white border-2 border-white/75 hover:bg-white/12 active:translate-y-px",
 };
 
 const sizes: Record<Size, string> = {

@@ -86,9 +86,18 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false }: P
         </div>
         <div>
           <label className="mb-1 block text-xs font-bold text-ink" htmlFor={`${intent}-phone`}>
-            Téléphone
+            Téléphone *
           </label>
-          <input id={`${intent}-phone`} className={field} name="phone" type="tel" />
+          <input
+            id={`${intent}-phone`}
+            className={field}
+            name="phone"
+            type="tel"
+            required
+            autoComplete="tel"
+            inputMode="tel"
+            placeholder="06 12 34 56 78"
+          />
         </div>
         {!compact ? (
           <>

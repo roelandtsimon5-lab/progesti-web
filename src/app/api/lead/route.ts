@@ -115,6 +115,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
     }
 
+    if (phoneDigits.length < 8) {
+      return NextResponse.json({ ok: false, error: "invalid_phone" }, { status: 400 });
+    }
+
     const lead = {
       at: new Date().toISOString(),
       intent,

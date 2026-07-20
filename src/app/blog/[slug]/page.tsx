@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { cta } from "@/lib/cta";
 import {
   getAllPosts,
@@ -93,25 +94,25 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       <article>
-        <header className="surface-atmosphere section-tight">
+        <header className="bg-[#F5F8FB] section-tight">
           <div className="container max-w-3xl">
-            <nav className="text-sm text-muted" aria-label="Fil d’Ariane">
-              <Link href="/blog" className="hover:text-ink">
+            <nav className="text-sm text-slate" aria-label="Fil d’Ariane">
+              <Link href="/blog" className="hover:text-blue-deep">
                 Blog
               </Link>
               <span className="mx-2">/</span>
               <Link
                 href={`/blog/categorie/${post.category}`}
-                className="hover:text-ink"
+                className="hover:text-blue-deep"
               >
                 {categoryLabel}
               </Link>
             </nav>
-            <h1 className="mt-4 text-3xl font-extrabold tracking-tight md:text-4xl">
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-blue-deep md:text-4xl">
               {post.title}
             </h1>
-            <p className="mt-4 text-lg text-muted">{post.excerpt}</p>
-            <p className="mt-4 text-sm text-anthracite">
+            <p className="mt-4 text-lg text-slate">{post.excerpt}</p>
+            <p className="mt-4 text-sm text-slate">
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString("fr-FR", {
                   year: "numeric",
@@ -130,25 +131,25 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </header>
 
-        <div className="section !pt-10">
+        <div className="section !pt-10 bg-white">
           <div className="container max-w-3xl">
             <div
               className="prose-v2"
               dangerouslySetInnerHTML={{ __html: post.contentHtml }}
             />
 
-            <aside className="mt-14 border-t border-line pt-8">
-              <p className="font-display text-lg font-bold text-ink">
+            <aside className="mt-14 rounded-2xl border border-blue-mist bg-[#F5F8FB] p-6 md:p-8">
+              <p className="font-display text-lg font-bold text-blue-deep">
                 Prêt à organiser votre nettoyage professionnel ?
               </p>
-              <p className="mt-2 text-sm text-muted">
+              <p className="mt-2 text-sm text-slate">
                 Essai PROGESTI 2 mois sans carte bancaire — tous les modules inclus.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <ButtonLink
                   href={cta.trialApp}
                   event="trial_start"
-                  eventPayload={{ cta: "v2_blog_article_cta", slug: post.slug }}
+                  eventPayload={{ cta: "v3_blog_article_cta", slug: post.slug }}
                 >
                   Essai gratuit 2 mois
                 </ButtonLink>
@@ -157,7 +158,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </ButtonLink>
                 <Link
                   href="/blog"
-                  className="self-center text-sm font-semibold text-emerald-dark underline-offset-4 hover:underline"
+                  className="self-center text-sm font-semibold text-blue-royal underline-offset-4 hover:underline"
                 >
                   ← Blog
                 </Link>
@@ -165,18 +166,18 @@ export default async function BlogPostPage({ params }: Props) {
             </aside>
 
             {related.length ? (
-              <section className="mt-14 border-t border-line pt-10">
-                <h2 className="text-2xl font-extrabold">Articles liés</h2>
+              <section className="mt-14 border-t border-blue-mist pt-10">
+                <h2 className="text-2xl font-extrabold text-blue-deep">Articles liés</h2>
                 <ul className="mt-6 space-y-5">
                   {related.map((r) => (
                     <li key={r.slug}>
                       <Link
                         href={`/blog/${r.slug}`}
-                        className="font-display text-lg font-bold text-ink hover:text-emerald-dark"
+                        className="font-display text-lg font-bold text-blue-deep hover:text-blue-royal"
                       >
                         {r.title}
                       </Link>
-                      <p className="mt-1 text-sm text-muted">{r.excerpt}</p>
+                      <p className="mt-1 text-sm text-slate">{r.excerpt}</p>
                     </li>
                   ))}
                 </ul>
@@ -185,6 +186,8 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
       </article>
+
+      <ConversionBlock variant="essai" />
     </>
   );
 }

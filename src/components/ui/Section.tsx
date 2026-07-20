@@ -5,7 +5,9 @@ type SectionProps = {
   className?: string;
   tight?: boolean;
   atmosphere?: boolean;
+  blue?: boolean;
   dark?: boolean;
+  pattern?: boolean;
   id?: string;
 };
 
@@ -14,13 +16,22 @@ export function Section({
   className = "",
   tight = false,
   atmosphere = false,
+  blue = false,
   dark = false,
+  pattern = false,
   id,
 }: SectionProps) {
   const pad = tight ? "section-tight" : "section";
-  const surface = dark ? "surface-dark" : atmosphere ? "surface-atmosphere" : "";
+  const surface = dark
+    ? "surface-dark"
+    : blue
+      ? "surface-blue"
+      : atmosphere
+        ? "surface-atmosphere"
+        : "";
+  const grid = pattern ? "pattern-grid" : "";
   return (
-    <section id={id} className={`${pad} ${surface} ${className}`.trim()}>
+    <section id={id} className={`${pad} ${surface} ${grid} ${className}`.trim()}>
       {children}
     </section>
   );

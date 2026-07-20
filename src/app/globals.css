@@ -1,7 +1,41 @@
 @import "tailwindcss";
 
-/* PROGESTI V2 — Propreté claire / confiance métier */
+/* PROGESTI V3 — Bleu confiance · Vert action */
 :root {
+  --blue-deep: #0b3d6e;
+  --blue-royal: #1565a8;
+  --blue-sky: #e8f2fa;
+  --blue-mist: #c5dcf0;
+  --green-action: #1fa86b;
+  --green-deep: #157a4e;
+  --warm-light: #f7fafc;
+  --white-pure: #ffffff;
+  --ink: #0f2438;
+  --slate: #4a6178;
+  --muted: #5a6876;
+  --anthracite: #3d5268;
+  --line: #b8cfe4;
+  --danger: #c53d32;
+  --accent-gold: #d4a017;
+  --background: var(--warm-light);
+  --foreground: var(--ink);
+  --focus: var(--blue-royal);
+
+  /* Compatibilité classes Tailwind existantes */
+  --navy: var(--blue-deep);
+  --navy-soft: #134a7a;
+  --emerald: var(--green-action);
+  --emerald-dark: var(--green-deep);
+  --petrol: var(--blue-royal);
+  --amber: var(--accent-gold);
+  --fog: var(--blue-sky);
+  --fog-2: var(--blue-mist);
+  --air: var(--white-pure);
+  --white: var(--white-pure);
+}
+
+/* Archive V2 — tokens figés */
+[data-design="v2"] {
   --navy: #1a3348;
   --navy-soft: #243d52;
   --emerald: #2f9e6b;
@@ -14,15 +48,19 @@
   --anthracite: #3d4a57;
   --ink: #152230;
   --muted: #5a6876;
-  --white: #ffffff;
   --line: #d2dbe4;
-  --danger: #c53d32;
   --background: var(--fog);
-  --foreground: var(--ink);
   --focus: var(--emerald);
 }
 
 @theme inline {
+  --color-blue-deep: var(--blue-deep);
+  --color-blue-royal: var(--blue-royal);
+  --color-blue-sky: var(--blue-sky);
+  --color-blue-mist: var(--blue-mist);
+  --color-green-action: var(--green-action);
+  --color-green-deep: var(--green-deep);
+  --color-warm-light: var(--warm-light);
   --color-navy: var(--navy);
   --color-navy-soft: var(--navy-soft);
   --color-emerald: var(--emerald);
@@ -34,76 +72,84 @@
   --color-air: var(--air);
   --color-anthracite: var(--anthracite);
   --color-ink: var(--ink);
+  --color-slate: var(--slate);
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-danger: var(--danger);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  /* Critiques : sans ces tokens, text-white / bg-white ne s’appliquent pas */
+  --color-white: var(--white-pure);
+  --color-black: #000000;
   --font-display: var(--font-display-family);
   --font-sans: var(--font-body-family);
 }
 
-* {
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
 
-  .reveal,
-  .anim-rise,
-  .anim-rise-delay {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .reveal,
+    .anim-rise,
+    .anim-rise-delay {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
   }
-}
 
-body {
-  margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body-family), system-ui, sans-serif;
-  line-height: 1.65;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body-family), system-ui, sans-serif;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-display-family), system-ui, sans-serif;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  font-weight: 700;
-}
+  /* Couleurs de base dans @layer base pour que text-white / text-slate
+     (utilities) puissent les surcharger — sinon titres foncés sur fond navy. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display-family), system-ui, sans-serif;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    font-weight: 700;
+  }
 
-p {
-  color: var(--anthracite);
-}
+  p {
+    color: var(--anthracite);
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--focus) 65%, white);
-  outline-offset: 3px;
-}
+  :focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--focus) 65%, white);
+    outline-offset: 3px;
+  }
 
-::selection {
-  background: color-mix(in srgb, var(--emerald) 28%, white);
-  color: var(--ink);
+  ::selection {
+    background: color-mix(in srgb, var(--blue-royal) 22%, white);
+    color: var(--ink);
+  }
 }
 
 .container {
@@ -132,27 +178,51 @@ a {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--emerald-dark);
+  color: var(--blue-royal);
 }
 
 .lead {
   font-size: clamp(1.05rem, 1.35vw, 1.2rem);
-  color: var(--muted);
+  color: var(--slate);
   max-width: 38rem;
   line-height: 1.7;
 }
 
 .surface-atmosphere {
   background:
-    radial-gradient(ellipse 70% 55% at 12% 0%, rgba(47, 158, 107, 0.08), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 90% 20%, rgba(42, 95, 110, 0.07), transparent 50%),
-    linear-gradient(180deg, var(--air) 0%, var(--fog) 100%);
+    radial-gradient(ellipse 65% 50% at 8% 0%, rgba(21, 101, 168, 0.12), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 95% 15%, rgba(31, 168, 107, 0.08), transparent 50%),
+    linear-gradient(180deg, var(--blue-sky) 0%, var(--warm-light) 100%);
+}
+
+.surface-blue {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 255, 255, 0.35), transparent 60%),
+    linear-gradient(165deg, var(--blue-deep) 0%, #0a3560 45%, #083052 100%);
+  color: #fff;
+}
+
+.surface-blue h1,
+.surface-blue h2,
+.surface-blue h3,
+.surface-blue p {
+  color: #fff;
+}
+
+.surface-blue .lead,
+.surface-blue .muted {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.surface-blue .eyebrow {
+  color: #b8f5d4;
 }
 
 .surface-dark {
   background:
-    radial-gradient(ellipse 55% 45% at 80% 0%, rgba(47, 158, 107, 0.18), transparent 55%),
-    linear-gradient(165deg, #101c28 0%, var(--navy) 50%, #0c1822 100%);
+    radial-gradient(ellipse 55% 45% at 85% 0%, rgba(31, 168, 107, 0.2), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 10% 100%, rgba(21, 101, 168, 0.25), transparent 50%),
+    linear-gradient(165deg, #062840 0%, var(--blue-deep) 50%, #051f38 100%);
   color: #fff;
 }
 
@@ -169,11 +239,27 @@ a {
 }
 
 .surface-dark .eyebrow {
-  color: color-mix(in srgb, var(--emerald) 80%, white);
+  color: #b8f5d4;
+}
+
+.gradient-hero {
+  background:
+    linear-gradient(125deg, rgba(11, 61, 110, 0.97) 0%, rgba(21, 101, 168, 0.88) 55%, rgba(11, 61, 110, 0.75) 100%);
+}
+
+.gradient-cta {
+  background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-royal) 48%, var(--green-deep) 100%);
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(21, 101, 168, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 101, 168, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 .panel {
-  background: var(--white);
+  background: var(--white-pure);
   border: 1px solid var(--line);
   border-radius: 0.75rem;
 }
@@ -187,9 +273,10 @@ a {
   display: flex;
   gap: 0.5rem;
   padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
-  background: rgba(250, 252, 253, 0.96);
-  border-top: 1px solid var(--line);
+  background: rgba(11, 61, 110, 0.97);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(12px);
+  box-shadow: 0 -8px 32px rgba(11, 61, 110, 0.25);
 }
 
 @media (min-width: 1024px) {
@@ -230,13 +317,22 @@ a {
   animation: rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
 
+.archive-banner {
+  background: linear-gradient(90deg, var(--accent-gold), #e6b422);
+  color: #1a1200;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+}
+
 .product-shell {
   position: fixed;
   inset: 0;
   z-index: 100;
   display: grid;
   grid-template-columns: 240px 1fr;
-  background: var(--fog);
+  background: var(--warm-light);
   color: var(--ink);
 }
 
@@ -247,7 +343,7 @@ a {
 }
 
 .product-side {
-  background: var(--navy);
+  background: var(--blue-deep);
   color: white;
   padding: 1.25rem;
   display: flex;
@@ -275,7 +371,7 @@ a {
 }
 
 .product-side .active {
-  background: rgba(47, 158, 107, 0.2);
+  background: rgba(31, 168, 107, 0.22);
   color: #9ee0bf;
 }
 
@@ -334,7 +430,7 @@ a {
 }
 
 .prose-v2 a {
-  color: var(--emerald-dark);
+  color: var(--blue-royal);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

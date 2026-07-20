@@ -29,7 +29,7 @@ export function PricingTable() {
               aria-selected={period === value}
               onClick={() => setPeriod(value)}
               className={`px-5 py-2.5 font-display text-sm font-bold transition ${
-                period === value ? "bg-navy text-white" : "text-anthracite hover:text-ink"
+                period === value ? "bg-blue-deep text-white" : "text-slate hover:text-blue-deep"
               }`}
             >
               {label}
@@ -46,11 +46,11 @@ export function PricingTable() {
             <article
               key={plan.id}
               className={`relative flex flex-col border bg-white p-7 ${
-                plan.highlight ? "border-emerald border-2" : "border-line"
+                plan.highlight ? "border-green-action border-2" : "border-blue-mist"
               }`}
             >
               {plan.highlight ? (
-                <span className="absolute -top-3 left-6 bg-emerald px-3 py-1 font-display text-xs font-extrabold tracking-wide text-ink">
+                <span className="absolute -top-3 left-6 bg-green-action px-3 py-1 font-display text-xs font-extrabold tracking-wide text-white">
                   Le plus populaire
                 </span>
               ) : null}
@@ -76,7 +76,7 @@ export function PricingTable() {
               <ul className="mt-7 flex-1 space-y-2.5">
                 {planInclusions.map((item) => (
                   <li key={item} className="flex gap-2.5 text-sm text-anthracite">
-                    <span className="mt-0.5 font-bold text-emerald-dark" aria-hidden>
+                    <span className="mt-0.5 font-bold text-green-deep" aria-hidden>
                       ✓
                     </span>
                     <span>{item}</span>
@@ -90,7 +90,7 @@ export function PricingTable() {
                   className="w-full !py-3.5"
                   variant={plan.highlight ? "primary" : "secondary"}
                   event="trial_start"
-                  eventPayload={{ plan: plan.id, period, cta: "v2_pricing" }}
+                  eventPayload={{ plan: plan.id, period, cta: "v3_pricing" }}
                 >
                   Commencez gratuitement
                 </ButtonLink>

@@ -91,30 +91,27 @@ export function AdsCaptureLanding({
   }
 
   return (
-    <div className="ads-lp min-h-screen bg-fog text-ink">
+    <div className="ads-lp min-h-screen bg-[#F5F8FB] text-ink">
       <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 pb-20 pt-7 sm:px-8 sm:pt-10 md:px-12 md:pb-24 md:pt-14">
         <header className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <Image src="/logo-opt.webp" alt="" width={36} height={36} className="h-9 w-9" />
-            <span className="font-display text-xl font-extrabold tracking-tight text-navy">
+            <span className="font-display text-xl font-extrabold tracking-tight text-blue-deep">
               PROGESTI
             </span>
           </div>
-          <p className="rounded-full bg-emerald/15 px-3.5 py-2 text-xs font-bold text-emerald-dark sm:text-sm">
+          <p className="rounded-full border border-green-action/25 bg-green-action/10 px-3.5 py-2 text-xs font-bold text-green-deep sm:text-sm">
             Essai 2 mois · Sans CB
           </p>
         </header>
 
         <div className="grid flex-1 items-start gap-12 pt-12 sm:gap-14 sm:pt-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-20 lg:pt-16">
-          {/* Copy + mockup — below form on mobile */}
           <div className="order-2 space-y-8 lg:order-1 lg:space-y-10">
             <div className="space-y-5">
-              <h1 className="max-w-xl text-[1.85rem] font-extrabold leading-[1.15] tracking-tight text-navy sm:text-[2.35rem] md:text-[2.75rem]">
+              <h1 className="max-w-xl text-[1.85rem] font-extrabold leading-[1.15] tracking-tight text-blue-deep sm:text-[2.35rem] md:text-[2.75rem]">
                 {headline}
               </h1>
-              <p className="max-w-lg text-base leading-relaxed text-anthracite sm:text-lg">
-                {subhead}
-              </p>
+              <p className="max-w-lg text-base leading-relaxed text-slate sm:text-lg">{subhead}</p>
             </div>
 
             {bullets?.length ? (
@@ -122,9 +119,9 @@ export function AdsCaptureLanding({
                 {bullets.map((b) => (
                   <li
                     key={b}
-                    className="flex gap-3 text-[0.95rem] font-semibold leading-snug text-ink sm:text-base"
+                    className="flex gap-3 text-[0.95rem] font-semibold leading-snug text-blue-deep sm:text-base"
                   >
-                    <span className="mt-0.5 shrink-0 text-emerald" aria-hidden>
+                    <span className="mt-0.5 shrink-0 text-green-deep" aria-hidden>
                       ✓
                     </span>
                     <span>{b}</span>
@@ -133,12 +130,12 @@ export function AdsCaptureLanding({
               </ul>
             ) : null}
 
-            <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_16px_50px_rgba(17,24,39,0.08)]">
-              <div className="flex items-center gap-2 border-b border-line bg-air px-4 py-2.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-line" />
-                <span className="h-2.5 w-2.5 rounded-full bg-line" />
-                <span className="h-2.5 w-2.5 rounded-full bg-line" />
-                <span className="ml-2 text-xs font-semibold text-[#6B7280]">Aperçu plateforme</span>
+            <div className="overflow-hidden rounded-2xl border border-blue-mist bg-white shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
+              <div className="flex items-center gap-2 border-b border-blue-mist bg-[#F5F8FB] px-4 py-2.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-blue-mist" />
+                <span className="h-2.5 w-2.5 rounded-full bg-blue-mist" />
+                <span className="h-2.5 w-2.5 rounded-full bg-blue-mist" />
+                <span className="ml-2 text-xs font-semibold text-slate">Aperçu plateforme</span>
               </div>
               <Image
                 src="/dashboard-mockup-opt.webp"
@@ -151,18 +148,17 @@ export function AdsCaptureLanding({
             </div>
           </div>
 
-          {/* Form — first on mobile */}
           <div className="order-1 lg:order-2 lg:sticky lg:top-10">
-            <div className="rounded-3xl border border-line bg-white p-7 shadow-[0_20px_60px_rgba(17,24,39,0.1)] sm:p-9 md:p-10">
-              <div className="mb-3 h-1.5 w-14 rounded-full bg-[#12B76A]" />
-              <p className="font-display text-xs font-bold uppercase tracking-[0.14em] text-emerald-dark">
+            <div className="rounded-2xl border border-blue-mist bg-white p-7 shadow-[0_20px_60px_rgba(11,61,110,0.12)] sm:p-9 md:p-10">
+              <div className="mb-3 h-1.5 w-14 rounded-full bg-green-action" />
+              <p className="font-display text-xs font-bold uppercase tracking-[0.14em] text-green-deep">
                 Accès immédiat
               </p>
-              <h2 className="mt-3 text-[1.65rem] font-extrabold leading-tight text-navy sm:text-3xl">
+              <h2 className="mt-3 text-[1.65rem] font-extrabold leading-tight text-blue-deep sm:text-3xl">
                 Voir la plateforme
               </h2>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-[#4B5563] sm:text-[0.95rem]">
-                Prénom + téléphone → accès direct.
+              <p className="mt-3 text-sm font-medium leading-relaxed text-slate sm:text-[0.95rem]">
+                Prénom + téléphone → accès direct. Dès 29,99 € HT/mois après l’essai.
               </p>
 
               <form onSubmit={onSubmit} className="mt-8 space-y-5" noValidate>
@@ -177,7 +173,7 @@ export function AdsCaptureLanding({
                 <div>
                   <label
                     htmlFor={`ads-name-${campaign}`}
-                    className="mb-2 block text-sm font-bold text-ink"
+                    className="mb-2 block text-sm font-bold text-blue-deep"
                   >
                     Prénom *
                   </label>
@@ -188,13 +184,13 @@ export function AdsCaptureLanding({
                     required
                     autoComplete="given-name"
                     placeholder="Ex. Simon"
-                    className="min-h-14 w-full rounded-xl border-2 border-[#D1D5DB] bg-white px-4 text-base font-semibold text-ink outline-none placeholder:text-[#9CA3AF] focus:border-[#12B76A] focus:ring-4 focus:ring-[#12B76A]/25"
+                    className="min-h-14 w-full rounded-xl border-2 border-blue-mist bg-white px-4 text-base font-semibold text-ink outline-none placeholder:text-muted focus:border-blue-royal focus:ring-4 focus:ring-blue-royal/15"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor={`ads-phone-${campaign}`}
-                    className="mb-2 block text-sm font-bold text-ink"
+                    className="mb-2 block text-sm font-bold text-blue-deep"
                   >
                     Téléphone *
                   </label>
@@ -208,24 +204,24 @@ export function AdsCaptureLanding({
                     value={phone}
                     onChange={(e) => setPhone(formatFrPhone(e.target.value))}
                     placeholder="06 12 34 56 78"
-                    className="min-h-14 w-full rounded-xl border-2 border-[#D1D5DB] bg-white px-4 text-base font-semibold text-ink outline-none placeholder:text-[#9CA3AF] focus:border-[#12B76A] focus:ring-4 focus:ring-[#12B76A]/25"
+                    className="min-h-14 w-full rounded-xl border-2 border-blue-mist bg-white px-4 text-base font-semibold text-ink outline-none placeholder:text-muted focus:border-blue-royal focus:ring-4 focus:ring-blue-royal/15"
                   />
                 </div>
                 {error ? (
-                  <p className="text-sm font-bold text-[#B42318]" role="alert">
+                  <p className="text-sm font-bold text-danger" role="alert">
                     {error}
                   </p>
                 ) : null}
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex min-h-14 w-full items-center justify-center rounded-xl bg-[#12B76A] font-display text-base font-extrabold text-navy transition hover:bg-[#0E9F5A] hover:text-white disabled:opacity-70"
+                  className="flex min-h-14 w-full items-center justify-center rounded-xl bg-green-action font-display text-base font-extrabold text-white transition hover:bg-green-deep disabled:opacity-70"
                 >
                   {loading ? "Ouverture…" : ctaLabel}
                 </button>
               </form>
 
-              <p className="mt-6 text-center text-xs font-medium leading-relaxed text-[#6B7280] sm:text-[0.8rem]">
+              <p className="mt-6 text-center text-xs font-medium leading-relaxed text-slate sm:text-[0.8rem]">
                 Sans carte bancaire · Pas d’engagement · On peut vous rappeler
               </p>
             </div>

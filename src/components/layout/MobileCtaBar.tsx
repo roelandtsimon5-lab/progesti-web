@@ -10,15 +10,15 @@ export function MobileCtaBar() {
         href={cta.trialApp}
         className="flex-1 !py-3.5"
         event="trial_start"
-        eventPayload={{ cta: "v2_mobile_sticky" }}
+        eventPayload={{ cta: "v3_mobile_sticky" }}
       >
         Essai gratuit
       </ButtonLink>
       <ButtonLink
         href={cta.demo}
-        variant="secondary"
+        variant="outline-white"
         className="flex-1 !py-3.5"
-        eventPayload={{ cta: "v2_mobile_sticky_demo" }}
+        eventPayload={{ cta: "v3_mobile_sticky_demo" }}
       >
         Démo
       </ButtonLink>
