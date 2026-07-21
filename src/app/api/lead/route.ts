@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { appendFile, mkdir } from "fs/promises";
 import path from "path";
 import { env } from "@/lib/env";
+import { notifyNewLead } from "@/lib/lead-notify";
 
 type LeadBody = {
   intent?: string;
@@ -58,23 +59,6 @@ async function sendWebhook(lead: Record<string, unknown>) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(lead),
-  });
-}
-
-async function sendResend(lead: Record<string, unknown>) {
-  if (!env.resendApiKey) return;
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.resendApiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: "PROGESTI <onboarding@resend.dev>",
-      to: [env.leadNotifyEmail],
-      subject: `[PROGESTI] Lead ${String(lead.intent || "contact")}`,
-      text: JSON.stringify(lead, null, 2),
-    }),
   });
 }
 
@@ -136,7 +120,30 @@ export async function POST(request: Request) {
 
     console.info("[PROGESTI lead]", lead);
 
-    await Promise.allSettled([persistLocal(lead), sendWebhook(lead), sendResend(lead)]);
+    const notifyPayload = {
+      at: lead.at,
+      intent: lead.intent,
+      campaign: lead.campaign,
+      email: lead.email,
+      name: lead.name,
+      company: lead.company,
+      phone: lead.phone,
+    };
+
+    const [notifySettled] = await Promise.allSettled([
+      notifyNewLead(notifyPayload),
+      persistLocal(lead),
+      sendWebhook(lead),
+    ]);
+
+    const notify =
+      notifySettled.status === "fulfilled" ? notifySettled.value : [];
+
+    if (notifySettled.status === "rejected") {
+      console.error("[PROGESTI lead notify]", notifySettled.reason);
+    } else {
+      console.info("[PROGESTI lead notify]", notify);
+    }
 
     return NextResponse.json({
       ok: true,
@@ -144,6 +151,8 @@ export async function POST(request: Request) {
         local: true,
         webhook: Boolean(env.leadWebhookUrl),
         email: Boolean(env.resendApiKey),
+        sms: Boolean(env.brevoApiKey || (env.freeMobileUser && env.freeMobilePass)),
+        notify,
       },
     });
   } catch {
