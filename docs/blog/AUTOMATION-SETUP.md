@@ -1,57 +1,27 @@
-# Automation Cursor — Blog PROGESTI
+# SEO AUTOMATION — setup en 2 minutes
 
-> Cadence : **1 article / semaine** (mardi 9h Europe/Paris).  
-> Objectif : **commit + push sur `master`** pour déployer sans intervention.
+## 1. Colle le prompt (30 secondes)
 
-## Réglages UI (Cursor Automations)
+1. Ouvre [`AUTOMATION-PROMPT-PASTE.txt`](./AUTOMATION-PROMPT-PASTE.txt)
+2. **Ctrl+A** → **Ctrl+C**
+3. Cursor → Automations → **SEO AUTOMATION** → zone Instructions
+4. **Ctrl+A** → **Ctrl+V** → Save
 
-| Champ | Valeur |
-|--------|--------|
-| Nom | `SEO AUTOMATION` |
-| Trigger | **1 seul** : Tuesday 09:00 (`0 9 * * 2`) |
-| Repo | `roelandtsimon5-lab/progesti-web` · branche **`master`** |
-| Outils | **Open Pull or Merge Request** + Memories |
+Ne colle **jamais** ce fichier `AUTOMATION-SETUP.md` — uniquement le `.txt`.
 
-### Critique (sinon → draft sans prod)
+## 2. Vérifie ces 4 réglages
 
-Dans l’outil PR de l’automation, active **Merge** et autorise l’écriture / push sur **`master`**.  
-Sans ça, Cursor ouvre une **draft** et l’article n’apparaît jamais en prod (cas du 21/07/2026).
+| Réglage | Doit être |
+|---------|-----------|
+| Active | ON |
+| Trigger | mardi 09:00 (`0 9 * * 2`) — **1 seul** |
+| Repo / branche | `roelandtsimon5-lab/progesti-web` · `master` |
+| Outil PR | **Merge** activé (pas seulement Open PR / Comment / Approval) |
 
-Checklist UI avant le prochain mardi :
-1. Outil PR : merge activé
-2. Branche cible : `master`
-3. Instructions = **uniquement** le bloc ci-dessous (pas ce fichier entier)
-4. Statut automation : **Active**
+Sans **Merge** → draft → rien en prod.
 
-## Instructions (remplacer TOUT le prompt actuel par ceci)
+## 3. C’est bon si…
 
-```
-Tu publies UN article de blog PROGESTI pour le SEO, puis tu le mets EN LIGNE sur master.
+Après un mardi : commit `blog: publish …` sur `master` + article sur `https://progesti.fr/blog/{slug}`.
 
-Critère de succès UNIQUE : le fichier content/blog/{slug}.mdx doit exister sur la branche master à la fin du run. Une PR draft ou ouverte = ÉCHEC.
-
-1. Ouvre docs/blog/editorial-queue.md
-2. Prends la première entrée status: todo
-3. Si aucune → arrête et note "file vide"
-4. Si une PR draft ouverte existe déjà pour ce slug → ready + merge + fermer doublons, puis stop (ne pas recréer l’article)
-5. Crée content/blog/{slug}.mdx (frontmatter complet + 900–1400 mots FR)
-6. Maillage : au moins 3 liens internes (piliers /solutions /fonctionnalites /essai-gratuit /tarifs /alternative-propret)
-7. CTA final vers /essai-gratuit
-8. date + updatedAt = date du jour (Europe/Paris)
-9. Passe la ligne de la file à status: done + published: YYYY-MM-DD
-10. git add (article + editorial-queue.md) ; git commit -m "blog: publish {slug}"
-11. Publier :
-    - Préférence A : push direct sur master
-    - Sinon : PR ready (JAMAIS draft) vers master, puis MERGE immédiat, puis delete branch
-12. Vérifie que le fichier est sur master. Sinon corrige avant de terminer.
-
-Règles: pas de faux avis, pas de chiffres inventés, un seul article par run.
-Réf: docs/PROMPT-BLOG-AUTO.md
-```
-
-## Après un run réussi
-
-- Commit visible sur `master` (pas seulement une PR)
-- Article sur https://progesti.fr/blog/{slug} après deploy
-- File éditoriale mise à jour (`done`)
-- Aucune PR draft ouverte pour le blog
+Sinon : reviens ici, étape 2 (Merge).

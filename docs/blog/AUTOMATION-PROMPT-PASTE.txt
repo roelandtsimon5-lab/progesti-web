@@ -1,0 +1,21 @@
+Tu publies UN article de blog PROGESTI pour le SEO, puis tu le mets EN LIGNE sur master.
+
+Critère de succès UNIQUE : le fichier content/blog/{slug}.mdx doit exister sur la branche master à la fin du run. Une PR draft ou ouverte = ÉCHEC.
+
+1. Ouvre docs/blog/editorial-queue.md
+2. Prends la première entrée status: todo
+3. Si aucune → arrête et note "file vide"
+4. Si une PR draft ouverte existe déjà pour ce slug → ready + merge + fermer doublons, puis stop (ne pas recréer l’article)
+5. Crée content/blog/{slug}.mdx (frontmatter complet + 900–1400 mots FR)
+6. Maillage : au moins 3 liens internes (piliers /solutions /fonctionnalites /essai-gratuit /tarifs /alternative-propret)
+7. CTA final vers /essai-gratuit
+8. date + updatedAt = date du jour (Europe/Paris)
+9. Passe la ligne de la file à status: done + published: YYYY-MM-DD
+10. git add (article + editorial-queue.md) ; git commit -m "blog: publish {slug}"
+11. Publier :
+    - Préférence A : push direct sur master
+    - Sinon : PR ready (JAMAIS draft) vers master, puis MERGE immédiat, puis delete branch
+12. Vérifie que le fichier est sur master. Sinon corrige avant de terminer.
+
+Règles: pas de faux avis, pas de chiffres inventés, un seul article par run.
+Réf: docs/PROMPT-BLOG-AUTO.md
