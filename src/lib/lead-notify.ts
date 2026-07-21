@@ -146,25 +146,57 @@ async function sendFreeMobileSms(content: string): Promise<ChannelResult> {
   return { channel: "sms:freemobile", ok: true };
 }
 
+function welcomeContext(intent: string) {
+  if (intent === "demo") {
+    return {
+      why: "Vous venez d’accéder à la démo PROGESTI. Je ne vous laisse pas seul devant l’écran : je vous appelle rapidement pour configurer ensemble vos sites, votre planning et vos premiers passages.",
+      cta: "Ouvrir mon espace PROGESTI",
+    };
+  }
+  if (intent === "contact") {
+    return {
+      why: "Merci pour votre message. Je ne vous laisse pas sans réponse : je vous rappelle rapidement pour voir comment PROGESTI peut structurer vos sites, votre planning et vos passages.",
+      cta: "Découvrir PROGESTI",
+    };
+  }
+  return {
+    why: "Vous venez de démarrer avec PROGESTI. Je ne vous laisse pas seul devant l’écran : je vous appelle rapidement pour configurer ensemble vos sites, votre planning et vos premiers passages.",
+    cta: "Ouvrir mon espace PROGESTI",
+  };
+}
+
 function welcomeEmail(lead: LeadPayload) {
   const prenom = firstName(lead.name);
   const mobileDisplay = env.simonMobileDisplay || env.simonMobile || site.phone;
   const mobileTel = env.simonMobile || site.phoneTel;
   const essaiUrl = env.essaiUrl;
+  const base = env.siteUrl.replace(/\/$/, "");
+  const logoUrl = `${base}/logo.png`;
+  const mockupUrl = `${base}/hero-mockup.png`;
+  const ctx = welcomeContext(lead.intent);
+  const preheader = `Essai ${site.trialMonths} mois sans CB · je vous aide à configurer sites, planning et passages.`;
+  const subject = `${prenom}, bienvenue chez PROGESTI — je vous aide à démarrer`;
+  const host = site.url.replace(/^https?:\/\//, "");
 
-  const subject = `Bienvenue ${prenom} — je m’occupe de votre essai PROGESTI`;
   const text = [
     `Bonjour ${prenom},`,
     ``,
-    `Merci pour votre inscription. Je suis Simon, gérant de PROGESTI — le logiciel conçu pour les entreprises de nettoyage et de propreté.`,
+    `Merci pour votre confiance. Je suis Simon, gérant de PROGESTI.`,
     ``,
-    `Je vous contacte rapidement pour vous aider à configurer la plateforme : vos sites, votre planning, et vos premiers passages. L’essai dure ${site.trialMonths} mois, sans carte bancaire.`,
+    ctx.why,
     ``,
-    `Accéder à mon essai : ${essaiUrl}`,
+    `Essai ${site.trialMonths} mois, tous les modules, sans carte bancaire. Vous testez sur votre vraie activité.`,
     ``,
-    `Besoin d’échanger tout de suite ? Appelez-moi au ${mobileDisplay} — c’est mon portable.`,
+    `${ctx.cta} : ${essaiUrl}`,
     ``,
-    `À très vite,`,
+    `Ce que vous structurez avec PROGESTI :`,
+    `- Planning multi-sites`,
+    `- Pointage terrain`,
+    `- Facturation liée au réalisé`,
+    ``,
+    `Besoin de moi avant mon appel ? Appelez-moi au ${mobileDisplay} — c’est mon numéro direct.`,
+    ``,
+    `À très bientôt,`,
     `Simon`,
     `Gérant — PROGESTI`,
     `${mobileDisplay} · ${site.email}`,
@@ -173,45 +205,99 @@ function welcomeEmail(lead: LeadPayload) {
 
   const html = `<!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Bienvenue PROGESTI</title></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Bienvenue PROGESTI</title>
+</head>
 <body style="margin:0;padding:0;background:#F7FAFC;font-family:Arial,Helvetica,sans-serif;color:#0F2438;">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;mso-hide:all;">
+    ${escapeHtml(preheader)}
+  </div>
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#F7FAFC;padding:24px 12px;">
     <tr><td align="center">
-      <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:8px;overflow:hidden;">
-        <tr><td style="background:#0B3D6E;padding:22px 28px;">
-          <p style="margin:0;font-size:20px;font-weight:700;letter-spacing:0.04em;color:#ffffff;">PROGESTI</p>
-        </td></tr>
-        <tr><td style="padding:28px;">
-          <p style="margin:0 0 16px;font-size:18px;font-weight:700;">Bonjour ${escapeHtml(prenom)},</p>
-          <p style="margin:0 0 14px;font-size:15px;line-height:1.55;">
-            Merci pour votre inscription. Je suis <strong>Simon</strong>, gérant de PROGESTI — le logiciel conçu pour les entreprises de nettoyage et de propreté.
-          </p>
-          <p style="margin:0 0 22px;font-size:15px;line-height:1.55;">
-            Je vous contacte rapidement pour vous aider à configurer la plateforme : vos sites, votre planning, et vos premiers passages. L’essai dure <strong>${site.trialMonths} mois</strong>, sans carte bancaire.
-          </p>
-          <p style="margin:0 0 24px;">
-            <a href="${escapeHtml(essaiUrl)}" style="display:inline-block;background:#1FA86B;color:#ffffff;text-decoration:none;font-weight:700;font-size:15px;padding:14px 22px;border-radius:6px;">Accéder à mon essai</a>
-          </p>
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#E8F2FA;border-radius:6px;">
-            <tr><td style="padding:16px 18px;font-size:14px;line-height:1.5;">
-              Besoin d’échanger tout de suite ? Appelez-moi ou écrivez-moi au
-              <a href="tel:${escapeHtml(mobileTel)}" style="color:#0B3D6E;font-weight:700;text-decoration:none;">${escapeHtml(mobileDisplay)}</a>
-              — c’est mon portable.
-            </td></tr>
-          </table>
-          <p style="margin:22px 0 0;font-size:15px;line-height:1.55;">
-            À très vite,<br>
-            <strong>Simon</strong><br>
-            Gérant — PROGESTI<br>
-            <a href="tel:${escapeHtml(mobileTel)}" style="color:#1565A8;text-decoration:none;">${escapeHtml(mobileDisplay)}</a>
-            · <a href="mailto:${site.email}" style="color:#1565A8;text-decoration:none;">${site.email}</a><br>
-            <a href="${site.url}" style="color:#1565A8;text-decoration:none;">${site.url.replace(/^https?:\/\//, "")}</a>
-          </p>
-        </td></tr>
-        <tr><td style="padding:16px 28px 22px;border-top:1px solid #C5DCF0;font-size:12px;line-height:1.45;color:#5A6B7D;">
-          ${escapeHtml(site.company.legalName)} · ${escapeHtml(site.company.city)} ·
-          <a href="mailto:${site.email}" style="color:#5A6B7D;">${site.email}</a>
-        </td></tr>
+      <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width:600px;width:100%;background:#ffffff;border:1px solid #C5DCF0;">
+        <tr>
+          <td style="background:#ffffff;padding:18px 28px 14px;border-bottom:1px solid #C5DCF0;">
+            <img src="${escapeHtml(logoUrl)}" width="44" height="44" alt="PROGESTI" style="display:block;border:0;outline:none;width:44px;height:44px;">
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#0B3D6E;padding:18px 28px;">
+            <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#ffffff;">PROGESTI</p>
+            <p style="margin:6px 0 0;font-size:14px;line-height:1.4;color:#C5DCF0;">Logiciel pour entreprises de nettoyage</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:28px 28px 8px;">
+            <p style="margin:0 0 14px;font-size:22px;line-height:1.3;font-weight:700;color:#0F2438;">Bonjour ${escapeHtml(prenom)},</p>
+            <p style="margin:0 0 14px;font-size:15px;line-height:1.6;color:#0F2438;">
+              Merci pour votre confiance. Je suis <strong>Simon</strong>, gérant de PROGESTI.
+            </p>
+            <p style="margin:0 0 14px;font-size:15px;line-height:1.6;color:#0F2438;">
+              ${escapeHtml(ctx.why)}
+            </p>
+            <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:#0F2438;">
+              Essai <strong>${site.trialMonths} mois</strong>, tous les modules, <strong>sans carte bancaire</strong>. Vous testez sur votre vraie activité.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 28px 22px;">
+            <img src="${escapeHtml(mockupUrl)}" width="544" alt="Aperçu PROGESTI — planning nettoyage" style="display:block;width:100%;max-width:544px;height:auto;outline:none;border:1px solid #C5DCF0;">
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 28px 24px;" align="center">
+            <a href="${escapeHtml(essaiUrl)}" style="display:inline-block;background:#1FA86B;color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;padding:16px 28px;border-radius:6px;">
+              ${escapeHtml(ctx.cta)}
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 28px 22px;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#E8F2FA;">
+              <tr>
+                <td style="padding:16px 18px;font-size:15px;line-height:1.55;color:#0F2438;">
+                  Besoin de moi avant mon appel ?<br>
+                  Appelez-moi au
+                  <a href="tel:${escapeHtml(mobileTel)}" style="color:#0B3D6E;font-weight:700;text-decoration:none;">${escapeHtml(mobileDisplay)}</a>
+                  — c’est mon numéro direct.
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 28px 8px;">
+            <p style="margin:0 0 8px;font-size:14px;font-weight:700;color:#0F2438;">Avec PROGESTI, vous structurez :</p>
+            <p style="margin:0;font-size:15px;line-height:1.7;color:#0F2438;">
+              · Planning multi-sites<br>
+              · Pointage terrain<br>
+              · Facturation liée au réalisé
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:22px 28px 28px;">
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#0F2438;">
+              À très bientôt,<br>
+              <strong>Simon</strong><br>
+              Gérant — PROGESTI<br>
+              <a href="tel:${escapeHtml(mobileTel)}" style="color:#1565A8;text-decoration:none;">${escapeHtml(mobileDisplay)}</a>
+              · <a href="mailto:${site.email}" style="color:#1565A8;text-decoration:none;">${site.email}</a><br>
+              <a href="${site.url}" style="color:#1565A8;text-decoration:none;">${escapeHtml(host)}</a>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:16px 28px 22px;border-top:1px solid #C5DCF0;font-size:12px;line-height:1.45;color:#5A6B7D;">
+            ${escapeHtml(site.company.legalName)} · ${escapeHtml(site.company.city)} ·
+            <a href="mailto:${site.email}" style="color:#5A6B7D;">${site.email}</a>
+            · <a href="${site.url}" style="color:#5A6B7D;">${escapeHtml(host)}</a>
+          </td>
+        </tr>
       </table>
     </td></tr>
   </table>
