@@ -38,11 +38,13 @@ keywords: ["…", "…"]
    - 1 article blog voisin si pertinent
 8. CTA final clair vers essai 2 mois sans CB (lien `/essai-gratuit`).
 9. Passe la ligne de la file à `status: done` + `published: YYYY-MM-DD`.
-10. **Commit + push obligatoires** (automation cloud) :
+10. **Commit + mise en ligne obligatoires** (automation cloud) — sans ça le run est un **échec** :
     - `git add` l’article MDX + `docs/blog/editorial-queue.md`
     - `git commit -m "blog: publish {slug}"`
-    - Push sur **`master`**, ou PR **non-draft** puis **merge immédiat**
-    - Ne jamais laisser une PR draft sans merge
+    - **Préférence A** : `git push origin HEAD:master` (push direct)
+    - **Sinon** : PR **ready for review** (jamais `--draft` / jamais draft) → **merge immédiat** sur `master` → supprimer la branche
+    - Vérifier que le fichier existe sur `master` avant de terminer
+    - Interdit : laisser une PR draft / ouverte / non mergée
 
 ## Règles
 
@@ -52,7 +54,9 @@ keywords: ["…", "…"]
 - Pas de cards / emojis inutiles dans le MDX.
 - Un article = un fichier = un sujet de la file. Ne pas réécrire la file entière.
 - Toujours committer et merger sur `master` en fin de run automation.
+- Si une PR draft a déjà été créée pour le même slug : la passer en ready, la merger, fermer les doublons — ne pas en ouvrir une nouvelle.
 
 ## Fin
 
-Réponse courte : slug publié, SHA / URL PR mergée, titre, 3 liens internes, prochaine ligne `todo`.
+Réponse courte : slug publié, SHA sur `master` (pas seulement URL PR), titre, 3 liens internes, prochaine ligne `todo`.  
+Si pas sur `master` → dire « ÉCHEC publication » + pourquoi.
