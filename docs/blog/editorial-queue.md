@@ -27,12 +27,13 @@ Format d’une ligne :
   angle: Temps perdu, erreurs, litiges — chiffrer le coût caché vs un outil dédié.
   published: 2026-07-21
 
-- status: todo
+- status: done
   date: 2026-07-28
   slug: checklist-prise-de-poste-agent-proprete
   category: guides
   title: Checklist prise de poste pour un agent de propreté
   angle: Accès, matériel, consignes client, preuves — une routine terrain simple.
+  published: 2026-07-22
 
 - status: todo
   date: 2026-08-04
