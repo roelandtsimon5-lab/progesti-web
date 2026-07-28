@@ -35,12 +35,13 @@ Format d’une ligne :
   angle: Accès, matériel, consignes client, preuves — une routine terrain simple.
   published: 2026-07-22
 
-- status: todo
+- status: done
   date: 2026-08-04
   slug: reporting-syndic-que-fournir-chaque-mois
   category: syndics-immobilier
   title: Reporting syndic : que fournir chaque mois (sans y passer 3 heures)
   angle: Preuves de passage, incidents, photos — format attendu par les gestionnaires.
+  published: 2026-07-28
 
 - status: todo
   date: 2026-08-11
