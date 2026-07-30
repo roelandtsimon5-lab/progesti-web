@@ -35,6 +35,7 @@ Défaut `NEXT_PUBLIC_AUTH_URL` si vide :
 |---|---|
 | Connexion | `{AUTH_URL}/login` |
 | Essai | lead `/api/lead` puis `{AUTH_URL}/creer-mon-espace` |
+| Démo | lead `/api/lead` puis `{AUTH_URL}/api/public/demo-session` → `/demo-mvp` |
 | Mot de passe oublié | `{AUTH_URL}/forgot-password` |
 
 ### Sur le service **app** (planning-mvp)
@@ -79,9 +80,9 @@ Sur le service landing : `NEXT_PUBLIC_AUTH_URL` = URL publique du service app.
 
 ## Parcours
 
-- Essai : `/essai-gratuit` → lead → app Railway `/creer-mon-espace`
-- Démo : `/demo` → `/demo/live` (maquette produit)
-- Login : redirect → app Railway `/login`
+- Essai : `/essai-gratuit` → lead → app `/creer-mon-espace`
+- Démo : `/demo` → lead → app `/api/public/demo-session` → `/demo-mvp` (tenant démo)
+- Login : redirect → app `/login`
 - SEO : `/logiciel-entreprise-nettoyage`
 
 ## Build

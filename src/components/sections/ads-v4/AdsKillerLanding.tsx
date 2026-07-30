@@ -13,7 +13,7 @@ export type AdsKillerContent = {
   formTitle: string;
   formLead: string;
   ctaLabel: string;
-  /** demo | trial → app réelle (/creer-mon-espace) après lead */
+  /** demo → demo-session ; trial → /creer-mon-espace */
   next: "demo" | "trial";
   headline: string;
   subhead: string;

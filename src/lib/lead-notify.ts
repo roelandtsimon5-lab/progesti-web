@@ -1,6 +1,7 @@
 import { appendFile, mkdir, readFile } from "fs/promises";
 import path from "path";
-import { appUrl, env } from "@/lib/env";
+import { demoAppUrl, trialAppUrl } from "@/lib/cta";
+import { env } from "@/lib/env";
 import { site } from "@/lib/site";
 
 export type LeadPayload = {
@@ -14,6 +15,11 @@ export type LeadPayload = {
 };
 
 type ChannelResult = { channel: string; ok: boolean; skipped?: boolean; error?: string };
+
+/** Intents qui ouvrent le cockpit démo (pas l’essai self-serve). */
+function isDemoIntent(intent: string) {
+  return intent === "demo" || intent === "ads_v2" || intent === "ads_v4" || intent === "ads_quick";
+}
 
 function firstName(name: string) {
   const part = name.trim().split(/\s+/)[0] || name.trim();
@@ -147,7 +153,7 @@ async function sendFreeMobileSms(content: string): Promise<ChannelResult> {
 }
 
 function welcomeContext(intent: string) {
-  if (intent === "demo") {
+  if (isDemoIntent(intent)) {
     return {
       why: "Vous venez d’accéder à la démo PROGESTI. Je ne vous laisse pas seul devant l’écran : je vous appelle rapidement pour répondre à vos questions sur le planning, le pointage et la facturation.",
       cta: "Rouvrir la démo PROGESTI",
@@ -169,23 +175,32 @@ function welcomeEmail(lead: LeadPayload) {
   const prenom = firstName(lead.name);
   const mobileDisplay = env.simonMobileDisplay || env.simonMobile || site.phone;
   const mobileTel = env.simonMobile || site.phoneTel;
-  /** Démo → cockpit pré-rempli ; essai / autres → self-serve. */
-  const ctaUrl =
-    lead.intent === "demo"
-      ? appUrl("/api/public/demo-session?next=%2Fdemo-mvp&source=welcome-email")
-      : appUrl("/creer-mon-espace");
+  const demo = isDemoIntent(lead.intent);
+  /** Démo → session publique /demo-mvp ; essai → self-serve. */
+  const ctaUrl = demo
+    ? demoAppUrl({
+        company: lead.company || undefined,
+        name: lead.name,
+        email: lead.email,
+        phone: lead.phone || undefined,
+        source: "welcome-email",
+      })
+    : trialAppUrl({
+        company: lead.company || undefined,
+        name: lead.name,
+        email: lead.email,
+        source: "welcome-email",
+      });
   const base = env.siteUrl.replace(/\/$/, "");
   const logoUrl = `${base}/logo.png`;
   const mockupUrl = `${base}/hero-mockup.png`;
   const ctx = welcomeContext(lead.intent);
-  const preheader =
-    lead.intent === "demo"
-      ? "Votre démo PROGESTI est prête — planning, pointage, facturation."
-      : `Essai ${site.trialMonths} mois sans CB · je vous aide à configurer sites, planning et passages.`;
-  const subject =
-    lead.intent === "demo"
-      ? `${prenom}, votre démo PROGESTI est ouverte`
-      : `${prenom}, bienvenue chez PROGESTI — je vous aide à démarrer`;
+  const preheader = demo
+    ? "Votre démo PROGESTI est prête — planning, pointage, facturation."
+    : `Essai ${site.trialMonths} mois sans CB · je vous aide à configurer sites, planning et passages.`;
+  const subject = demo
+    ? `${prenom}, votre démo PROGESTI est ouverte`
+    : `${prenom}, bienvenue chez PROGESTI — je vous aide à démarrer`;
   const host = site.url.replace(/^https?:\/\//, "");
 
   const text = [
@@ -195,7 +210,7 @@ function welcomeEmail(lead: LeadPayload) {
     ``,
     ctx.why,
     ``,
-    lead.intent === "demo"
+    demo
       ? `Explorez le cockpit avec des données fictives réalistes (planning, agents, factures).`
       : `Essai ${site.trialMonths} mois, tous les modules, sans carte bancaire. Vous testez sur votre vraie activité.`,
     ``,
@@ -251,7 +266,11 @@ function welcomeEmail(lead: LeadPayload) {
               ${escapeHtml(ctx.why)}
             </p>
             <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:#0F2438;">
-              Essai <strong>${site.trialMonths} mois</strong>, tous les modules, <strong>sans carte bancaire</strong>. Vous testez sur votre vraie activité.
+              ${
+                demo
+                  ? "Explorez le cockpit avec des données fictives réalistes (planning, agents, factures)."
+                  : `Essai <strong>${site.trialMonths} mois</strong>, tous les modules, <strong>sans carte bancaire</strong>. Vous testez sur votre vraie activité.`
+              }
             </p>
           </td>
         </tr>
