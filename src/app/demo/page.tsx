@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { cta } from "@/lib/cta";
+import { cta, demoAppUrl } from "@/lib/cta";
 import { track } from "@/lib/tracking";
 
 const benefits = [
@@ -25,7 +24,6 @@ const benefits = [
 ];
 
 export default function DemoPage() {
-  const router = useRouter();
   const nameRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -49,11 +47,25 @@ export default function DemoPage() {
       return;
     }
 
-    const name = String(data.name || "").trim();
+    const firstName = String(data.firstName || "").trim();
+    const lastName = String(data.lastName || "").trim();
+    const name = [firstName, lastName].filter(Boolean).join(" ").trim();
     const email = String(data.email || "").trim();
     const phone = String(data.phone || "").trim();
-    const company = String(data.company || "").trim() || "Démo interactive";
+    const company = String(data.company || "").trim();
     const phoneDigits = phone.replace(/\D/g, "");
+
+    if (name.length < 2) {
+      setError("Indiquez votre prénom et votre nom.");
+      setLoading(false);
+      return;
+    }
+
+    if (!company) {
+      setError("Indiquez le nom de votre entreprise.");
+      setLoading(false);
+      return;
+    }
 
     if (phoneDigits.length < 8) {
       setError("Indiquez un numéro de téléphone valide.");
@@ -86,7 +98,14 @@ export default function DemoPage() {
       );
       track("form_submit", { intent: "demo", source: "demo_page_hero" });
       track("demo_view", { source: "demo_gate" });
-      router.push("/demo/live");
+      track("signup_start", { source: "demo_gate" });
+      window.location.href = demoAppUrl({
+        company,
+        name,
+        email,
+        phone: phone || undefined,
+        source: "demo",
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Envoi impossible. Réessayez.");
       setLoading(false);
@@ -114,13 +133,13 @@ export default function DemoPage() {
               noValidate
             >
               <p className="font-display text-xs font-bold uppercase tracking-[0.14em] text-green-deep">
-                Accès immédiat
+                Démonstration
               </p>
               <h2 className="mt-2 text-2xl font-extrabold text-blue-deep">
-                Lancer la démonstration
+                Demander une démonstration
               </h2>
               <p className="mt-2 text-sm text-slate">
-                Laissez vos coordonnées — vous entrez dans le cockpit en quelques secondes.
+                Quelques informations — puis accès à la vraie application PROGESTI.
               </p>
 
               <input
@@ -133,23 +152,44 @@ export default function DemoPage() {
               />
 
               <div className="mt-6 space-y-3">
-                <div>
-                  <label htmlFor="demo-name" className="mb-1.5 block text-sm font-bold text-blue-deep">
-                    Nom *
-                  </label>
-                  <input
-                    ref={nameRef}
-                    id="demo-name"
-                    className={field}
-                    name="name"
-                    placeholder="Votre nom"
-                    required
-                    autoComplete="name"
-                  />
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="demo-firstname"
+                      className="mb-1.5 block text-sm font-bold text-blue-deep"
+                    >
+                      Prénom *
+                    </label>
+                    <input
+                      ref={nameRef}
+                      id="demo-firstname"
+                      className={field}
+                      name="firstName"
+                      placeholder="Prénom"
+                      required
+                      autoComplete="given-name"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="demo-lastname"
+                      className="mb-1.5 block text-sm font-bold text-blue-deep"
+                    >
+                      Nom *
+                    </label>
+                    <input
+                      id="demo-lastname"
+                      className={field}
+                      name="lastName"
+                      placeholder="Nom"
+                      required
+                      autoComplete="family-name"
+                    />
+                  </div>
                 </div>
                 <div>
                   <label htmlFor="demo-email" className="mb-1.5 block text-sm font-bold text-blue-deep">
-                    Email *
+                    Email professionnel *
                   </label>
                   <input
                     id="demo-email"
@@ -181,13 +221,14 @@ export default function DemoPage() {
                     htmlFor="demo-company"
                     className="mb-1.5 block text-sm font-bold text-blue-deep"
                   >
-                    Entreprise
+                    Nom de l’entreprise *
                   </label>
                   <input
                     id="demo-company"
                     className={field}
                     name="company"
-                    placeholder="Nom de votre société"
+                    placeholder="Société de nettoyage"
+                    required
                     autoComplete="organization"
                   />
                 </div>
@@ -203,14 +244,14 @@ export default function DemoPage() {
                   disabled={loading}
                   className="w-full rounded-xl bg-green-action py-4 font-display text-base font-extrabold text-white shadow-[0_10px_28px_rgba(31,168,107,0.35)] transition hover:bg-green-deep disabled:opacity-70"
                 >
-                  {loading ? "Ouverture de la démo…" : "Voir la démo maintenant"}
+                  {loading ? "Ouverture de l’application…" : "Demander une démonstration"}
                 </button>
               </div>
 
               <ul className="mt-5 space-y-1.5 text-xs font-medium text-slate">
                 <li>✓ Aucune carte bancaire</li>
                 <li>✓ Aucun rendez-vous obligatoire</li>
-                <li>✓ Exploration libre du cockpit</li>
+                <li>✓ Accès à la vraie application</li>
               </ul>
 
               <p className="mt-4 text-center text-xs text-slate">
@@ -235,15 +276,15 @@ export default function DemoPage() {
               Voyez PROGESTI sur un cas métier réel
             </h1>
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-slate">
-              Bureaux, syndics, locaux pros ou fin de chantier — explorez planning, pointage et
-              facturation avec des données fictives réalistes.
+              Bureaux, syndics, locaux pros ou fin de chantier — ouvrez la vraie application PROGESTI
+              pour explorer planning, pointage et facturation.
             </p>
 
             <ul className="mt-8 space-y-3">
               {[
                 "Accès immédiat après le formulaire",
-                "Données de démo déjà prêtes",
-                "Idéal avant un essai 2 mois complet",
+                "Vraie application — pas une maquette",
+                "Essai 2 mois sans carte bancaire",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-sm font-semibold text-blue-deep">
                   <span className="text-green-deep" aria-hidden>
@@ -338,7 +379,7 @@ export default function DemoPage() {
           </div>
           <ul className="space-y-4">
             {[
-              "Données fictives — rien n’est enregistré sur vos clients",
+              "Votre vrai espace — configuré avec vous si besoin",
               "Parcours bureaux / syndics / chantiers compréhensible",
               "Support FR si vous avez une question après la démo",
             ].map((t) => (

@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { trialAppUrl } from "@/lib/cta";
+import { demoAppUrl, trialAppUrl } from "@/lib/cta";
 import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
@@ -14,7 +13,7 @@ export type AdsKillerContent = {
   formTitle: string;
   formLead: string;
   ctaLabel: string;
-  /** demo = /demo/live · trial = app essai */
+  /** demo | trial → app réelle (/creer-mon-espace) après lead */
   next: "demo" | "trial";
   headline: string;
   subhead: string;
@@ -43,7 +42,6 @@ function KillerForm({
   c: AdsKillerContent;
   nameRef: React.RefObject<HTMLInputElement | null>;
 }) {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [phone, setPhone] = useState("");
@@ -98,21 +96,27 @@ function KillerForm({
           JSON.stringify({ name, email, phone, campaign: c.campaign, createdAt: Date.now() }),
         );
         track("trial_start", { source: "ads_v4", campaign: c.campaign });
-        track("signup_start", { source: "ads_v4", campaign: c.campaign });
-        window.location.href = trialAppUrl({
-          name,
-          email,
-          source: `ads:${c.campaign}`,
-        });
-        return;
+      } else {
+        sessionStorage.setItem(
+          "progesti_demo",
+          JSON.stringify({ name, phone, email, campaign: c.campaign, createdAt: Date.now() }),
+        );
+        track("demo_view", { source: "ads_v4", campaign: c.campaign });
       }
-
-      sessionStorage.setItem(
-        "progesti_demo",
-        JSON.stringify({ name, phone, email: "", campaign: c.campaign, createdAt: Date.now() }),
-      );
-      track("demo_view", { source: "ads_v4", campaign: c.campaign });
-      router.push("/demo/live");
+      track("signup_start", { source: "ads_v4", campaign: c.campaign });
+      window.location.href =
+        c.next === "trial"
+          ? trialAppUrl({
+              name,
+              email,
+              source: `ads:${c.campaign}`,
+            })
+          : demoAppUrl({
+              name,
+              email,
+              phone,
+              source: `ads:${c.campaign}`,
+            });
     } catch {
       setError("Une erreur est survenue. Réessayez.");
       setLoading(false);

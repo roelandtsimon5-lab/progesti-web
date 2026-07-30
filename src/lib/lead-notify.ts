@@ -1,6 +1,6 @@
 import { appendFile, mkdir, readFile } from "fs/promises";
 import path from "path";
-import { env } from "@/lib/env";
+import { appUrl, env } from "@/lib/env";
 import { site } from "@/lib/site";
 
 export type LeadPayload = {
@@ -149,8 +149,8 @@ async function sendFreeMobileSms(content: string): Promise<ChannelResult> {
 function welcomeContext(intent: string) {
   if (intent === "demo") {
     return {
-      why: "Vous venez d’accéder à la démo PROGESTI. Je ne vous laisse pas seul devant l’écran : je vous appelle rapidement pour configurer ensemble vos sites, votre planning et vos premiers passages.",
-      cta: "Ouvrir mon espace PROGESTI",
+      why: "Vous venez d’accéder à la démo PROGESTI. Je ne vous laisse pas seul devant l’écran : je vous appelle rapidement pour répondre à vos questions sur le planning, le pointage et la facturation.",
+      cta: "Rouvrir la démo PROGESTI",
     };
   }
   if (intent === "contact") {
@@ -169,13 +169,23 @@ function welcomeEmail(lead: LeadPayload) {
   const prenom = firstName(lead.name);
   const mobileDisplay = env.simonMobileDisplay || env.simonMobile || site.phone;
   const mobileTel = env.simonMobile || site.phoneTel;
-  const essaiUrl = env.essaiUrl;
+  /** Démo → cockpit pré-rempli ; essai / autres → self-serve. */
+  const ctaUrl =
+    lead.intent === "demo"
+      ? appUrl("/api/public/demo-session?next=%2Fdemo-mvp&source=welcome-email")
+      : appUrl("/creer-mon-espace");
   const base = env.siteUrl.replace(/\/$/, "");
   const logoUrl = `${base}/logo.png`;
   const mockupUrl = `${base}/hero-mockup.png`;
   const ctx = welcomeContext(lead.intent);
-  const preheader = `Essai ${site.trialMonths} mois sans CB · je vous aide à configurer sites, planning et passages.`;
-  const subject = `${prenom}, bienvenue chez PROGESTI — je vous aide à démarrer`;
+  const preheader =
+    lead.intent === "demo"
+      ? "Votre démo PROGESTI est prête — planning, pointage, facturation."
+      : `Essai ${site.trialMonths} mois sans CB · je vous aide à configurer sites, planning et passages.`;
+  const subject =
+    lead.intent === "demo"
+      ? `${prenom}, votre démo PROGESTI est ouverte`
+      : `${prenom}, bienvenue chez PROGESTI — je vous aide à démarrer`;
   const host = site.url.replace(/^https?:\/\//, "");
 
   const text = [
@@ -185,9 +195,11 @@ function welcomeEmail(lead: LeadPayload) {
     ``,
     ctx.why,
     ``,
-    `Essai ${site.trialMonths} mois, tous les modules, sans carte bancaire. Vous testez sur votre vraie activité.`,
+    lead.intent === "demo"
+      ? `Explorez le cockpit avec des données fictives réalistes (planning, agents, factures).`
+      : `Essai ${site.trialMonths} mois, tous les modules, sans carte bancaire. Vous testez sur votre vraie activité.`,
     ``,
-    `${ctx.cta} : ${essaiUrl}`,
+    `${ctx.cta} : ${ctaUrl}`,
     ``,
     `Ce que vous structurez avec PROGESTI :`,
     `- Planning multi-sites`,
@@ -250,7 +262,7 @@ function welcomeEmail(lead: LeadPayload) {
         </tr>
         <tr>
           <td style="padding:0 28px 24px;" align="center">
-            <a href="${escapeHtml(essaiUrl)}" style="display:inline-block;background:#1FA86B;color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;padding:16px 28px;border-radius:6px;">
+            <a href="${escapeHtml(ctaUrl)}" style="display:inline-block;background:#1FA86B;color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;line-height:1.2;padding:16px 28px;border-radius:6px;">
               ${escapeHtml(ctx.cta)}
             </a>
           </td>

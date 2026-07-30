@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { demoAppUrl } from "@/lib/cta";
 import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
@@ -28,7 +28,6 @@ export function AdsCaptureLanding({
   bullets,
   ctaLabel = "Voir la plateforme →",
 }: Props) {
-  const router = useRouter();
   const nameRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -80,11 +79,17 @@ export function AdsCaptureLanding({
 
       sessionStorage.setItem(
         "progesti_demo",
-        JSON.stringify({ name, phone, email: "", campaign, createdAt: Date.now() }),
+        JSON.stringify({ name, phone, email: `${digits}@lead.progesti.fr`, campaign, createdAt: Date.now() }),
       );
       track("form_submit", { intent: "ads_quick", campaign });
       track("demo_view", { source: "ads_capture", campaign });
-      router.push("/demo/live");
+      track("signup_start", { source: "ads_capture", campaign });
+      window.location.href = demoAppUrl({
+        name,
+        email: `${digits}@lead.progesti.fr`,
+        phone,
+        source: `ads:${campaign}`,
+      });
     } catch {
       setError("Une erreur est survenue. Réessayez.");
       setLoading(false);

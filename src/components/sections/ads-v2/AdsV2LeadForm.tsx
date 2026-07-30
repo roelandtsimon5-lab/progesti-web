@@ -1,15 +1,13 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { demoAppUrl } from "@/lib/cta";
 import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
 type Props = {
   campaign: string;
   submitLabel: string;
-  /** Where to send the visitor after a successful lead capture */
-  nextHref?: "/demo/live" | "/essai-gratuit";
 };
 
 function formatFrPhone(value: string) {
@@ -19,12 +17,7 @@ function formatFrPhone(value: string) {
   return parts.join(" ");
 }
 
-export function AdsV2LeadForm({
-  campaign,
-  submitLabel,
-  nextHref = "/demo/live",
-}: Props) {
-  const router = useRouter();
+export function AdsV2LeadForm({ campaign, submitLabel }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [phone, setPhone] = useState("");
@@ -82,12 +75,15 @@ export function AdsV2LeadForm({
         JSON.stringify({ name, phone, email, campaign, createdAt: Date.now() }),
       );
       track("form_submit", { intent: "ads_v2", campaign });
-      if (nextHref === "/demo/live") {
-        track("demo_view", { source: "ads_v2", campaign });
-      } else {
-        track("trial_start", { source: "ads_v2", campaign });
-      }
-      router.push(nextHref);
+      track("demo_view", { source: "ads_v2", campaign });
+      track("signup_start", { source: "ads_v2", campaign });
+      window.location.href = demoAppUrl({
+        company: company || undefined,
+        name,
+        email,
+        phone,
+        source: `ads:${campaign}`,
+      });
     } catch {
       setError("Une erreur est survenue. Réessayez ou écrivez à contact@progesti.fr");
       setLoading(false);
