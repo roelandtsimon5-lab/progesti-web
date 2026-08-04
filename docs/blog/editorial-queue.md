@@ -43,12 +43,13 @@ Format d’une ligne :
   angle: Preuves de passage, incidents, photos — format attendu par les gestionnaires.
   published: 2026-07-28
 
-- status: todo
+- status: done
   date: 2026-08-11
   slug: multi-sites-nettoyage-comment-scaler-sans-chaos
   category: guides
   title: Passer de 5 à 30 sites de nettoyage sans chaos opérationnel
   angle: Process, rôles, outils — ce qui casse quand on grandit trop vite.
+  published: 2026-08-04
 
 - status: todo
   date: 2026-08-18
