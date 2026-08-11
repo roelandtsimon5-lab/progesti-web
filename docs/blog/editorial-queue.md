@@ -51,12 +51,13 @@ Format d’une ligne :
   angle: Process, rôles, outils — ce qui casse quand on grandit trop vite.
   published: 2026-08-04
 
-- status: todo
+- status: done
   date: 2026-08-18
   slug: pointage-vs-feuilles-heures-proprete
   category: conseils-metier
   title: Pointage mobile vs feuilles d’heures : ce qui change en propreté
   angle: Litiges paie, preuves, confiance client — comparaison concrète.
+  published: 2026-08-11
 
 - status: todo
   date: 2026-08-25
