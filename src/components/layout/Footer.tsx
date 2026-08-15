@@ -19,7 +19,6 @@ const columns = [
     links: [
       ...solutions.map((s) => ({ href: `/solutions/${s.slug}`, label: s.title })),
       { href: "/logiciel-entreprise-nettoyage", label: "Logiciel nettoyage" },
-      { href: "/alternative-propret", label: "Alternative Propret" },
     ],
   },
   {

@@ -30,8 +30,8 @@ export function CookieConsent() {
   return (
     <div className="fixed bottom-20 left-4 right-4 z-[60] mx-auto max-w-xl rounded-2xl border border-line bg-white p-4 shadow-[0_20px_60px_rgba(11,21,36,0.18)] lg:bottom-6">
       <p className="text-sm text-anthracite">
-        Nous utilisons des cookies de mesure d’audience (si GTM est configuré) pour améliorer le
-        site. Vous pouvez accepter ou refuser.
+        Nous utilisons des cookies de mesure d'audience pour améliorer le site.
+        Vous pouvez accepter ou refuser.
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
         <button

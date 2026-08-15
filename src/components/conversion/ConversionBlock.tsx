@@ -24,7 +24,7 @@ const copy: Record<
     secondary: { href: cta.demo, label: "Voir une démo" },
   },
   demo: {
-    title: "Voyez PROGESTI sur votre cas métier",
+    title: "Voyez Progesti sur votre cas métier",
     lead: "Bureaux, syndics ou fin de chantier — exploration libre du cockpit.",
     primary: { href: cta.demo, label: "Lancer la démo" },
     secondary: {
