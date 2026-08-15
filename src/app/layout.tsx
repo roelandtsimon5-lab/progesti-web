@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import {
@@ -12,20 +13,6 @@ import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { env } from "@/lib/env";
 import { site } from "@/lib/site";
 import "./globals.css";
-
-const display = Plus_Jakarta_Sans({
-  variable: "--font-display-family",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  display: "swap",
-});
-
-const body = DM_Sans({
-  variable: "--font-body-family",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -86,11 +73,11 @@ const orgJsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" data-scroll-behavior="smooth" className={`${display.variable} ${body.variable} h-full`}>
+    <html lang="fr" data-scroll-behavior="smooth" className={`${GeistSans.variable} ${GeistMono.variable} h-full`}>
       <head>
         <GtmHead />
       </head>
-      <body className="flex min-h-full flex-col antialiased">
+      <body className="flex min-h-full flex-col antialiased group/body">
         <GtmNoscript />
         <GtmConsentBootstrap />
         <GtmPageviews />
@@ -104,11 +91,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <Header />
+        <div className="group-has-[.home-dark]/body:hidden">
+          <Header />
+        </div>
         <main id="contenu-principal" className="flex-1">
           {children}
         </main>
-        <Footer />
+        <div className="group-has-[.home-dark]/body:hidden">
+          <Footer />
+        </div>
         <CookieConsent />
       </body>
     </html>
