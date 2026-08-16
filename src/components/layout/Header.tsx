@@ -54,7 +54,7 @@ export function Header() {
                           <p className="font-display text-xs font-bold uppercase tracking-wider text-white/90">
                             Nettoyage professionnel
                           </p>
-                          <p className="text-sm text-white/75">Choisissez votre univers metier</p>
+                          <p className="text-sm text-white/75">Choisissez votre univers métier</p>
                         </div>
                         <ul className="p-2">
                           {solutions.map((s) => (
@@ -78,7 +78,7 @@ export function Header() {
                             className="text-sm font-bold text-blue-royal hover:underline"
                             onClick={() => setSolutionsOpen(false)}
                           >
-                            Pas sur ? Demandez une demo →
+                            Pas sûr ? Demandez une démo →
                           </Link>
                         </div>
                       </div>
@@ -104,7 +104,7 @@ export function Header() {
             Se connecter
           </ButtonLink>
           <ButtonLink href={cta.demo} eventPayload={{ cta: "header_demo" }}>
-            Demander une demo
+            Demander une démo
           </ButtonLink>
         </div>
 
@@ -157,7 +157,7 @@ export function Header() {
             })}
             <div className="mt-3 flex flex-col gap-2">
               <ButtonLink href={cta.demo} eventPayload={{ cta: "mobile_demo" }}>
-                Demander une demo
+                Demander une démo
               </ButtonLink>
               <ButtonLink href={cta.trial} variant="secondary" eventPayload={{ cta: "mobile_trial" }}>
                 Essai 7 jours gratuit

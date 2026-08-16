@@ -14,17 +14,17 @@ const problemPoints = [
   },
   {
     before: "Pointage sur papier",
-    after: "Pointage mobile geolocalise",
+    after: "Pointage mobile géolocalisé",
     icon: "📱",
   },
   {
     before: "Factures Word/Excel",
-    after: "Facturation automatisee",
+    after: "Facturation automatisée",
     icon: "📄",
   },
   {
     before: "WhatsApp pour tout",
-    after: "Donnees centralisees",
+    after: "Données centralisées",
     icon: "💬",
   },
 ];
@@ -37,7 +37,7 @@ const flowSteps = [
   { label: "Planning", color: "bg-green-deep" },
   { label: "Pointage", color: "bg-green-action" },
   { label: "Facturation", color: "bg-blue-royal" },
-  { label: "Rentabilite", color: "bg-blue-deep" },
+  { label: "Rentabilité", color: "bg-blue-deep" },
 ];
 
 const targetAudiences = [
@@ -46,27 +46,27 @@ const targetAudiences = [
     description: "Bureaux, locaux professionnels, commerces",
   },
   {
-    title: "Societes de proprete",
-    description: "Multi-sites, syndics, coproprietes",
+    title: "Sociétés de propreté",
+    description: "Multi-sites, syndics, copropriétés",
   },
   {
-    title: "Equipes multi-agents",
-    description: "Coordination terrain et planning centralise",
+    title: "Équipes multi-agents",
+    description: "Coordination terrain et planning centralisé",
   },
 ];
 
 const migrationPoints = [
   {
-    title: "Accompagnement personnalise",
-    description: "Un interlocuteur dedie vous guide dans la prise en main.",
+    title: "Accompagnement personnalisé",
+    description: "Un interlocuteur dédié vous guide dans la prise en main.",
   },
   {
-    title: "Import de vos donnees",
-    description: "Nous vous aidons a reprendre clients, sites et contrats existants.",
+    title: "Import de vos données",
+    description: "Nous vous aidons à reprendre clients, sites et contrats existants.",
   },
   {
     title: "Formation incluse",
-    description: "Prise en main rapide pour vous et vos equipes.",
+    description: "Prise en main rapide pour vous et vos équipes.",
   },
 ];
 
@@ -85,12 +85,12 @@ export function HomeNew() {
             </div>
             
             <h1 className="font-display text-[2.5rem] font-extrabold leading-[1.1] tracking-tight text-blue-deep md:text-[3.25rem] lg:text-[3.5rem]">
-              Gerez votre entreprise de nettoyage depuis un seul logiciel.
+              Gérez votre entreprise de nettoyage depuis un seul logiciel.
             </h1>
             
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate">
-              Planning, salaries, clients, pointage terrain, devis et facturation. 
-              Tout centralise pour les entreprises de proprete.
+              Planning, salariés, clients, pointage terrain, devis et facturation. 
+              Tout centralisé pour les entreprises de propreté.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -99,7 +99,7 @@ export function HomeNew() {
                 size="lg"
                 eventPayload={{ cta: "home_hero_demo" }}
               >
-                Demander une demo
+                Demander une démo
               </ButtonLink>
               <ButtonLink
                 href="#produit"
@@ -107,7 +107,7 @@ export function HomeNew() {
                 variant="secondary"
                 eventPayload={{ cta: "home_hero_scroll" }}
               >
-                Voir comment ca fonctionne
+                Voir comment ça fonctionne
               </ButtonLink>
             </div>
 
@@ -122,8 +122,8 @@ export function HomeNew() {
           <div className="relative">
             <div className="overflow-hidden rounded-2xl border border-blue-mist/60 bg-white shadow-[0_24px_80px_rgba(11,61,110,0.12)]">
               <Image
-                src="/dashboard-mockup-opt.webp"
-                alt="Interface PROGESTI - Planning des passages"
+                src="/screen-passages.webp"
+                alt="Interface PROGESTI — Planning des passages"
                 width={800}
                 height={500}
                 priority
@@ -153,11 +153,11 @@ export function HomeNew() {
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="font-display text-3xl font-extrabold text-blue-deep md:text-4xl">
-                Votre entreprise ne devrait pas etre geree avec 5 logiciels differents.
+                Votre entreprise ne devrait pas être gérée avec 5 logiciels différents.
               </h2>
               <p className="mt-4 text-lg text-slate">
                 Excel pour le planning, papier pour le pointage, Word pour les devis, 
-                WhatsApp pour communiquer... Simplifiez tout.
+                WhatsApp pour communiquer… Simplifiez tout.
               </p>
             </div>
           </Reveal>
@@ -182,12 +182,12 @@ export function HomeNew() {
       <section className="section bg-[#F7FAFC]">
         <div className="container">
           <Reveal>
-            <p className="eyebrow">Fonctionnalites</p>
+            <p className="eyebrow">Fonctionnalités</p>
             <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
               Tous les modules inclus
             </h2>
             <p className="lead mt-4">
-              Planning, pointage, facturation et plus — sans supplement.
+              Planning, pointage, facturation et plus — sans supplément.
             </p>
           </Reveal>
 
@@ -209,7 +209,7 @@ export function HomeNew() {
               href="/fonctionnalites"
               className="font-display text-sm font-bold text-blue-royal hover:underline"
             >
-              Decouvrir toutes les fonctionnalites →
+              Découvrir toutes les fonctionnalités →
             </Link>
           </p>
         </div>
@@ -222,14 +222,14 @@ export function HomeNew() {
             <div>
               <p className="eyebrow">Planning</p>
               <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
-                Visualisez et gerez vos passages
+                Visualisez et gérez vos passages
               </h2>
               <p className="mt-4 text-lg text-slate">
-                Affectez vos agents aux sites, gerez les recurrences et 
-                suivez les passages valides en temps reel.
+                Affectez vos agents aux sites, gérez les récurrences et 
+                suivez les passages validés en temps réel.
               </p>
               <ul className="mt-6 space-y-3">
-                {["Vue calendrier par agent ou par site", "Gestion des recurrences", "Statuts en temps reel"].map((item) => (
+                {["Vue calendrier par agent ou par site", "Gestion des récurrences", "Statuts en temps réel"].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-slate">
                     <span className="mt-0.5 text-green-action">✓</span>
                     <span>{item}</span>
@@ -241,7 +241,7 @@ export function HomeNew() {
           <Reveal delayMs={100}>
             <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
               <Image
-                src="/dashboard-mockup-opt.webp"
+                src="/screen-passages.webp"
                 alt="Interface Planning PROGESTI"
                 width={700}
                 height={440}
@@ -252,14 +252,14 @@ export function HomeNew() {
         </div>
       </section>
 
-      {/* VISUAL SECTIONS - Telegestion */}
+      {/* VISUAL SECTIONS - Télégestion */}
       <section className="section bg-[#F7FAFC]">
         <div className="container grid items-center gap-12 lg:grid-cols-2">
           <Reveal delayMs={100} className="order-2 lg:order-1">
             <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
               <Image
-                src="/hero-mockup-opt.webp"
-                alt="Interface Telegestion PROGESTI"
+                src="/screen-telegestion.webp"
+                alt="Interface Télégestion PROGESTI"
                 width={700}
                 height={440}
                 className="h-auto w-full"
@@ -268,16 +268,16 @@ export function HomeNew() {
           </Reveal>
           <Reveal className="order-1 lg:order-2">
             <div>
-              <p className="eyebrow">Pointage & Telegestion</p>
+              <p className="eyebrow">Pointage & Télégestion</p>
               <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
-                Suivez le terrain en temps reel
+                Suivez le terrain en temps réel
               </h2>
               <p className="mt-4 text-lg text-slate">
-                Vos agents pointent via l'app mobile. Depart, arrivee, 
-                geolocalisation — tout remonte automatiquement.
+                Vos agents pointent via l'app mobile. Départ, arrivée, 
+                géolocalisation — tout remonte automatiquement.
               </p>
               <ul className="mt-6 space-y-3">
-                {["Pointage mobile Android & iOS", "Geolocalisation des interventions", "Historique complet"].map((item) => (
+                {["Pointage mobile Android & iOS", "Géolocalisation des interventions", "Historique complet"].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-slate">
                     <span className="mt-0.5 text-green-action">✓</span>
                     <span>{item}</span>
@@ -296,14 +296,14 @@ export function HomeNew() {
             <div>
               <p className="eyebrow">Facturation</p>
               <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
-                Du devis a la facture sans ressaisie
+                Du devis à la facture sans ressaisie
               </h2>
               <p className="mt-4 text-lg text-slate">
-                Creez vos devis, convertissez-les en contrats, puis en factures. 
-                Le realise terrain alimente automatiquement la facturation.
+                Créez vos devis, convertissez-les en contrats, puis en factures. 
+                Le réalisé terrain alimente automatiquement la facturation.
               </p>
               <ul className="mt-6 space-y-3">
-                {["Devis professionnels", "Conversion devis → contrat → facture", "Suivi des impayes"].map((item) => (
+                {["Devis professionnels", "Conversion devis → contrat → facture", "Suivi des impayés"].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-slate">
                     <span className="mt-0.5 text-green-action">✓</span>
                     <span>{item}</span>
@@ -315,7 +315,7 @@ export function HomeNew() {
           <Reveal delayMs={100}>
             <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
               <Image
-                src="/dashboard-mockup-opt.webp"
+                src="/screen-factures.webp"
                 alt="Interface Facturation PROGESTI"
                 width={700}
                 height={440}
@@ -335,10 +335,10 @@ export function HomeNew() {
                 Un fil unique
               </p>
               <h2 className="mt-3 text-3xl font-extrabold text-white md:text-4xl">
-                Du prospect a la rentabilite, tout est connecte
+                Du prospect à la rentabilité, tout est connecté
               </h2>
               <p className="mt-4 text-lg text-white/80">
-                Chaque etape alimente la suivante. Plus de ressaisie, plus de donnees perdues.
+                Chaque étape alimente la suivante. Plus de ressaisie, plus de données perdues.
               </p>
             </div>
           </Reveal>
@@ -392,13 +392,13 @@ export function HomeNew() {
                   size="lg"
                   eventPayload={{ cta: "home_pricing_demo" }}
                 >
-                  Demander une demo
+                  Demander une démo
                 </ButtonLink>
                 <Link
                   href="/tarifs"
                   className="font-display text-sm font-bold text-blue-royal hover:underline"
                 >
-                  Voir le detail →
+                  Voir le détail →
                 </Link>
               </div>
             </div>
@@ -412,7 +412,7 @@ export function HomeNew() {
           <Reveal>
             <p className="eyebrow">Pour qui</p>
             <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
-              Concu pour les entreprises de nettoyage
+              Conçu pour les entreprises de nettoyage
             </h2>
           </Reveal>
 
@@ -437,10 +437,10 @@ export function HomeNew() {
           <Reveal>
             <p className="eyebrow">Migration</p>
             <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
-              On vous accompagne des le depart
+              On vous accompagne dès le départ
             </h2>
             <p className="lead mt-4">
-              Pas de promesse d'import magique. Un accompagnement reel.
+              Pas de promesse d'import magique. Un accompagnement réel.
             </p>
           </Reveal>
 
@@ -465,7 +465,7 @@ export function HomeNew() {
           <Reveal>
             <p className="eyebrow">FAQ</p>
             <h2 className="mt-3 text-3xl font-extrabold text-blue-deep">
-              Questions frequentes
+              Questions fréquentes
             </h2>
           </Reveal>
           <div className="mt-8">
@@ -482,10 +482,10 @@ export function HomeNew() {
               {site.name}
             </p>
             <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-extrabold text-white md:text-4xl">
-              Pret a simplifier la gestion de votre entreprise ?
+              Prêt à simplifier la gestion de votre entreprise ?
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-lg text-white/80">
-              Demandez une demo et decouvrez PROGESTI sur vos cas d'usage reels.
+              Demandez une démo et découvrez PROGESTI sur vos cas d'usage réels.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <ButtonLink
@@ -493,7 +493,7 @@ export function HomeNew() {
                 size="lg"
                 eventPayload={{ cta: "home_final_demo" }}
               >
-                Demander une demo
+                Demander une démo
               </ButtonLink>
               <ButtonLink
                 href={cta.trial}

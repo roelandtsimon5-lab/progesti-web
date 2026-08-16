@@ -14,30 +14,30 @@ const copy: Record<
   }
 > = {
   demo: {
-    title: "Pret a simplifier votre gestion ?",
-    lead: "Demandez une demo et decouvrez PROGESTI sur vos cas d'usage reels.",
+    title: "Prêt à simplifier votre gestion ?",
+    lead: "Demandez une démo et découvrez PROGESTI sur vos cas d'usage réels.",
     primary: {
       href: cta.demo,
-      label: "Demander une demo",
+      label: "Demander une démo",
     },
     secondary: { href: cta.trial, label: "Essai 7 jours gratuit" },
   },
   essai: {
-    title: "Pret a simplifier votre gestion ?",
-    lead: "Demandez une demo et decouvrez PROGESTI sur vos cas d'usage reels.",
+    title: "Prêt à simplifier votre gestion ?",
+    lead: "Demandez une démo et découvrez PROGESTI sur vos cas d'usage réels.",
     primary: {
       href: cta.demo,
-      label: "Demander une demo",
+      label: "Demander une démo",
     },
     secondary: { href: cta.trial, label: "Essai 7 jours gratuit" },
   },
   contact: {
-    title: "Une question ? On vous repond",
-    lead: "Commercial, migration, essai — equipe MSNE SAS, Tournefeuille (31).",
+    title: "Une question ? On vous répond",
+    lead: "Commercial, migration, essai — équipe MSNE SAS, Tournefeuille (31).",
     primary: { href: "/contact", label: "Nous contacter" },
     secondary: {
       href: cta.demo,
-      label: "Demander une demo",
+      label: "Demander une démo",
     },
   },
 };

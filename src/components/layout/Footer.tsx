@@ -7,10 +7,10 @@ const columns = [
   {
     title: "Produit",
     links: [
-      { href: "/fonctionnalites", label: "Fonctionnalites" },
+      { href: "/fonctionnalites", label: "Fonctionnalités" },
       { href: "/tarifs", label: "Tarifs" },
-      { href: cta.demo, label: "Demo" },
-      { href: "/integrations", label: "Integrations" },
+      { href: cta.demo, label: "Démo" },
+      { href: "/integrations", label: "Intégrations" },
     ],
   },
   {
@@ -34,9 +34,9 @@ const columns = [
     title: "Entreprise",
     links: [
       { href: "/contact", label: "Contact" },
-      { href: "/a-propos", label: "A propos" },
-      { href: "/mentions-legales", label: "Mentions legales" },
-      { href: "/confidentialite", label: "Confidentialite" },
+      { href: "/a-propos", label: "À propos" },
+      { href: "/mentions-legales", label: "Mentions légales" },
+      { href: "/confidentialite", label: "Confidentialité" },
       { href: "/cgv", label: "CGV" },
     ],
   },
@@ -50,7 +50,7 @@ export function Footer() {
           <div>
             <p className="font-display text-2xl font-extrabold tracking-tight">{site.name}</p>
             <p className="mt-2 text-sm text-white/90">
-              Organisez bureaux, syndics, locaux pros et fin de chantier — du planning a la facture.
+              Organisez bureaux, syndics, locaux pros et fin de chantier — du planning à la facture.
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-3 md:mt-0">
@@ -58,7 +58,7 @@ export function Footer() {
               href={cta.demo}
               eventPayload={{ cta: "footer_demo" }}
             >
-              Demander une demo
+              Demander une démo
             </ButtonLink>
             <ButtonLink
               href={cta.trial}
@@ -131,7 +131,7 @@ export function Footer() {
             {site.company.rcs}
           </p>
           <p>
-            Logiciel edite sous la marque {site.name}
+            Logiciel édité sous la marque {site.name}
           </p>
         </div>
       </div>

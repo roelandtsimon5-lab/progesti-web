@@ -1,7 +1,7 @@
 export const trustPoints = [
   "149 € HT/mois, tout inclus",
   "Essai 7 jours sans engagement",
-  "Support FR a Tournefeuille",
+  "Support FR à Tournefeuille",
 ] as const;
 
 export function TrustStrip() {
