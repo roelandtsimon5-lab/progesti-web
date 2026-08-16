@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
+import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { solutions } from "@/lib/site";
 import { cta } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
@@ -18,6 +19,7 @@ export const metadata: Metadata = pageMeta({
 export default function SolutionsIndexPage() {
   return (
     <>
+      <SoftwareApplicationLd />
       <section className="relative overflow-hidden bg-[#F5F8FB]">
         <div
           className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(31,168,107,0.12),transparent)]"

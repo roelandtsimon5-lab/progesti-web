@@ -48,9 +48,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/glossaire", 0.55, "monthly"),
     entry("/guides", 0.55, "weekly"),
     entry("/comparatifs", 0.55, "weekly"),
-    entry("/clients", 0.5, "monthly"),
-    entry("/cas-clients", 0.5, "monthly"),
-    entry("/temoignages", 0.5, "monthly"),
+    // Placeholder pages excluded until real content exists:
+    // entry("/clients", 0.5, "monthly"),
+    // entry("/cas-clients", 0.5, "monthly"),
+    // entry("/temoignages", 0.5, "monthly"),
     entry("/integrations", 0.45, "monthly"),
     entry("/a-propos", 0.45, "monthly"),
   ];

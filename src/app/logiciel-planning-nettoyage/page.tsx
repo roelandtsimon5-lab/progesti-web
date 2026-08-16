@@ -2,19 +2,22 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ConversionBlock } from "@/components/conversion/ConversionBlock";
+import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import Link from "next/link";
 import { cta } from "@/lib/cta";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Logiciel planning nettoyage",
   description:
     "Logiciel de planning pour entreprise de nettoyage : affectez agents et sites, évitez les oublis. Essai PROGESTI 2 mois.",
-  alternates: { canonical: "/logiciel-planning-nettoyage" },
-};
+  path: "/logiciel-planning-nettoyage",
+});
 
 export default function PillarPlanningPage() {
   return (
     <>
+      <SoftwareApplicationLd />
       <PageHero
         eyebrow="Planning propreté"
         title="Logiciel de planning pour le nettoyage"

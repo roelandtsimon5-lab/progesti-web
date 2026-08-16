@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HomeValidated } from "@/components/home/HomeValidated";
+import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -15,5 +16,10 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function HomePage() {
-  return <HomeValidated />;
+  return (
+    <>
+      <SoftwareApplicationLd />
+      <HomeValidated />
+    </>
+  );
 }

@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Politique de confidentialité",
-  description: `Politique de confidentialité ${site.name} — site web, SaaS et application mobile ILICO Télégestion.`,
+  ...pageMeta({
+    title: "Politique de confidentialité",
+    description: `Politique de confidentialité ${site.name} — site web, SaaS et application mobile ILICO Télégestion.`,
+    path: "/confidentialite",
+  }),
   robots: { index: true, follow: true },
 };
 

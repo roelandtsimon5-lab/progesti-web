@@ -8,7 +8,8 @@ import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Témoignages",
   description:
-    "Retours d’entreprises de nettoyage sur PROGESTI. Nous ne publions que des avis réels — pas de faux témoignages.",
+    "Retours d'entreprises de nettoyage sur PROGESTI. Nous ne publions que des avis réels — pas de faux témoignages.",
+  robots: { index: false, follow: true },
 };
 
 const examples = [
@@ -16,7 +17,7 @@ const examples = [
     segment: "Bureaux",
     href: "/solutions/bureaux",
     quote:
-      "« On a réduit les allers-retours WhatsApp pour les absences. Le planning est enfin lisible pour toute l’équipe. »",
+      "« On a réduit les allers-retours WhatsApp pour les absences. Le planning est enfin lisible pour toute l'équipe. »",
     note: "Exemple illustratif — pas un avis client publié.",
   },
   {
@@ -41,7 +42,7 @@ export default function TemoignagesPage() {
       <PageHero
         eyebrow="Témoignages"
         title="La preuve par le terrain"
-        lead="Nous ne publions que des avis réels. En attendant des retours validés, voici le type de bénéfices attendus — clairement marqués comme exemples — et l’invitation à tester vous-même."
+        lead="Nous ne publions que des avis réels. En attendant des retours validés, voici le type de bénéfices attendus — clairement marqués comme exemples — et l'invitation à tester vous-même."
         primaryHref={cta.trialApp}
         primaryLabel="Essai gratuit"
         secondaryHref="/demo"
@@ -52,7 +53,7 @@ export default function TemoignagesPage() {
           <p className="max-w-2xl rounded-lg border border-amber/40 bg-amber/10 px-4 py-3 text-sm text-anthracite">
             <strong className="text-ink">Transparence :</strong> les citations ci-dessous sont des{" "}
             <em>exemples illustratifs</em>, pas des témoignages clients. Dès que nous disposerons
-            d’avis réels, ils remplaceront ces placeholders.
+            d'avis réels, ils remplaceront ces placeholders.
           </p>
 
           <ul className="mt-12 grid gap-10 md:grid-cols-3">

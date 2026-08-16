@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -9,5 +10,10 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function EssaiLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <SoftwareApplicationLd />
+      {children}
+    </>
+  );
 }

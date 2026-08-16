@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Prendre rendez-vous",
-  description: "Réservez un échange avec l’équipe PROGESTI pour une démo ou une migration.",
-};
+  description: "Réservez un échange avec l'équipe PROGESTI pour une démo ou une migration.",
+  path: "/rendez-vous",
+});
 
 export default function RendezVousPage() {
   const calendarUrl = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL || "";
@@ -16,7 +18,7 @@ export default function RendezVousPage() {
       <PageHero
         eyebrow="Rendez-vous"
         title="Parlons de votre organisation terrain"
-        lead="Démo, qualification de besoin ou plan d’intégration de vos données — choisissez le format qui vous convient."
+        lead="Démo, qualification de besoin ou plan d'intégration de vos données — choisissez le format qui vous convient."
       />
       <section className="section !pt-0">
         <div className="container grid gap-8 lg:grid-cols-2">
@@ -34,7 +36,7 @@ export default function RendezVousPage() {
             {calendarUrl ? (
               <>
                 <p className="mt-3 text-anthracite">
-                  Choisissez un créneau directement dans l’agenda.
+                  Choisissez un créneau directement dans l'agenda.
                 </p>
                 <a
                   className="mt-6 inline-flex min-h-12 items-center rounded-xl bg-emerald px-5 py-3 font-display text-sm font-extrabold text-navy"

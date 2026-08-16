@@ -28,7 +28,8 @@ function parseFile(filename: string): BlogPost {
   const raw = fs.readFileSync(path.join(BLOG_DIR, filename), "utf8");
   const { data, content } = matter(raw);
   // Drop leading H1 — page template already renders title as H1
-  const body = content.replace(/^#\s+[^\n]+\n+/, "");
+  // Handle optional leading whitespace/newlines after frontmatter
+  const body = content.replace(/^\s*#\s+[^\n]+\n*/, "");
   const contentHtml = marked.parse(body, { async: false }) as string;
 
   return {

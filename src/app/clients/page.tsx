@@ -6,6 +6,7 @@ import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Clients",
   description: "PROGESTI accompagne les professionnels de la propreté. Références clients à venir.",
+  robots: { index: false, follow: true },
 };
 
 export default function ClientsPage() {

@@ -4,11 +4,13 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { site } from "@/lib/site";
 import { cta } from "@/lib/cta";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "À propos",
   description: `À propos de ${site.name} — logiciel de gestion pour entreprises de nettoyage, édité par ${site.company.legalName}.`,
-};
+  path: "/a-propos",
+});
 
 export default function AProposPage() {
   return (

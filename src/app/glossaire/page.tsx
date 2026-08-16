@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { glossaryTerms } from "@/lib/glossary";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Glossaire métier — nettoyage & propreté",
   description:
     "Définitions des termes du métier de la propreté : vacation, parties communes, pointage, fin de chantier, prépaie…",
-};
+  path: "/glossaire",
+});
 
 export default function GlossairePage() {
   const sorted = [...glossaryTerms].sort((a, b) => a.term.localeCompare(b.term, "fr"));

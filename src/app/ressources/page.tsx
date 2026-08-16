@@ -5,12 +5,14 @@ import { getAllPosts, getCategoryLabel } from "@/lib/blog";
 import { modules, solutions } from "@/lib/site";
 import { cta } from "@/lib/cta";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Ressources — guides, piliers SEO, solutions",
   description:
     "Hub ressources PROGESTI : pages piliers, solutions métier, blog et glossaire pour entreprises de nettoyage.",
-};
+  path: "/ressources",
+});
 
 const pillars = [
   {

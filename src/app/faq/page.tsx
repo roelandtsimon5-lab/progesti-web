@@ -4,12 +4,14 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { cta } from "@/lib/cta";
 import { faqItems } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "FAQ",
   description:
     "FAQ complète PROGESTI : essai, sécurité, hébergement, mobile, résiliation, import de données.",
-};
+  path: "/faq",
+});
 
 export default function FaqPage() {
   const jsonLd = {

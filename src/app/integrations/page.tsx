@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Intégrations",
   description: "Intégrations PROGESTI : Google Agenda, mobile, exports.",
-};
+  path: "/integrations",
+});
 
 export default function IntegrationsPage() {
   return (

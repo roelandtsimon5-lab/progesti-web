@@ -14,9 +14,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const term = getTerm(slug);
   if (!term) return {};
+  const path = `/glossaire/${term.slug}`;
   return {
     title: `${term.term} — glossaire propreté`,
     description: term.definition.slice(0, 155),
+    alternates: { canonical: path },
+    openGraph: {
+      title: `${term.term} — glossaire propreté | ${site.name}`,
+      description: term.definition.slice(0, 155),
+      url: `${site.url}${path}`,
+    },
   };
 }
 

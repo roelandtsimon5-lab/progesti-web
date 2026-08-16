@@ -2,19 +2,22 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ConversionBlock } from "@/components/conversion/ConversionBlock";
+import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import Link from "next/link";
 import { cta } from "@/lib/cta";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Logiciel facturation propreté",
   description:
     "Facturez plus vite votre activité de nettoyage : devis, factures et suivi liés au réalisé terrain avec PROGESTI.",
-  alternates: { canonical: "/logiciel-facturation-proprete" },
-};
+  path: "/logiciel-facturation-proprete",
+});
 
 export default function PillarFacturationPage() {
   return (
     <>
+      <SoftwareApplicationLd />
       <PageHero
         eyebrow="Facturation"
         title="Logiciel de facturation pour la propreté"
