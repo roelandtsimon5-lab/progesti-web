@@ -6,15 +6,11 @@ export const site = {
     "Logiciel de gestion pour entreprises de nettoyage et de propreté. Planifiez vos agents, pointez le terrain et facturez — bureaux, syndics, professionnels et fin de chantier.",
   url: "https://progesti.fr",
   email: "contact@progesti.fr",
-  /** Téléphone public (affichage FR). */
   phone: "05 82 95 09 19",
-  /** Lien tel: (E.164). */
   phoneTel: "+33582950919",
-  /**
-   * Profils publics (fiche Google Business, LinkedIn, etc.).
-   * Ajouter l’URL GMB après création — voir docs/SEO-GMB-CHECKLIST.md.
-   */
   sameAs: [] as readonly string[],
+  trialDays: 7,
+  /** @deprecated Use trialDays. Kept for backward compatibility with ads pages. */
   trialMonths: 2,
   company: {
     legalName: "MSNE SAS",
@@ -32,8 +28,8 @@ export const navLinks = [
   { href: "/fonctionnalites", label: "Fonctionnalités" },
   { href: "/solutions", label: "Solutions" },
   { href: "/tarifs", label: "Tarifs" },
-  { href: "/blog", label: "Blog" },
-  { href: "/demo", label: "Démo" },
+  { href: "/ressources", label: "Ressources" },
+  { href: "/faq", label: "FAQ" },
 ] as const;
 
 export const solutions = [
@@ -51,13 +47,13 @@ export const solutions = [
     navHint: "Parties communes, multi-immeubles",
     headline: "Parties communes multi-sites : planning, preuves et reporting syndic",
     lead:
-      "Halls, cages d’escalier, locaux techniques : pilotez les passages récurrents et documentez la qualité pour vos interlocuteurs immobiliers.",
+      "Halls, cages d'escalier, locaux techniques : pilotez les passages récurrents et documentez la qualité pour vos interlocuteurs immobiliers.",
   },
   {
     slug: "professionnels",
     title: "Professionnels & commerces",
     navHint: "Cabinets, commerces, restaurants",
-    headline: "Locaux pros avec contraintes d’horaires et d’accès",
+    headline: "Locaux pros avec contraintes d'horaires et d'accès",
     lead:
       "Cabinets médicaux, commerces et restaurants : horaires serrés, accès sensibles, preuves de passage — sans chaos WhatsApp.",
   },
@@ -73,84 +69,95 @@ export const solutions = [
     slug: "auto-entrepreneurs",
     title: "Auto-entrepreneurs & petites équipes",
     navHint: "Indépendants, TPE propreté",
-    headline: "Démarrer sans usine à gaz — dès 29,99 € HT/mois",
+    headline: "Démarrer sans usine à gaz — 149 € HT/mois",
     lead:
-      "Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures, avec essai 2 mois sans carte bancaire.",
+      "Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures. Demandez une démo.",
   },
 ] as const;
 
 export const modules = [
   {
     slug: "planification",
-    title: "Planification",
+    title: "Planning",
     short: "Affectez agents et sites sans double saisie ni oubli.",
     pain: "Planning Excel + WhatsApp = erreurs quotidiennes.",
   },
   {
-    slug: "gestion-rh",
-    title: "Gestion RH",
-    short: "Contrats, absences et variables de paie au même endroit.",
-    pain: "RH dispersée, oubli d’heures, stress de fin de mois.",
-  },
-  {
-    slug: "facturation",
-    title: "Facturation & relation client",
-    short: "Devis et factures alignés sur le réalisé terrain.",
-    pain: "Factures en retard, relances manuelles, litiges.",
-  },
-  {
-    slug: "contrats",
-    title: "Contrats",
-    short: "Suivez engagements multi-sites et renouvellements.",
-    pain: "Contrats papier, dates de fin oubliées.",
-  },
-  {
-    slug: "stock",
-    title: "Stock",
-    short: "Consommables et matériel suivis par site ou équipe.",
-    pain: "Ruptures, gaspillages, inventaires approximatifs.",
-  },
-  {
-    slug: "prepaie",
-    title: "Prépaie",
-    short: "Préparez les éléments variables sans ressaisie.",
-    pain: "Soirées perdues sur les heures et avenants.",
-  },
-  {
-    slug: "tableaux-de-bord",
-    title: "Tableaux de bord",
-    short: "Pilotez activité, charge et rentabilité en temps réel.",
-    pain: "Aucune vision claire du mois en cours.",
-  },
-  {
-    slug: "geolocalisation",
-    title: "Géolocalisation",
-    short: "Localisez interventions et tournées terrain.",
-    pain: "Déplacements flous, contrôle difficile.",
-  },
-  {
     slug: "pointage",
-    title: "Pointage",
-    short: "Pointage mobile fiable pour vos agents de propreté.",
+    title: "Pointage & télégestion",
+    short: "Pointage mobile avec géolocalisation et preuves terrain.",
     pain: "Feuilles papier, heures contestées.",
   },
   {
-    slug: "bon-intervention",
-    title: "Bon d’intervention",
-    short: "Bons signés sur place, preuves conservées.",
-    pain: "Preuves perdues, litiges clients.",
+    slug: "clients",
+    title: "Clients",
+    short: "Fiches clients, sites rattachés, historique complet.",
+    pain: "Infos dispersées, pas de vision client.",
   },
   {
-    slug: "supervision",
-    title: "Supervision",
-    short: "Contrôle qualité et suivi des passages.",
-    pain: "Qualité irrégulière, clients qui partent.",
+    slug: "devis",
+    title: "Devis",
+    short: "Créez et envoyez vos devis professionnels.",
+    pain: "Devis Word, pas de suivi.",
+  },
+  {
+    slug: "facturation",
+    title: "Facturation",
+    short: "Factures alignées sur le réalisé terrain.",
+    pain: "Factures en retard, relances manuelles.",
+  },
+  {
+    slug: "impayes",
+    title: "Impayés",
+    short: "Suivez et relancez les factures impayées.",
+    pain: "Trésorerie qui traîne, litiges.",
+  },
+  {
+    slug: "gestion-rh",
+    title: "RH",
+    short: "Contrats, absences et variables de paie au même endroit.",
+    pain: "RH dispersée, oubli d'heures.",
+  },
+  {
+    slug: "rentabilite",
+    title: "Rentabilité",
+    short: "Pilotez marges et rentabilité par client ou site.",
+    pain: "Aucune vision claire des marges.",
+  },
+  {
+    slug: "crm",
+    title: "CRM",
+    short: "Suivez vos prospects et opportunités commerciales.",
+    pain: "Prospects perdus, pas de suivi.",
   },
 ] as const;
 
 export type BillingPeriod = "month" | "year";
 
-export const plans = [
+export const mainPlan = {
+  id: "progesti",
+  name: "PROGESTI",
+  users: "Jusqu'à 5 utilisateurs",
+  monthly: 149,
+  yearly: 1490,
+  yearlyStrike: 1788,
+  features: [
+    "Tous les modules inclus",
+    "Planning & affectations",
+    "Pointage & télégestion",
+    "Clients & sites illimités",
+    "Devis & facturation",
+    "Gestion des impayés",
+    "RH & prépaie",
+    "Tableaux de bord",
+    "CRM intégré",
+    "App mobile agents",
+    "Support FR inclus",
+  ],
+} as const;
+
+/** @deprecated Use mainPlan. Kept for backward compatibility with ads pages. */
+export const legacyPlans = [
   {
     id: "starter",
     name: "Starter",
@@ -183,24 +190,22 @@ export const plans = [
   },
 ] as const;
 
+export const plans = legacyPlans;
+
 export const planInclusions = [
-  "Comptes clients illimités",
-  "Stockage illimité",
-  "Mise en place offerte",
+  "Clients & sites illimités",
+  "Tous les modules inclus",
+  "App mobile Android & iOS",
+  "Mise en place accompagnée",
+  "Support FR inclus",
   "Mises à jour gratuites",
-  "Cloud + apps Android & iOS",
-  "Tous les modules fonctionnels",
-  "Fiches clients et sites illimitées",
-  "Maintenance comprise",
 ] as const;
 
 export const trustBadges = [
-  { title: "Essai 2 mois", text: "Sans carte bancaire" },
-  { title: "Tous modules", text: "Inclus dans chaque offre" },
-  { title: "Résiliable", text: "Sans engagement long" },
-  { title: "Support FR", text: "Équipe à votre écoute" },
+  { title: "Essai 7 jours", text: "Sans engagement" },
+  { title: "149 € HT/mois", text: "Tout inclus" },
+  { title: "Support FR", text: "Équipe à Tournefeuille" },
   { title: "Mobile", text: "Android & iOS" },
-  { title: "Mises à jour", text: "Inclues et continues" },
 ] as const;
 
 export const whyPoints = [
@@ -214,7 +219,7 @@ export const whyPoints = [
   },
   {
     title: "Prix clair, tout inclus",
-    text: "Dès 29,99€ HT/mois. Pas de module surprise. Vous savez exactement ce que vous payez.",
+    text: "149 € HT/mois, jusqu'à 5 utilisateurs. Pas de module surprise. Vous savez exactement ce que vous payez.",
   },
 ] as const;
 
@@ -225,98 +230,66 @@ export const benefits = [
   },
   {
     title: "Réduisez les litiges",
-    text: "Pointage et bons d’intervention tracent le réalisé sur le terrain.",
+    text: "Pointage et bons d'intervention tracent le réalisé sur le terrain.",
   },
   {
     title: "Facturez plus vite",
-    text: "Passez du terrain à la facture sans perdre d’informations.",
+    text: "Passez du terrain à la facture sans perdre d'informations.",
   },
   {
     title: "Pilotez sereinement",
-    text: "Un cockpit simple pour voir l’activité, la charge et les priorités.",
+    text: "Un cockpit simple pour voir l'activité, la charge et les priorités.",
   },
 ] as const;
 
 export const faqItems = [
   {
-    q: "Combien de temps faut-il pour démarrer ?",
-    a: "Comptez quelques minutes pour créer votre compte et ajouter vos premiers sites. La plupart des indépendants sont opérationnels le jour même.",
+    q: "Combien coûte PROGESTI ?",
+    a: "149 € HT par mois, jusqu'à 5 utilisateurs, tous les modules inclus. Pas de frais d'installation ni de module en supplément.",
   },
   {
-    q: "Combien de temps dure l’essai gratuit ?",
-    a: "2 mois complets, sans carte bancaire, avec tous les modules inclus.",
+    q: "Pour qui est fait PROGESTI ?",
+    a: "Pour les entreprises de nettoyage et de propreté : bureaux, syndics, commerces, fin de chantier. TPE comme PME avec plusieurs équipes.",
   },
   {
-    q: "Puis-je importer mes données ?",
-    a: "Oui. Vous pouvez reprendre clients, sites et contrats. Nous pouvons aussi vous accompagner sur l’intégration.",
+    q: "Je gère encore tout sur Excel, c'est compliqué de migrer ?",
+    a: "Non. On vous accompagne sur l'import de vos clients et sites. La prise en main est rapide, la plupart sont opérationnels en quelques heures.",
   },
   {
-    q: "Y a-t-il un engagement ?",
-    a: "Non. Vous pouvez résilier selon les conditions de votre abonnement, sans durée longue imposée.",
+    q: "Comment je gère mes salariés ?",
+    a: "Vous créez leurs fiches, les affectez aux sites, suivez leurs heures via le pointage mobile. Prépaie et variables RH sont centralisés.",
   },
   {
-    q: "Puis-je résilier quand je veux ?",
-    a: "Oui. L’objectif est que vous restiez parce que l’outil vous sert, pas parce que vous êtes bloqué.",
+    q: "Comment je gère mes clients ?",
+    a: "Fiche client, sites rattachés, contrats, historique de passages, factures — tout au même endroit.",
   },
   {
-    q: "Les données sont-elles sécurisées ?",
-    a: "Oui. Accès contrôlé, bonnes pratiques de sécurité applicative, et hébergement professionnel. Détails précisés dans la politique de confidentialité.",
+    q: "Comment fonctionnent les devis et factures ?",
+    a: "Vous créez un devis, le convertissez en contrat, puis en facture. Le réalisé terrain alimente automatiquement la facturation.",
   },
   {
-    q: "Où sont hébergées les données ?",
-    a: "Hébergement cloud professionnel, avec cible d’infrastructure en France (OVH / équivalent) à la mise en production. Les détails techniques seront publiés dans les mentions légales.",
+    q: "Comment fonctionne le pointage terrain ?",
+    a: "Vos agents utilisent l'app mobile (Android/iOS). Prise de service, géolocalisation, bons d'intervention signés sur place.",
   },
   {
     q: "Le logiciel fonctionne-t-il sur mobile ?",
-    a: "Oui. PROGESTI est accessible en cloud, sur Android et iOS, pour le bureau comme pour le terrain.",
+    a: "Oui. PROGESTI est accessible en cloud (bureau) et en app mobile (terrain) sur Android et iOS.",
   },
   {
-    q: "Y a-t-il des mises à jour ?",
-    a: "Oui. Les mises à jour évolutives sont incluses dans toutes les offres, sans surcoût.",
+    q: "Puis-je importer mes données existantes ?",
+    a: "Oui. Nous vous accompagnons sur l'import de vos clients, sites et contrats. Pas de promesse d'import magique, mais un accompagnement réel.",
+  },
+  {
+    q: "PROGESTI est-il adapté aux TPE ?",
+    a: "Oui. L'offre à 149 € HT/mois est conçue pour les petites structures comme pour les entreprises multi-équipes.",
+  },
+  {
+    q: "Comment demander une démo ?",
+    a: "Cliquez sur « Demander une démo » pour prendre rendez-vous. Nous vous montrons le logiciel sur vos cas d'usage réels.",
   },
   {
     q: "Y a-t-il une assistance ?",
-    a: "Oui. Une assistance humaine est disponible pour vous aider à démarrer et à utiliser le logiciel au quotidien.",
-  },
-  {
-    q: "Puis-je inviter mon équipe ?",
-    a: "Oui. Selon l’offre (Starter, Pro, Premium), vous ajoutez des utilisateurs pour vos agents et votre administration.",
-  },
-  {
-    q: "Les sauvegardes sont-elles automatiques ?",
-    a: "Oui. Les sauvegardes font partie du fonctionnement cloud de la plateforme.",
-  },
-  {
-    q: "Puis-je changer d’offre ?",
-    a: "Oui. Vous pouvez passer de Starter à Pro ou Premium quand votre équipe grandit.",
-  },
-  {
-    q: "Les paiements sont-ils sécurisés ?",
-    a: "Oui. Les paiements d’abonnement passeront par un prestataire de paiement sécurisé conforme aux standards du marché.",
-  },
-  {
-    q: "Quelle est la disponibilité du service ?",
-    a: "La plateforme est conçue pour une disponibilité élevée. Un statut et des engagements plus précis seront publiés avec la prod finale.",
-  },
-  {
-    q: "Que se passe-t-il après l’essai gratuit ?",
-    a: "Vous choisissez Starter, Pro ou Premium pour continuer — ou vous arrêtez. Aucune carte n’est demandée pendant l’essai.",
-  },
-  {
-    q: "Puis-je récupérer mes données ?",
-    a: "Oui. Vous pouvez demander l’export / récupération de vos données selon les procédures prévues.",
-  },
-  {
-    q: "PROGESTI est-il adapté aux auto-entrepreneurs ?",
-    a: "Oui. L’offre Starter est pensée pour les indépendants et toutes petites structures de nettoyage.",
-  },
-  {
-    q: "Faut-il payer module par module ?",
-    a: "Non. Chaque offre inclut l’ensemble des modules : planning, RH, facturation, terrain, tableaux de bord, etc.",
-  },
-  {
-    q: "Y a-t-il des frais cachés ?",
-    a: "Non. Pas de frais d’entrée, pas de frais d’installation. Le prix affiché est le prix payé.",
+    a: "Oui. Support FR inclus, équipe basée à Tournefeuille (31). Nous vous accompagnons dès la mise en place.",
   },
 ] as const;
 
@@ -336,6 +309,7 @@ export function formatEuro(value: number) {
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency: "EUR",
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(value);
 }

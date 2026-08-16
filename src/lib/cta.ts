@@ -1,20 +1,20 @@
 import { appUrl } from "@/lib/env";
 
-/** Destinations marketing → produit (une seule source de vérité). */
+/** Destinations marketing -> produit (une seule source de verite). */
 export const cta = {
-  /** Gate démo (formulaire lead) → ensuite app réelle via demoAppUrl. */
+  /** Gate demo (formulaire lead) -> ensuite app reelle via demoAppUrl. */
   demo: "/demo",
   /** Funnel lead puis redirection vers l'app. */
   trial: "/essai-gratuit",
-  /** Inscription self-serve sur l’app (app.progesti.fr) — essai 2 mois. */
+  /** Inscription self-serve sur l'app (app.progesti.fr) - essai 7 jours. */
   trialApp: appUrl("/creer-mon-espace"),
-  /** Cockpit démo pré-rempli (session guest, données Pro Nettoyage). */
+  /** Cockpit demo pre-rempli (session guest, donnees Pro Nettoyage). */
   demoApp: appUrl("/api/public/demo-session"),
   /** Connexion logiciel. */
   login: appUrl("/login"),
 } as const;
 
-/** Construit l'URL d'inscription avec préremplissage optionnel. */
+/** Construit l'URL d'inscription avec preremplissage optionnel. */
 export function trialAppUrl(prefill?: {
   company?: string;
   name?: string;
@@ -29,7 +29,7 @@ export function trialAppUrl(prefill?: {
   return url.toString();
 }
 
-/** Entrée démo publique : cookie session sur tenant demo → /demo-mvp. */
+/** Entree demo publique : cookie session sur tenant demo -> /demo-mvp. */
 export function demoAppUrl(prefill?: {
   company?: string;
   name?: string;

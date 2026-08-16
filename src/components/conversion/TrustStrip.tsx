@@ -1,27 +1,18 @@
-const items = [
-  "2 mois sans carte bancaire",
-  "Dès 29,99 € HT/mois",
-  "Tous les modules inclus",
-  "Mise en place offerte",
-];
+export const trustPoints = [
+  "149 € HT/mois, tout inclus",
+  "Essai 7 jours sans engagement",
+  "Support FR a Tournefeuille",
+] as const;
 
-export function TrustStrip({ className = "" }: { className?: string }) {
+export function TrustStrip() {
   return (
-    <div
-      className={`border-y border-blue-mist/60 bg-blue-sky/80 ${className}`.trim()}
-      role="list"
-      aria-label="Garanties PROGESTI"
-    >
-      <div className="container flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-3 text-center text-sm font-semibold text-blue-deep">
-        {items.map((item) => (
-          <span key={item} role="listitem" className="inline-flex items-center gap-2">
-            <span className="text-green-deep" aria-hidden>
-              ✓
-            </span>
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
+    <p className="text-sm font-medium text-slate">
+      {trustPoints.map((point, i) => (
+        <span key={point}>
+          <span className="text-green-deep">✓</span> {point}
+          {i < trustPoints.length - 1 ? <span className="mx-2 text-blue-mist">·</span> : null}
+        </span>
+      ))}
+    </p>
   );
 }

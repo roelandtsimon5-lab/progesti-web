@@ -1,0 +1,515 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { Reveal } from "@/components/ui/Reveal";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { faqItems, modules, mainPlan, trustBadges, site } from "@/lib/site";
+import { cta } from "@/lib/cta";
+
+const problemPoints = [
+  {
+    before: "Planning sur Excel",
+    after: "Planning visuel avec affectations",
+    icon: "📊",
+  },
+  {
+    before: "Pointage sur papier",
+    after: "Pointage mobile geolocalise",
+    icon: "📱",
+  },
+  {
+    before: "Factures Word/Excel",
+    after: "Facturation automatisee",
+    icon: "📄",
+  },
+  {
+    before: "WhatsApp pour tout",
+    after: "Donnees centralisees",
+    icon: "💬",
+  },
+];
+
+const flowSteps = [
+  { label: "Prospects", color: "bg-blue-royal" },
+  { label: "Clients", color: "bg-blue-deep" },
+  { label: "Devis", color: "bg-blue-royal" },
+  { label: "Contrats", color: "bg-blue-deep" },
+  { label: "Planning", color: "bg-green-deep" },
+  { label: "Pointage", color: "bg-green-action" },
+  { label: "Facturation", color: "bg-blue-royal" },
+  { label: "Rentabilite", color: "bg-blue-deep" },
+];
+
+const targetAudiences = [
+  {
+    title: "Entreprises de nettoyage",
+    description: "Bureaux, locaux professionnels, commerces",
+  },
+  {
+    title: "Societes de proprete",
+    description: "Multi-sites, syndics, coproprietes",
+  },
+  {
+    title: "Equipes multi-agents",
+    description: "Coordination terrain et planning centralise",
+  },
+];
+
+const migrationPoints = [
+  {
+    title: "Accompagnement personnalise",
+    description: "Un interlocuteur dedie vous guide dans la prise en main.",
+  },
+  {
+    title: "Import de vos donnees",
+    description: "Nous vous aidons a reprendre clients, sites et contrats existants.",
+  },
+  {
+    title: "Formation incluse",
+    description: "Prise en main rapide pour vous et vos equipes.",
+  },
+];
+
+export function HomeNew() {
+  return (
+    <>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-sky/40 via-white to-white" />
+        <div className="container relative grid items-center gap-10 pb-16 pt-12 lg:grid-cols-2 lg:gap-16 lg:pb-20 lg:pt-16">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-action/20 bg-green-action/5 px-4 py-1.5 text-sm font-medium text-green-deep">
+              <span>Essai 7 jours</span>
+              <span className="text-green-action/40">|</span>
+              <span>Sans engagement</span>
+            </div>
+            
+            <h1 className="font-display text-[2.5rem] font-extrabold leading-[1.1] tracking-tight text-blue-deep md:text-[3.25rem] lg:text-[3.5rem]">
+              Gerez votre entreprise de nettoyage depuis un seul logiciel.
+            </h1>
+            
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate">
+              Planning, salaries, clients, pointage terrain, devis et facturation. 
+              Tout centralise pour les entreprises de proprete.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <ButtonLink
+                href={cta.demo}
+                size="lg"
+                eventPayload={{ cta: "home_hero_demo" }}
+              >
+                Demander une demo
+              </ButtonLink>
+              <ButtonLink
+                href="#produit"
+                size="lg"
+                variant="secondary"
+                eventPayload={{ cta: "home_hero_scroll" }}
+              >
+                Voir comment ca fonctionne
+              </ButtonLink>
+            </div>
+
+            <p className="mt-6 text-sm text-slate">
+              <Link href={cta.trial} className="text-blue-royal hover:underline">
+                Essai 7 jours gratuit
+              </Link>
+              {" · "}149 € HT/mois · Support FR
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl border border-blue-mist/60 bg-white shadow-[0_24px_80px_rgba(11,61,110,0.12)]">
+              <Image
+                src="/dashboard-mockup-opt.webp"
+                alt="Interface PROGESTI - Planning des passages"
+                width={800}
+                height={500}
+                priority
+                className="h-auto w-full"
+                sizes="(max-width: 1024px) 100vw, 600px"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REASSURANCE BAR */}
+      <section className="border-y border-blue-mist/60 bg-[#FAFCFE]">
+        <div className="container grid grid-cols-2 gap-6 py-6 md:grid-cols-4 md:gap-4">
+          {trustBadges.map((badge) => (
+            <div key={badge.title} className="text-center md:text-left">
+              <p className="font-display text-lg font-bold text-blue-deep">{badge.title}</p>
+              <p className="mt-0.5 text-sm text-slate">{badge.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PROBLEM SECTION */}
+      <section className="section bg-white" id="produit">
+        <div className="container">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="font-display text-3xl font-extrabold text-blue-deep md:text-4xl">
+                Votre entreprise ne devrait pas etre geree avec 5 logiciels differents.
+              </h2>
+              <p className="mt-4 text-lg text-slate">
+                Excel pour le planning, papier pour le pointage, Word pour les devis, 
+                WhatsApp pour communiquer... Simplifiez tout.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {problemPoints.map((point, i) => (
+              <Reveal key={point.before} delayMs={i * 60}>
+                <div className="rounded-xl border border-blue-mist/60 bg-[#FAFCFE] p-6">
+                  <span className="text-2xl">{point.icon}</span>
+                  <div className="mt-4">
+                    <p className="text-sm text-slate line-through">{point.before}</p>
+                    <p className="mt-1 font-display font-bold text-blue-deep">{point.after}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MODULES SECTION */}
+      <section className="section bg-[#F7FAFC]">
+        <div className="container">
+          <Reveal>
+            <p className="eyebrow">Fonctionnalites</p>
+            <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
+              Tous les modules inclus
+            </h2>
+            <p className="lead mt-4">
+              Planning, pointage, facturation et plus — sans supplement.
+            </p>
+          </Reveal>
+
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {modules.map((m, i) => (
+              <Reveal key={m.slug} delayMs={i * 40}>
+                <li className="group rounded-xl border border-blue-mist/60 bg-white p-6 transition hover:border-blue-royal/30 hover:shadow-[0_8px_30px_rgba(11,61,110,0.06)]">
+                  <h3 className="font-display text-lg font-bold text-blue-deep">
+                    {m.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate">{m.short}</p>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+
+          <p className="mt-10 text-center">
+            <Link
+              href="/fonctionnalites"
+              className="font-display text-sm font-bold text-blue-royal hover:underline"
+            >
+              Decouvrir toutes les fonctionnalites →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* VISUAL SECTIONS - Planning */}
+      <section className="section bg-white">
+        <div className="container grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <div>
+              <p className="eyebrow">Planning</p>
+              <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
+                Visualisez et gerez vos passages
+              </h2>
+              <p className="mt-4 text-lg text-slate">
+                Affectez vos agents aux sites, gerez les recurrences et 
+                suivez les passages valides en temps reel.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {["Vue calendrier par agent ou par site", "Gestion des recurrences", "Statuts en temps reel"].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-green-action">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+          <Reveal delayMs={100}>
+            <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
+              <Image
+                src="/dashboard-mockup-opt.webp"
+                alt="Interface Planning PROGESTI"
+                width={700}
+                height={440}
+                className="h-auto w-full"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* VISUAL SECTIONS - Telegestion */}
+      <section className="section bg-[#F7FAFC]">
+        <div className="container grid items-center gap-12 lg:grid-cols-2">
+          <Reveal delayMs={100} className="order-2 lg:order-1">
+            <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
+              <Image
+                src="/hero-mockup-opt.webp"
+                alt="Interface Telegestion PROGESTI"
+                width={700}
+                height={440}
+                className="h-auto w-full"
+              />
+            </div>
+          </Reveal>
+          <Reveal className="order-1 lg:order-2">
+            <div>
+              <p className="eyebrow">Pointage & Telegestion</p>
+              <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
+                Suivez le terrain en temps reel
+              </h2>
+              <p className="mt-4 text-lg text-slate">
+                Vos agents pointent via l'app mobile. Depart, arrivee, 
+                geolocalisation — tout remonte automatiquement.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {["Pointage mobile Android & iOS", "Geolocalisation des interventions", "Historique complet"].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-green-action">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* VISUAL SECTIONS - Facturation */}
+      <section className="section bg-white">
+        <div className="container grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <div>
+              <p className="eyebrow">Facturation</p>
+              <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
+                Du devis a la facture sans ressaisie
+              </h2>
+              <p className="mt-4 text-lg text-slate">
+                Creez vos devis, convertissez-les en contrats, puis en factures. 
+                Le realise terrain alimente automatiquement la facturation.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {["Devis professionnels", "Conversion devis → contrat → facture", "Suivi des impayes"].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-green-action">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+          <Reveal delayMs={100}>
+            <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
+              <Image
+                src="/dashboard-mockup-opt.webp"
+                alt="Interface Facturation PROGESTI"
+                width={700}
+                height={440}
+                className="h-auto w-full"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FLOW SECTION */}
+      <section className="section bg-blue-deep text-white">
+        <div className="container">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="font-display text-xs font-bold uppercase tracking-[0.18em] text-[#B8F5D4]">
+                Un fil unique
+              </p>
+              <h2 className="mt-3 text-3xl font-extrabold text-white md:text-4xl">
+                Du prospect a la rentabilite, tout est connecte
+              </h2>
+              <p className="mt-4 text-lg text-white/80">
+                Chaque etape alimente la suivante. Plus de ressaisie, plus de donnees perdues.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+            {flowSteps.map((step, i) => (
+              <Reveal key={step.label} delayMs={i * 50}>
+                <div className="flex items-center gap-3">
+                  <span className={`rounded-lg ${step.color} px-4 py-2 text-sm font-bold text-white`}>
+                    {step.label}
+                  </span>
+                  {i < flowSteps.length - 1 && (
+                    <span className="text-white/40">→</span>
+                  )}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING SECTION */}
+      <section className="section bg-white" id="tarifs">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="eyebrow">Tarif unique</p>
+              <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
+                {mainPlan.monthly} € HT / mois
+              </h2>
+              <p className="mt-2 text-lg text-slate">
+                {mainPlan.users} · Tous les modules inclus
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delayMs={100}>
+            <div className="mx-auto mt-10 max-w-2xl rounded-2xl border-2 border-green-action/30 bg-[#FAFCFE] p-8">
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {mainPlan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3">
+                    <span className="mt-0.5 text-green-action">✓</span>
+                    <span className="text-slate">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <ButtonLink
+                  href={cta.demo}
+                  size="lg"
+                  eventPayload={{ cta: "home_pricing_demo" }}
+                >
+                  Demander une demo
+                </ButtonLink>
+                <Link
+                  href="/tarifs"
+                  className="font-display text-sm font-bold text-blue-royal hover:underline"
+                >
+                  Voir le detail →
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* TARGET AUDIENCE */}
+      <section className="section bg-[#F7FAFC]">
+        <div className="container">
+          <Reveal>
+            <p className="eyebrow">Pour qui</p>
+            <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
+              Concu pour les entreprises de nettoyage
+            </h2>
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {targetAudiences.map((audience, i) => (
+              <Reveal key={audience.title} delayMs={i * 60}>
+                <div className="rounded-xl border border-blue-mist/60 bg-white p-6">
+                  <h3 className="font-display text-lg font-bold text-blue-deep">
+                    {audience.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate">{audience.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MIGRATION SECTION */}
+      <section className="section bg-white">
+        <div className="container">
+          <Reveal>
+            <p className="eyebrow">Migration</p>
+            <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
+              On vous accompagne des le depart
+            </h2>
+            <p className="lead mt-4">
+              Pas de promesse d'import magique. Un accompagnement reel.
+            </p>
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {migrationPoints.map((point, i) => (
+              <Reveal key={point.title} delayMs={i * 60}>
+                <div className="border-t-2 border-blue-royal pt-6">
+                  <h3 className="font-display text-lg font-bold text-blue-deep">
+                    {point.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate">{point.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section bg-[#F7FAFC]">
+        <div className="container max-w-3xl">
+          <Reveal>
+            <p className="eyebrow">FAQ</p>
+            <h2 className="mt-3 text-3xl font-extrabold text-blue-deep">
+              Questions frequentes
+            </h2>
+          </Reveal>
+          <div className="mt-8">
+            <FaqAccordion items={faqItems} />
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="bg-blue-deep py-16 text-white">
+        <div className="container text-center">
+          <Reveal>
+            <p className="font-display text-xs font-bold uppercase tracking-[0.18em] text-[#B8F5D4]">
+              {site.name}
+            </p>
+            <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-extrabold text-white md:text-4xl">
+              Pret a simplifier la gestion de votre entreprise ?
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-lg text-white/80">
+              Demandez une demo et decouvrez PROGESTI sur vos cas d'usage reels.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <ButtonLink
+                href={cta.demo}
+                size="lg"
+                eventPayload={{ cta: "home_final_demo" }}
+              >
+                Demander une demo
+              </ButtonLink>
+              <ButtonLink
+                href={cta.trial}
+                size="lg"
+                variant="outline-white"
+                eventPayload={{ cta: "home_final_trial" }}
+              >
+                Essai 7 jours gratuit
+              </ButtonLink>
+            </div>
+            <p className="mt-6 text-sm text-white/60">
+              {site.company.legalName} · {site.company.city} · Support FR
+            </p>
+          </Reveal>
+        </div>
+      </section>
+    </>
+  );
+}

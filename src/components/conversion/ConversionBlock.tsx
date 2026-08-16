@@ -2,45 +2,42 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { cta } from "@/lib/cta";
 import { site } from "@/lib/site";
 
-type Variant = "essai" | "demo" | "contact";
+type Variant = "demo" | "essai" | "contact";
 
 const copy: Record<
   Variant,
   {
     title: string;
     lead: string;
-    primary: { href: string; label: string; event?: "trial_start" };
-    secondary: { href: string; label: string; event?: "trial_start" };
+    primary: { href: string; label: string };
+    secondary: { href: string; label: string };
   }
 > = {
-  essai: {
-    title: "Passez à une gestion plus simple — testez 2 mois",
-    lead: "Sans carte bancaire. Tous les modules. Dès 29,99 € HT/mois après l’essai.",
-    primary: {
-      href: cta.trialApp,
-      label: "Commencer l’essai gratuit",
-      event: "trial_start",
-    },
-    secondary: { href: cta.demo, label: "Voir une démo" },
-  },
   demo: {
-    title: "Voyez PROGESTI sur votre cas métier",
-    lead: "Bureaux, syndics ou fin de chantier — exploration libre du cockpit.",
-    primary: { href: cta.demo, label: "Lancer la démo" },
-    secondary: {
-      href: cta.trialApp,
-      label: "Essai 2 mois sans CB",
-      event: "trial_start",
+    title: "Pret a simplifier votre gestion ?",
+    lead: "Demandez une demo et decouvrez PROGESTI sur vos cas d'usage reels.",
+    primary: {
+      href: cta.demo,
+      label: "Demander une demo",
     },
+    secondary: { href: cta.trial, label: "Essai 7 jours gratuit" },
+  },
+  essai: {
+    title: "Pret a simplifier votre gestion ?",
+    lead: "Demandez une demo et decouvrez PROGESTI sur vos cas d'usage reels.",
+    primary: {
+      href: cta.demo,
+      label: "Demander une demo",
+    },
+    secondary: { href: cta.trial, label: "Essai 7 jours gratuit" },
   },
   contact: {
-    title: "Une question ? On vous répond",
-    lead: "Commercial, migration, essai — équipe MSNE SAS, Tournefeuille (31).",
+    title: "Une question ? On vous repond",
+    lead: "Commercial, migration, essai — equipe MSNE SAS, Tournefeuille (31).",
     primary: { href: "/contact", label: "Nous contacter" },
     secondary: {
-      href: cta.trialApp,
-      label: "Essai gratuit",
-      event: "trial_start",
+      href: cta.demo,
+      label: "Demander une demo",
     },
   },
 };
@@ -50,7 +47,7 @@ type Props = {
   className?: string;
 };
 
-export function ConversionBlock({ variant = "essai", className = "" }: Props) {
+export function ConversionBlock({ variant = "demo", className = "" }: Props) {
   const c = copy[variant];
 
   return (
@@ -67,8 +64,7 @@ export function ConversionBlock({ variant = "essai", className = "" }: Props) {
           <ButtonLink
             href={c.primary.href}
             size="lg"
-            event={c.primary.event}
-            eventPayload={{ cta: `v3_conversion_${variant}_primary` }}
+            eventPayload={{ cta: `conversion_${variant}_primary` }}
           >
             {c.primary.label}
           </ButtonLink>
@@ -76,14 +72,13 @@ export function ConversionBlock({ variant = "essai", className = "" }: Props) {
             href={c.secondary.href}
             size="lg"
             variant="outline-white"
-            event={c.secondary.event}
-            eventPayload={{ cta: `v3_conversion_${variant}_secondary` }}
+            eventPayload={{ cta: `conversion_${variant}_secondary` }}
           >
             {c.secondary.label}
           </ButtonLink>
         </div>
         <p className="mt-6 text-sm text-white/75">
-          Mise en place offerte · Résiliable · Support FR
+          149 € HT/mois · Tous modules inclus · Support FR
         </p>
       </div>
     </section>

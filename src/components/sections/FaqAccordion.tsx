@@ -2,7 +2,7 @@
 
 type Item = { q: string; a: string };
 
-export function FaqAccordion({ items }: { items: Item[] }) {
+export function FaqAccordion({ items }: { items: readonly Item[] }) {
   return (
     <div className="space-y-3">
       {items.map((item) => (

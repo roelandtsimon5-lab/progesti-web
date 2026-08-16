@@ -7,20 +7,19 @@ export function MobileCtaBar() {
   return (
     <div className="mobile-cta lg:hidden">
       <ButtonLink
-        href={cta.trialApp}
+        href={cta.demo}
         className="flex-1 !py-3.5"
-        event="trial_start"
-        eventPayload={{ cta: "v3_mobile_sticky" }}
+        eventPayload={{ cta: "mobile_sticky_demo" }}
       >
-        Essai gratuit
+        Demander une demo
       </ButtonLink>
       <ButtonLink
-        href={cta.demo}
+        href={cta.trial}
         variant="outline-white"
         className="flex-1 !py-3.5"
-        eventPayload={{ cta: "v3_mobile_sticky_demo" }}
+        eventPayload={{ cta: "mobile_sticky_trial" }}
       >
-        Démo
+        Essai 7 jours
       </ButtonLink>
     </div>
   );

@@ -52,7 +52,6 @@ export const metadata: Metadata = {
     : {}),
 };
 
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" data-scroll-behavior="smooth" className={`${display.variable} ${body.variable} h-full`}>
