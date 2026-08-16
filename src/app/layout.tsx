@@ -52,37 +52,6 @@ export const metadata: Metadata = {
     : {}),
 };
 
-const provider = {
-  "@type": "Organization" as const,
-  name: site.company.legalName,
-  url: site.url,
-  email: site.email,
-  ...(site.phone ? { telephone: site.phone } : {}),
-  address: {
-    "@type": "PostalAddress" as const,
-    streetAddress: site.company.address,
-    addressLocality: "Tournefeuille",
-    postalCode: "31170",
-    addressCountry: "FR",
-  },
-  ...(site.sameAs.length > 0 ? { sameAs: [...site.sameAs] } : {}),
-};
-
-const orgJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: site.name,
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web, Android, iOS",
-  description: site.description,
-  url: site.url,
-  offers: {
-    "@type": "Offer",
-    price: "29.99",
-    priceCurrency: "EUR",
-  },
-  provider,
-};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -100,10 +69,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           Aller au contenu
         </a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
         <Header />
         <main id="contenu-principal" className="flex-1">
           {children}

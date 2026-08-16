@@ -5,8 +5,9 @@ import { notFound } from "next/navigation";
 import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
+import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { cta } from "@/lib/cta";
-import { modules } from "@/lib/site";
+import { modules, site } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,9 +19,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const mod = modules.find((m) => m.slug === slug);
   if (!mod) return {};
+  const path = `/fonctionnalites/${mod.slug}`;
   return {
     title: `${mod.title} — module PROGESTI`,
     description: `${mod.short} ${mod.pain}`,
+    alternates: { canonical: path },
+    openGraph: {
+      title: `${mod.title} — module PROGESTI | ${site.name}`,
+      description: `${mod.short} ${mod.pain}`,
+      url: `${site.url}${path}`,
+    },
   };
 }
 
@@ -32,6 +40,7 @@ export default async function ModulePage({ params }: Props) {
 
   return (
     <>
+      <SoftwareApplicationLd />
       <section className="relative overflow-hidden bg-[#F5F8FB]">
         <div className="container relative grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-16">
           <div>

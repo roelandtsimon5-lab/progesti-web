@@ -27,7 +27,7 @@ npm run dev
 | `FREE_MOBILE_USER` / `FREE_MOBILE_PASS` | Alertes Simon **gratuites** (Free Mobile) |
 
 Défaut `NEXT_PUBLIC_AUTH_URL` si vide :
-`https://new-era-planning-mvp-production.up.railway.app`
+`https://app.progesti.fr`
 
 ## Branchement logiciel (Railway)
 

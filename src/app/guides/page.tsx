@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { getPostsByCategory, getCategoryLabel } from "@/lib/blog";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Guides",
   description: "Guides opérationnels PROGESTI pour organiser planning, terrain et facturation.",
-};
+  path: "/guides",
+});
 
 export default function GuidesPage() {
   const guides = [

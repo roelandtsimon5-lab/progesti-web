@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { pageMeta } from "@/lib/seo";
 
 import { cta } from "@/lib/cta";
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Comparatifs",
   description: "Comparatif logiciels pour entreprises de nettoyage — PROGESTI vs alternatives.",
-};
+  path: "/comparatifs",
+});
 
 export default function ComparatifsPage() {
   return (

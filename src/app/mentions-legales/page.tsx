@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Mentions légales",
-};
+  description: `Mentions légales ${site.name} — éditeur ${site.company.legalName}.`,
+  path: "/mentions-legales",
+});
 
 export default function MentionsLegalesPage() {
   const c = site.company;

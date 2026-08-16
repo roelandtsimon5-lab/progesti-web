@@ -4,6 +4,7 @@ import {
   SolutionLanding,
   solutionMetadata,
 } from "@/components/sections/SolutionLanding";
+import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { solutionPages, solutionSlugs } from "@/lib/solutions-content";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -23,5 +24,10 @@ export default async function SolutionPage({ params }: Props) {
   const { slug } = await params;
   const content = solutionPages[slug];
   if (!content) notFound();
-  return <SolutionLanding content={content} />;
+  return (
+    <>
+      <SoftwareApplicationLd />
+      <SolutionLanding content={content} />
+    </>
+  );
 }

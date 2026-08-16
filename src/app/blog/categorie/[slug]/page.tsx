@@ -8,7 +8,7 @@ import {
   getCategoryLabel,
   getPostsByCategory,
 } from "@/lib/blog";
-import { blogCategories } from "@/lib/site";
+import { blogCategories, site } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -20,9 +20,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   if (!categoryExists(slug)) return {};
   const label = getCategoryLabel(slug);
+  const path = `/blog/categorie/${slug}`;
   return {
     title: `Blog — ${label}`,
     description: `Articles PROGESTI dans la catégorie ${label} : conseils et guides pour entreprises de nettoyage.`,
+    alternates: { canonical: path },
+    openGraph: {
+      title: `Blog — ${label} | ${site.name}`,
+      description: `Articles PROGESTI dans la catégorie ${label} : conseils et guides pour entreprises de nettoyage.`,
+      url: `${site.url}${path}`,
+    },
   };
 }
 

@@ -4,15 +4,18 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { Reveal } from "@/components/ui/Reveal";
+import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import Link from "next/link";
 
 import { cta } from "@/lib/cta";
-export const metadata: Metadata = {
+import { pageMeta } from "@/lib/seo";
+
+export const metadata: Metadata = pageMeta({
   title: "Logiciel entreprise de nettoyage",
   description:
     "PROGESTI : logiciel de gestion pour entreprise de nettoyage. Planning, pointage, facturation. Essai 2 mois sans carte bancaire.",
-  alternates: { canonical: "/logiciel-entreprise-nettoyage" },
-};
+  path: "/logiciel-entreprise-nettoyage",
+});
 
 const faq = [
   {
@@ -32,6 +35,7 @@ const faq = [
 export default function PillarNettoyagePage() {
   return (
     <>
+      <SoftwareApplicationLd />
       <PageHero
         eyebrow="Page pilier SEO"
         title="Logiciel pour entreprise de nettoyage"

@@ -8,7 +8,8 @@ import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "Cas clients",
   description:
-    "Scénarios d’usage PROGESTI pour entreprises de nettoyage. Études de cas chiffrées publiées dès validation — pas de faux résultats.",
+    "Scénarios d'usage PROGESTI pour entreprises de nettoyage. Études de cas chiffrées publiées dès validation — pas de faux résultats.",
+  robots: { index: false, follow: true },
 };
 
 const scenarios = [
@@ -59,8 +60,8 @@ export default function CasClientsPage() {
       <section className="section !pt-0">
         <div className="container">
           <p className="max-w-2xl rounded-lg border border-amber/40 bg-amber/10 px-4 py-3 text-sm text-anthracite">
-            <strong className="text-ink">Transparence :</strong> aucun chiffre client n’est inventé
-            ici. Les parcours ci-dessous illustrent l’usage PROGESTI par univers métier.
+            <strong className="text-ink">Transparence :</strong> aucun chiffre client n'est inventé
+            ici. Les parcours ci-dessous illustrent l'usage PROGESTI par univers métier.
           </p>
 
           <div className="mt-10 grid gap-4 md:grid-cols-3">

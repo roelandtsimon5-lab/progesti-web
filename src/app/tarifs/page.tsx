@@ -5,6 +5,7 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { PageHero } from "@/components/sections/PageHero";
+import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { trustBadges } from "@/lib/site";
 import { cta } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
@@ -38,6 +39,7 @@ const pricingFaq = [
 export default function TarifsPage() {
   return (
     <>
+      <SoftwareApplicationLd />
       <PageHero
         eyebrow="Tarifs publics"
         title="Choisissez selon votre équipe"

@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { site } from "@/lib/site";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Conditions générales de vente",
   description: `CGV du service SaaS ${site.name} édité par ${site.company.legalName}.`,
-};
+  path: "/cgv",
+});
 
 export default function CgvPage() {
   const c = site.company;
