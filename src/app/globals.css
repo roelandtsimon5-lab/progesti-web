@@ -99,7 +99,11 @@
       scroll-behavior: auto;
     }
 
-    .reveal,
+    .reveal {
+      transform: none !important;
+      transition: none !important;
+    }
+
     .anim-rise,
     .anim-rise-delay {
       opacity: 1 !important;
@@ -286,15 +290,11 @@
 }
 
 .reveal {
-  opacity: 0;
   transform: translateY(16px);
-  transition:
-    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.is-visible {
-  opacity: 1;
   transform: translateY(0);
 }
 
