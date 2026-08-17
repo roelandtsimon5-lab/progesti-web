@@ -73,22 +73,20 @@ const migrationPoints = [
 export function HomeNew() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-sky/40 via-white to-white" />
+      {/* HERO — Full-bleed navy */}
+      <section className="relative overflow-hidden bg-blue-deep">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
         <div className="container relative grid items-center gap-10 pb-16 pt-12 lg:grid-cols-2 lg:gap-16 lg:pb-20 lg:pt-16">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-action/20 bg-green-action/5 px-4 py-1.5 text-sm font-medium text-green-deep">
-              <span>Essai 7 jours</span>
-              <span className="text-green-action/40">|</span>
-              <span>Sans engagement</span>
-            </div>
+            <p className="mb-6 font-display text-xs font-bold uppercase tracking-[0.18em] text-[#B8F5D4]">
+              Tournefeuille · Entreprises de propreté
+            </p>
             
-            <h1 className="font-display text-[2.5rem] font-extrabold leading-[1.1] tracking-tight text-blue-deep md:text-[3.25rem] lg:text-[3.5rem]">
+            <h1 className="font-display text-[2.5rem] font-extrabold leading-[1.1] tracking-tight text-white md:text-[3.25rem] lg:text-[3.5rem]">
               Gérez votre entreprise de nettoyage depuis un seul logiciel.
             </h1>
             
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate">
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/80">
               Planning, salariés, clients, pointage terrain, devis et facturation. 
               Tout centralisé pour les entreprises de propreté.
             </p>
@@ -104,23 +102,26 @@ export function HomeNew() {
               <ButtonLink
                 href="#produit"
                 size="lg"
-                variant="secondary"
+                variant="outline-white"
                 eventPayload={{ cta: "home_hero_scroll" }}
               >
-                Voir comment ça fonctionne
+                Voir le produit
               </ButtonLink>
             </div>
 
-            <p className="mt-6 text-sm text-slate">
-              <Link href={cta.trial} className="text-blue-royal hover:underline">
-                Essai 7 jours gratuit
-              </Link>
-              {" · "}149 € HT/mois · Support FR
+            <p className="mt-8 border-l-2 border-[#B8F5D4]/40 pl-4 text-sm italic text-white/70">
+              « Fait par des gens du nettoyage, pas par une usine à logiciels. »
             </p>
           </div>
 
           <div className="relative">
-            <div className="overflow-hidden rounded-2xl border border-blue-mist/60 bg-white shadow-[0_24px_80px_rgba(11,61,110,0.12)]">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_24px_80px_rgba(0,0,0,0.3)] [transform:perspective(1000px)_rotateY(-3deg)_rotateX(2deg)]">
+              <div className="flex items-center gap-1.5 border-b border-white/10 bg-white/5 px-3 py-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/60" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/60" />
+                <span className="h-2.5 w-2.5 rounded-full bg-green-400/60" />
+                <span className="ml-2 text-xs text-white/40">app.progesti.fr</span>
+              </div>
               <Image
                 src="/screen-passages.webp"
                 alt="Interface PROGESTI — Planning des passages"
@@ -136,7 +137,7 @@ export function HomeNew() {
       </section>
 
       {/* REASSURANCE BAR */}
-      <section className="border-y border-blue-mist/60 bg-[#FAFCFE]">
+      <section className="border-b border-blue-mist/60 bg-white">
         <div className="container grid grid-cols-2 gap-6 py-6 md:grid-cols-4 md:gap-4">
           {trustBadges.map((badge) => (
             <div key={badge.title} className="text-center md:text-left">
@@ -147,33 +148,64 @@ export function HomeNew() {
         </div>
       </section>
 
-      {/* PROBLEM SECTION */}
-      <section className="section bg-white" id="produit">
+      {/* PROBLEM SECTION — Aujourd'hui vs Avec PROGESTI */}
+      <section className="section bg-paper" id="produit">
         <div className="container">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="font-display text-3xl font-extrabold text-blue-deep md:text-4xl">
                 Votre entreprise ne devrait pas être gérée avec 5 logiciels différents.
               </h2>
-              <p className="mt-4 text-lg text-slate">
-                Excel pour le planning, papier pour le pointage, Word pour les devis, 
-                WhatsApp pour communiquer… Simplifiez tout.
-              </p>
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {problemPoints.map((point, i) => (
-              <Reveal key={point.before} delayMs={i * 60}>
-                <div className="rounded-xl border border-blue-mist/60 bg-[#FAFCFE] p-6">
-                  <span className="text-2xl">{point.icon}</span>
-                  <div className="mt-4">
-                    <p className="text-sm text-slate line-through">{point.before}</p>
-                    <p className="mt-1 font-display font-bold text-blue-deep">{point.after}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
+            <Reveal>
+              <div className="rounded-2xl border border-red-200 bg-red-50/50 p-6">
+                <h3 className="font-display text-lg font-bold text-red-800">Aujourd'hui</h3>
+                <ul className="mt-4 space-y-3">
+                  <li className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-red-400">✗</span>
+                    <span>Planning sur Excel</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-red-400">✗</span>
+                    <span>Pointage sur papier</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-red-400">✗</span>
+                    <span>Factures Word/Excel</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-red-400">✗</span>
+                    <span>WhatsApp pour tout coordonner</span>
+                  </li>
+                </ul>
+              </div>
+            </Reveal>
+            <Reveal delayMs={100}>
+              <div className="rounded-2xl border-2 border-green-action/30 bg-white p-6 shadow-[0_8px_30px_rgba(31,168,107,0.08)]">
+                <h3 className="font-display text-lg font-bold text-green-deep">Avec PROGESTI</h3>
+                <ul className="mt-4 space-y-3">
+                  <li className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-green-action">✓</span>
+                    <span>Planning visuel avec affectations</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-green-action">✓</span>
+                    <span>Pointage mobile géolocalisé</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-green-action">✓</span>
+                    <span>Facturation automatisée</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate">
+                    <span className="mt-0.5 text-green-action">✓</span>
+                    <span>Données centralisées</span>
+                  </li>
+                </ul>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -370,7 +402,10 @@ export function HomeNew() {
                 {mainPlan.monthly} € HT / mois
               </h2>
               <p className="mt-2 text-lg text-slate">
-                {mainPlan.users} · Tous les modules inclus
+                {mainPlan.users} · Tout inclus (planning, pointage, facturation)
+              </p>
+              <p className="mt-4 text-sm text-slate">
+                Pas 3 logiciels, pas de module en plus. Un seul abonnement, tout compris.
               </p>
             </div>
           </Reveal>
