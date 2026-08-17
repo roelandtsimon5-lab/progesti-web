@@ -115,16 +115,10 @@ export function HomeNew() {
           </div>
 
           <div className="relative">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_24px_80px_rgba(0,0,0,0.3)] [transform:perspective(1000px)_rotateY(-3deg)_rotateX(2deg)]">
-              <div className="flex items-center gap-1.5 border-b border-white/10 bg-white/5 px-3 py-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-400/60" />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/60" />
-                <span className="h-2.5 w-2.5 rounded-full bg-green-400/60" />
-                <span className="ml-2 text-xs text-white/40">app.progesti.fr</span>
-              </div>
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_24px_80px_rgba(0,0,0,0.3)]">
               <Image
-                src="/screen-passages.webp"
-                alt="Interface PROGESTI — Planning des passages"
+                src="/screen-factures.webp"
+                alt="Interface PROGESTI — Gestion et facturation"
                 width={800}
                 height={500}
                 priority
