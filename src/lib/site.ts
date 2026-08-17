@@ -1,7 +1,7 @@
 export const site = {
   name: "PROGESTI",
-  tagline: "GÉREZ. OPTIMISEZ. PERFORMEZ.",
-  usp: "Organisez votre nettoyage professionnel — planning, terrain, facture",
+  tagline: "Le logiciel des entreprises de nettoyage.",
+  usp: "Conçu par des gens du métier — planning, pointage, facture",
   description:
     "Logiciel de gestion pour entreprises de nettoyage et de propreté. Planifiez vos agents, pointez le terrain et facturez — bureaux, syndics, professionnels et fin de chantier.",
   url: "https://progesti.fr",

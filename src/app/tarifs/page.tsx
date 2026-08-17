@@ -43,7 +43,7 @@ export default function TarifsPage() {
       <PageHero
         eyebrow="Tarif unique"
         title="149 € HT / mois"
-        lead="Jusqu'à 5 utilisateurs. Tous les modules inclus. Essai 7 jours sans engagement."
+        lead="Jusqu'à 5 utilisateurs. Planning, pointage et facturation inclus. Pas 3 logiciels, pas de module en plus."
         primaryHref={cta.demo}
         primaryLabel="Demander une démo"
         secondaryHref={cta.trial}
