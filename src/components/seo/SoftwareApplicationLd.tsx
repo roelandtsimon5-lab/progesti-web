@@ -16,20 +16,9 @@ const provider = {
   ...(site.sameAs.length > 0 ? { sameAs: [...site.sameAs] } : {}),
 };
 
-const softwareApplicationLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: site.name,
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web, Android, iOS",
-  description: site.description,
-  url: site.url,
-  offers: {
-    "@type": "Offer",
-    price: "29.99",
-    priceCurrency: "EUR",
-  },
-  provider,
+type Props = {
+  /** Custom URL for this page. Defaults to site.url (homepage). */
+  url?: string;
 };
 
 /**
@@ -37,7 +26,23 @@ const softwareApplicationLd = {
  * Include only on product pages: homepage, /logiciel-*, /fonctionnalites*,
  * /solutions*, /tarifs, /essai-gratuit, /demo, /alternative-*.
  */
-export function SoftwareApplicationLd() {
+export function SoftwareApplicationLd({ url }: Props = {}) {
+  const softwareApplicationLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: site.name,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web, Android, iOS",
+    description: site.description,
+    url: url ?? site.url,
+    offers: {
+      "@type": "Offer",
+      price: "29.99",
+      priceCurrency: "EUR",
+    },
+    provider,
+  };
+
   return (
     <script
       type="application/ld+json"

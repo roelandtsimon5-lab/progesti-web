@@ -5,143 +5,552 @@ import { ConversionBlock } from "@/components/conversion/ConversionBlock";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { Reveal } from "@/components/ui/Reveal";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
+import { FaqPageLd } from "@/components/seo/FaqPageLd";
 import Link from "next/link";
 
 import { cta } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
+import { site } from "@/lib/site";
+
+const pageUrl = `${site.url}/logiciel-entreprise-nettoyage`;
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel entreprise de nettoyage",
+  title: "Logiciel pour entreprise de nettoyage : planning, terrain, facture",
   description:
-    "PROGESTI : logiciel de gestion pour entreprise de nettoyage. Planning, pointage, facturation. Essai 2 mois sans carte bancaire.",
+    "Logiciel pour entreprise de nettoyage : planning, pointage, facture. 11 modules inclus dès 29,99 € HT/mois. Essai 2 mois sans CB — démarrez sans projet ERP.",
   path: "/logiciel-entreprise-nettoyage",
+  openGraph: {
+    title: "Logiciel pour entreprise de nettoyage : planning, terrain, facture",
+    description:
+      "Logiciel pour entreprise de nettoyage : planning, pointage, facture. 11 modules inclus dès 29,99 € HT/mois. Essai 2 mois sans CB — démarrez sans projet ERP.",
+  },
 });
 
 const faq = [
   {
-    q: "Qu’est-ce qu’un logiciel pour entreprise de nettoyage ?",
-    a: "C’est un outil qui centralise planning des agents, suivi des sites, pointage terrain et facturation — à la place d’Excel et WhatsApp.",
+    q: "Qu'est-ce qu'un logiciel pour entreprise de nettoyage ?",
+    a: "C'est un outil métier qui centralise planning des agents, pointage terrain, bons d'intervention, facturation et suivi d'activité — à la place d'Excel, de WhatsApp et de factures manuelles. Il relie le bureau au terrain pour éviter les ressaisies et les oublis.",
   },
   {
     q: "PROGESTI convient-il aux auto-entrepreneurs ?",
-    a: "Oui. L’offre Starter est conçue pour démarrer seul, puis grandir avec Pro ou Premium.",
+    a: "Oui. L'offre Starter (29,99 € HT/mois, 1 admin) est pensée pour démarrer seul ou avec un assistant, puis passer à Pro ou Premium quand l'équipe grandit.",
   },
   {
     q: "Combien coûte PROGESTI ?",
-    a: "À partir de 29,99€ HT/mois, tous modules inclus. Essai 2 mois sans carte bancaire.",
+    a: "Starter : 29,99 € HT/mois (1 admin). Pro : 49,99 € HT/mois (5 utilisateurs). Premium : 99,99 € HT/mois (20 utilisateurs). Tous les modules sont inclus dans chaque offre, sans supplément. Essai 2 mois sans carte bancaire.",
+  },
+  {
+    q: "L'essai est-il vraiment sans engagement ?",
+    a: "Oui. 2 mois complets, sans carte bancaire demandée. Vous testez sur vos propres sites et décidez ensuite de continuer ou non.",
+  },
+  {
+    q: "Faut-il installer quelque chose ?",
+    a: "Non. PROGESTI fonctionne en cloud (navigateur web) et via des apps Android et iOS pour le terrain. Pas de frais d'installation, pas de serveur à gérer.",
+  },
+  {
+    q: "Peut-on importer ses données depuis Excel ?",
+    a: "Oui. Vous pouvez reprendre clients, sites et contrats. L'équipe peut vous accompagner sur l'intégration si besoin.",
+  },
+  {
+    q: "Le logiciel gère-t-il plusieurs sites et plusieurs clients ?",
+    a: "Oui. Planning multi-sites, fiches clients illimitées, contrats avec fréquences et renouvellements — c'est le cœur du logiciel.",
+  },
+  {
+    q: "Y a-t-il un module de pointage mobile ?",
+    a: "Oui. L'application mobile permet aux agents de pointer leur arrivée et leur départ sur site, avec géolocalisation si activée. Les données remontent au bureau en temps réel.",
   },
 ];
 
 export default function PillarNettoyagePage() {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd url={pageUrl} />
+      <FaqPageLd items={faq} />
+
+      {/* Hero — H1 unique */}
       <PageHero
-        eyebrow="Page pilier SEO"
         title="Logiciel pour entreprise de nettoyage"
-        lead="Planifiez vos agents, suivez vos sites et facturez le réalisé — un logiciel pensé pour la propreté, pas un ERP générique."
+        lead="Un logiciel de gestion qui relie planning, pointage terrain et facturation — conçu pour les TPE de propreté. 11 modules inclus dès 29,99 € HT/mois. Essai 2 mois sans carte bancaire."
         primaryHref={cta.trialApp}
-        primaryLabel="Commencez gratuitement"
+        primaryLabel="Démarrer l'essai gratuit"
         secondaryHref="/demo"
         secondaryLabel="Voir une démonstration"
       />
+
+      {/* Section 1 : Le problème */}
       <section className="section !pt-0 bg-white">
-        <div className="container grid gap-10 lg:grid-cols-2">
+        <div className="container max-w-4xl">
           <Reveal>
-            <h2 className="text-2xl font-extrabold text-ink">Le problème du quotidien</h2>
-            <p className="mt-3 text-muted">
-              Entre les plannings Excel, les messages WhatsApp du dimanche soir et les factures en
-              retard, beaucoup de dirigeants de sociétés de nettoyage perdent des heures chaque
-              semaine — sans vision claire de l’activité.
+            <h2 className="text-2xl font-extrabold text-ink">
+              Le problème que vous connaissez
+            </h2>
+            <p className="mt-4 text-muted leading-relaxed">
+              Vous gérez les plannings sur Excel — une colonne par agent, une
+              ligne par site. Les absences arrivent par SMS le dimanche soir.
+              Vous ressaisissez les heures pour préparer la paie. Les factures
+              partent en retard parce qu'il faut recouper le planning, les bons
+              d'intervention et les heures pointées.
             </p>
-            <h2 className="mt-8 text-2xl font-extrabold text-ink">Ce que fait PROGESTI</h2>
-            <ul className="mt-3 space-y-2 text-anthracite">
-              <li>✓ Planning agents / sites</li>
-              <li>✓ Pointage et bons d’intervention</li>
-              <li>✓ Facturation liée au terrain</li>
-              <li>✓ Tableaux de bord d’activité</li>
+            <ul className="mt-6 space-y-3 text-anthracite">
+              <li className="flex gap-3">
+                <span className="text-red-600">✗</span>
+                <span>
+                  <strong className="text-ink">Excel + WhatsApp</strong> : pas
+                  de lien entre le planning et le terrain. L'info se perd.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-red-600">✗</span>
+                <span>
+                  <strong className="text-ink">Double saisie</strong> : vous
+                  recopiez les heures, les sites, les clients — plusieurs fois
+                  par semaine.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-red-600">✗</span>
+                <span>
+                  <strong className="text-ink">Factures en retard</strong> : sans
+                  vision claire du réalisé, vous facturez à l'aveugle ou trop
+                  tard.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-red-600">✗</span>
+                <span>
+                  <strong className="text-ink">Aucun historique fiable</strong>{" "}
+                  : en cas de litige client, difficile de prouver les passages.
+                </span>
+              </li>
             </ul>
-            <div className="mt-8">
-              <ButtonLink href="/fonctionnalites">Voir les fonctionnalités</ButtonLink>
-            </div>
+            <p className="mt-6 text-sm text-muted">
+              Pour aller plus loin :{" "}
+              <Link
+                href="/blog/cout-cache-excel-whatsapp-entreprise-nettoyage"
+                className="font-semibold text-emerald-dark hover:underline"
+              >
+                Le coût caché d'Excel + WhatsApp
+              </Link>
+              {" · "}
+              <Link
+                href="/blog/passer-de-excel-a-un-logiciel-nettoyage"
+                className="font-semibold text-emerald-dark hover:underline"
+              >
+                Passer d'Excel à un logiciel
+              </Link>
+            </p>
           </Reveal>
-          <Reveal delayMs={80}>
-            <div className="rounded-2xl border border-line bg-fog p-6">
-              <h2 className="text-xl font-extrabold text-ink">Pour qui ?</h2>
-              <ul className="mt-4 space-y-3 text-sm text-anthracite">
-                <li>
-                  <strong className="text-ink">Bureaux / tertiaire</strong> —{" "}
-                  <Link href="/solutions/bureaux" className="text-emerald-dark hover:underline">
-                    open spaces & immeubles
-                  </Link>
-                  .
-                </li>
-                <li>
-                  <strong className="text-ink">Syndics</strong> —{" "}
-                  <Link href="/solutions/syndics" className="text-emerald-dark hover:underline">
-                    parties communes multi-sites
-                  </Link>
-                  .
-                </li>
-                <li>
-                  <strong className="text-ink">Pros & fin de chantier</strong> —{" "}
-                  <Link href="/solutions/professionnels" className="text-emerald-dark hover:underline">
-                    commerces
-                  </Link>
-                  ,{" "}
-                  <Link
-                    href="/solutions/fin-de-chantier"
-                    className="text-emerald-dark hover:underline"
-                  >
-                    remise en état
-                  </Link>
-                  .
-                </li>
-                <li>
-                  <strong className="text-ink">Auto-entrepreneurs</strong> —{" "}
-                  <Link
-                    href="/solutions/auto-entrepreneurs"
-                    className="text-emerald-dark hover:underline"
-                  >
-                    démarrer simple
-                  </Link>
-                  .
-                </li>
-              </ul>
-              <p className="mt-6 text-sm text-muted">
-                Voir aussi :{" "}
-                <Link href="/logiciel-planning-nettoyage" className="font-semibold text-emerald-dark">
-                  planning
+        </div>
+      </section>
+
+      {/* Section 2 : Ce que doit faire un logiciel */}
+      <section className="section bg-[#F5F8FB]">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <h2 className="text-2xl font-extrabold text-ink">
+              Ce que doit faire un logiciel pour entreprise de nettoyage
+            </h2>
+            <p className="mt-4 text-muted leading-relaxed">
+              Un vrai logiciel métier ne se contente pas de stocker des données.
+              Il relie les étapes du flux opérationnel : planifier les agents,
+              suivre ce qui est fait sur le terrain, facturer le réalisé.
+            </p>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              <div className="rounded-xl border border-line bg-white p-5">
+                <h3 className="font-display text-lg font-bold text-ink">
+                  Planification
+                </h3>
+                <p className="mt-2 text-sm text-muted">
+                  Affecter le bon agent au bon site, au bon créneau. Gérer les
+                  fréquences (quotidien, hebdo, mensuel) et les remplacements.
+                </p>
+                <Link
+                  href="/logiciel-planning-nettoyage"
+                  className="mt-3 inline-block text-sm font-semibold text-emerald-dark hover:underline"
+                >
+                  Détail du planning →
                 </Link>
-                ,{" "}
+              </div>
+              <div className="rounded-xl border border-line bg-white p-5">
+                <h3 className="font-display text-lg font-bold text-ink">
+                  Pointage & bons d'intervention
+                </h3>
+                <p className="mt-2 text-sm text-muted">
+                  Savoir qui est passé, à quelle heure, avec preuve à l'appui.
+                  Éviter les litiges et fiabiliser la prépaie.
+                </p>
+                <Link
+                  href="/fonctionnalites/pointage"
+                  className="mt-3 inline-block text-sm font-semibold text-emerald-dark hover:underline"
+                >
+                  Module pointage →
+                </Link>
+              </div>
+              <div className="rounded-xl border border-line bg-white p-5">
+                <h3 className="font-display text-lg font-bold text-ink">
+                  Facturation liée au terrain
+                </h3>
+                <p className="mt-2 text-sm text-muted">
+                  Facturer ce qui a été réellement fait, sans ressaisie. Suivre
+                  les impayés et les relances.
+                </p>
                 <Link
                   href="/logiciel-facturation-proprete"
-                  className="font-semibold text-emerald-dark"
+                  className="mt-3 inline-block text-sm font-semibold text-emerald-dark hover:underline"
                 >
-                  facturation
+                  Détail facturation →
                 </Link>
-                ,{" "}
-                <Link href="/blog" className="font-semibold text-emerald-dark">
-                  blog
+              </div>
+              <div className="rounded-xl border border-line bg-white p-5">
+                <h3 className="font-display text-lg font-bold text-ink">
+                  Tableaux de bord & pilotage
+                </h3>
+                <p className="mt-2 text-sm text-muted">
+                  Voir l'activité du mois, la charge par agent, la rentabilité
+                  par contrat — sans exporter vers un tableur.
+                </p>
+                <Link
+                  href="/fonctionnalites/tableaux-de-bord"
+                  className="mt-3 inline-block text-sm font-semibold text-emerald-dark hover:underline"
+                >
+                  Module tableaux de bord →
                 </Link>
-                ,{" "}
-                <Link href="/alternative-propret" className="font-semibold text-emerald-dark">
-                  alternative Propret
-                </Link>
-                .
-              </p>
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
+
+      {/* Section 3 : Comment PROGESTI le fait */}
+      <section className="section bg-white">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <h2 className="text-2xl font-extrabold text-ink">
+              Comment PROGESTI répond à ces besoins
+            </h2>
+            <p className="mt-4 text-muted leading-relaxed">
+              PROGESTI est un logiciel de gestion conçu pour les entreprises de
+              nettoyage — pas un ERP générique adapté après coup. Tous les
+              modules sont pensés pour le vocabulaire et les flux du métier :
+              sites, agents, fréquences, passages, heures, facturation récurrente.
+            </p>
+            <div className="mt-8">
+              <h3 className="font-display text-lg font-bold text-ink">
+                11 modules inclus, pas de supplément
+              </h3>
+              <ul className="mt-4 grid gap-2 text-sm text-anthracite sm:grid-cols-2">
+                <li>
+                  <Link
+                    href="/fonctionnalites/planification"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Planification agents / sites</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/pointage"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Pointage mobile</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/bon-intervention"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Bons d'intervention</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/facturation"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Facturation & relation client</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/gestion-rh"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Gestion RH</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/prepaie"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Prépaie (variables)</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/contrats"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Contrats & renouvellements</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/stock"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Stock consommables</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/geolocalisation"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Géolocalisation</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/supervision"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Supervision qualité</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fonctionnalites/tableaux-de-bord"
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span className="text-green-deep">✓</span>
+                    <span>Tableaux de bord</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <p className="mt-6 text-sm text-muted">
+              Tous les modules sont accessibles dès l'offre Starter. Pas de
+              module payant en plus.{" "}
+              <Link
+                href="/fonctionnalites"
+                className="font-semibold text-emerald-dark hover:underline"
+              >
+                Voir toutes les fonctionnalités
+              </Link>
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Section 4 : Pour qui */}
+      <section className="section bg-[#F5F8FB]">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <h2 className="text-2xl font-extrabold text-ink">
+              Pour qui est fait PROGESTI ?
+            </h2>
+            <p className="mt-4 text-muted leading-relaxed">
+              PROGESTI s'adresse aux TPE et petites PME de nettoyage —
+              indépendants, structures de 1 à 20 utilisateurs. Pas aux ETI de
+              50+ salariés qui ont besoin d'un ERP sur mesure avec intégration
+              SIRH et comptabilité groupe.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <Link
+                href="/solutions/bureaux"
+                className="block rounded-xl border border-line bg-white p-5 transition hover:border-emerald"
+              >
+                <h3 className="font-display text-base font-bold text-ink">
+                  Nettoyage de bureaux
+                </h3>
+                <p className="mt-2 text-sm text-muted">
+                  Open spaces, immeubles tertiaires, fréquences
+                  hebdomadaires ou quotidiennes.
+                </p>
+              </Link>
+              <Link
+                href="/solutions/syndics"
+                className="block rounded-xl border border-line bg-white p-5 transition hover:border-emerald"
+              >
+                <h3 className="font-display text-base font-bold text-ink">
+                  Syndics & copropriétés
+                </h3>
+                <p className="mt-2 text-sm text-muted">
+                  Parties communes, multi-immeubles, reporting mensuel.
+                </p>
+              </Link>
+              <Link
+                href="/solutions/professionnels"
+                className="block rounded-xl border border-line bg-white p-5 transition hover:border-emerald"
+              >
+                <h3 className="font-display text-base font-bold text-ink">
+                  Locaux professionnels
+                </h3>
+                <p className="mt-2 text-sm text-muted">
+                  Cabinets médicaux, commerces, restaurants — horaires serrés.
+                </p>
+              </Link>
+              <Link
+                href="/solutions/fin-de-chantier"
+                className="block rounded-xl border border-line bg-white p-5 transition hover:border-emerald"
+              >
+                <h3 className="font-display text-base font-bold text-ink">
+                  Fin de chantier
+                </h3>
+                <p className="mt-2 text-sm text-muted">
+                  Remise en état après travaux, prestations ponctuelles.
+                </p>
+              </Link>
+              <Link
+                href="/solutions/auto-entrepreneurs"
+                className="block rounded-xl border border-line bg-white p-5 transition hover:border-emerald"
+              >
+                <h3 className="font-display text-base font-bold text-ink">
+                  Auto-entrepreneurs
+                </h3>
+                <p className="mt-2 text-sm text-muted">
+                  Démarrer simple, sans usine à gaz, avec un outil qui grandit
+                  avec vous.
+                </p>
+              </Link>
+            </div>
+            <p className="mt-6 text-sm text-muted">
+              Guides métier :{" "}
+              <Link
+                href="/blog/logiciel-nettoyage-bureaux-criteres"
+                className="font-semibold text-emerald-dark hover:underline"
+              >
+                Critères bureaux
+              </Link>
+              {" · "}
+              <Link
+                href="/blog/travailler-avec-syndic-acces-reporting"
+                className="font-semibold text-emerald-dark hover:underline"
+              >
+                Travailler avec un syndic
+              </Link>
+              {" · "}
+              <Link
+                href="/blog/ae-proprete-demarrer-sans-usine-a-gaz"
+                className="font-semibold text-emerald-dark hover:underline"
+              >
+                Démarrer en AE
+              </Link>
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Section 5 : Prix */}
+      <section className="section bg-white">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <h2 className="text-2xl font-extrabold text-ink">
+              Tarifs publics, pas de projet ERP
+            </h2>
+            <p className="mt-4 text-muted leading-relaxed">
+              Vous n'avez pas besoin d'un devis sur mesure pour savoir combien
+              coûte PROGESTI. Les prix sont affichés, les modules sont tous
+              inclus, et l'essai est gratuit pendant 2 mois sans carte bancaire.
+            </p>
+            <div className="mt-8 overflow-x-auto">
+              <table className="w-full min-w-[480px] text-left text-sm">
+                <thead>
+                  <tr className="border-b border-line">
+                    <th className="py-3 pr-4 font-bold text-ink">Offre</th>
+                    <th className="py-3 pr-4 font-bold text-ink">Utilisateurs</th>
+                    <th className="py-3 pr-4 font-bold text-ink">Prix HT/mois</th>
+                    <th className="py-3 font-bold text-ink">Modules</th>
+                  </tr>
+                </thead>
+                <tbody className="text-anthracite">
+                  <tr className="border-b border-line/70">
+                    <td className="py-3 pr-4 font-semibold text-ink">Starter</td>
+                    <td className="py-3 pr-4">1 administrateur</td>
+                    <td className="py-3 pr-4">29,99 €</td>
+                    <td className="py-3">Tous inclus</td>
+                  </tr>
+                  <tr className="border-b border-line/70">
+                    <td className="py-3 pr-4 font-semibold text-ink">Pro</td>
+                    <td className="py-3 pr-4">5 utilisateurs</td>
+                    <td className="py-3 pr-4">49,99 €</td>
+                    <td className="py-3">Tous inclus</td>
+                  </tr>
+                  <tr className="border-b border-line/70">
+                    <td className="py-3 pr-4 font-semibold text-ink">Premium</td>
+                    <td className="py-3 pr-4">20 utilisateurs</td>
+                    <td className="py-3 pr-4">99,99 €</td>
+                    <td className="py-3">Tous inclus</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ul className="mt-6 space-y-2 text-sm text-muted">
+              <li>✓ Cloud + Android & iOS, sans frais d'installation</li>
+              <li>✓ Mises à jour incluses, pas de version payante à part</li>
+              <li>✓ Essai 2 mois sans carte bancaire</li>
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink
+                href="/tarifs"
+                variant="secondary"
+                eventPayload={{ cta: "v3_pillar_nettoyage_tarifs" }}
+              >
+                Voir les tarifs détaillés
+              </ButtonLink>
+              <ButtonLink
+                href="/alternative-propret"
+                variant="secondary"
+                eventPayload={{ cta: "v3_pillar_nettoyage_alt" }}
+              >
+                Comparer avec Propret
+              </ButtonLink>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Section 6 : FAQ */}
       <section className="section bg-[#F5F8FB]">
         <div className="container max-w-3xl">
-          <h2 className="text-3xl font-extrabold text-blue-deep">FAQ</h2>
+          <h2 className="text-3xl font-extrabold text-blue-deep">
+            Questions fréquentes
+          </h2>
           <div className="mt-8">
             <FaqAccordion items={faq} />
           </div>
+          <p className="mt-8 text-sm text-muted">
+            D'autres questions ?{" "}
+            <Link
+              href="/faq"
+              className="font-semibold text-emerald-dark hover:underline"
+            >
+              Voir toutes les FAQ
+            </Link>
+            {" · "}
+            <Link
+              href="/contact"
+              className="font-semibold text-emerald-dark hover:underline"
+            >
+              Nous contacter
+            </Link>
+          </p>
         </div>
       </section>
+
+      {/* CTA final */}
       <ConversionBlock variant="essai" />
     </>
   );
