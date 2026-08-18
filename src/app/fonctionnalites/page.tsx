@@ -36,7 +36,7 @@ export default function FonctionnalitesPage() {
             </h1>
             <p className="mt-5 max-w-xl text-lg text-slate">
               Du planning à la facture, du pointage terrain à la supervision — tout inclus dès
-              29,99 € HT/mois. Essai 2 mois sans CB.
+              149 € HT/mois. Essai 7 jours gratuit.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink
@@ -45,7 +45,7 @@ export default function FonctionnalitesPage() {
                 event="trial_start"
                 eventPayload={{ cta: "v3_features_hub_trial" }}
               >
-                Essayer 2 mois
+                Demander une démo
               </ButtonLink>
               <ButtonLink href={cta.demo} size="lg" variant="secondary">
                 Voir la démo
@@ -69,8 +69,8 @@ export default function FonctionnalitesPage() {
       <section className="border-y border-blue-mist bg-white">
         <div className="container grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
           {[
-            ["2 mois", "d’essai sans CB"],
-            ["29,99 €", "HT/mois dès Starter"],
+            ["7 jours", "d’essai gratuit"],
+            ["149 €", "HT/mois tout inclus"],
             ["11", "modules inclus"],
             ["0 €", "module payant en plus"],
           ].map(([v, l]) => (

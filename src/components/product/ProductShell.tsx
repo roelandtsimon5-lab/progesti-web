@@ -203,7 +203,7 @@ export function ProductShell({ mode }: Props) {
         <div className="mb-4 px-2">
           <p className="font-display text-lg font-extrabold tracking-tight">PROGESTI</p>
           <p className="mt-1 text-xs text-white/55">
-            {mode === "demo" ? "Démo interactive" : "Essai 2 mois"}
+            {mode === "demo" ? "Démo interactive" : "Essai 7 jours"}
           </p>
         </div>
         {NAV.map((item) => (

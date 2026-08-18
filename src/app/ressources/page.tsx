@@ -46,8 +46,8 @@ export default function RessourcesPage() {
         eyebrow="Ressources"
         title="Tout pour décider et démarrer"
         lead="Piliers SEO, solutions verticales, blog et glossaire — une porte d’entrée claire vers PROGESTI."
-        primaryHref={cta.trialApp}
-        primaryLabel="Essai 2 mois"
+        primaryHref={cta.demo}
+        primaryLabel="Demander une démo"
         secondaryHref="/blog"
         secondaryLabel="Lire le blog"
       />

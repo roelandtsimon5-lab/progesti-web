@@ -9,7 +9,7 @@ export const solutionPages: Record<string, SolutionContent> = {
     lead:
       "Open spaces, immeubles de bureaux, coworking : fréquences, accès et équipes tôt le matin ou en soirée — sans double saisie Excel / WhatsApp.",
     seoDescription:
-      "Logiciel de nettoyage de bureaux : planning multi-sites, pointage agents et facturation. Essai PROGESTI 2 mois sans CB.",
+      "Logiciel de nettoyage de bureaux : planning multi-sites, pointage agents et facturation. Essai PROGESTI 7 jours.",
     pains: [
       {
         title: "Fréquences qui dérivent",
@@ -75,15 +75,15 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Combien de temps pour démarrer ?",
-        a: "Quelques minutes pour créer le compte et ajouter vos premiers sites. Essai 2 mois sans carte bancaire.",
+        a: "Quelques minutes pour créer le compte et ajouter vos premiers sites. Essai 7 jours gratuit.",
       },
       {
         q: "Les modules sont-ils payants en plus ?",
-        a: "Non. Planning, pointage, facturation, RH… tout est inclus dès 29,99 € HT/mois.",
+        a: "Non. Planning, pointage, facturation, RH… tout est inclus à 149 € HT/mois.",
       },
       {
         q: "Peut-on remplacer Excel progressivement ?",
-        a: "Oui. Beaucoup démarrent par le planning + pointage, puis branchent la facturation. L’essai 2 mois laisse le temps de migrer sans stress.",
+        a: "Oui. Beaucoup démarrent par le planning + pointage, puis branchent la facturation.",
       },
     ],
   },
@@ -95,7 +95,7 @@ export const solutionPages: Record<string, SolutionContent> = {
     lead:
       "Halls, cages d’escalier, locaux techniques : pilotez les passages récurrents et documentez la qualité pour vos interlocuteurs immobiliers.",
     seoDescription:
-      "Logiciel nettoyage syndics et parties communes : multi-immeubles, preuves terrain, reporting. Essai PROGESTI 2 mois.",
+      "Logiciel nettoyage syndics et parties communes : multi-immeubles, preuves terrain, reporting. Essai PROGESTI 7 jours.",
     pains: [
       {
         title: "Portefeuille d’immeubles",
@@ -152,7 +152,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Y a-t-il un engagement long ?",
-        a: "Non. Essai 2 mois sans CB, puis abonnement résiliable selon les conditions de l’offre.",
+        a: "Non. Essai 7 jours gratuit, puis abonnement résiliable selon les conditions de l’offre.",
       },
       {
         q: "Convient-il aux parties communes uniquement ?",
@@ -172,7 +172,7 @@ export const solutionPages: Record<string, SolutionContent> = {
     lead:
       "Cabinets médicaux, commerces, restaurants : horaires serrés, accès sensibles et preuves de passage — sans chaos WhatsApp.",
     seoDescription:
-      "Logiciel ménage cabinets, commerces et restaurants : plannings d’accès, pointage, facturation. Essai PROGESTI 2 mois.",
+      "Logiciel ménage cabinets, commerces et restaurants : plannings d’accès, pointage, facturation. Essai PROGESTI 7 jours.",
     pains: [
       {
         title: "Créneaux hors ouverture",
@@ -232,7 +232,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Quels tarifs ?",
-        a: "Dès 29,99 € HT/mois (Starter), tous modules inclus. Voir la page Tarifs.",
+        a: "149 € HT/mois, jusqu'à 5 utilisateurs, tous modules inclus. Voir la page Tarifs.",
       },
       {
         q: "Faut-il une app pour les agents ?",
@@ -252,7 +252,7 @@ export const solutionPages: Record<string, SolutionContent> = {
     lead:
       "Prestations ponctuelles après travaux : organisez les équipes, capturez les preuves et facturez dès la livraison.",
     seoDescription:
-      "Logiciel fin de chantier et remise en état : planning, preuves photos, facturation post-chantier. Essai PROGESTI 2 mois.",
+      "Logiciel fin de chantier et remise en état : planning, preuves photos, facturation post-chantier. Essai PROGESTI 7 jours.",
     pains: [
       {
         title: "Délais de livraison",
@@ -306,7 +306,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Combien de temps dure l’essai ?",
-        a: "2 mois complets, sans carte bancaire, tous modules inclus.",
+        a: "7 jours, tous modules inclus.",
       },
       {
         q: "Comment facturer des extras ?",
@@ -314,7 +314,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Convient-il aux petites équipes ponctuelles ?",
-        a: "Oui — de l’indépendant à la PME. L’offre Starter démarre à 29,99 € HT/mois.",
+        a: "Oui — de l’indépendant à la PME. 149 € HT/mois, jusqu’à 5 utilisateurs.",
       },
     ],
   },
@@ -322,11 +322,11 @@ export const solutionPages: Record<string, SolutionContent> = {
     slug: "auto-entrepreneurs",
     title: "Auto-entrepreneurs & petites équipes",
     badge: "Indépendants & TPE",
-    headline: "Démarrer sans usine à gaz — dès 29,99 € HT/mois",
+    headline: "Démarrer sans usine à gaz — 149 € HT/mois",
     lead:
-      "Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures, avec essai 2 mois sans carte bancaire.",
+      "Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures. Essai 7 jours gratuit.",
     seoDescription:
-      "Logiciel nettoyage auto-entrepreneur : planning, pointage, facturation dès 29,99 € HT/mois. Essai 2 mois sans CB.",
+      "Logiciel nettoyage auto-entrepreneur : planning, pointage, facturation 149 € HT/mois. Essai 7 jours gratuit.",
     pains: [
       {
         title: "Tout sur Excel",
@@ -369,13 +369,13 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         time: "Croissance",
-        text: "Passez à Pro ou Premium quand l’équipe grandit — mêmes modules, pas de migration douloureuse.",
+        text: "Contactez-nous si l’équipe grandit au-delà de 5 utilisateurs.",
       },
     ],
     faq: [
       {
-        q: "L’offre Starter suffit-elle ?",
-        a: "Oui pour 1 administrateur. Passez à Pro (5 users) ou Premium (20) quand l’équipe grandit — mêmes modules.",
+        q: "L’offre convient-elle aux petites équipes ?",
+        a: "Oui. 149 € HT/mois, jusqu’à 5 utilisateurs, tous modules inclus.",
       },
       {
         q: "Faut-il une formation longue ?",
@@ -387,11 +387,11 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Puis-je tester avant de payer ?",
-        a: "Oui : essai 2 mois sans carte bancaire, accès à tous les modules.",
+        a: "Oui : essai 7 jours gratuit, accès à tous les modules.",
       },
       {
         q: "PROGESTI est-il réservé aux grandes entreprises ?",
-        a: "Non. Il est pensé aussi pour les AE et petites équipes — prix public dès 29,99 € HT/mois.",
+        a: "Non. Il est pensé aussi pour les AE et petites équipes — 149 € HT/mois, jusqu'à 5 utilisateurs.",
       },
     ],
   },

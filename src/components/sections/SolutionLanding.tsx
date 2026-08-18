@@ -23,8 +23,8 @@ export type SolutionContent = {
 };
 
 const proofBar = [
-  { value: "2 mois", label: "d’essai sans CB" },
-  { value: "29,99 €", label: "HT/mois dès Starter" },
+  { value: "7 jours", label: "d’essai gratuit" },
+  { value: "149 €", label: "HT/mois tout inclus" },
   { value: "11", label: "modules inclus" },
   { value: "0 €", label: "frais d’installation" },
 ];
@@ -49,29 +49,29 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate">{content.lead}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <ButtonLink
+                href={cta.demo}
+                size="lg"
+                eventPayload={{ cta: `v3_solution_${content.slug}_demo` }}
+              >
+                Demander une démo
+              </ButtonLink>
+              <ButtonLink
                 href={cta.trialApp}
                 size="lg"
+                variant="secondary"
                 event="trial_start"
                 eventPayload={{ cta: `v3_solution_${content.slug}_hero` }}
               >
-                Essai gratuit 2 mois
-              </ButtonLink>
-              <ButtonLink
-                href={cta.demo}
-                size="lg"
-                variant="secondary"
-                eventPayload={{ cta: `v3_solution_${content.slug}_demo` }}
-              >
-                Voir la démo
+                Essai 7 jours gratuit
               </ButtonLink>
             </div>
             <p className="mt-5 text-sm font-medium text-slate">
-              <span className="text-green-deep">✓</span> Sans carte bancaire{" "}
+              <span className="text-green-deep">✓</span> Essai 7 jours{" "}
               <span className="mx-2 text-blue-mist">·</span>
-              <span className="text-green-deep">✓</span> Dès{" "}
-              <strong className="text-blue-deep">29,99 € HT/mois</strong>{" "}
+              <span className="text-green-deep">✓</span>{" "}
+              <strong className="text-blue-deep">149 € HT/mois</strong>{" "}
               <span className="mx-2 text-blue-mist">·</span>
-              <span className="text-green-deep">✓</span> Tous modules inclus
+              <span className="text-green-deep">✓</span> Jusqu'à 5 utilisateurs
             </p>
           </div>
 
@@ -205,21 +205,19 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
               Pourquoi PROGESTI
             </p>
             <h2 className="mt-3 text-3xl font-extrabold text-white md:text-4xl">
-              Testez 2 mois sur vos vrais sites
+              Testez PROGESTI sur vos vrais sites
             </h2>
             <p className="mt-4 text-lg text-white/90">
-              Beaucoup d’outils du marché proposent 14 jours d’essai. Chez PROGESTI :{" "}
-              <strong className="text-white">2 mois complets</strong>, sans carte bancaire, tous
-              modules inclus — pour valider sur votre activité de {content.title.toLowerCase()}.
+              <strong className="text-white">149 € HT/mois</strong>, jusqu'à 5 utilisateurs, tous
+              modules inclus — pour piloter votre activité de {content.title.toLowerCase()}.
             </p>
             <div className="mt-8">
               <ButtonLink
-                href={cta.trialApp}
+                href={cta.demo}
                 size="lg"
-                event="trial_start"
                 eventPayload={{ cta: `v3_solution_${content.slug}_why` }}
               >
-                Démarrer l’essai 2 mois
+                Demander une démo
               </ButtonLink>
             </div>
           </Reveal>

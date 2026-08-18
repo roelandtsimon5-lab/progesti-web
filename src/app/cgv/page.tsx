@@ -31,9 +31,8 @@ export default function CgvPage() {
           <section>
             <h2 className="text-lg font-extrabold text-ink">2. Offres et prix</h2>
             <p className="mt-2">
-              Les offres Starter, Pro et Premium sont décrites sur la page Tarifs. Les prix sont
-              indiqués en euros HT. Essai gratuit de 2 mois sans carte bancaire, tous modules
-              inclus selon l’offre présentée.
+              L'offre PROGESTI est décrite sur la page Tarifs : 149 € HT/mois, jusqu'à 5
+              utilisateurs, tous modules inclus. Essai gratuit de 7 jours.
             </p>
           </section>
           <section>

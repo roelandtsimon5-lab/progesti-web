@@ -34,24 +34,24 @@ export default function SolutionsIndexPage() {
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-slate">
             Bureaux, syndics, locaux pros, fin de chantier — le parcours planning → terrain →
-            facture reste le même. Essai 2 mois sans CB.
+            facture reste le même. Essai 7 jours gratuit.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink
+              href={cta.demo}
+              size="lg"
+              eventPayload={{ cta: "v3_solutions_hub_demo" }}
+            >
+              Demander une démo
+            </ButtonLink>
+            <ButtonLink
               href={cta.trialApp}
               size="lg"
+              variant="secondary"
               event="trial_start"
               eventPayload={{ cta: "v3_solutions_hub_trial" }}
             >
-              Essai gratuit 2 mois
-            </ButtonLink>
-            <ButtonLink
-              href={cta.demo}
-              size="lg"
-              variant="secondary"
-              eventPayload={{ cta: "v3_solutions_hub_demo" }}
-            >
-              Voir la démo
+              Essai 7 jours gratuit
             </ButtonLink>
           </div>
         </div>
@@ -60,8 +60,8 @@ export default function SolutionsIndexPage() {
       <section className="border-y border-blue-mist bg-white">
         <div className="container grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
           {[
-            ["2 mois", "d’essai sans CB"],
-            ["29,99 €", "HT/mois dès Starter"],
+            ["7 jours", "d’essai gratuit"],
+            ["149 €", "HT/mois tout inclus"],
             ["11", "modules inclus"],
             ["0 €", "frais d’installation"],
           ].map(([v, l]) => (

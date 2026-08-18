@@ -46,7 +46,7 @@ export default function OpenGraphImage() {
             Le logiciel qui simplifie le nettoyage professionnel
           </div>
           <div style={{ fontSize: 28, lineHeight: 1.35, color: "#c5dcf0", maxWidth: 820 }}>
-            Planning · Pointage terrain · Facturation — dès 29,99 € HT/mois
+            Planning · Pointage terrain · Facturation — dès 149 € HT/mois
           </div>
         </div>
         <div style={{ display: "flex", fontSize: 22, color: "#e8f2fa" }}>progesti.fr</div>

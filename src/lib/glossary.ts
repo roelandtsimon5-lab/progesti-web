@@ -178,15 +178,15 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: "essai-gratuit",
     term: "Essai gratuit",
     definition:
-      "Période de test du logiciel. Chez PROGESTI : 2 mois sans carte bancaire, tous modules inclus.",
+      "Période de test du logiciel. Chez PROGESTI : 7 jours d'essai gratuit, tous modules inclus.",
     related: ["/essai-gratuit", "/blog/essai-gratuit-logiciel-nettoyage-checklist"],
   },
   {
-    slug: "starter-pro-premium",
-    term: "Starter / Pro / Premium",
+    slug: "offre-progesti",
+    term: "Offre PROGESTI",
     definition:
-      "Offres PROGESTI différenciées par le nombre d’utilisateurs ; les modules sont inclus dans chaque offre.",
-    related: ["/tarifs", "/blog/choisir-offre-starter-pro-premium"],
+      "149 € HT/mois, jusqu'à 5 utilisateurs, tous modules inclus. Prix clair, sans surprise.",
+    related: ["/tarifs"],
   },
   {
     slug: "tertiaire",

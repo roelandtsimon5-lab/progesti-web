@@ -67,7 +67,7 @@ export default function CasClientsPage() {
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {[
               ["Avant", "Excel + WhatsApp, factures en retard"],
-              ["Pendant", "Essai 2 mois sur sites réels"],
+              ["Pendant", "Essai 7 jours sur sites réels"],
               ["Après", "Planning stable, facturation plus rapide"],
             ].map(([t, d]) => (
               <div key={t} className="border-t border-line pt-4">

@@ -12,13 +12,13 @@ export default function LandingAlternativePage() {
     <LandingTemplate
       badge="Landing switch"
       headline="Passez à une solution plus performante"
-      subhead="Vous utilisez déjà un logiciel (Propret ou autre) ? Comparez sans risque pendant 2 mois."
-      primaryCta={{ href: cta.trialApp, label: "Tester PROGESTI 2 mois" }}
+      subhead="Vous utilisez déjà un logiciel (Propret ou autre) ? Comparez sans risque pendant 7 jours."
+      primaryCta={{ href: cta.trialApp, label: "Tester PROGESTI 7 jours" }}
       secondaryCta={{ href: "/alternative-propret", label: "Voir la comparaison" }}
       benefits={[
         "Même niche : entreprises de nettoyage",
-        "Tarifs publics dès 29,99€ HT/mois",
-        "Essai 2 mois vs essai court ailleurs",
+        "Tarifs publics dès 149 € HT/mois",
+        "Essai 7 jours vs essai court ailleurs",
         "Accompagnement possible pour migrer",
       ]}
       objections={[

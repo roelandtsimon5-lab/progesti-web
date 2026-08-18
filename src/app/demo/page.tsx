@@ -255,7 +255,7 @@ export default function DemoPage() {
               </ul>
 
               <p className="mt-4 text-center text-xs text-slate">
-                Vous préférez un essai 2 mois ?{" "}
+                Vous préférez tester directement ?{" "}
                 <Link
                   href={cta.trialApp}
                   className="font-bold text-blue-royal underline-offset-2 hover:underline"
@@ -284,7 +284,7 @@ export default function DemoPage() {
               {[
                 "Accès immédiat après le formulaire",
                 "Vraie application — pas une maquette",
-                "Essai 2 mois sans carte bancaire",
+                "Essai 7 jours gratuit",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-sm font-semibold text-blue-deep">
                   <span className="text-green-deep" aria-hidden>
@@ -414,7 +414,7 @@ export default function DemoPage() {
           event="trial_start"
           eventPayload={{ cta: "v3_demo_mobile_trial" }}
         >
-          Essai 2 mois
+          Essai 7 jours
         </ButtonLink>
       </div>
     </>

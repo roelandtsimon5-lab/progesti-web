@@ -25,7 +25,7 @@ export default function ComparatifsPage() {
           <ul className="mt-4 space-y-2 text-anthracite">
             <li>• Même niche : AE et petites entreprises de nettoyage</li>
             <li>• Grille tarifaire comparable (Starter / Pro / Premium)</li>
-            <li>• Différenciation PROGESTI : essai 2 mois, parcours conversion, accompagnement données</li>
+            <li>• Différenciation PROGESTI : essai 7 jours, parcours conversion, accompagnement données</li>
           </ul>
           <div className="mt-6 flex flex-wrap gap-3">
             <ButtonLink href={cta.trialApp}>Tester PROGESTI</ButtonLink>

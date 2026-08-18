@@ -65,7 +65,7 @@ export default async function ModulePage({ params }: Props) {
               </ButtonLink>
             </div>
             <p className="mt-5 text-sm font-medium text-slate">
-              <span className="text-green-deep">✓</span> Essai 2 mois sans CB · Dès 29,99 € HT/mois
+              <span className="text-green-deep">✓</span> Essai 7 jours gratuit · Dès 149 € HT/mois
             </p>
           </div>
           <div className="overflow-hidden rounded-2xl border border-blue-mist bg-white shadow-[0_24px_60px_rgba(11,61,110,0.12)]">

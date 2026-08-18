@@ -3,7 +3,7 @@ import { LandingTemplate } from "@/components/sections/LandingTemplate";
 
 import { cta } from "@/lib/cta";
 export const metadata: Metadata = {
-  title: "Essai gratuit 2 mois — logiciel nettoyage",
+  title: "Essai gratuit 7 jours — logiciel nettoyage",
   robots: { index: false },
 };
 
@@ -11,13 +11,13 @@ export default function LandingEssaiPage() {
   return (
     <LandingTemplate
       badge="Landing essai"
-      headline="Essayez gratuitement pendant 2 mois"
+      headline="Essayez gratuitement pendant 7 jours"
       subhead="Accès immédiat à tous les modules. Sans carte bancaire. Sans engagement."
       primaryCta={{ href: cta.trialApp, label: "Créer mon essai maintenant" }}
       secondaryCta={{ href: "/demo", label: "Préférer la démo 30s" }}
       benefits={[
         "Friction minimale : formulaire court puis entrée dans l’app",
-        "Tous les modules ouverts pendant 2 mois",
+        "Tous les modules ouverts pendant 7 jours",
         "Idéal pour valider sur vos vrais sites clients",
         "Passage ensuite vers Starter / Pro / Premium",
       ]}
@@ -27,7 +27,7 @@ export default function LandingEssaiPage() {
           a: "Vous testez librement. L’équipe reste dispo si vous voulez de l’aide.",
         },
         {
-          q: "Que se passe-t-il après 2 mois ?",
+          q: "Que se passe-t-il après l'essai ?",
           a: "Vous choisissez une offre — ou vous arrêtez.",
         },
       ]}
