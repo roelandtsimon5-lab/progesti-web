@@ -50,11 +50,13 @@ export function HomeNew() {
               <Image
                 src="/hero-planning.png"
                 alt="Planning PROGESTI — semaine d'une intervenante, passages par site"
-                width={800}
-                height={500}
+                width={1305}
+                height={833}
                 priority
+                unoptimized
+                quality={95}
                 className="h-auto w-full"
-                sizes="(max-width: 1024px) 100vw, 600px"
+                sizes="(max-width: 1024px) 100vw, 720px"
               />
             </div>
           </div>
@@ -109,9 +111,12 @@ export function HomeNew() {
                 <Image
                   src="/hero-planning.png"
                   alt="Planning PROGESTI — semaine d'une intervenante, passages par site"
-                  width={700}
-                  height={440}
+                  width={1305}
+                  height={833}
+                  unoptimized
+                  quality={95}
                   className="h-auto w-full"
+                  sizes="(max-width: 1024px) 100vw, 720px"
                 />
               </div>
             </Reveal>
@@ -124,11 +129,14 @@ export function HomeNew() {
             <Reveal delayMs={100} className="order-2 lg:order-1">
               <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
                 <Image
-                  src="/screen-telegestion.webp"
+                  src="/screen-telegestion.png"
                   alt="Télégestion PROGESTI — pointages arrivée et départ depuis l'app mobile"
-                  width={700}
-                  height={440}
+                  width={1682}
+                  height={826}
+                  unoptimized
+                  quality={95}
                   className="h-auto w-full"
+                  sizes="(max-width: 1024px) 100vw, 720px"
                 />
               </div>
             </Reveal>
@@ -191,11 +199,14 @@ export function HomeNew() {
             <Reveal delayMs={100}>
               <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
                 <Image
-                  src="/screen-factures.webp"
+                  src="/screen-factures.png"
                   alt="Factures PROGESTI — liste des factures clients et statuts"
-                  width={700}
-                  height={440}
+                  width={1682}
+                  height={828}
+                  unoptimized
+                  quality={95}
                   className="h-auto w-full"
+                  sizes="(max-width: 1024px) 100vw, 720px"
                 />
               </div>
             </Reveal>
