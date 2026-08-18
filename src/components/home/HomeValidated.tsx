@@ -78,21 +78,18 @@ export function HomeValidated() {
 
   return (
     <>
-      {/* ── HERO type Propret/Jobber : bénéfice + produit + CTA ── */}
-      <section className="relative overflow-hidden bg-[#F5F8FB]">
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(31,168,107,0.14),transparent)]"
-          aria-hidden
-        />
-        <div className="container relative grid items-center gap-10 pb-12 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pb-16 lg:pt-16">
+      {/* ── HERO navy blue style ── */}
+      <section className="relative overflow-hidden bg-blue-deep">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+        <div className="container relative grid items-center gap-10 pb-16 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-20 lg:pt-16">
           <div className="anim-rise">
-            <p className="inline-flex items-center gap-2 rounded-full border border-green-action/25 bg-green-action/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-deep">
+            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
               Logiciel entreprises de nettoyage
-            </p>
-            <h1 className="mt-5 font-display text-[2.35rem] font-extrabold leading-[1.08] tracking-tight text-blue-deep md:text-[3.15rem]">
+            </span>
+            <h1 className="mt-5 font-display text-[2.35rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3.15rem]">
               Le logiciel qui simplifie votre société de propreté
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
               Centralisez planning, pointage terrain, RH et facturation. Remplacez Excel et WhatsApp
               par un outil pensé pour le ménage professionnel.
             </p>
@@ -109,25 +106,20 @@ export function HomeValidated() {
               <ButtonLink
                 href={cta.demo}
                 size="lg"
-                variant="secondary"
+                variant="outline-white"
                 eventPayload={{ cta: "v3_home_hero_demo" }}
               >
                 Voir la démo
               </ButtonLink>
             </div>
 
-            <p className="mt-5 text-sm font-medium text-slate">
-              <span className="text-green-deep">✓</span> Sans carte bancaire{" "}
-              <span className="mx-2 text-blue-mist">·</span>
-              <span className="text-green-deep">✓</span> Dès{" "}
-              <strong className="text-blue-deep">29,99 € HT/mois</strong>{" "}
-              <span className="mx-2 text-blue-mist">·</span>
-              <span className="text-green-deep">✓</span> Tous modules inclus
+            <p className="mt-6 text-sm text-white/60">
+              ✓ Sans carte bancaire · ✓ Dès 29,99 € HT/mois · ✓ Tous modules inclus
             </p>
           </div>
 
           <div className="anim-rise-delay relative">
-            <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
+            <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
               <Image
                 src="/hero-planning.png"
                 alt="Planning PROGESTI — vue semaine des passages par site"
@@ -139,10 +131,10 @@ export function HomeValidated() {
               />
             </div>
             <div className="absolute -bottom-5 left-4 right-4 flex flex-wrap justify-center gap-2 sm:left-auto sm:right-6 sm:justify-end">
-              <span className="rounded-lg bg-blue-deep px-3 py-2 text-xs font-bold text-white shadow-lg">
+              <span className="rounded-lg bg-green-action px-3 py-2 text-xs font-bold text-white shadow-lg">
                 App agents Android & iOS
               </span>
-              <span className="rounded-lg bg-white px-3 py-2 text-xs font-bold text-blue-deep shadow-lg ring-1 ring-blue-mist">
+              <span className="rounded-lg bg-white px-3 py-2 text-xs font-bold text-blue-deep shadow-lg">
                 Cloud · sans installation
               </span>
             </div>

@@ -32,21 +32,18 @@ const proofBar = [
 export function SolutionLanding({ content }: { content: SolutionContent }) {
   return (
     <>
-      {/* Hero — même famille que HomeValidated */}
-      <section className="relative overflow-hidden bg-[#F5F8FB]">
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(31,168,107,0.12),transparent)]"
-          aria-hidden
-        />
-        <div className="container relative grid items-center gap-10 pb-12 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:pb-16 lg:pt-16">
+      {/* Hero — navy blue style */}
+      <section className="relative overflow-hidden bg-blue-deep">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+        <div className="container relative grid items-center gap-10 pb-16 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-20 lg:pt-16">
           <div className="anim-rise">
-            <p className="inline-flex items-center gap-2 rounded-full border border-green-action/25 bg-green-action/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-deep">
+            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
               {site.name} · {content.badge}
-            </p>
-            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-blue-deep md:text-[3rem]">
+            </span>
+            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3rem]">
               {content.headline}
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate">{content.lead}</p>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">{content.lead}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <ButtonLink
                 href={cta.demo}
@@ -58,25 +55,20 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
               <ButtonLink
                 href={cta.trialApp}
                 size="lg"
-                variant="secondary"
+                variant="outline-white"
                 event="trial_start"
                 eventPayload={{ cta: `v3_solution_${content.slug}_hero` }}
               >
                 Essai 7 jours gratuit
               </ButtonLink>
             </div>
-            <p className="mt-5 text-sm font-medium text-slate">
-              <span className="text-green-deep">✓</span> Essai 7 jours{" "}
-              <span className="mx-2 text-blue-mist">·</span>
-              <span className="text-green-deep">✓</span>{" "}
-              <strong className="text-blue-deep">149 € HT/mois</strong>{" "}
-              <span className="mx-2 text-blue-mist">·</span>
-              <span className="text-green-deep">✓</span> Jusqu'à 5 utilisateurs
+            <p className="mt-6 text-sm text-white/60">
+              ✓ Essai 7 jours · ✓ 149 € HT/mois · ✓ Jusqu'à 5 utilisateurs
             </p>
           </div>
 
           <div className="anim-rise-delay relative">
-            <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
+            <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
               <Image
                 src="/hero-planning.png"
                 alt={`Planning PROGESTI — vue semaine des passages`}

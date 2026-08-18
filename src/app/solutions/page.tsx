@@ -20,19 +20,16 @@ export default function SolutionsIndexPage() {
   return (
     <>
       <SoftwareApplicationLd />
-      <section className="relative overflow-hidden bg-[#F5F8FB]">
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(31,168,107,0.12),transparent)]"
-          aria-hidden
-        />
+      <section className="relative overflow-hidden bg-blue-deep">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
         <div className="container relative max-w-3xl py-14 md:py-16">
-          <p className="inline-flex items-center gap-2 rounded-full border border-green-action/25 bg-green-action/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-deep">
+          <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
             Solutions métier
-          </p>
-          <h1 className="mt-5 font-display text-[2.35rem] font-extrabold leading-[1.08] tracking-tight text-blue-deep md:text-[3.15rem]">
+          </span>
+          <h1 className="mt-5 font-display text-[2.35rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3.15rem]">
             Un logiciel, plusieurs univers de propreté
           </h1>
-          <p className="mt-5 text-lg leading-relaxed text-slate">
+          <p className="mt-5 text-lg leading-relaxed text-white/80">
             Bureaux, syndics, locaux pros, fin de chantier — le parcours planning → terrain →
             facture reste le même. Essai 7 jours gratuit.
           </p>
@@ -47,13 +44,16 @@ export default function SolutionsIndexPage() {
             <ButtonLink
               href={cta.trialApp}
               size="lg"
-              variant="secondary"
+              variant="outline-white"
               event="trial_start"
               eventPayload={{ cta: "v3_solutions_hub_trial" }}
             >
               Essai 7 jours gratuit
             </ButtonLink>
           </div>
+          <p className="mt-6 text-sm text-white/60">
+            ✓ Essai 7 jours · ✓ 149 € HT/mois · ✓ Tous modules inclus
+          </p>
         </div>
       </section>
 

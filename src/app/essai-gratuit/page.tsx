@@ -52,17 +52,18 @@ export default function EssaiGratuitPage() {
 
   return (
     <>
-      <section className="bg-blue-deep py-12 text-white md:py-16">
-        <div className="container max-w-5xl">
-          <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-green-action">
+      <section className="relative overflow-hidden bg-blue-deep py-12 text-white md:py-16">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+        <div className="container relative max-w-5xl">
+          <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
             Essai gratuit · 7 jours
-          </p>
+          </span>
           <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">
             Activez PROGESTI — sans carte bancaire
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/85">
+          <p className="mt-4 max-w-2xl text-lg text-white/80">
             Bureaux, syndics, locaux pros ou fin de chantier : créez votre compte et entrez dans
-            l’application en quelques minutes.
+            l'application en quelques minutes.
           </p>
         </div>
       </section>
@@ -113,7 +114,7 @@ export default function EssaiGratuitPage() {
             className="rounded-2xl border border-blue-mist bg-white p-7 shadow-[0_24px_70px_rgba(11,61,110,0.1)] md:p-8"
           >
             <h2 className="text-2xl font-extrabold text-blue-deep">Commencer maintenant</h2>
-            <p className="mt-1 text-sm text-slate">4 champs — accès immédiat à l’app.</p>
+            <p className="mt-1 text-sm text-slate">4 champs — accès immédiat à l'app.</p>
             <div className="mt-6 space-y-3">
               <input className={field} name="company" placeholder="Entreprise *" required />
               <input className={field} name="name" placeholder="Votre nom *" required />
@@ -138,17 +139,17 @@ export default function EssaiGratuitPage() {
                 disabled={loading}
                 className="w-full rounded-xl bg-green-action py-4 font-display text-sm font-extrabold text-white transition hover:bg-green-deep disabled:opacity-70"
               >
-                {loading ? "Ouverture de l’app…" : "Créer mon essai et ouvrir l’app"}
+                {loading ? "Ouverture de l'app…" : "Créer mon essai et ouvrir l'app"}
               </button>
             </div>
             {error ? (
               <p className="mt-3 text-sm font-semibold text-amber-700">
-                Lead non enregistré, redirection vers l’inscription en cours…
+                Lead non enregistré, redirection vers l'inscription en cours…
               </p>
             ) : null}
             <p className="mt-4 text-xs leading-relaxed text-slate">
-              En créant votre essai, vous acceptez d’être recontacté pour l’activation. Aucune carte
-              bancaire n’est demandée.
+              En créant votre essai, vous acceptez d'être recontacté pour l'activation. Aucune carte
+              bancaire n'est demandée.
             </p>
           </form>
         </div>

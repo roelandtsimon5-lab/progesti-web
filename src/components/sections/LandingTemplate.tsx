@@ -45,11 +45,8 @@ export function LandingTemplate({
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#F5F8FB]">
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(31,168,107,0.12),transparent)]"
-          aria-hidden
-        />
+      <section className="relative overflow-hidden bg-blue-deep">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
         <div
           className={`container relative py-12 md:py-14 ${
             hasForm
@@ -58,11 +55,11 @@ export function LandingTemplate({
           }`}
         >
           <div className={hasForm ? "order-2 lg:order-1" : undefined}>
-            <p className="inline-flex rounded-full border border-green-action/25 bg-green-action/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-deep">
+            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
               {badge}
-            </p>
+            </span>
             <h1
-              className={`mt-5 font-display font-extrabold leading-[1.08] text-blue-deep ${
+              className={`mt-5 font-display font-extrabold leading-[1.08] text-white ${
                 hasForm
                   ? "text-[2.1rem] md:text-[2.75rem]"
                   : "text-[2.15rem] md:text-5xl"
@@ -70,7 +67,7 @@ export function LandingTemplate({
             >
               {headline}
             </h1>
-            <p className={`mt-5 text-lg text-slate ${hasForm ? "max-w-lg" : "mx-auto max-w-2xl"}`}>
+            <p className={`mt-5 text-lg text-white/80 ${hasForm ? "max-w-lg" : "mx-auto max-w-2xl"}`}>
               {subhead}
             </p>
             {!hasForm ? (
@@ -88,18 +85,18 @@ export function LandingTemplate({
                     <ButtonLink
                       href={secondaryCta.href}
                       size="lg"
-                      variant="secondary"
+                      variant="outline-white"
                       eventPayload={{ campaign, cta: "v3_lp_hero_secondary" }}
                     >
                       {secondaryCta.label}
                     </ButtonLink>
                   ) : null}
                 </div>
-                <p className="mt-5 text-sm font-medium text-slate">{trustLine}</p>
+                <p className="mt-6 text-sm text-white/60">{trustLine}</p>
               </>
             ) : (
               <>
-                <p className="mt-5 text-sm font-medium text-slate">{trustLine}</p>
+                <p className="mt-6 text-sm text-white/60">{trustLine}</p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <ButtonLink
                     href={primaryCta.href}
@@ -113,7 +110,7 @@ export function LandingTemplate({
                     <ButtonLink
                       href={secondaryCta.href}
                       size="lg"
-                      variant="secondary"
+                      variant="outline-white"
                       eventPayload={{ campaign, cta: "v3_lp_hero_secondary" }}
                     >
                       {secondaryCta.label}
@@ -124,7 +121,7 @@ export function LandingTemplate({
             )}
             {proofPoints?.length ? (
               <ul
-                className={`mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-blue-deep ${
+                className={`mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-white ${
                   hasForm ? "" : "mx-auto max-w-2xl justify-center"
                 }`}
               >
@@ -137,7 +134,7 @@ export function LandingTemplate({
 
           {hasForm ? (
             <div id="lp-form" className="order-1 lg:order-2 lg:sticky lg:top-24">
-              <div className="rounded-2xl border border-blue-mist bg-white p-6 shadow-[0_24px_70px_rgba(11,61,110,0.12)] md:p-8">
+              <div className="rounded-2xl border border-white/10 bg-white p-6 shadow-2xl md:p-8">
                 <h2 className="text-2xl font-extrabold text-blue-deep">{formTitle}</h2>
                 <p className="mt-2 text-sm text-slate">{formLead}</p>
                 <div className="mt-6">

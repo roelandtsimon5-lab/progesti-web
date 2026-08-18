@@ -21,20 +21,17 @@ export default function FonctionnalitesPage() {
   return (
     <>
       <SoftwareApplicationLd />
-      <section className="relative overflow-hidden bg-[#F5F8FB]">
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(31,168,107,0.12),transparent)]"
-          aria-hidden
-        />
-        <div className="container relative grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-16">
+      <section className="relative overflow-hidden bg-blue-deep">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+        <div className="container relative grid items-center gap-10 pb-16 pt-12 lg:grid-cols-2 lg:gap-16 lg:pb-20 lg:pt-16">
           <div>
-            <p className="inline-flex rounded-full border border-green-action/25 bg-green-action/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-deep">
+            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
               Produit · 11 modules
-            </p>
-            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] text-blue-deep md:text-[3rem]">
+            </span>
+            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] text-white md:text-[3rem]">
               Une suite complète pour le métier de la propreté
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-slate">
+            <p className="mt-5 max-w-xl text-lg text-white/80">
               Du planning à la facture, du pointage terrain à la supervision — tout inclus dès
               149 € HT/mois. Essai 7 jours gratuit.
             </p>
@@ -47,12 +44,15 @@ export default function FonctionnalitesPage() {
               >
                 Demander une démo
               </ButtonLink>
-              <ButtonLink href={cta.demo} size="lg" variant="secondary">
+              <ButtonLink href={cta.demo} size="lg" variant="outline-white">
                 Voir la démo
               </ButtonLink>
             </div>
+            <p className="mt-6 text-sm text-white/60">
+              ✓ Essai 7 jours · ✓ 149 € HT/mois · ✓ Jusqu'à 5 utilisateurs
+            </p>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
+          <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
             <Image
               src="/hero-planning.png"
               alt="Planning PROGESTI — vue semaine des passages par site"
