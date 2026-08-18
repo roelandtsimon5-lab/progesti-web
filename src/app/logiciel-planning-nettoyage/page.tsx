@@ -32,7 +32,11 @@ export default function PillarPlanningPage() {
           <h2 className="text-2xl font-extrabold text-ink">Pourquoi un planning métier ?</h2>
           <p className="mt-3 text-muted">
             Un tableau Excel ne gère ni les absences, ni le multi-sites, ni le lien avec le pointage.
-            PROGESTI relie planning, terrain et facturation dans le même flux.
+            PROGESTI relie planning, terrain et facturation dans le même flux — un{" "}
+            <Link href="/logiciel-entreprise-nettoyage" className="font-semibold text-emerald-dark hover:underline">
+              logiciel pour entreprise de nettoyage
+            </Link>{" "}
+            complet.
           </p>
           <ul className="mt-6 space-y-2 text-anthracite">
             <li>✓ Vue semaine agents / sites</li>
