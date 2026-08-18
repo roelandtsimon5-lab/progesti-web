@@ -55,7 +55,7 @@ export default function EssaiGratuitPage() {
       <section className="bg-blue-deep py-12 text-white md:py-16">
         <div className="container max-w-5xl">
           <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-green-action">
-            Essai gratuit · 2 mois
+            Essai gratuit · 7 jours
           </p>
           <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">
             Activez PROGESTI — sans carte bancaire
@@ -75,10 +75,10 @@ export default function EssaiGratuitPage() {
             <h2 className="text-2xl font-extrabold text-blue-deep">Ce que vous obtenez</h2>
             <ul className="mt-6 space-y-3 text-slate">
               {[
-                "Sans carte bancaire — 2 mois complets",
+                "7 jours gratuits sans engagement",
                 "Tous les modules ouverts (planning, pointage, facture…)",
                 "Données de démo pour démarrer vite",
-                "Mise en place offerte · Résiliable à tout moment",
+                "149 € HT/mois · Mise en place offerte",
               ].map((item) => (
                 <li key={item} className="flex gap-3 font-medium">
                   <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-action/15 text-green-deep">

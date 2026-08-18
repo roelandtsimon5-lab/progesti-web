@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Logiciel planning nettoyage",
   description:
-    "Logiciel de planning pour entreprise de nettoyage : affectez agents et sites, évitez les oublis. Essai PROGESTI 2 mois.",
+    "Logiciel de planning pour entreprise de nettoyage : affectez agents et sites, évitez les oublis. 149 € HT/mois, essai 7 jours.",
   path: "/logiciel-planning-nettoyage",
 });
 
@@ -21,11 +21,11 @@ export default function PillarPlanningPage() {
       <PageHero
         eyebrow="Planning propreté"
         title="Logiciel de planning pour le nettoyage"
-        lead="Affectez le bon agent au bon site, au bon créneau — bureaux, syndics, locaux pros ou fin de chantier, sans Excel ni messages perdus."
-        primaryHref={cta.trialApp}
-        primaryLabel="Essayer le planning 2 mois"
-        secondaryHref="/fonctionnalites/planification"
-        secondaryLabel="Détail du module"
+        lead="Affectez le bon agent au bon site, au bon créneau — bureaux, syndics, locaux pros ou fin de chantier, sans Excel ni messages perdus. 149 € HT/mois."
+        primaryHref={cta.demo}
+        primaryLabel="Demander une démo"
+        secondaryHref={cta.trial}
+        secondaryLabel="Essai 7 jours gratuit"
       />
       <section className="section !pt-0">
         <div className="container max-w-3xl">
@@ -60,14 +60,13 @@ export default function PillarPlanningPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink
-              href={cta.trialApp}
-              event="trial_start"
-              eventPayload={{ cta: "v3_pillar_planning_trial" }}
+              href={cta.demo}
+              eventPayload={{ cta: "v3_pillar_planning_demo" }}
             >
-              Essai gratuit 2 mois
+              Demander une démo
             </ButtonLink>
-            <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "v3_pillar_planning_demo" }}>
-              Voir en démo
+            <ButtonLink href={cta.trial} variant="secondary" eventPayload={{ cta: "v3_pillar_planning_trial" }}>
+              Essai 7 jours gratuit
             </ButtonLink>
           </div>
         </div>

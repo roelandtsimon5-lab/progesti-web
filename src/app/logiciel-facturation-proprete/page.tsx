@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Logiciel facturation propreté",
   description:
-    "Facturez plus vite votre activité de nettoyage : devis, factures et suivi liés au réalisé terrain avec PROGESTI.",
+    "Facturez plus vite votre activité de nettoyage : devis, factures et suivi liés au réalisé terrain. 149 € HT/mois, essai 7 jours.",
   path: "/logiciel-facturation-proprete",
 });
 
@@ -21,11 +21,11 @@ export default function PillarFacturationPage() {
       <PageHero
         eyebrow="Facturation"
         title="Logiciel de facturation pour la propreté"
-        lead="Passez du terrain à la facture sans ressaisie — entretien récurrent comme fin de chantier. Moins de retards, moins de litiges."
-        primaryHref={cta.trialApp}
-        primaryLabel="Commencer l’essai"
-        secondaryHref="/fonctionnalites/facturation"
-        secondaryLabel="Module facturation"
+        lead="Passez du terrain à la facture sans ressaisie — entretien récurrent comme fin de chantier. 149 € HT/mois, essai 7 jours."
+        primaryHref={cta.demo}
+        primaryLabel="Demander une démo"
+        secondaryHref={cta.trial}
+        secondaryLabel="Essai 7 jours gratuit"
       />
       <section className="section !pt-0">
         <div className="container max-w-3xl">
@@ -55,14 +55,13 @@ export default function PillarFacturationPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink
-              href={cta.trialApp}
-              event="trial_start"
-              eventPayload={{ cta: "v3_pillar_factu_trial" }}
+              href={cta.demo}
+              eventPayload={{ cta: "v3_pillar_factu_demo" }}
             >
-              Essai gratuit 2 mois
+              Demander une démo
             </ButtonLink>
-            <ButtonLink href="/tarifs" variant="secondary" eventPayload={{ cta: "v3_pillar_factu_tarifs" }}>
-              Voir les tarifs
+            <ButtonLink href={cta.trial} variant="secondary" eventPayload={{ cta: "v3_pillar_factu_trial" }}>
+              Essai 7 jours gratuit
             </ButtonLink>
           </div>
         </div>

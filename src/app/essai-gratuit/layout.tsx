@@ -3,9 +3,9 @@ import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Essai gratuit 2 mois",
+  title: "Essai gratuit 7 jours",
   description:
-    "Testez PROGESTI gratuitement pendant 2 mois. Sans carte bancaire, tous modules inclus.",
+    "Testez PROGESTI gratuitement pendant 7 jours. Sans engagement, tous modules inclus. 149 € HT/mois.",
   path: "/essai-gratuit",
 });
 

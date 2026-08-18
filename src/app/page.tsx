@@ -13,7 +13,6 @@ export const metadata: Metadata = pageMeta({
     title: "Logiciel entreprise de nettoyage — 149 € HT/mois | PROGESTI",
     description:
       "Logiciel pour entreprises de nettoyage : planning, pointage, facture. 149 € HT/mois, 5 utilisateurs, tout inclus. Essai 7 jours. Demandez une démo.",
-    url: "https://progesti.fr",
   },
 });
 

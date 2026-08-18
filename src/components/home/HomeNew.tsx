@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
@@ -51,8 +52,8 @@ export function HomeNew() {
           <div className="relative">
             <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_24px_80px_rgba(0,0,0,0.3)]">
               <Image
-                src="/screen-passages.webp"
-                alt="Interface PROGESTI — Planning des passages"
+                src="/hero-planning.png"
+                alt="Planning PROGESTI — semaine d'une intervenante, passages par site"
                 width={800}
                 height={500}
                 priority
@@ -100,13 +101,18 @@ export function HomeNew() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-6">
+                  <Link href="/logiciel-planning-nettoyage" className="text-sm font-medium text-blue-royal hover:underline">
+                    Découvrir notre logiciel de planning nettoyage →
+                  </Link>
+                </p>
               </div>
             </Reveal>
             <Reveal delayMs={100}>
               <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
                 <Image
-                  src="/screen-passages.webp"
-                  alt="Interface Planning PROGESTI"
+                  src="/hero-planning.png"
+                  alt="Planning PROGESTI — semaine d'une intervenante, passages par site"
                   width={700}
                   height={440}
                   className="h-auto w-full"
@@ -123,7 +129,7 @@ export function HomeNew() {
               <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
                 <Image
                   src="/screen-telegestion.webp"
-                  alt="Interface Télégestion PROGESTI"
+                  alt="Télégestion PROGESTI — pointages arrivée et départ depuis l'app mobile"
                   width={700}
                   height={440}
                   className="h-auto w-full"
@@ -148,6 +154,11 @@ export function HomeNew() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-6">
+                  <Link href="/fonctionnalites/pointage" className="text-sm font-medium text-blue-royal hover:underline">
+                    En savoir plus sur le pointage →
+                  </Link>
+                </p>
               </div>
             </Reveal>
           </div>
@@ -174,13 +185,18 @@ export function HomeNew() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-6">
+                  <Link href="/logiciel-facturation-proprete" className="text-sm font-medium text-blue-royal hover:underline">
+                    Découvrir notre logiciel de facturation propreté →
+                  </Link>
+                </p>
               </div>
             </Reveal>
             <Reveal delayMs={100}>
               <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
                 <Image
                   src="/screen-factures.webp"
-                  alt="Interface Facturation PROGESTI"
+                  alt="Factures PROGESTI — liste des factures clients et statuts"
                   width={700}
                   height={440}
                   className="h-auto w-full"
@@ -204,6 +220,15 @@ export function HomeNew() {
             </p>
             <p className="mt-6 text-slate">
               Planning, pointage, facturation — pas de module en plus.
+            </p>
+            <p className="mt-4 text-sm text-slate">
+              <Link href="/tarifs" className="font-medium text-blue-royal hover:underline">
+                Voir le détail des tarifs
+              </Link>
+              {" · "}
+              <Link href="/logiciel-entreprise-nettoyage" className="font-medium text-blue-royal hover:underline">
+                Logiciel pour entreprise de nettoyage
+              </Link>
             </p>
           </Reveal>
 
