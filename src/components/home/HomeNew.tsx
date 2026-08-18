@@ -13,10 +13,6 @@ export function HomeNew() {
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
         <div className="container relative grid items-center gap-10 pb-16 pt-12 lg:grid-cols-2 lg:gap-16 lg:pb-20 lg:pt-16">
           <div>
-            <p className="mb-6 font-display text-xs font-bold uppercase tracking-[0.18em] text-[#B8F5D4]">
-              Tournefeuille · Entreprises de propreté
-            </p>
-            
             <h1 className="font-display text-[2.5rem] font-extrabold leading-[1.1] tracking-tight text-white md:text-[3.25rem] lg:text-[3.5rem]">
               Gérez votre entreprise de nettoyage depuis un seul logiciel.
             </h1>
