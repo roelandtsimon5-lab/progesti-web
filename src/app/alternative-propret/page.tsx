@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Alternative à Propret",
   description:
-    "Vous comparez les logiciels propreté ? Découvrez PROGESTI : essai 2 mois, tarifs publics, modules inclus. Comparaison factuelle.",
+    "Vous comparez les logiciels propreté ? Découvrez PROGESTI : essai 7 jours, 149 € HT/mois, tous modules inclus. Comparaison factuelle.",
   path: "/alternative-propret",
 });
 
@@ -21,11 +21,11 @@ export default function AlternativePropretPage() {
       <PageHero
         eyebrow="Comparaison"
         title="PROGESTI, une alternative à Propret"
-        lead="Même niche (entreprises de nettoyage). Différences clés : essai 2 mois sans CB, tarifs publics, parcours moderne — bureaux, syndics, pros et fin de chantier."
-        primaryHref={cta.trialApp}
-        primaryLabel="Tester PROGESTI 2 mois"
-        secondaryHref="/comparatifs"
-        secondaryLabel="Voir les comparatifs"
+        lead="Même niche (entreprises de nettoyage). Différences clés : essai 7 jours, 149 € HT/mois tout inclus, parcours moderne — bureaux, syndics, pros et fin de chantier."
+        primaryHref={cta.demo}
+        primaryLabel="Demander une démo"
+        secondaryHref={cta.trial}
+        secondaryLabel="Essai 7 jours gratuit"
       />
       <section className="section !pt-0">
         <div className="container max-w-3xl">
@@ -42,12 +42,12 @@ export default function AlternativePropretPage() {
               <tbody className="text-anthracite">
                 <tr className="border-b border-line/70">
                   <td className="py-3 pr-3">Essai</td>
-                  <td className="py-3 pr-3 font-semibold text-ink">2 mois sans CB</td>
+                  <td className="py-3 pr-3 font-semibold text-ink">7 jours sans engagement</td>
                   <td className="py-3">14 jours (annonce site)</td>
                 </tr>
                 <tr className="border-b border-line/70">
-                  <td className="py-3 pr-3">Tarifs dès</td>
-                  <td className="py-3 pr-3 font-semibold text-ink">29,99€ HT/mois</td>
+                  <td className="py-3 pr-3">Tarif</td>
+                  <td className="py-3 pr-3 font-semibold text-ink">149 € HT/mois (5 users)</td>
                   <td className="py-3">29,99€ HT/mois</td>
                 </tr>
                 <tr className="border-b border-line/70">
@@ -58,7 +58,7 @@ export default function AlternativePropretPage() {
                 <tr className="border-b border-line/70">
                   <td className="py-3 pr-3">Cible</td>
                   <td className="py-3 pr-3 font-semibold text-ink">
-                    AE, TPE, bureaux, syndics, chantiers
+                    TPE propreté, bureaux, syndics, chantiers
                   </td>
                   <td className="py-3">Entreprises propreté</td>
                 </tr>
@@ -71,14 +71,13 @@ export default function AlternativePropretPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink
-              href={cta.trialApp}
-              event="trial_start"
-              eventPayload={{ cta: "v3_alt_propret_trial" }}
+              href={cta.demo}
+              eventPayload={{ cta: "v3_alt_propret_demo" }}
             >
-              Essai gratuit 2 mois
+              Demander une démo
             </ButtonLink>
-            <ButtonLink href="/lp/alternative" variant="secondary" eventPayload={{ cta: "v3_alt_propret_lp" }}>
-              Landing switch
+            <ButtonLink href={cta.trial} variant="secondary" eventPayload={{ cta: "v3_alt_propret_trial" }}>
+              Essai 7 jours gratuit
             </ButtonLink>
             <Link
               href="/blog/progesti-vs-propret"

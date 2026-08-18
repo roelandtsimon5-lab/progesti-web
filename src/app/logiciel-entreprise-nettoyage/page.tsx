@@ -17,12 +17,12 @@ const pageUrl = `${site.url}/logiciel-entreprise-nettoyage`;
 export const metadata: Metadata = pageMeta({
   title: "Logiciel pour entreprise de nettoyage : planning, terrain, facture",
   description:
-    "Logiciel pour entreprise de nettoyage : planning, pointage, facture. 11 modules inclus dès 29,99 € HT/mois. Essai 2 mois sans CB — démarrez sans projet ERP.",
+    "Logiciel pour entreprise de nettoyage : planning, pointage, facture. 149 € HT/mois, 5 utilisateurs, tout inclus. Essai 7 jours.",
   path: "/logiciel-entreprise-nettoyage",
   openGraph: {
     title: "Logiciel pour entreprise de nettoyage : planning, terrain, facture",
     description:
-      "Logiciel pour entreprise de nettoyage : planning, pointage, facture. 11 modules inclus dès 29,99 € HT/mois. Essai 2 mois sans CB — démarrez sans projet ERP.",
+      "Logiciel pour entreprise de nettoyage : planning, pointage, facture. 149 € HT/mois, 5 utilisateurs, tout inclus. Essai 7 jours.",
   },
 });
 
@@ -32,16 +32,16 @@ const faq = [
     a: "C'est un outil métier qui centralise planning des agents, pointage terrain, bons d'intervention, facturation et suivi d'activité — à la place d'Excel, de WhatsApp et de factures manuelles. Il relie le bureau au terrain pour éviter les ressaisies et les oublis.",
   },
   {
-    q: "PROGESTI convient-il aux auto-entrepreneurs ?",
-    a: "Oui. L'offre Starter (29,99 € HT/mois, 1 admin) est pensée pour démarrer seul ou avec un assistant, puis passer à Pro ou Premium quand l'équipe grandit.",
+    q: "PROGESTI convient-il aux petites structures ?",
+    a: "Oui. L'offre à 149 € HT/mois inclut jusqu'à 5 utilisateurs et tous les modules. Idéal pour les TPE et petites équipes de propreté.",
   },
   {
     q: "Combien coûte PROGESTI ?",
-    a: "Starter : 29,99 € HT/mois (1 admin). Pro : 49,99 € HT/mois (5 utilisateurs). Premium : 99,99 € HT/mois (20 utilisateurs). Tous les modules sont inclus dans chaque offre, sans supplément. Essai 2 mois sans carte bancaire.",
+    a: "149 € HT/mois, jusqu'à 5 utilisateurs, tous modules inclus. Pas de frais cachés, pas de module en supplément. Essai 7 jours sans engagement.",
   },
   {
     q: "L'essai est-il vraiment sans engagement ?",
-    a: "Oui. 2 mois complets, sans carte bancaire demandée. Vous testez sur vos propres sites et décidez ensuite de continuer ou non.",
+    a: "Oui. 7 jours complets pour tester sur vos propres sites. Vous décidez ensuite de continuer ou non.",
   },
   {
     q: "Faut-il installer quelque chose ?",
@@ -70,11 +70,11 @@ export default function PillarNettoyagePage() {
       {/* Hero — H1 unique */}
       <PageHero
         title="Logiciel pour entreprise de nettoyage"
-        lead="Un logiciel de gestion qui relie planning, pointage terrain et facturation — conçu pour les TPE de propreté. 11 modules inclus dès 29,99 € HT/mois. Essai 2 mois sans carte bancaire."
-        primaryHref={cta.trialApp}
-        primaryLabel="Démarrer l'essai gratuit"
-        secondaryHref="/demo"
-        secondaryLabel="Voir une démonstration"
+        lead="Un logiciel de gestion qui relie planning, pointage terrain et facturation — conçu pour les entreprises de propreté. 149 € HT/mois, 5 utilisateurs, tout inclus. Essai 7 jours."
+        primaryHref={cta.demo}
+        primaryLabel="Demander une démo"
+        secondaryHref={cta.trial}
+        secondaryLabel="Essai 7 jours gratuit"
       />
 
       {/* Section 1 : Le problème */}
@@ -341,7 +341,7 @@ export default function PillarNettoyagePage() {
               </ul>
             </div>
             <p className="mt-6 text-sm text-muted">
-              Tous les modules sont accessibles dès l'offre Starter. Pas de
+              Tous les modules sont inclus à 149 € HT/mois. Pas de
               module payant en plus.{" "}
               <Link
                 href="/fonctionnalites"
@@ -363,7 +363,7 @@ export default function PillarNettoyagePage() {
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
               PROGESTI s'adresse aux TPE et petites PME de nettoyage —
-              indépendants, structures de 1 à 20 utilisateurs. Pas aux ETI de
+              indépendants, structures jusqu'à 5 utilisateurs. Pas aux ETI de
               50+ salariés qui ont besoin d'un ERP sur mesure avec intégration
               SIRH et comptabilité groupe.
             </p>
@@ -458,49 +458,23 @@ export default function PillarNettoyagePage() {
         <div className="container max-w-4xl">
           <Reveal>
             <h2 className="text-2xl font-extrabold text-ink">
-              Tarifs publics, pas de projet ERP
+              Tarif unique, tout inclus
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
               Vous n'avez pas besoin d'un devis sur mesure pour savoir combien
-              coûte PROGESTI. Les prix sont affichés, les modules sont tous
-              inclus, et l'essai est gratuit pendant 2 mois sans carte bancaire.
+              coûte PROGESTI. Le prix est affiché, les modules sont tous
+              inclus, et l'essai est gratuit pendant 7 jours.
             </p>
-            <div className="mt-8 overflow-x-auto">
-              <table className="w-full min-w-[480px] text-left text-sm">
-                <thead>
-                  <tr className="border-b border-line">
-                    <th className="py-3 pr-4 font-bold text-ink">Offre</th>
-                    <th className="py-3 pr-4 font-bold text-ink">Utilisateurs</th>
-                    <th className="py-3 pr-4 font-bold text-ink">Prix HT/mois</th>
-                    <th className="py-3 font-bold text-ink">Modules</th>
-                  </tr>
-                </thead>
-                <tbody className="text-anthracite">
-                  <tr className="border-b border-line/70">
-                    <td className="py-3 pr-4 font-semibold text-ink">Starter</td>
-                    <td className="py-3 pr-4">1 administrateur</td>
-                    <td className="py-3 pr-4">29,99 €</td>
-                    <td className="py-3">Tous inclus</td>
-                  </tr>
-                  <tr className="border-b border-line/70">
-                    <td className="py-3 pr-4 font-semibold text-ink">Pro</td>
-                    <td className="py-3 pr-4">5 utilisateurs</td>
-                    <td className="py-3 pr-4">49,99 €</td>
-                    <td className="py-3">Tous inclus</td>
-                  </tr>
-                  <tr className="border-b border-line/70">
-                    <td className="py-3 pr-4 font-semibold text-ink">Premium</td>
-                    <td className="py-3 pr-4">20 utilisateurs</td>
-                    <td className="py-3 pr-4">99,99 €</td>
-                    <td className="py-3">Tous inclus</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="mt-8 rounded-xl border-2 border-green-action/30 bg-[#FAFCFE] p-6 text-center">
+              <p className="font-display text-4xl font-extrabold text-blue-deep">
+                149 € <span className="text-lg font-bold text-slate">HT / mois</span>
+              </p>
+              <p className="mt-2 text-lg text-slate">Jusqu'à 5 utilisateurs · Tous modules inclus</p>
             </div>
             <ul className="mt-6 space-y-2 text-sm text-muted">
               <li>✓ Cloud + Android & iOS, sans frais d'installation</li>
               <li>✓ Mises à jour incluses, pas de version payante à part</li>
-              <li>✓ Essai 2 mois sans carte bancaire</li>
+              <li>✓ Essai 7 jours sans engagement</li>
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink
@@ -511,11 +485,11 @@ export default function PillarNettoyagePage() {
                 Voir les tarifs détaillés
               </ButtonLink>
               <ButtonLink
-                href="/alternative-propret"
+                href={cta.demo}
                 variant="secondary"
-                eventPayload={{ cta: "v3_pillar_nettoyage_alt" }}
+                eventPayload={{ cta: "v3_pillar_nettoyage_demo" }}
               >
-                Comparer avec Propret
+                Demander une démo
               </ButtonLink>
             </div>
           </Reveal>

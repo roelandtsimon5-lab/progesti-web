@@ -100,14 +100,11 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <ButtonLink href={cta.login} variant="ghost" eventPayload={{ cta: "v3_header_login" }}>
-            Connexion
+          <ButtonLink href={cta.login} variant="ghost" eventPayload={{ cta: "header_login" }}>
+            Se connecter
           </ButtonLink>
-          <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "v3_header_demo" }}>
-            Démo
-          </ButtonLink>
-          <ButtonLink href={cta.trialApp} event="trial_start" eventPayload={{ cta: "v3_header_trial" }}>
-            Essai gratuit
+          <ButtonLink href={cta.demo} eventPayload={{ cta: "header_demo" }}>
+            Demander une démo
           </ButtonLink>
         </div>
 
@@ -159,14 +156,14 @@ export function Header() {
               );
             })}
             <div className="mt-3 flex flex-col gap-2">
-              <ButtonLink href={cta.trialApp} event="trial_start" eventPayload={{ cta: "v3_mobile_trial" }}>
-                Essai gratuit — 2 mois
+              <ButtonLink href={cta.demo} eventPayload={{ cta: "mobile_demo" }}>
+                Demander une démo
               </ButtonLink>
-              <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "v3_mobile_demo" }}>
-                Voir une démonstration
+              <ButtonLink href={cta.trial} variant="secondary" eventPayload={{ cta: "mobile_trial" }}>
+                Essai 7 jours gratuit
               </ButtonLink>
-              <ButtonLink href={cta.login} variant="ghost" eventPayload={{ cta: "v3_mobile_login" }}>
-                Connexion
+              <ButtonLink href={cta.login} variant="ghost" eventPayload={{ cta: "mobile_login" }}>
+                Se connecter
               </ButtonLink>
             </div>
           </div>

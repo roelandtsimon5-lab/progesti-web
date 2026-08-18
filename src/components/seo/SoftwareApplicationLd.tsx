@@ -1,4 +1,4 @@
-import { site } from "@/lib/site";
+import { mainPlan, site } from "@/lib/site";
 
 const provider = {
   "@type": "Organization" as const,
@@ -37,7 +37,7 @@ export function SoftwareApplicationLd({ url }: Props = {}) {
     url: url ?? site.url,
     offers: {
       "@type": "Offer",
-      price: "29.99",
+      price: String(mainPlan.monthly),
       priceCurrency: "EUR",
     },
     provider,

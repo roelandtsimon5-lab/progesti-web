@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { HomeValidated } from "@/components/home/HomeValidated";
+import { HomeNew } from "@/components/home/HomeNew";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel entreprise de nettoyage — essai 2 mois sans CB",
+  title: "Logiciel entreprise de nettoyage — 149 € HT/mois",
   description:
-    "PROGESTI : planning, pointage terrain et facturation pour sociétés de propreté. Dès 29,99 € HT/mois, tous modules inclus. Essai 2 mois sans carte bancaire.",
+    "Logiciel pour entreprises de nettoyage : planning, pointage, facture. 149 € HT/mois, 5 utilisateurs, tout inclus. Essai 7 jours. Demandez une démo.",
   path: "/",
   openGraph: {
-    title: "PROGESTI — Le logiciel qui simplifie le nettoyage professionnel",
+    title: "Logiciel entreprise de nettoyage — 149 € HT/mois | PROGESTI",
     description:
-      "Centralisez planning, pointage, RH et facturation. Essai 2 mois sans CB · Dès 29,99 € HT/mois.",
+      "Logiciel pour entreprises de nettoyage : planning, pointage, facture. 149 € HT/mois, 5 utilisateurs, tout inclus. Essai 7 jours. Demandez une démo.",
   },
 });
 
@@ -19,7 +20,9 @@ export default function HomePage() {
   return (
     <>
       <SoftwareApplicationLd />
-      <HomeValidated />
+      <HomeNew />
+      <div className="h-20 lg:hidden" aria-hidden />
+      <MobileCtaBar />
     </>
   );
 }

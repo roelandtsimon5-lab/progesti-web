@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { DM_Sans, Fraunces } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import {
@@ -13,10 +13,11 @@ import { env } from "@/lib/env";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const display = Plus_Jakarta_Sans({
+const display = Fraunces({
   variable: "--font-display-family",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -51,7 +52,6 @@ export const metadata: Metadata = {
     ? { verification: { google: env.googleSiteVerification } }
     : {}),
 };
-
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

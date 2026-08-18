@@ -10,7 +10,6 @@ const columns = [
       { href: "/fonctionnalites", label: "Fonctionnalités" },
       { href: "/tarifs", label: "Tarifs" },
       { href: cta.demo, label: "Démo" },
-      { href: cta.trialApp, label: "Essai gratuit" },
       { href: "/integrations", label: "Intégrations" },
     ],
   },
@@ -19,7 +18,6 @@ const columns = [
     links: [
       ...solutions.map((s) => ({ href: `/solutions/${s.slug}`, label: s.title })),
       { href: "/logiciel-entreprise-nettoyage", label: "Logiciel nettoyage" },
-      { href: "/alternative-propret", label: "Alternative Propret" },
     ],
   },
   {
@@ -37,8 +35,6 @@ const columns = [
     links: [
       { href: "/contact", label: "Contact" },
       { href: "/a-propos", label: "À propos" },
-      { href: "/temoignages", label: "Témoignages" },
-      { href: "/cas-clients", label: "Cas clients" },
       { href: "/mentions-legales", label: "Mentions légales" },
       { href: "/confidentialite", label: "Confidentialité" },
       { href: "/cgv", label: "CGV" },
@@ -59,18 +55,17 @@ export function Footer() {
           </div>
           <div className="mt-6 flex flex-wrap gap-3 md:mt-0">
             <ButtonLink
-              href={cta.trialApp}
-              event="trial_start"
-              eventPayload={{ cta: "v3_footer_trial" }}
+              href={cta.demo}
+              eventPayload={{ cta: "footer_demo" }}
             >
-              Essai 2 mois
+              Demander une démo
             </ButtonLink>
             <ButtonLink
-              href={cta.demo}
+              href={cta.trial}
               variant="outline-white"
-              eventPayload={{ cta: "v3_footer_demo" }}
+              eventPayload={{ cta: "footer_trial" }}
             >
-              Démo
+              Essai 7 jours
             </ButtonLink>
           </div>
         </div>
@@ -136,10 +131,7 @@ export function Footer() {
             {site.company.rcs}
           </p>
           <p>
-            Logiciel édité sous la marque {site.name} ·{" "}
-            <Link href="/v2" className="hover:text-white/80">
-              Archive V2
-            </Link>
+            Logiciel édité sous la marque {site.name}
           </p>
         </div>
       </div>
