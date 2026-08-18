@@ -156,7 +156,7 @@ export function HomeNew() {
                 </ul>
                 <p className="mt-6">
                   <Link href="/fonctionnalites/pointage" className="text-sm font-medium text-blue-royal hover:underline">
-                    En savoir plus sur le pointage →
+                    Pointage mobile et télégestion →
                   </Link>
                 </p>
               </div>

@@ -341,7 +341,7 @@ export default function PillarNettoyagePage() {
               </ul>
             </div>
             <p className="mt-6 text-sm text-muted">
-              Tous les modules sont accessibles dès l'offre Starter. Pas de
+              Tous les modules sont inclus à 149 € HT/mois. Pas de
               module payant en plus.{" "}
               <Link
                 href="/fonctionnalites"
@@ -363,7 +363,7 @@ export default function PillarNettoyagePage() {
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
               PROGESTI s'adresse aux TPE et petites PME de nettoyage —
-              indépendants, structures de 1 à 20 utilisateurs. Pas aux ETI de
+              indépendants, structures jusqu'à 5 utilisateurs. Pas aux ETI de
               50+ salariés qui ont besoin d'un ERP sur mesure avec intégration
               SIRH et comptabilité groupe.
             </p>
