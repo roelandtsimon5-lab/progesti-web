@@ -52,10 +52,10 @@ export default function FonctionnalitesPage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-blue-mist bg-white shadow-[0_24px_60px_rgba(11,61,110,0.12)]">
+          <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
             <Image
-              src="/dashboard-mockup-opt.webp"
-              alt="Modules PROGESTI"
+              src="/hero-planning.png"
+              alt="Planning PROGESTI — vue semaine des passages par site"
               width={800}
               height={480}
               className="h-auto w-full"

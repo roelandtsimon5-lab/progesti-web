@@ -295,10 +295,10 @@ export default function DemoPage() {
               ))}
             </ul>
 
-            <div className="mt-8 overflow-hidden rounded-2xl border border-blue-mist bg-white shadow-[0_16px_48px_rgba(11,61,110,0.1)]">
+            <div className="mt-8 overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
               <Image
-                src="/dashboard-mockup-opt.webp"
-                alt="Aperçu du cockpit PROGESTI — planning nettoyage"
+                src="/hero-planning.png"
+                alt="Planning PROGESTI — vue semaine des passages par site"
                 width={720}
                 height={432}
                 priority

@@ -68,10 +68,10 @@ export default async function ModulePage({ params }: Props) {
               <span className="text-green-deep">✓</span> Essai 7 jours gratuit · Dès 149 € HT/mois
             </p>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-blue-mist bg-white shadow-[0_24px_60px_rgba(11,61,110,0.12)]">
+          <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
             <Image
-              src="/dashboard-mockup-opt.webp"
-              alt={`Module ${mod.title} — PROGESTI`}
+              src="/hero-planning.png"
+              alt={`Module ${mod.title} — planning et suivi PROGESTI`}
               width={800}
               height={480}
               className="h-auto w-full"

@@ -127,10 +127,10 @@ export function HomeValidated() {
           </div>
 
           <div className="anim-rise-delay relative">
-            <div className="overflow-hidden rounded-2xl border border-blue-mist/80 bg-white shadow-[0_28px_80px_rgba(11,61,110,0.14)]">
+            <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
               <Image
-                src="/dashboard-mockup-opt.webp"
-                alt="Interface PROGESTI — planning et suivi d’activité nettoyage"
+                src="/hero-planning.png"
+                alt="Planning PROGESTI — vue semaine des passages par site"
                 width={900}
                 height={560}
                 priority
@@ -212,10 +212,10 @@ export function HomeValidated() {
               </Reveal>
             ))}
           </ol>
-          <div className="mt-12 overflow-hidden rounded-2xl border border-blue-mist bg-white shadow-[0_20px_60px_rgba(11,61,110,0.1)]">
+          <div className="mt-12 overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
             <Image
-              src="/hero-mockup-opt.webp"
-              alt="PROGESTI — vue produit planning et interventions"
+              src="/screen-telegestion.webp"
+              alt="Télégestion PROGESTI — pointages terrain et suivi interventions"
               width={1200}
               height={700}
               className="h-auto w-full"
