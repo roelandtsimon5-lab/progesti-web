@@ -71,28 +71,11 @@ export default function V2ArchiveHomePage() {
         </Link>
       </div>
 
-      <section className="relative min-h-[min(92vh,52rem)] overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/hero-mockup-opt.webp"
-            alt="Agent de propreté et organisation terrain — logiciel PROGESTI"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-[#101c28]/92 via-[#152230]/78 to-[#152230]/35"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-[#101c28]/70 via-transparent to-transparent"
-            aria-hidden
-          />
-        </div>
+      <section className="relative overflow-hidden bg-blue-deep">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
 
-        <div className="container relative flex min-h-[min(92vh,52rem)] flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-20">
-          <div className="anim-rise max-w-2xl text-white">
+        <div className="container relative grid items-center gap-10 pb-16 pt-12 lg:grid-cols-2 lg:gap-16 lg:pb-20 lg:pt-16">
+          <div className="anim-rise text-white">
             <p className="font-display text-sm font-bold uppercase tracking-[0.28em] text-emerald md:text-base">
               {site.name}
             </p>
@@ -120,6 +103,19 @@ export default function V2ArchiveHomePage() {
               >
                 Voir la démo
               </ButtonLink>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_24px_80px_rgba(0,0,0,0.3)]">
+              <Image
+                src="/hero-planning.png"
+                alt="Planning PROGESTI — vue semaine des passages par site"
+                width={800}
+                height={500}
+                priority
+                className="h-auto w-full"
+                sizes="(max-width: 1024px) 100vw, 600px"
+              />
             </div>
           </div>
         </div>
@@ -183,10 +179,10 @@ export default function V2ArchiveHomePage() {
               </Reveal>
             ))}
           </ol>
-          <div className="mt-14 overflow-hidden border border-line bg-white">
+          <div className="mt-14 overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
             <Image
-              src="/dashboard-mockup-opt.webp"
-              alt="Tableau de bord PROGESTI — suivi d’activité nettoyage"
+              src="/screen-factures.webp"
+              alt="Factures PROGESTI — liste des factures clients et statuts"
               width={1200}
               height={720}
               className="h-auto w-full"

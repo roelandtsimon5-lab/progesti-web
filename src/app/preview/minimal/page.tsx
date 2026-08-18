@@ -84,10 +84,10 @@ export default function PreviewMinimalPage() {
 
       <section className="bg-neutral-50">
         <div className="container py-16">
-          <div className="mx-auto max-w-4xl overflow-hidden border border-neutral-200 bg-white">
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
             <Image
-              src="/dashboard-mockup-opt.webp"
-              alt="Interface PROGESTI"
+              src="/hero-planning.png"
+              alt="Planning PROGESTI — vue semaine des passages par site"
               width={1100}
               height={660}
               className="h-auto w-full"

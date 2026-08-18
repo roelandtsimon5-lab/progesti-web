@@ -118,18 +118,15 @@ export default function DemoPage() {
   return (
     <>
       {/* Hero conversion — form above the fold (mobile first) */}
-      <section className="relative overflow-hidden bg-[#F5F8FB]">
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(31,168,107,0.12),transparent)]"
-          aria-hidden
-        />
-        <div className="container relative grid items-start gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12 lg:py-14">
+      <section className="relative overflow-hidden bg-blue-deep">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+        <div className="container relative grid items-start gap-10 pb-16 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:pb-20 lg:pt-16">
           {/* Formulaire — order 1 mobile */}
           <div className="order-1 lg:order-2 lg:sticky lg:top-24">
             <form
               id="demo-form"
               onSubmit={onSubmit}
-              className="rounded-2xl border border-blue-mist bg-white p-6 shadow-[0_24px_70px_rgba(11,61,110,0.12)] md:p-8"
+              className="rounded-2xl border border-white/10 bg-white p-6 shadow-2xl md:p-8"
               noValidate
             >
               <p className="font-display text-xs font-bold uppercase tracking-[0.14em] text-green-deep">
@@ -255,7 +252,7 @@ export default function DemoPage() {
               </ul>
 
               <p className="mt-4 text-center text-xs text-slate">
-                Vous préférez un essai 2 mois ?{" "}
+                Vous préférez tester directement ?{" "}
                 <Link
                   href={cta.trialApp}
                   className="font-bold text-blue-royal underline-offset-2 hover:underline"
@@ -269,13 +266,13 @@ export default function DemoPage() {
 
           {/* Copy — order 2 mobile */}
           <div className="order-2 lg:order-1">
-            <p className="inline-flex rounded-full border border-green-action/25 bg-green-action/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-deep">
+            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
               Démonstration interactive
-            </p>
-            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-blue-deep md:text-[3rem]">
+            </span>
+            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3rem]">
               Voyez PROGESTI sur un cas métier réel
             </h1>
-            <p className="mt-5 max-w-lg text-lg leading-relaxed text-slate">
+            <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/80">
               Bureaux, syndics, locaux pros ou fin de chantier — ouvrez la vraie application PROGESTI
               pour explorer planning, pointage et facturation.
             </p>
@@ -284,10 +281,10 @@ export default function DemoPage() {
               {[
                 "Accès immédiat après le formulaire",
                 "Vraie application — pas une maquette",
-                "Essai 2 mois sans carte bancaire",
+                "Essai 7 jours gratuit",
               ].map((item) => (
-                <li key={item} className="flex gap-3 text-sm font-semibold text-blue-deep">
-                  <span className="text-green-deep" aria-hidden>
+                <li key={item} className="flex gap-3 text-sm font-semibold text-white">
+                  <span className="text-green-action" aria-hidden>
                     ✓
                   </span>
                   {item}
@@ -295,10 +292,10 @@ export default function DemoPage() {
               ))}
             </ul>
 
-            <div className="mt-8 overflow-hidden rounded-2xl border border-blue-mist bg-white shadow-[0_16px_48px_rgba(11,61,110,0.1)]">
+            <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
               <Image
-                src="/dashboard-mockup-opt.webp"
-                alt="Aperçu du cockpit PROGESTI — planning nettoyage"
+                src="/hero-planning.png"
+                alt="Planning PROGESTI — vue semaine des passages par site"
                 width={720}
                 height={432}
                 priority
@@ -307,8 +304,8 @@ export default function DemoPage() {
               />
             </div>
 
-            <p className="mt-4 text-sm text-slate lg:hidden">
-              <a href="#demo-form" className="font-bold text-blue-royal underline-offset-2 hover:underline">
+            <p className="mt-4 text-sm text-white/60 lg:hidden">
+              <a href="#demo-form" className="font-bold text-white underline-offset-2 hover:underline">
                 ↑ Remplir le formulaire
               </a>
             </p>
@@ -414,7 +411,7 @@ export default function DemoPage() {
           event="trial_start"
           eventPayload={{ cta: "v3_demo_mobile_trial" }}
         >
-          Essai 2 mois
+          Essai 7 jours
         </ButtonLink>
       </div>
     </>

@@ -48,7 +48,7 @@ export default function AlternativePropretPage() {
                 <tr className="border-b border-line/70">
                   <td className="py-3 pr-3">Tarif</td>
                   <td className="py-3 pr-3 font-semibold text-ink">149 € HT/mois (5 users)</td>
-                  <td className="py-3">29,99€ HT/mois</td>
+                  <td className="py-3">149 € HT/mois</td>
                 </tr>
                 <tr className="border-b border-line/70">
                   <td className="py-3 pr-3">Modules</td>

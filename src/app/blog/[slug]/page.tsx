@@ -146,18 +146,22 @@ export default async function BlogPostPage({ params }: Props) {
                 Prêt à organiser votre nettoyage professionnel ?
               </p>
               <p className="mt-2 text-sm text-slate">
-                Essai PROGESTI 2 mois sans carte bancaire — tous les modules inclus.
+                149 € HT/mois, jusqu'à 5 utilisateurs, tous les modules inclus.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <ButtonLink
-                  href={cta.trialApp}
-                  event="trial_start"
+                  href={cta.demo}
                   eventPayload={{ cta: "v3_blog_article_cta", slug: post.slug }}
                 >
-                  Essai gratuit 2 mois
+                  Demander une démo
                 </ButtonLink>
-                <ButtonLink href="/fonctionnalites" variant="secondary">
-                  Voir les fonctionnalités
+                <ButtonLink
+                  href={cta.trialApp}
+                  variant="secondary"
+                  event="trial_start"
+                  eventPayload={{ cta: "v3_blog_article_trial", slug: post.slug }}
+                >
+                  Essai 7 jours gratuit
                 </ButtonLink>
                 <Link
                   href="/blog"

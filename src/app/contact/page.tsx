@@ -66,7 +66,7 @@ export default function ContactPage() {
               </a>
             </p>
             <ul className="mt-8 space-y-2 text-sm text-white/80">
-              <li>· Essai 2 mois sans CB</li>
+              <li>· Essai 7 jours gratuit</li>
               <li>· Mise en place offerte</li>
               <li>· Logiciel cloud — Android & iOS</li>
             </ul>

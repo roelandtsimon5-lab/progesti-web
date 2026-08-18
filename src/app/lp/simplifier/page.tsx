@@ -13,7 +13,7 @@ export default function LandingSimplifierPage() {
       badge="Landing conversion"
       headline="Le logiciel qui simplifie la gestion de votre entreprise de nettoyage"
       subhead="Stop Excel et WhatsApp. Planning, pointage et facturation dans un seul outil — demandez une démo ou démarrez l’essai."
-      primaryCta={{ href: cta.trialApp, label: "Essai gratuit 2 mois" }}
+      primaryCta={{ href: cta.trialApp, label: "Essai gratuit 7 jours" }}
       secondaryCta={{ href: "/demo", label: "Démo interactive" }}
       formTitle="Demander une démo / être recontacté"
       formLead="Réponse sous 24h ouvrées. Ou lancez la démo interactive sur /demo."
@@ -28,15 +28,15 @@ export default function LandingSimplifierPage() {
       objections={[
         {
           q: "Je n’ai pas le temps de changer d’outil",
-          a: "Essai 2 mois sans CB + démarrage en quelques minutes. La démo interactive dure moins d’une minute pour se faire une idée.",
+          a: "Essai 7 jours gratuit + démarrage en quelques minutes. La démo interactive dure moins d’une minute pour se faire une idée.",
         },
         {
           q: "C’est trop cher pour un AE",
-          a: "Starter à 29,99€ HT/mois, tous modules inclus.",
+          a: "Starter à 149 € HT/mois, tous modules inclus.",
         },
         {
           q: "Et si ça ne me convient pas ?",
-          a: "Vous testez 2 mois. Ensuite vous continuez ou vous arrêtez.",
+          a: "Vous testez 7 jours. Ensuite vous continuez ou vous arrêtez.",
         },
       ]}
     />

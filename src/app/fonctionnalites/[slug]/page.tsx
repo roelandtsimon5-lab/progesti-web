@@ -41,16 +41,17 @@ export default async function ModulePage({ params }: Props) {
   return (
     <>
       <SoftwareApplicationLd />
-      <section className="relative overflow-hidden bg-[#F5F8FB]">
-        <div className="container relative grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-16">
+      <section className="relative overflow-hidden bg-blue-deep">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+        <div className="container relative grid items-center gap-10 pb-16 pt-12 lg:grid-cols-2 lg:gap-16 lg:pb-20 lg:pt-16">
           <div>
-            <p className="inline-flex rounded-full border border-green-action/25 bg-green-action/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-green-deep">
+            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
               Module · Inclus partout
-            </p>
-            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] text-blue-deep md:text-[3rem]">
+            </span>
+            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] text-white md:text-[3rem]">
               {mod.title}
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-slate">{mod.short}</p>
+            <p className="mt-5 max-w-xl text-lg text-white/80">{mod.short}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink
                 href={cta.trialApp}
@@ -60,18 +61,18 @@ export default async function ModulePage({ params }: Props) {
               >
                 Tester ce module
               </ButtonLink>
-              <ButtonLink href={cta.demo} size="lg" variant="secondary">
+              <ButtonLink href={cta.demo} size="lg" variant="outline-white">
                 Voir la démo
               </ButtonLink>
             </div>
-            <p className="mt-5 text-sm font-medium text-slate">
-              <span className="text-green-deep">✓</span> Essai 2 mois sans CB · Dès 29,99 € HT/mois
+            <p className="mt-6 text-sm text-white/60">
+              ✓ Essai 7 jours gratuit · ✓ Dès 149 € HT/mois
             </p>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-blue-mist bg-white shadow-[0_24px_60px_rgba(11,61,110,0.12)]">
+          <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
             <Image
-              src="/dashboard-mockup-opt.webp"
-              alt={`Module ${mod.title} — PROGESTI`}
+              src="/hero-planning.png"
+              alt={`Module ${mod.title} — planning et suivi PROGESTI`}
               width={800}
               height={480}
               className="h-auto w-full"

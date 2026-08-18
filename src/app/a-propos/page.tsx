@@ -19,8 +19,8 @@ export default function AProposPage() {
         eyebrow="À propos"
         title="PROGESTI, conçu pour le terrain de la propreté"
         lead="Nous construisons un logiciel simple et complet pour les entreprises de nettoyage — bureaux, syndics, professionnels, fin de chantier et indépendants — qui veulent organiser le métier sans Excel ni WhatsApp comme système."
-        primaryHref={cta.trialApp}
-        primaryLabel="Essayer 2 mois"
+        primaryHref={cta.demo}
+        primaryLabel="Demander une démo"
         secondaryHref="/contact"
         secondaryLabel="Nous contacter"
       />

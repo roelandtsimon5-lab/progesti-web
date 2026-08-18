@@ -125,8 +125,8 @@ export default function HomePageV1Archive() {
                 <span className="ml-2 text-xs font-semibold text-muted">app.progesti.fr</span>
               </div>
               <Image
-                src="/dashboard-mockup-opt.webp"
-                alt="Tableau de bord PROGESTI pour entreprise de nettoyage"
+                src="/hero-planning.png"
+                alt="Planning PROGESTI — vue semaine des passages par site"
                 width={1200}
                 height={900}
                 priority
@@ -259,14 +259,16 @@ export default function HomePageV1Archive() {
             </div>
           </Reveal>
           <Reveal delayMs={80}>
-            <Image
-              src="/hero-mockup-opt.webp"
-              alt="Aperçu produit PROGESTI"
-              width={1200}
-              height={800}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="w-full rounded-2xl border border-line shadow-[0_20px_60px_rgba(11,21,36,0.1)]"
-            />
+            <div className="overflow-hidden rounded-2xl border border-blue-mist/60 shadow-[0_16px_50px_rgba(11,61,110,0.1)]">
+              <Image
+                src="/screen-telegestion.webp"
+                alt="Télégestion PROGESTI — pointages terrain et suivi interventions"
+                width={1200}
+                height={800}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="w-full"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
