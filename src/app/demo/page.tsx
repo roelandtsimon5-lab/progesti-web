@@ -73,18 +73,48 @@ export default function DemoPage() {
       return;
     }
 
+    const redirectUrl = demoAppUrl({
+      company,
+      name,
+      email,
+      phone: phone || undefined,
+      source: "demo",
+    });
+
     try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          intent: "demo",
-          name,
-          email,
-          phone,
-          company,
-        }),
-      });
+      const controller = new AbortController();
+      const leadTimeout = window.setTimeout(() => controller.abort(), 5000);
+
+      let res: Response;
+      try {
+        res = await fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            intent: "demo",
+            name,
+            email,
+            phone,
+            company,
+          }),
+          signal: controller.signal,
+        });
+      } catch (fetchErr) {
+        if (fetchErr instanceof DOMException && fetchErr.name === "AbortError") {
+          // Lead peut être en cours côté serveur — on ouvre quand même la démo.
+          sessionStorage.setItem(
+            "progesti_demo",
+            JSON.stringify({ name, email, phone: phone || null, company, createdAt: Date.now() }),
+          );
+          track("form_submit", { intent: "demo", source: "demo_page_hero", lead_timeout: true });
+          window.location.href = redirectUrl;
+          return;
+        }
+        throw fetchErr;
+      } finally {
+        window.clearTimeout(leadTimeout);
+      }
+
       if (!res.ok) {
         if (res.status === 429) {
           throw new Error("Trop de tentatives. Réessayez dans une minute.");
@@ -99,13 +129,7 @@ export default function DemoPage() {
       track("form_submit", { intent: "demo", source: "demo_page_hero" });
       track("demo_view", { source: "demo_gate" });
       track("signup_start", { source: "demo_gate" });
-      window.location.href = demoAppUrl({
-        company,
-        name,
-        email,
-        phone: phone || undefined,
-        source: "demo",
-      });
+      window.location.href = redirectUrl;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Envoi impossible. Réessayez.");
       setLoading(false);

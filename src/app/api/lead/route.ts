@@ -130,20 +130,18 @@ export async function POST(request: Request) {
       phone: lead.phone,
     };
 
-    const [notifySettled] = await Promise.allSettled([
-      notifyNewLead(notifyPayload),
-      persistLocal(lead),
-      sendWebhook(lead),
-    ]);
+    await persistLocal(lead);
 
-    const notify =
-      notifySettled.status === "fulfilled" ? notifySettled.value : [];
-
-    if (notifySettled.status === "rejected") {
-      console.error("[PROGESTI lead notify]", notifySettled.reason);
-    } else {
-      console.info("[PROGESTI lead notify]", notify);
-    }
+    // E-mails / SMS / webhook en arrière-plan — ne pas bloquer la redirection démo.
+    void Promise.allSettled([notifyNewLead(notifyPayload), sendWebhook(lead)]).then(
+      ([notifySettled]) => {
+        if (notifySettled.status === "rejected") {
+          console.error("[PROGESTI lead notify]", notifySettled.reason);
+          return;
+        }
+        console.info("[PROGESTI lead notify]", notifySettled.value);
+      },
+    );
 
     return NextResponse.json({
       ok: true,
@@ -152,7 +150,7 @@ export async function POST(request: Request) {
         webhook: Boolean(env.leadWebhookUrl),
         email: Boolean(env.resendApiKey),
         sms: Boolean(env.brevoApiKey || (env.freeMobileUser && env.freeMobilePass)),
-        notify,
+        notify: "async",
       },
     });
   } catch {
