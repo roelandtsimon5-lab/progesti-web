@@ -59,12 +59,13 @@ Format d’une ligne :
   angle: Litiges paie, preuves, confiance client — comparaison concrète.
   published: 2026-08-11
 
-- status: todo
+- status: done
   date: 2026-08-25
   slug: devis-contrat-entretien-bureaux-modele-mental
   category: bureaux-tertiaire
   title: Devis et contrat d’entretien de bureaux : ce qu’il faut cadrer
   angle: Fréquences, zones, horaires, avenants — éviter les malentendus.
+  published: 2026-08-25
 
 - status: todo
   date: 2026-09-01
