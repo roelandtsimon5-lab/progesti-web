@@ -210,7 +210,7 @@ export default function PillarNettoyagePage() {
                   par contrat — sans exporter vers un tableur.
                 </p>
                 <Link
-                  href="/fonctionnalites/tableaux-de-bord"
+                  href="/fonctionnalites/rentabilite"
                   className="mt-3 inline-block text-sm font-semibold text-emerald-dark hover:underline"
                 >
                   Module tableaux de bord →
@@ -259,7 +259,7 @@ export default function PillarNettoyagePage() {
                 </li>
                 <li>
                   <Link
-                    href="/fonctionnalites/bon-intervention"
+                    href="/fonctionnalites/pointage"
                     className="flex items-center gap-2 hover:underline"
                   >
                     <span className="text-green-deep">✓</span>
@@ -286,7 +286,7 @@ export default function PillarNettoyagePage() {
                 </li>
                 <li>
                   <Link
-                    href="/fonctionnalites/prepaie"
+                    href="/fonctionnalites/gestion-rh"
                     className="flex items-center gap-2 hover:underline"
                   >
                     <span className="text-green-deep">✓</span>
@@ -295,7 +295,7 @@ export default function PillarNettoyagePage() {
                 </li>
                 <li>
                   <Link
-                    href="/fonctionnalites/contrats"
+                    href="/fonctionnalites"
                     className="flex items-center gap-2 hover:underline"
                   >
                     <span className="text-green-deep">✓</span>
@@ -304,7 +304,7 @@ export default function PillarNettoyagePage() {
                 </li>
                 <li>
                   <Link
-                    href="/fonctionnalites/stock"
+                    href="/fonctionnalites"
                     className="flex items-center gap-2 hover:underline"
                   >
                     <span className="text-green-deep">✓</span>
@@ -313,7 +313,7 @@ export default function PillarNettoyagePage() {
                 </li>
                 <li>
                   <Link
-                    href="/fonctionnalites/geolocalisation"
+                    href="/fonctionnalites"
                     className="flex items-center gap-2 hover:underline"
                   >
                     <span className="text-green-deep">✓</span>
@@ -322,7 +322,7 @@ export default function PillarNettoyagePage() {
                 </li>
                 <li>
                   <Link
-                    href="/fonctionnalites/supervision"
+                    href="/fonctionnalites"
                     className="flex items-center gap-2 hover:underline"
                   >
                     <span className="text-green-deep">✓</span>
@@ -331,7 +331,7 @@ export default function PillarNettoyagePage() {
                 </li>
                 <li>
                   <Link
-                    href="/fonctionnalites/tableaux-de-bord"
+                    href="/fonctionnalites/rentabilite"
                     className="flex items-center gap-2 hover:underline"
                   >
                     <span className="text-green-deep">✓</span>
