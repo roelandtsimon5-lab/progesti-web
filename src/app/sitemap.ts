@@ -56,8 +56,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/a-propos", 0.45, "monthly"),
   ];
 
-  /** Légal — indexable mais faible priorité */
+  /** Légal & support — indexable mais faible priorité */
   const legal: MetadataRoute.Sitemap = [
+    entry("/support", 0.3, "yearly"),
     entry("/mentions-legales", 0.2, "yearly"),
     entry("/confidentialite", 0.2, "yearly"),
     entry("/cgv", 0.2, "yearly"),
