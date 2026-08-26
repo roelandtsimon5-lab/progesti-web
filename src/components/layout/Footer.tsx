@@ -34,6 +34,7 @@ const columns = [
     title: "Entreprise",
     links: [
       { href: "/contact", label: "Contact" },
+      { href: "/support", label: "Support" },
       { href: "/a-propos", label: "À propos" },
       { href: "/mentions-legales", label: "Mentions légales" },
       { href: "/confidentialite", label: "Confidentialité" },
