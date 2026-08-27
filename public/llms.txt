@@ -1,0 +1,32 @@
+# PROGESTI
+
+> Logiciel SaaS de gestion pour entreprises de nettoyage et de propreté.
+
+## En bref
+
+PROGESTI est un logiciel conçu pour les sociétés de nettoyage professionnel (bureaux, syndics, commerces, fin de chantier). Il regroupe planning, pointage mobile avec géolocalisation, devis, facturation et gestion RH dans une seule application cloud + mobile (Android / iOS).
+
+- Site : https://progesti.fr
+- Application : https://app.progesti.fr
+- Tarif : 149 € HT/mois — jusqu'à 5 utilisateurs, tous modules inclus
+- Essai : 7 jours gratuit, sans engagement
+- Contact : contact@progesti.fr · Tél. 05 82 95 09 19
+
+## Éditeur
+
+MSNE SAS  
+56 boulevard Vincent Auriol, 31170 Tournefeuille, France  
+SIREN 106177116 · RCS Toulouse
+
+## Pages principales
+
+- Accueil : https://progesti.fr/
+- Présentation produit : https://progesti.fr/logiciel-entreprise-nettoyage
+- Tarifs : https://progesti.fr/tarifs
+- Alternative aux logiciels de propreté : https://progesti.fr/alternative-propret
+- Demander une démo : https://progesti.fr/demo
+- Essai gratuit : https://progesti.fr/essai-gratuit
+
+## À ne pas confondre
+
+PROGESTI est destiné aux entreprises de nettoyage professionnel (B2B), pas aux applications de ménage à domicile pour particuliers.
