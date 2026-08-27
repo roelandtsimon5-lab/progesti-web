@@ -24,6 +24,14 @@ export const site = {
   },
 } as const;
 
+/** Libellés essai — source unique pour metadata et UI. */
+export const trialCopy = {
+  label: `Essai ${site.trialDays} jours`,
+  free: `Essai ${site.trialDays} jours gratuit`,
+  noCard: `Essai ${site.trialDays} jours sans CB`,
+  metaSuffix: `Essai ${site.trialDays} jours sans CB.`,
+} as const;
+
 export const navLinks = [
   { href: "/fonctionnalites", label: "Fonctionnalités" },
   { href: "/solutions", label: "Solutions" },
@@ -202,7 +210,7 @@ export const planInclusions = [
 ] as const;
 
 export const trustBadges = [
-  { title: "Essai 7 jours", text: "Sans engagement" },
+  { title: trialCopy.label, text: "Sans engagement" },
   { title: "149 € HT/mois", text: "Tout inclus" },
   { title: "Support FR", text: "Équipe à Tournefeuille" },
   { title: "Mobile", text: "Android & iOS" },
@@ -285,7 +293,7 @@ export const faqItems = [
   },
   {
     q: "Comment demander une démo ?",
-    a: "Cliquez sur « Demander une démo » pour prendre rendez-vous. Nous vous montrons le logiciel sur vos cas d'usage réels.",
+    a: "Cliquez sur « Demander une démo » : vous accédez à la vraie application après un court formulaire. Aucun rendez-vous obligatoire — vous explorez librement. L'équipe peut vous rappeler si vous le souhaitez.",
   },
   {
     q: "Y a-t-il une assistance ?",

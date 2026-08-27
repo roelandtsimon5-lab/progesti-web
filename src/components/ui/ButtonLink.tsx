@@ -3,19 +3,29 @@
 import Link from "next/link";
 import { track, type TrackEvent } from "@/lib/tracking";
 
-type Variant = "primary" | "secondary" | "ghost" | "white" | "outline-white";
+type Variant =
+  | "primary"
+  | "secondary"
+  | "ghost"
+  | "ghost-light"
+  | "white"
+  | "outline-white"
+  | "trial";
 type Size = "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-green-action !text-white hover:bg-green-deep shadow-[0_10px_28px_rgba(31,168,107,0.35)] active:translate-y-px",
+    "bg-green-action !text-white hover:bg-green-deep shadow-[0_10px_28px_rgba(10,124,108,0.3)] active:translate-y-px",
+  trial:
+    "bg-lime-cta !text-brand-navy hover:bg-lime-cta-hover shadow-[0_10px_28px_rgba(168,227,0,0.25)] active:translate-y-px !rounded-[2px]",
   secondary:
-    "bg-transparent text-blue-deep border-2 border-blue-royal hover:bg-blue-royal hover:text-white active:translate-y-px",
+    "bg-transparent text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-white active:translate-y-px !rounded-[2px]",
   ghost: "bg-transparent text-slate hover:text-ink hover:bg-blue-sky/80",
+  "ghost-light": "bg-transparent !text-white/85 hover:!text-white hover:bg-white/10",
   white:
-    "bg-white text-blue-deep hover:bg-blue-sky border border-white/90 shadow-[0_10px_28px_rgba(11,61,110,0.18)] active:translate-y-px",
+    "bg-white text-brand-navy hover:bg-blue-sky border border-white/90 shadow-[0_10px_28px_rgba(1,41,57,0.12)] active:translate-y-px",
   "outline-white":
-    "bg-transparent !text-white border-2 border-white/75 hover:bg-white/12 active:translate-y-px",
+    "bg-transparent !text-white border-2 border-white/75 hover:bg-white/12 active:translate-y-px !rounded-[2px]",
 };
 
 const sizes: Record<Size, string> = {

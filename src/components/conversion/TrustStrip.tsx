@@ -1,6 +1,8 @@
+import { trialCopy } from "@/lib/site";
+
 export const trustPoints = [
   "149 € HT/mois, tout inclus",
-  "Essai 7 jours sans engagement",
+  `${trialCopy.label} sans engagement`,
   "Support FR à Tournefeuille",
 ] as const;
 

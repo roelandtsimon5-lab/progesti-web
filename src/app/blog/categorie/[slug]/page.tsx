@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ConversionBlock } from "@/components/conversion/ConversionBlock";
-import { PageHero } from "@/components/sections/PageHero";
+import { FinalPush } from "@/components/conversion/FinalPush";
+import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import {
   categoryExists,
   getCategoryLabel,
   getPostsByCategory,
 } from "@/lib/blog";
 import { blogCategories, site } from "@/lib/site";
+import { cta } from "@/lib/cta";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -42,12 +45,19 @@ export default async function BlogCategoryPage({ params }: Props) {
 
   return (
     <>
-      <PageHero
+      <IndustryPageHero
         eyebrow="Catégorie"
         title={label}
-        lead={`Articles de la catégorie « ${label} » pour gérants d’entreprises de nettoyage et de propreté.`}
+        lead={`Articles de la catégorie « ${label} » pour gérants d'entreprises de nettoyage et de propreté.`}
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label },
+        ]}
+        trialEvent="blog_category_trial"
+        demoEvent="blog_category_demo"
       />
-      <section className="section !pt-0 bg-white">
+      <section className="section bg-white pb-28 lg:pb-16">
         <div className="container max-w-3xl">
           <p className="mb-8 text-sm">
             <Link href="/blog" className="font-semibold text-blue-royal hover:underline">
@@ -55,7 +65,17 @@ export default async function BlogCategoryPage({ params }: Props) {
             </Link>
           </p>
           {posts.length === 0 ? (
-            <p className="text-slate">Aucun article dans cette catégorie pour le moment.</p>
+            <div className="rounded-[3px] border border-blue-mist bg-[#F5F8FB] p-8 text-center">
+              <p className="text-slate">Aucun article dans cette catégorie pour le moment.</p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <ButtonLink href="/blog" variant="secondary">
+                  Voir tout le blog
+                </ButtonLink>
+                <ButtonLink href={cta.trial} variant="trial" event="trial_start" eventPayload={{ cta: "blog_category_empty_trial" }}>
+                  Essai {site.trialDays} jours
+                </ButtonLink>
+              </div>
+            </div>
           ) : (
             <ul className="divide-y divide-blue-mist">
               {posts.map((post) => (
@@ -72,7 +92,9 @@ export default async function BlogCategoryPage({ params }: Props) {
           )}
         </div>
       </section>
-      <ConversionBlock variant="essai" />
+      <FinalPush />
+
+      <MobileCtaBar />
     </>
   );
 }

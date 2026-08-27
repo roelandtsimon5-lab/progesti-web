@@ -480,8 +480,6 @@ export function HomeValidated() {
       </section>
 
       <ConversionBlock variant="essai" />
-
-      <div className="h-20 lg:hidden" aria-hidden />
       <MobileCtaBar />
     </>
   );

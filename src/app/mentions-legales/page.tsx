@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/sections/PageHero";
+import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { site } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -13,46 +14,56 @@ export default function MentionsLegalesPage() {
   const c = site.company;
   return (
     <>
-      <PageHero eyebrow="Légal" title="Mentions légales" lead={`Éditeur du site ${site.name}.`} />
-      <section className="section !pt-0">
+      <IndustryPageHero
+        eyebrow="Légal"
+        title="Mentions légales"
+        lead={`Éditeur du site ${site.name}.`}
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: "Mentions légales" },
+        ]}
+        showCtas={false}
+      />
+      <section className="section bg-white">
         <div className="container max-w-3xl space-y-4 text-sm text-anthracite">
           <p>
-            <strong>Éditeur :</strong> {c.legalName}
+            <strong className="text-blue-deep">Éditeur :</strong> {c.legalName}
           </p>
           <p>
-            <strong>Siège social :</strong> {c.address}, {c.city}
+            <strong className="text-blue-deep">Siège social :</strong> {c.address}, {c.city}
           </p>
           <p>
-            <strong>SIREN :</strong> {c.siren} — <strong>SIRET :</strong> {c.siret}
+            <strong className="text-blue-deep">SIREN :</strong> {c.siren} — <strong className="text-blue-deep">SIRET :</strong> {c.siret}
           </p>
           <p>
-            <strong>TVA intracommunautaire :</strong> {c.tva}
+            <strong className="text-blue-deep">TVA intracommunautaire :</strong> {c.tva}
           </p>
           <p>
-            <strong>RCS :</strong> {c.rcs} — <strong>Capital social :</strong> {c.capital}
+            <strong className="text-blue-deep">RCS :</strong> {c.rcs} — <strong className="text-blue-deep">Capital social :</strong> {c.capital}
           </p>
           <p>
-            <strong>Contact :</strong>{" "}
-            <a className="text-emerald-dark" href={`tel:${site.phoneTel}`}>
+            <strong className="text-blue-deep">Contact :</strong>{" "}
+            <a className="font-semibold text-blue-royal hover:underline" href={`tel:${site.phoneTel}`}>
               {site.phone}
             </a>
             {" · "}
-            <a className="text-emerald-dark" href={`mailto:${site.email}`}>
+            <a className="font-semibold text-blue-royal hover:underline" href={`mailto:${site.email}`}>
               {site.email}
             </a>
           </p>
           <p>
-            <strong>Hébergeur du site :</strong> infrastructure cloud (déploiement type Vercel /
+            <strong className="text-blue-deep">Hébergeur du site :</strong> infrastructure cloud (déploiement type Vercel /
             OVH selon environnement de production).
           </p>
           <p>
-            <strong>Directeur de la publication :</strong> {c.legalName}
+            <strong className="text-blue-deep">Directeur de la publication :</strong> {c.legalName}
           </p>
           <p>
-            <strong>Marque commerciale :</strong> {site.name}
+            <strong className="text-blue-deep">Marque commerciale :</strong> {site.name}
           </p>
         </div>
       </section>
+      <MobileCtaBar />
     </>
   );
 }

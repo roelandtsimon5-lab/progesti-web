@@ -192,12 +192,12 @@ function welcomeEmail(lead: LeadPayload) {
         source: "welcome-email",
       });
   const base = env.siteUrl.replace(/\/$/, "");
-  const logoUrl = `${base}/logo.png`;
-  const mockupUrl = `${base}/hero-mockup.png`;
+  const logoUrl = `${base}/logo.svg`;
+  const mockupUrl = `${base}/hero-planning.webp`;
   const ctx = welcomeContext(lead.intent);
   const preheader = demo
     ? "Votre démo PROGESTI est prête — planning, pointage, facturation."
-    : `Essai ${site.trialMonths} mois sans CB · je vous aide à configurer sites, planning et passages.`;
+    : `Essai ${site.trialDays} jours sans CB · je vous aide à configurer sites, planning et passages.`;
   const subject = demo
     ? `${prenom}, votre démo PROGESTI est ouverte`
     : `${prenom}, bienvenue chez PROGESTI — je vous aide à démarrer`;
@@ -212,7 +212,7 @@ function welcomeEmail(lead: LeadPayload) {
     ``,
     demo
       ? `Explorez le cockpit avec des données fictives réalistes (planning, agents, factures).`
-      : `Essai ${site.trialMonths} mois, tous les modules, sans carte bancaire. Vous testez sur votre vraie activité.`,
+      : `Essai ${site.trialDays} jours, tous les modules, sans carte bancaire. Vous testez sur votre vraie activité.`,
     ``,
     `${ctx.cta} : ${ctaUrl}`,
     ``,
@@ -269,7 +269,7 @@ function welcomeEmail(lead: LeadPayload) {
               ${
                 demo
                   ? "Explorez le cockpit avec des données fictives réalistes (planning, agents, factures)."
-                  : `Essai <strong>${site.trialMonths} mois</strong>, tous les modules, <strong>sans carte bancaire</strong>. Vous testez sur votre vraie activité.`
+                  : `Essai <strong>${site.trialDays} jours</strong>, tous les modules, <strong>sans carte bancaire</strong>. Vous testez sur votre vraie activité.`
               }
             </p>
           </td>

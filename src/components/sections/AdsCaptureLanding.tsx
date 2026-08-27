@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { demoAppUrl } from "@/lib/cta";
+import { adsProductPreview } from "@/lib/creative-assets";
 import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
@@ -144,10 +145,10 @@ export function AdsCaptureLanding({
                 <span className="ml-2 text-xs font-semibold text-slate">Aperçu plateforme</span>
               </div>
               <Image
-                src="/dashboard-mockup-opt.webp"
-                alt="Aperçu PROGESTI"
-                width={900}
-                height={640}
+                src={adsProductPreview.src}
+                alt={adsProductPreview.alt}
+                width={adsProductPreview.width}
+                height={adsProductPreview.height}
                 priority
                 className="w-full"
               />

@@ -6,6 +6,10 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
       disallow: [
+        "/ancien",
+        "/ancien/",
+        "/nouveau",
+        "/nouveau/",
         "/v1",
         "/v1/",
         "/v2",

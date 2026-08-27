@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ConversionBlock } from "@/components/conversion/ConversionBlock";
-import { PageHero } from "@/components/sections/PageHero";
-import { getAllPosts, getCategoryLabel } from "@/lib/blog";
-import { blogCategories } from "@/lib/site";
+import { FinalPush } from "@/components/conversion/FinalPush";
+import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
+import { getAllPosts, getCategoryLabel, getActiveBlogCategories } from "@/lib/blog";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -15,16 +15,23 @@ export const metadata: Metadata = pageMeta({
 
 export default function BlogPage() {
   const posts = getAllPosts();
+  const activeCategories = getActiveBlogCategories();
 
   return (
     <>
-      <PageHero
+      <IndustryPageHero
         eyebrow="Blog"
         title="Ressources pour piloter une entreprise de propreté"
         lead="Planning, terrain, facturation, syndics, bureaux et fin de chantier — du contenu utile pour décideurs et gérants."
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: "Blog" },
+        ]}
+        trialEvent="blog_trial"
+        demoEvent="blog_demo"
       />
 
-      <section className="section !pt-0 bg-white">
+      <section className="section bg-white pb-28 lg:pb-16">
         <div className="container">
           <nav aria-label="Catégories" className="mb-10 flex flex-wrap gap-x-4 gap-y-2">
             <Link
@@ -33,7 +40,7 @@ export default function BlogPage() {
             >
               Tous
             </Link>
-            {blogCategories.map((c) => (
+            {activeCategories.map((c) => (
               <Link
                 key={c.slug}
                 href={`/blog/categorie/${c.slug}`}
@@ -72,7 +79,8 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <ConversionBlock variant="essai" />
+      <FinalPush />
+      <MobileCtaBar />
     </>
   );
 }

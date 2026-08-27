@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prospects": "cd scripts/outbound && python prospects.py call",
+    "prospects:finish": "cd scripts/outbound && python prospects.py finish"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

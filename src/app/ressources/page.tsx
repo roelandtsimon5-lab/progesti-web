@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero } from "@/components/sections/PageHero";
+import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
+import { Reveal } from "@/components/ui/Reveal";
 import { getAllPosts, getCategoryLabel } from "@/lib/blog";
 import { modules, solutions } from "@/lib/site";
-import { cta } from "@/lib/cta";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { pageMeta } from "@/lib/seo";
 
@@ -18,7 +19,7 @@ const pillars = [
   {
     href: "/logiciel-entreprise-nettoyage",
     title: "Logiciel entreprise de nettoyage",
-    text: "Vue d’ensemble du métier et du parcours planning → facture.",
+    text: "Vue d'ensemble du métier et du parcours planning → facture.",
   },
   {
     href: "/logiciel-planning-nettoyage",
@@ -35,99 +36,106 @@ const pillars = [
     title: "Alternative à Propret",
     text: "Comparer essai, tarifs et parcours de switch.",
   },
-];
+] as const;
 
 export default function RessourcesPage() {
   const latest = getAllPosts().slice(0, 6);
 
   return (
     <>
-      <PageHero
+      <IndustryPageHero
         eyebrow="Ressources"
         title="Tout pour décider et démarrer"
-        lead="Piliers SEO, solutions verticales, blog et glossaire — une porte d’entrée claire vers PROGESTI."
-        primaryHref={cta.demo}
-        primaryLabel="Demander une démo"
-        secondaryHref="/blog"
-        secondaryLabel="Lire le blog"
+        lead="Piliers SEO, solutions verticales, blog et glossaire — une porte d'entrée claire vers PROGESTI."
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: "Ressources" },
+        ]}
+        trialEvent="ressources_trial"
+        demoEvent="ressources_demo"
       />
 
-      <section className="section !pt-0">
+      <section className="section bg-white">
         <div className="container space-y-16">
-          <div>
-            <h2 className="text-2xl font-extrabold">Pages piliers</h2>
-            <ul className="mt-6 grid gap-6 md:grid-cols-2">
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep">Pages piliers</h2>
+            <ul className="mt-6 grid gap-5 md:grid-cols-2">
               {pillars.map((p) => (
-                <li key={p.href} className="border-t border-line pt-4">
-                  <Link href={p.href} className="font-display text-lg font-bold hover:text-emerald-dark">
-                    {p.title}
+                <li key={p.href}>
+                  <Link
+                    href={p.href}
+                    className="industry-card-lift block rounded-[3px] border border-blue-mist/80 bg-[#F5F8FB] p-5"
+                  >
+                    <span className="font-display text-lg font-bold text-blue-deep hover:text-blue-royal">
+                      {p.title}
+                    </span>
+                    <p className="mt-1 text-sm text-slate">{p.text}</p>
                   </Link>
-                  <p className="mt-1 text-sm text-muted">{p.text}</p>
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div>
-            <h2 className="text-2xl font-extrabold">Solutions métier</h2>
-            <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep">Solutions métier</h2>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {solutions.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/solutions/${s.slug}`}
-                    className="font-semibold text-ink hover:text-emerald-dark"
+                    className="font-semibold text-blue-deep hover:text-blue-royal hover:underline"
                   >
                     {s.title} →
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div>
-            <h2 className="text-2xl font-extrabold">Modules produit</h2>
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep">Modules produit</h2>
             <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm">
               {modules.map((m) => (
                 <li key={m.slug}>
                   <Link
                     href={`/fonctionnalites/${m.slug}`}
-                    className="text-anthracite hover:text-emerald-dark"
+                    className="text-slate hover:text-blue-royal hover:underline"
                   >
                     {m.title}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
-              <h2 className="text-2xl font-extrabold">Derniers articles</h2>
-              <Link href="/blog" className="text-sm font-bold text-emerald-dark hover:underline">
+              <h2 className="font-display text-2xl font-extrabold text-blue-deep">Derniers articles</h2>
+              <Link href="/blog" className="text-sm font-bold text-blue-royal hover:underline">
                 Tout le blog →
               </Link>
             </div>
-            <ul className="mt-6 divide-y divide-line">
+            <ul className="mt-6 divide-y divide-blue-mist/70">
               {latest.map((post) => (
                 <li key={post.slug} className="py-4">
-                  <p className="text-xs font-bold uppercase tracking-wide text-petrol">
+                  <p className="text-xs font-bold uppercase tracking-wide text-blue-royal">
                     {getCategoryLabel(post.category)}
                   </p>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="mt-1 block font-display text-lg font-bold hover:text-emerald-dark"
+                    className="mt-1 block font-display text-lg font-bold text-blue-deep hover:text-blue-royal"
                   >
                     {post.title}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div className="border-t border-line pt-10">
-            <h2 className="text-2xl font-extrabold">Glossaire & outils</h2>
-            <p className="mt-2 text-muted">
-              Vocabulaire métier (vacation, parties communes, bon d’intervention…) et liens utiles.
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep">Glossaire & outils</h2>
+            <p className="mt-2 text-slate">
+              Vocabulaire métier (vacation, parties communes, bon d&apos;intervention…) et liens utiles.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <ButtonLink href="/glossaire" variant="secondary">
@@ -143,9 +151,10 @@ export default function RessourcesPage() {
                 FAQ
               </ButtonLink>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
+      <MobileCtaBar />
     </>
   );
 }

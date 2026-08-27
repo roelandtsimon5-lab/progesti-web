@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { ConversionBlock } from "@/components/conversion/ConversionBlock";
-import { cta } from "@/lib/cta";
+import { FinalPush } from "@/components/conversion/FinalPush";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { cta, ctaLabels } from "@/lib/cta";
 import {
   getAllPosts,
   getCategoryLabel,
   getPostBySlug,
   getRelatedPosts,
 } from "@/lib/blog";
+import { DEFAULT_OG } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -35,6 +38,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: post.date,
       modifiedTime: post.updatedAt,
+      images: [DEFAULT_OG],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [DEFAULT_OG.url],
     },
   };
 }
@@ -97,20 +107,16 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       <article>
-        <header className="bg-[#F5F8FB] section-tight">
+        <header className="section-tight bg-[#F5F8FB]">
           <div className="container max-w-3xl">
-            <nav className="text-sm text-slate" aria-label="Fil d’Ariane">
-              <Link href="/blog" className="hover:text-blue-deep">
-                Blog
-              </Link>
-              <span className="mx-2">/</span>
-              <Link
-                href={`/blog/categorie/${post.category}`}
-                className="hover:text-blue-deep"
-              >
-                {categoryLabel}
-              </Link>
-            </nav>
+            <Breadcrumb
+              items={[
+                { label: "Accueil", href: "/" },
+                { label: "Blog", href: "/blog" },
+                { label: categoryLabel, href: `/blog/categorie/${post.category}` },
+                { label: post.title },
+              ]}
+            />
             <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-blue-deep md:text-4xl">
               {post.title}
             </h1>
@@ -134,7 +140,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </header>
 
-        <div className="section !pt-10 bg-white">
+        <div className="section !pt-10 bg-white pb-28 lg:pb-16">
           <div className="container max-w-3xl">
             <div
               className="prose-v2"
@@ -146,22 +152,23 @@ export default async function BlogPostPage({ params }: Props) {
                 Prêt à organiser votre nettoyage professionnel ?
               </p>
               <p className="mt-2 text-sm text-slate">
-                149 € HT/mois, jusqu'à 5 utilisateurs, tous les modules inclus.
+                149 € HT/mois · jusqu&apos;à 5 utilisateurs · essai {site.trialDays} jours sans CB
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <ButtonLink
-                  href={cta.demo}
-                  eventPayload={{ cta: "v3_blog_article_cta", slug: post.slug }}
-                >
-                  Demander une démo
-                </ButtonLink>
-                <ButtonLink
-                  href={cta.trialApp}
-                  variant="secondary"
+                  href={cta.trial}
+                  variant="trial"
                   event="trial_start"
                   eventPayload={{ cta: "v3_blog_article_trial", slug: post.slug }}
                 >
-                  Essai 7 jours gratuit
+                  {ctaLabels.trial}
+                </ButtonLink>
+                <ButtonLink
+                  href={cta.demo}
+                  variant="secondary"
+                  eventPayload={{ cta: "v3_blog_article_cta", slug: post.slug }}
+                >
+                  {ctaLabels.demoGate}
                 </ButtonLink>
                 <Link
                   href="/blog"
@@ -194,7 +201,8 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </article>
 
-      <ConversionBlock variant="essai" />
+      <FinalPush title="Passez de la lecture à l'action" />
+      <MobileCtaBar />
     </>
   );
 }

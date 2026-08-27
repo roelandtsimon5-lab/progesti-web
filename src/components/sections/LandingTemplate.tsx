@@ -233,9 +233,10 @@ export function LandingTemplate({
 
       <ConversionBlock variant={formIntent === "demo" ? "demo" : "essai"} />
 
-      <div className="h-20 lg:hidden" aria-hidden />
       {hasForm ? (
-        <div className="mobile-cta lg:hidden">
+        <>
+          <div className="h-20 lg:hidden" aria-hidden />
+          <div className="mobile-cta lg:hidden">
           <a
             href="#lp-form"
             className="flex flex-1 items-center justify-center rounded-lg bg-green-action py-3.5 font-display text-sm font-bold text-white"
@@ -252,6 +253,7 @@ export function LandingTemplate({
             Essai 7 jours
           </ButtonLink>
         </div>
+        </>
       ) : (
         <MobileCtaBar />
       )}

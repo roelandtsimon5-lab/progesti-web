@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/sections/PageHero";
+import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { site } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -15,12 +16,17 @@ export const metadata: Metadata = {
 export default function ConfidentialitePage() {
   return (
     <>
-      <PageHero
+      <IndustryPageHero
         eyebrow="Légal"
         title="Politique de confidentialité"
-        lead="Traitement des données personnelles via le site PROGESTI, le logiciel SaaS et l’application mobile ILICO Télégestion (fr.ilico.telegestion)."
+        lead="Traitement des données personnelles via le site PROGESTI, le logiciel SaaS et l'application mobile ILICO Télégestion (fr.ilico.telegestion)."
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: "Confidentialité" },
+        ]}
+        showCtas={false}
       />
-      <section className="section !pt-0">
+      <section className="section bg-white">
         <div className="container max-w-3xl space-y-8 text-sm leading-relaxed text-anthracite">
           <p className="text-xs text-muted">Dernière mise à jour : 11 août 2026</p>
 
@@ -30,7 +36,7 @@ export default function ConfidentialitePage() {
               Pour les données de compte et de relation commerciale avec {site.company.legalName} :{" "}
               {site.company.legalName}, SIRET {site.company.siret}, {site.company.address},{" "}
               {site.company.city} —{" "}
-              <a className="font-semibold text-emerald-dark" href={`mailto:${site.email}`}>
+              <a className="font-semibold text-blue-royal" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
               .
@@ -134,7 +140,7 @@ export default function ConfidentialitePage() {
             <p className="mt-2">
               Hébergement applicatif et bases de données : Railway Corp (
               <a
-                className="font-semibold text-emerald-dark"
+                className="font-semibold text-blue-royal"
                 href="https://railway.app"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -166,13 +172,13 @@ export default function ConfidentialitePage() {
               Accès, rectification, effacement, limitation, opposition, portabilité — dans les
               conditions du RGPD. Les salariés / agents adressent en priorité leur demande à leur
               employeur. Demandes auprès de l’éditeur :{" "}
-              <a className="font-semibold text-emerald-dark" href={`mailto:${site.email}`}>
+              <a className="font-semibold text-blue-royal" href={`mailto:${site.email}`}>
                 {site.email}
               </a>{" "}
               ou via l’export RGPD dans l’application (agents). Délai de réponse : 1 mois. Vous
               pouvez aussi saisir la CNIL (
               <a
-                className="font-semibold text-emerald-dark"
+                className="font-semibold text-blue-royal"
                 href="https://www.cnil.fr"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -212,6 +218,7 @@ export default function ConfidentialitePage() {
           </section>
         </div>
       </section>
+      <MobileCtaBar />
     </>
   );
 }

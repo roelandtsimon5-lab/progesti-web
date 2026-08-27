@@ -7,18 +7,48 @@ type Props = {
   intent: "contact" | "demo" | "callback" | "switch" | "onboarding" | "rdv" | "trial";
   submitLabel?: string;
   compact?: boolean;
+  id?: string;
 };
 
-export function LeadForm({ intent, submitLabel = "Envoyer", compact = false }: Props) {
+type FieldKey = "company" | "name" | "email" | "phone";
+
+function collectInvalidFields(form: HTMLFormElement, intent: Props["intent"]): Set<FieldKey> {
+  const invalid = new Set<FieldKey>();
+  const company = String(new FormData(form).get("company") || "").trim();
+  const name = String(new FormData(form).get("name") || "").trim();
+  const email = String(new FormData(form).get("email") || "").trim();
+  const phone = String(new FormData(form).get("phone") || "").replace(/\D/g, "");
+
+  if (intent !== "demo" && !company) invalid.add("company");
+  if (!name) invalid.add("name");
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) invalid.add("email");
+  if (phone.length < 8) invalid.add("phone");
+
+  return invalid;
+}
+
+export function LeadForm({ intent, submitLabel = "Envoyer", compact = false, id }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [invalidFields, setInvalidFields] = useState<Set<FieldKey>>(new Set());
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
-    setMessage("");
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
+
+    if (String(data.website || "").trim()) return;
+
+    const invalid = collectInvalidFields(form, intent);
+    setInvalidFields(invalid);
+    if (invalid.size > 0) {
+      setStatus("error");
+      setMessage("Vérifiez les champs en rouge.");
+      return;
+    }
+
+    setStatus("loading");
+    setMessage("");
 
     try {
       const res = await fetch("/api/lead", {
@@ -36,6 +66,7 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false }: P
       }
       track("form_submit", { intent });
       setStatus("ok");
+      setInvalidFields(new Set());
       form.reset();
     } catch {
       setStatus("error");
@@ -44,12 +75,33 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false }: P
   }
 
   const field =
-    "w-full rounded-xl border border-line bg-white px-3.5 py-3 text-sm text-ink outline-none transition focus:border-emerald focus:ring-4 focus:ring-emerald/15";
+    "w-full rounded-[3px] border border-blue-mist bg-white px-3.5 py-3 text-sm text-ink outline-none transition placeholder:text-muted/70 focus:border-blue-royal focus:ring-4 focus:ring-blue-royal/15";
+
+  const errorId = `${intent}-form-error`;
+
+  const fieldProps = (key: FieldKey) => ({
+    "aria-invalid": invalidFields.has(key) ? true : undefined,
+    onChange: () => {
+      if (invalidFields.has(key)) {
+        setInvalidFields((prev) => {
+          const next = new Set(prev);
+          next.delete(key);
+          return next;
+        });
+      }
+    },
+  });
 
   return (
-    <form onSubmit={onSubmit} className="space-y-3" noValidate>
+    <form
+      id={id}
+      onSubmit={onSubmit}
+      className="space-y-3"
+      noValidate
+      aria-busy={status === "loading"}
+      aria-describedby={status === "error" ? errorId : undefined}
+    >
       <input type="hidden" name="intent" value={intent} />
-      {/* honeypot */}
       <input
         type="text"
         name="website"
@@ -61,7 +113,7 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false }: P
 
       <div className={compact ? "grid gap-3" : "grid gap-3 sm:grid-cols-2"}>
         <div>
-          <label className="mb-1 block text-xs font-bold text-ink" htmlFor={`${intent}-company`}>
+          <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-company`}>
             Entreprise
           </label>
           <input
@@ -70,22 +122,30 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false }: P
             name="company"
             required={intent !== "demo"}
             placeholder={intent === "demo" ? "Entreprise (optionnel)" : "Entreprise *"}
+            {...fieldProps("company")}
           />
         </div>
         <div>
-          <label className="mb-1 block text-xs font-bold text-ink" htmlFor={`${intent}-name`}>
+          <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-name`}>
             Nom *
           </label>
-          <input id={`${intent}-name`} className={field} name="name" required />
+          <input id={`${intent}-name`} className={field} name="name" required {...fieldProps("name")} />
         </div>
         <div>
-          <label className="mb-1 block text-xs font-bold text-ink" htmlFor={`${intent}-email`}>
+          <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-email`}>
             Email *
           </label>
-          <input id={`${intent}-email`} className={field} name="email" type="email" required />
+          <input
+            id={`${intent}-email`}
+            className={field}
+            name="email"
+            type="email"
+            required
+            {...fieldProps("email")}
+          />
         </div>
         <div>
-          <label className="mb-1 block text-xs font-bold text-ink" htmlFor={`${intent}-phone`}>
+          <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-phone`}>
             Téléphone *
           </label>
           <input
@@ -97,12 +157,13 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false }: P
             autoComplete="tel"
             inputMode="tel"
             placeholder="06 12 34 56 78"
+            {...fieldProps("phone")}
           />
         </div>
         {!compact ? (
           <>
             <div>
-              <label className="mb-1 block text-xs font-bold text-ink" htmlFor={`${intent}-size`}>
+              <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-size`}>
                 Taille
               </label>
               <select id={`${intent}-size`} className={field} name="companySize" defaultValue="">
@@ -116,13 +177,13 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false }: P
               </select>
             </div>
             <div>
-              <label className="mb-1 block text-xs font-bold text-ink" htmlFor={`${intent}-soft`}>
+              <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-soft`}>
                 Logiciel actuel
               </label>
               <input id={`${intent}-soft`} className={field} name="currentSoftware" />
             </div>
             <div className="sm:col-span-2">
-              <label className="mb-1 block text-xs font-bold text-ink" htmlFor={`${intent}-need`}>
+              <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-need`}>
                 Besoin
               </label>
               <textarea id={`${intent}-need`} className={`${field} min-h-24`} name="need" />
@@ -134,18 +195,25 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false }: P
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-emerald px-5 py-3 font-display text-sm font-extrabold text-navy transition hover:bg-emerald-dark hover:text-white disabled:opacity-70 sm:w-auto"
+        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[3px] bg-green-action px-5 py-3 font-display text-sm font-extrabold text-white transition hover:bg-green-deep disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
       >
-        {status === "loading" ? "Envoi…" : submitLabel}
+        {status === "loading" ? (
+          <>
+            <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white motion-reduce:animate-none" aria-hidden />
+            Envoi…
+          </>
+        ) : (
+          submitLabel
+        )}
       </button>
 
       {status === "ok" ? (
-        <p className="text-sm font-semibold text-emerald-dark" role="status">
-          Merci — nous vous recontactons rapidement.
+        <p className="text-sm font-semibold text-green-deep" role="status">
+          Merci — nous vous recontactons sous 24h ouvrées.
         </p>
       ) : null}
       {status === "error" ? (
-        <p className="text-sm font-semibold text-danger" role="alert">
+        <p id={errorId} className="text-sm font-semibold text-danger" role="alert">
           {message || "Envoi impossible. Écrivez-nous à contact@progesti.fr"}
         </p>
       ) : null}

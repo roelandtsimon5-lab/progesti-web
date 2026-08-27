@@ -1,4 +1,5 @@
 import { appUrl } from "@/lib/env";
+import { site, trialCopy } from "@/lib/site";
 
 /** Destinations marketing -> produit (une seule source de verite). */
 export const cta = {
@@ -12,6 +13,17 @@ export const cta = {
   demoApp: appUrl("/api/public/demo-session"),
   /** Connexion logiciel. */
   login: appUrl("/login"),
+} as const;
+
+/** Libellés CTA — une seule voix sur tout le site public. */
+export const ctaLabels = {
+  /** Lien vers /demo (gate formulaire). */
+  demoGate: "Demander une démo",
+  /** Bouton submit sur /demo uniquement. */
+  demoEnter: "Entrer dans la démo",
+  trial: trialCopy.free,
+  trialShort: `Essai ${site.trialDays} jours`,
+  trialCreate: "Créer mon essai",
 } as const;
 
 /** Construit l'URL d'inscription avec preremplissage optionnel. */

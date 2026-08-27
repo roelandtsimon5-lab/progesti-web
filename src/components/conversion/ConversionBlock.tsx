@@ -1,5 +1,5 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { cta } from "@/lib/cta";
+import { cta, ctaLabels } from "@/lib/cta";
 import { site } from "@/lib/site";
 
 type Variant = "demo" | "essai" | "contact";
@@ -18,18 +18,18 @@ const copy: Record<
     lead: "Demandez une démo et découvrez PROGESTI sur vos cas d'usage réels.",
     primary: {
       href: cta.demo,
-      label: "Demander une démo",
+      label: ctaLabels.demoGate,
     },
-    secondary: { href: cta.trial, label: "Essai 7 jours gratuit" },
+    secondary: { href: cta.trial, label: ctaLabels.trial },
   },
   essai: {
-    title: "Prêt à simplifier votre gestion ?",
-    lead: "Demandez une démo et découvrez PROGESTI sur vos cas d'usage réels.",
+    title: "Mettez PROGESTI au travail",
+    lead: `${ctaLabels.trial}, sans carte bancaire. Ou ${ctaLabels.demoGate.toLowerCase()} sur vos cas réels.`,
     primary: {
-      href: cta.demo,
-      label: "Demander une démo",
+      href: cta.trial,
+      label: ctaLabels.trial,
     },
-    secondary: { href: cta.trial, label: "Essai 7 jours gratuit" },
+    secondary: { href: cta.demo, label: ctaLabels.demoGate },
   },
   contact: {
     title: "Une question ? On vous répond",
@@ -37,7 +37,7 @@ const copy: Record<
     primary: { href: "/contact", label: "Nous contacter" },
     secondary: {
       href: cta.demo,
-      label: "Demander une démo",
+      label: ctaLabels.demoGate,
     },
   },
 };
@@ -51,7 +51,7 @@ export function ConversionBlock({ variant = "demo", className = "" }: Props) {
   const c = copy[variant];
 
   return (
-    <section className={`bg-blue-deep text-white ${className}`.trim()}>
+    <section className={`gradient-cta text-white ${className}`.trim()}>
       <div className="container py-14 text-center md:py-16">
         <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-[#B8F5D4]">
           {site.name}
@@ -64,6 +64,8 @@ export function ConversionBlock({ variant = "demo", className = "" }: Props) {
           <ButtonLink
             href={c.primary.href}
             size="lg"
+            variant={variant === "essai" ? "trial" : "primary"}
+            event={variant === "essai" ? "trial_start" : "cta_click"}
             eventPayload={{ cta: `conversion_${variant}_primary` }}
           >
             {c.primary.label}

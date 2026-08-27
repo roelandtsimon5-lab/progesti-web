@@ -82,3 +82,12 @@ export function getCategoryLabel(slug: string): string {
 export function categoryExists(slug: string): boolean {
   return blogCategories.some((c) => c.slug === slug);
 }
+
+/** Catégories ayant au moins un article publié. */
+export function getActiveBlogCategories() {
+  const counts = new Map<string, number>();
+  for (const post of getAllPosts()) {
+    counts.set(post.category, (counts.get(post.category) ?? 0) + 1);
+  }
+  return blogCategories.filter((c) => (counts.get(c.slug) ?? 0) > 0);
+}

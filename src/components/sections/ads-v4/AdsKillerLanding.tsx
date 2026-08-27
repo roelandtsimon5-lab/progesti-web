@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { demoAppUrl, trialAppUrl } from "@/lib/cta";
+import { adsProductPreview } from "@/lib/creative-assets";
 import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
@@ -277,10 +278,10 @@ export function AdsKillerLanding(c: AdsKillerContent) {
                 <span className="ml-2 text-xs font-semibold text-[#5A6876]">Aperçu PROGESTI</span>
               </div>
               <Image
-                src="/dashboard-mockup-opt.webp"
-                alt="Aperçu PROGESTI"
-                width={900}
-                height={640}
+                src={adsProductPreview.src}
+                alt={adsProductPreview.alt}
+                width={adsProductPreview.width}
+                height={adsProductPreview.height}
                 priority
                 className="w-full"
               />
@@ -355,10 +356,10 @@ export function AdsKillerLanding(c: AdsKillerContent) {
           </ol>
           <div className="mt-6 overflow-hidden rounded-2xl border border-[#B8CFE4] bg-white lg:hidden">
             <Image
-              src="/dashboard-mockup-opt.webp"
-              alt="Aperçu PROGESTI"
-              width={900}
-              height={640}
+              src={adsProductPreview.src}
+              alt={adsProductPreview.alt}
+              width={adsProductPreview.width}
+              height={adsProductPreview.height}
               className="w-full"
             />
           </div>

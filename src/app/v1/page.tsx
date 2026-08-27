@@ -403,8 +403,6 @@ export default function HomePageV1Archive() {
           </Reveal>
         </div>
       </section>
-
-      <div className="h-20 lg:hidden" aria-hidden />
       <MobileCtaBar />
     </>
   );

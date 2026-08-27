@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { AdsV2LeadForm } from "./AdsV2LeadForm";
 
 import { cta } from "@/lib/cta";
+import { adsProductPreview } from "@/lib/creative-assets";
 export type AdsSalesContent = {
   campaign: string;
   badge: string;
@@ -210,10 +211,10 @@ export function AdsSalesLanding(c: AdsSalesContent) {
               <span className="ml-2 text-xs font-semibold text-[#6B7280]">Aperçu PROGESTI</span>
             </div>
             <Image
-              src="/dashboard-mockup-opt.webp"
-              alt="Aperçu du logiciel PROGESTI"
-              width={900}
-              height={640}
+              src={adsProductPreview.src}
+              alt={adsProductPreview.alt}
+              width={adsProductPreview.width}
+              height={adsProductPreview.height}
               className="w-full"
             />
           </div>

@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero } from "@/components/sections/PageHero";
+import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
+import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { site } from "@/lib/site";
 import { cta } from "@/lib/cta";
@@ -43,75 +45,77 @@ const scenarios = [
       "17:30 — Facture émise + extras",
     ],
   },
-];
+] as const;
 
 export default function CasClientsPage() {
   return (
     <>
-      <PageHero
+      <IndustryPageHero
         eyebrow="Cas clients"
         title="Scénarios métier, résultats à venir"
-        lead="Les études de cas chiffrées (temps gagné, facturation) seront publiées avec métriques validées. En attendant : journées type par segment — clairement présentées comme scénarios, pas comme résultats clients."
-        primaryHref="/contact"
-        primaryLabel="Devenir cas client"
-        secondaryHref={cta.trialApp}
-        secondaryLabel="Tester sur mon activité"
+        lead="Les études chiffrées seront publiées avec métriques validées. En attendant : journées type par segment — scénarios, pas témoignages inventés."
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: "Cas clients" },
+        ]}
+        trialEvent="cas_clients_trial"
+        demoEvent="cas_clients_demo"
       />
-      <section className="section !pt-0">
+      <section className="section bg-white">
         <div className="container">
-          <p className="max-w-2xl rounded-lg border border-amber/40 bg-amber/10 px-4 py-3 text-sm text-anthracite">
-            <strong className="text-ink">Transparence :</strong> aucun chiffre client n'est inventé
-            ici. Les parcours ci-dessous illustrent l'usage PROGESTI par univers métier.
+          <p className="max-w-2xl rounded-[3px] border border-amber/40 bg-amber/10 px-4 py-3 text-sm text-anthracite">
+            <strong className="text-blue-deep">Transparence :</strong> aucun chiffre client n&apos;est inventé
+            ici. Les parcours ci-dessous illustrent l&apos;usage PROGESTI par univers métier.
           </p>
 
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {[
               ["Avant", "Excel + WhatsApp, factures en retard"],
-              ["Pendant", "Essai 7 jours sur sites réels"],
+              ["Pendant", `Essai ${site.trialDays} jours sur sites réels`],
               ["Après", "Planning stable, facturation plus rapide"],
             ].map(([t, d]) => (
-              <div key={t} className="border-t border-line pt-4">
-                <p className="font-display text-sm font-bold uppercase tracking-wide text-emerald-dark">
-                  {t}
-                </p>
-                <p className="mt-2 text-sm text-anthracite">{d}</p>
-              </div>
+              <Reveal key={t}>
+                <div className="rounded-[3px] border border-blue-mist/80 bg-[#F5F8FB] p-5">
+                  <p className="font-display text-sm font-bold uppercase tracking-wide text-blue-royal">{t}</p>
+                  <p className="mt-2 text-sm text-slate">{d}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
 
-          <ul className="mt-14 grid gap-10 lg:grid-cols-3">
-            {scenarios.map((s) => (
-              <li key={s.title} className="border-t border-line pt-5">
-                <h2 className="font-display text-xl font-bold">{s.title}</h2>
-                <ol className="mt-4 space-y-2 text-sm text-anthracite">
-                  {s.steps.map((step) => (
-                    <li key={step}>{step}</li>
-                  ))}
-                </ol>
-                <Link
-                  href={s.href}
-                  className="mt-4 inline-block text-sm font-bold text-emerald-dark hover:underline"
-                >
-                  Détail solution →
-                </Link>
-              </li>
+          <ul className="mt-14 grid gap-8 lg:grid-cols-3">
+            {scenarios.map((s, i) => (
+              <Reveal key={s.title} delayMs={i * 50}>
+                <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 border-t-[3px] border-t-lime-cta p-6">
+                  <h2 className="font-display text-xl font-extrabold text-blue-deep">{s.title}</h2>
+                  <ol className="mt-4 space-y-2 text-sm text-slate">
+                    {s.steps.map((step) => (
+                      <li key={step}>{step}</li>
+                    ))}
+                  </ol>
+                  <Link
+                    href={s.href}
+                    className="mt-4 inline-block text-sm font-bold text-blue-royal hover:underline"
+                  >
+                    Détail solution →
+                  </Link>
+                </li>
+              </Reveal>
             ))}
           </ul>
 
-          <div className="mt-12 text-sm text-muted">
-            Contact :{" "}
-            <a className="font-semibold text-emerald-dark" href={`mailto:${site.email}`}>
-              {site.email}
-            </a>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <ButtonLink href="/logiciel-entreprise-nettoyage">Page pilier produit</ButtonLink>
-              <ButtonLink href="/temoignages" variant="secondary">
-                Témoignages
-              </ButtonLink>
-            </div>
+          <div className="mt-12 flex flex-wrap items-center gap-4 border-t border-blue-mist pt-8">
+            <ButtonLink href="/contact">Devenir cas client</ButtonLink>
+            <ButtonLink href={cta.trial} variant="secondary" event="trial_start" eventPayload={{ cta: "cas_clients_trial" }}>
+              Essai {site.trialDays} jours
+            </ButtonLink>
+            <Link href="/logiciel-entreprise-nettoyage" className="text-sm font-bold text-blue-royal hover:underline">
+              Page pilier produit →
+            </Link>
           </div>
         </div>
       </section>
+      <MobileCtaBar />
     </>
   );
 }

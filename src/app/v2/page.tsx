@@ -287,8 +287,6 @@ export default function V2ArchiveHomePage() {
           <FaqAccordion items={faqItems.slice(0, 3)} />
         </div>
       </Section>
-
-      <div className="h-20 lg:hidden" aria-hidden />
       <MobileCtaBar />
     </>
   );

@@ -1,3 +1,5 @@
+import { site } from "./site";
+
 export type GlossaryTerm = {
   slug: string;
   term: string;
@@ -25,7 +27,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Bon d’intervention",
     definition:
       "Document (souvent signé / photo) qui atteste du travail réalisé sur un site. Utile en litige et pour la facturation.",
-    related: ["/fonctionnalites/bon-intervention", "/blog/bons-intervention-preuves-photos-nettoyage"],
+    related: ["/fonctionnalites/pointage", "/blog/bons-intervention-preuves-photos-nettoyage"],
   },
   {
     slug: "pointage",
@@ -81,14 +83,14 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Prépaie",
     definition:
       "Préparation des éléments variables (heures, absences, avenants) avant transmission à la paie.",
-    related: ["/fonctionnalites/prepaie", "/blog/prepaie-variables-entreprise-proprete"],
+    related: ["/fonctionnalites/gestion-rh", "/blog/prepaie-variables-entreprise-proprete"],
   },
   {
     slug: "contrat-multi-sites",
     term: "Contrat multi-sites",
     definition:
       "Engagement commercial couvrant plusieurs adresses / immeubles pour un même client.",
-    related: ["/fonctionnalites/contrats", "/blog/contrats-multi-sites-renouvellements-nettoyage"],
+    related: ["/fonctionnalites/clients", "/blog/contrats-multi-sites-renouvellements-nettoyage"],
   },
   {
     slug: "cahier-des-charges",
@@ -102,21 +104,21 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Preuve terrain",
     definition:
       "Éléments horodatés (pointage, photos, signature) démontrant qu’une intervention a eu lieu.",
-    related: ["/fonctionnalites/bon-intervention", "/blog/bons-intervention-preuves-photos-nettoyage"],
+    related: ["/fonctionnalites/pointage", "/blog/bons-intervention-preuves-photos-nettoyage"],
   },
   {
     slug: "geolocalisation",
     term: "Géolocalisation",
     definition:
       "Localisation des passages / tournées. À expliquer clairement aux agents (transparence et finalité).",
-    related: ["/fonctionnalites/geolocalisation", "/blog/geolocalisation-expliquer-agents-nettoyage"],
+    related: ["/fonctionnalites/pointage", "/blog/geolocalisation-expliquer-agents-nettoyage"],
   },
   {
     slug: "supervision-qualite",
     term: "Supervision qualité",
     definition:
       "Contrôle des passages et du niveau de propreté, notamment sur parties communes et multi-sites.",
-    related: ["/fonctionnalites/supervision"],
+    related: ["/fonctionnalites/rentabilite", "/blog/controle-qualite-parties-communes-syndic"],
   },
   {
     slug: "open-space",
@@ -137,14 +139,14 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Consommables",
     definition:
       "Produits et fournitures (papier, savon, sacs…) suivis par site pour éviter ruptures et gaspillage.",
-    related: ["/fonctionnalites/stock", "/blog/gestion-stock-consommables-multi-sites"],
+    related: ["/fonctionnalites/facturation", "/blog/gestion-stock-consommables-multi-sites"],
   },
   {
     slug: "rentabilite-contrat",
     term: "Rentabilité contrat",
     definition:
       "Écart entre chiffre d’affaires d’un contrat et coûts (heures, trajets, consommables) — suivi via tableaux de bord.",
-    related: ["/fonctionnalites/tableaux-de-bord", "/blog/tableaux-de-bord-rentabilite-chantier-contrat"],
+    related: ["/fonctionnalites/rentabilite", "/blog/tableaux-de-bord-rentabilite-chantier-contrat"],
   },
   {
     slug: "accessibilite-site",
@@ -178,7 +180,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: "essai-gratuit",
     term: "Essai gratuit",
     definition:
-      "Période de test du logiciel. Chez PROGESTI : 7 jours d'essai gratuit, tous modules inclus.",
+      `Période de test du logiciel. Chez PROGESTI : ${site.trialDays} jours d'essai gratuit, tous modules inclus.`,
     related: ["/essai-gratuit", "/blog/essai-gratuit-logiciel-nettoyage-checklist"],
   },
   {

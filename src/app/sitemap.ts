@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, getActiveBlogCategories } from "@/lib/blog";
 import { glossaryTerms } from "@/lib/glossary";
-import { blogCategories, modules, site, solutions } from "@/lib/site";
+import { modules, site, solutions } from "@/lib/site";
 
 type Freq = MetadataRoute.Sitemap[number]["changeFrequency"];
 
@@ -48,10 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/glossaire", 0.55, "monthly"),
     entry("/guides", 0.55, "weekly"),
     entry("/comparatifs", 0.55, "weekly"),
-    // Placeholder pages excluded until real content exists:
-    // entry("/clients", 0.5, "monthly"),
-    // entry("/cas-clients", 0.5, "monthly"),
-    // entry("/temoignages", 0.5, "monthly"),
+    entry("/temoignages", 0.6, "monthly"),
     entry("/integrations", 0.45, "monthly"),
     entry("/a-propos", 0.45, "monthly"),
   ];
@@ -71,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/fonctionnalites/${m.slug}`, 0.6, "monthly"),
   );
 
-  const categoryPages = blogCategories.map((c) =>
+  const categoryPages = getActiveBlogCategories().map((c) =>
     entry(`/blog/categorie/${c.slug}`, 0.5, "weekly"),
   );
 
