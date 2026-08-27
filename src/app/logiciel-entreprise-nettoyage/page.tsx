@@ -15,14 +15,14 @@ import { site } from "@/lib/site";
 const pageUrl = `${site.url}/logiciel-entreprise-nettoyage`;
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel pour entreprise de nettoyage : planning, terrain, facture",
+  title: "Logiciel pour entreprise de nettoyage — Essai gratuit",
   description:
-    "Logiciel pour entreprise de nettoyage : planning, pointage, facture. 149 € HT/mois, 5 utilisateurs, tout inclus. Essai 7 jours.",
+    "Gérant d'entreprise de nettoyage ? Planning, pointage, facture en un seul logiciel. 149 € HT/mois, 5 utilisateurs inclus. Essai 7 jours sans engagement.",
   path: "/logiciel-entreprise-nettoyage",
   openGraph: {
-    title: "Logiciel pour entreprise de nettoyage : planning, terrain, facture",
+    title: "Logiciel pour entreprise de nettoyage — Essai gratuit",
     description:
-      "Logiciel pour entreprise de nettoyage : planning, pointage, facture. 149 € HT/mois, 5 utilisateurs, tout inclus. Essai 7 jours.",
+      "Gérant d'entreprise de nettoyage ? Planning, pointage, facture en un seul logiciel. 149 € HT/mois, 5 utilisateurs inclus. Essai 7 jours sans engagement.",
   },
 });
 
