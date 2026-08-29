@@ -168,7 +168,7 @@ export function FeatureMock({ kind, label, context }: Props) {
               ))}
               <button
                 type="button"
-                className="w-full rounded-[2px] bg-green-action py-2.5 text-[12px] font-bold text-white"
+                className="w-full rounded-[2px] bg-lime-cta py-2.5 text-[12px] font-bold text-brand-navy"
               >
                 Pointer arrivée
               </button>

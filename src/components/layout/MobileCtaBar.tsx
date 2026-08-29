@@ -42,7 +42,7 @@ function AnchorCta({ action, flex }: { action: MobileCtaAction; flex?: boolean }
       href={action.href}
       className={
         action.className ??
-        `flex ${flex ? "flex-1" : ""} items-center justify-center rounded-[2px] bg-green-action py-3.5 font-display text-sm font-bold text-white transition hover:bg-green-deep`
+        `flex ${flex ? "flex-1" : ""} items-center justify-center rounded-[2px] bg-lime-cta py-3.5 font-display text-sm font-bold text-brand-navy transition hover:bg-lime-cta-hover`
       }
     >
       {action.label}

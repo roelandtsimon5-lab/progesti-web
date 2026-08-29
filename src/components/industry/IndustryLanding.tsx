@@ -462,7 +462,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
         </div>
       </section>
 
-      <section className="section bg-white pb-28 industry-anchor lg:pb-16" id="faq">
+      <section className="section bg-white pb-28 industry-anchor lg:pb-16" id="faq" data-cta-sticky-safe>
         <div className="container max-w-3xl">
           <h2 className="font-display text-3xl font-extrabold">FAQ</h2>
           <p className="mt-3 text-slate">

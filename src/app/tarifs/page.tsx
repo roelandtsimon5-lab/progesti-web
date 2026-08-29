@@ -152,7 +152,7 @@ export default function TarifsPage() {
         </div>
       </section>
 
-      <section className="section bg-[#F5F8FB] pb-28 lg:pb-16">
+      <section className="section bg-[#F5F8FB] pb-28 lg:pb-16" data-cta-sticky-safe>
         <div className="container max-w-2xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">Questions tarifs</h2>
           <div className="mt-6">

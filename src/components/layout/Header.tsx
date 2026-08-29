@@ -280,6 +280,7 @@ export function Header() {
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
         >
+          <span className="sr-only">{open ? "Fermer le menu" : "Ouvrir le menu"}</span>
           <span className="font-display text-lg" aria-hidden>
             {open ? "×" : "≡"}
           </span>
