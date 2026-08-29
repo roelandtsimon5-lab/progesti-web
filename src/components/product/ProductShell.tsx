@@ -40,7 +40,7 @@ const DEMO_SITES: SiteRow[] = [
     agent: "Sofia R.",
     status: "Terminé",
     heure: "06:30–08:00",
-    city: "Tournefeuille",
+    city: "Toulouse",
   },
   {
     name: "Immeuble Horizon",

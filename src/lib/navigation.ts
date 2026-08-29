@@ -216,7 +216,7 @@ export const resourcesMegaMenu: NavMegaMenu = {
       items: [
         { label: "Tarifs", href: "/tarifs", hint: "149 € HT/mois tout inclus" },
         { label: "Contact", href: "/contact", hint: site.phone },
-        { label: "À propos", href: "/a-propos", hint: "MSNE SAS · Tournefeuille" },
+        { label: "À propos", href: "/a-propos", hint: "MSNE SAS · Toulouse" },
       ],
     },
   ],
@@ -262,10 +262,13 @@ export function isIndustryDarkPath(pathname: string): boolean {
     pathname === "/mentions-legales" ||
     pathname === "/confidentialite" ||
     pathname === "/rendez-vous" ||
-    pathname === "/essai-gratuit"
+    pathname === "/essai-gratuit" ||
+    pathname === "/temoignages" ||
+    pathname === "/cas-clients"
   ) {
     return true;
   }
+  if (pathname.startsWith("/blog/")) return true;
   if (pathname.startsWith("/blog/categorie/")) return true;
   if (pathname.startsWith("/glossaire/")) return true;
   return false;

@@ -92,6 +92,8 @@ export default function PreviewMinimalPage() {
               height={660}
               className="h-auto w-full"
               sizes="(max-width: 1100px) 100vw, 1100px"
+              quality={95}
+
             />
           </div>
         </div>

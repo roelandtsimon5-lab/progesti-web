@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -143,28 +143,27 @@ export default function DemoPage() {
   }
 
   const field =
-    "w-full rounded-xl border-2 border-blue-mist bg-white px-4 py-3.5 text-sm font-medium text-ink outline-none transition placeholder:text-muted/80 focus:border-blue-royal focus:ring-4 focus:ring-blue-royal/15";
+    "w-full rounded-[2px] border border-blue-mist bg-white px-4 py-3.5 text-sm font-medium text-ink outline-none transition placeholder:text-muted/80 focus:border-brand-navy focus:ring-4 focus:ring-lime-cta/25";
 
   return (
     <>
       {/* Hero conversion — form above the fold (mobile first) */}
-      <section className="relative overflow-hidden bg-blue-deep">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
-        <div className="container relative grid items-start gap-10 pb-28 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:pb-20 lg:pt-16">
+      <section className="industry-hero-bg relative overflow-hidden">
+        <div className="container relative grid items-start gap-10 pb-28 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:pb-20 lg:pt-14">
           {/* Formulaire — order 1 mobile */}
           <div className="order-1 lg:order-2 lg:sticky lg:top-24">
             <form
               id="demo-form"
               onSubmit={onSubmit}
-              className="rounded-2xl border border-white/10 bg-white p-6 shadow-2xl md:p-8"
+              className="rounded-[2px] border border-white/10 bg-white p-6 shadow-[0_24px_70px_rgba(0,0,0,0.35)] md:p-8"
               noValidate
               aria-busy={loading}
               aria-describedby={error ? "demo-form-error" : undefined}
             >
-              <p className="font-display text-xs font-bold uppercase tracking-[0.14em] text-green-deep">
+              <p className="font-display text-xs font-bold uppercase tracking-[0.18em] text-lime-cta">
                 Démonstration
               </p>
-              <p className="mt-2 text-2xl font-extrabold text-blue-deep">
+              <p className="mt-2 text-2xl font-extrabold text-brand-navy">
                 {ctaLabels.demoEnter}
               </p>
               <p className="mt-2 text-sm text-slate">
@@ -226,8 +225,8 @@ export default function DemoPage() {
                     + Prénom ou téléphone (optionnel)
                   </button>
                 ) : (
-                  <div className="space-y-3 rounded-xl border border-blue-mist/80 bg-blue-sky/30 p-3">
-                    <p className="text-xs font-bold uppercase tracking-wide text-blue-deep/80">
+                  <div className="space-y-3 rounded-[2px] border border-blue-mist/80 bg-paper p-3">
+                    <p className="text-xs font-bold uppercase tracking-wide text-brand-navy/80">
                       Optionnel — pour un rappel commercial
                     </p>
                     <div>
@@ -276,12 +275,12 @@ export default function DemoPage() {
                   type="submit"
                   disabled={loading}
                   aria-busy={loading}
-                  className="w-full rounded-xl bg-lime-cta py-4 font-display text-base font-extrabold text-blue-deep shadow-[0_10px_28px_rgba(184,240,0,0.28)] transition hover:bg-lime-cta-hover disabled:opacity-70"
+                  className="flex w-full items-center justify-center gap-2 rounded-[2px] bg-lime-cta py-4 font-display text-base font-extrabold text-brand-navy shadow-[0_10px_28px_rgba(168,227,0,0.28)] transition hover:bg-lime-cta-hover disabled:opacity-70"
                 >
                   {loading ? (
                     <>
                       <span
-                        className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white motion-reduce:animate-none"
+                        className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-brand-navy/30 border-t-brand-navy motion-reduce:animate-none"
                         aria-hidden
                       />
                       Ouverture de l&apos;application…
@@ -313,10 +312,10 @@ export default function DemoPage() {
 
           {/* Copy — order 2 mobile */}
           <div className="order-2 lg:order-1">
-            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">
               Démonstration interactive
-            </span>
-            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3rem]">
+            </p>
+            <h1 className="font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3rem]">
               Voyez PROGESTI sur un cas métier réel
             </h1>
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/80">
@@ -331,7 +330,7 @@ export default function DemoPage() {
                 "Données démo préchargées · sans rendez-vous",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-sm font-semibold text-white">
-                  <span className="text-green-action" aria-hidden>
+                  <span className="text-lime-cta" aria-hidden>
                     ✓
                   </span>
                   {item}
@@ -340,15 +339,17 @@ export default function DemoPage() {
             </ul>
             <HeroSocialProof />
 
-            <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+            <div className="mt-8 overflow-hidden rounded-[2px] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
               <Image
-                src="/hero-planning.webp"
+                src="/hero-planning.png"
                 alt="Planning PROGESTI — vue semaine des passages par site"
                 width={720}
                 height={432}
                 priority
                 className="h-auto w-full"
                 sizes="(max-width: 1024px) 100vw, 520px"
+                quality={95}
+
               />
             </div>
 
@@ -392,9 +393,9 @@ export default function DemoPage() {
             {benefits.map((b) => (
               <li
                 key={b.title}
-                className="rounded-xl border border-blue-mist bg-[#F5F8FB] p-6"
+                className="rounded-[2px] border border-line bg-paper p-6"
               >
-                <h3 className="font-display text-lg font-bold text-blue-deep">{b.title}</h3>
+                <h3 className="font-display text-lg font-bold text-brand-navy">{b.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{b.text}</p>
               </li>
             ))}
@@ -402,7 +403,7 @@ export default function DemoPage() {
           <div className="mt-10">
             <a
               href="#demo-form"
-              className="inline-flex min-h-12 items-center justify-center rounded-lg bg-green-action px-7 py-3.5 font-display text-base font-bold text-white shadow-[0_10px_28px_rgba(31,168,107,0.35)] transition hover:bg-green-deep"
+              className="inline-flex min-h-12 items-center justify-center rounded-[2px] bg-lime-cta px-7 py-3.5 font-display text-base font-bold text-brand-navy shadow-[0_10px_28px_rgba(168,227,0,0.28)] transition hover:bg-lime-cta-hover"
             >
               Remplir le formulaire →
             </a>
@@ -411,11 +412,11 @@ export default function DemoPage() {
       </section>
 
       {/* Réassurance */}
-      <section className="section bg-[#F5F8FB]">
+      <section className="section bg-paper">
         <div className="container grid max-w-4xl gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="eyebrow">Sans friction</p>
-            <h2 className="mt-3 text-3xl font-extrabold text-blue-deep">
+            <h2 className="mt-3 text-3xl font-extrabold text-brand-navy">
               Conçu pour décider vite
             </h2>
             <p className="mt-4 text-slate">
@@ -431,9 +432,9 @@ export default function DemoPage() {
             ].map((t) => (
               <li
                 key={t}
-                className="flex gap-3 rounded-xl border border-blue-mist bg-white px-4 py-3 text-sm font-medium text-blue-deep"
+                className="flex gap-3 rounded-[2px] border border-line bg-white px-4 py-3 text-sm font-medium text-brand-navy"
               >
-                <span className="text-green-deep" aria-hidden>
+                <span className="text-lime-cta" aria-hidden>
                   ✓
                 </span>
                 {t}

@@ -84,7 +84,7 @@ export default function EssaiGratuitPage() {
   }
 
   const field =
-    "w-full rounded-xl border border-blue-mist bg-white px-4 py-3.5 text-sm text-ink outline-none transition placeholder:text-muted/70 focus:border-blue-royal focus:ring-4 focus:ring-blue-royal/15";
+    "w-full rounded-[2px] border border-blue-mist bg-white px-4 py-3.5 text-sm text-ink outline-none transition placeholder:text-muted/70 focus:border-brand-navy focus:ring-4 focus:ring-lime-cta/25";
 
   function clearInvalid(key: string) {
     if (invalidFields.has(key)) {
@@ -99,13 +99,12 @@ export default function EssaiGratuitPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-blue-deep py-12 text-white md:py-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
-        <div className="container relative max-w-5xl">
-          <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
+      <section className="industry-hero-bg relative overflow-hidden">
+        <div className="container relative max-w-5xl py-12 md:py-16">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">
             Essai gratuit · {site.trialDays} jours
-          </span>
-          <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">
+          </p>
+          <h1 className="mt-3 text-4xl font-extrabold text-white md:text-5xl">
             Activez PROGESTI — sans carte bancaire
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-white/80">
@@ -113,6 +112,7 @@ export default function EssaiGratuitPage() {
             l&apos;application en quelques minutes.
           </p>
         </div>
+        <div className="industry-hero-wave" aria-hidden />
       </section>
 
       <TrustStrip />
@@ -120,7 +120,7 @@ export default function EssaiGratuitPage() {
       <section className="section bg-warm-light pb-28 lg:pb-16">
         <div className="container grid max-w-5xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div>
-            <h2 className="text-2xl font-extrabold text-blue-deep">Ce que vous obtenez</h2>
+            <h2 className="text-2xl font-extrabold text-brand-navy">Ce que vous obtenez</h2>
             <ul className="mt-6 space-y-3 text-slate">
               {[
                 `${site.trialDays} jours gratuits sans engagement`,
@@ -129,7 +129,7 @@ export default function EssaiGratuitPage() {
                 "149 € HT/mois · Mise en place offerte",
               ].map((item) => (
                 <li key={item} className="flex gap-3 font-medium">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-action/15 text-green-deep">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-[2px] bg-lime-cta/20 text-brand-navy">
                     ✓
                   </span>
                   {item}
@@ -137,7 +137,7 @@ export default function EssaiGratuitPage() {
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "v3_essai_demo_alt" }}>
+              <ButtonLink href={cta.demo} variant="secondary" className="!rounded-[2px]" eventPayload={{ cta: "v3_essai_demo_alt" }}>
                 Préférer une démo
               </ButtonLink>
               <ButtonLink href="/contact" variant="ghost" eventPayload={{ cta: "v3_essai_contact" }}>
@@ -156,11 +156,11 @@ export default function EssaiGratuitPage() {
             id="trial-form"
             onSubmit={onSubmit}
             noValidate
-            className="rounded-2xl border border-blue-mist bg-white p-7 shadow-[0_24px_70px_rgba(11,61,110,0.1)] md:p-8"
+            className="rounded-[2px] border border-line bg-white p-7 shadow-[0_24px_70px_rgba(1,41,57,0.1)] md:p-8"
             aria-busy={loading}
             aria-describedby={error ? "trial-form-error" : undefined}
           >
-            <h2 className="text-2xl font-extrabold text-blue-deep">Commencer maintenant</h2>
+            <h2 className="text-2xl font-extrabold text-brand-navy">Commencer maintenant</h2>
             <p className="mt-1 text-sm text-slate">E-mail + entreprise — accès immédiat à l&apos;app.</p>
             <div className="mt-6 space-y-3">
               <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden>
@@ -209,8 +209,8 @@ export default function EssaiGratuitPage() {
                   + Nom ou téléphone (optionnel)
                 </button>
               ) : (
-                <div className="space-y-3 rounded-xl border border-blue-mist/80 bg-blue-sky/30 p-3">
-                  <p className="text-xs font-bold uppercase tracking-wide text-blue-deep/80">
+                <div className="space-y-3 rounded-[2px] border border-blue-mist/80 bg-paper p-3">
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-navy/80">
                     Optionnel — pour vous accompagner
                   </p>
                   <div>
@@ -246,7 +246,7 @@ export default function EssaiGratuitPage() {
                 type="submit"
                 disabled={loading}
                 aria-busy={loading}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-lime-cta py-4 font-display text-sm font-extrabold text-blue-deep transition hover:bg-lime-cta-hover disabled:cursor-not-allowed disabled:opacity-70"
+                className="flex w-full items-center justify-center gap-2 rounded-[2px] bg-lime-cta py-4 font-display text-sm font-extrabold text-brand-navy transition hover:bg-lime-cta-hover disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {loading ? (
                   <>

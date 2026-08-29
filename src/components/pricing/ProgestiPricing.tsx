@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 
 
@@ -322,7 +322,7 @@ export function ProgestiPricing() {
 
       <p className="mt-6 text-center text-xs text-muted">
 
-        {modules.length} modules · {site.phone} · MSNE SAS, Tournefeuille (31)
+        {modules.length} modules · {site.phone} · MSNE SAS, Toulouse (31)
 
       </p>
 

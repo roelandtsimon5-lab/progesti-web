@@ -20,7 +20,7 @@ export const site = {
     rcs: "Toulouse",
     capital: "5 000 €",
     address: "56 boulevard Vincent Auriol",
-    city: "31170 Tournefeuille",
+    city: "31000 Toulouse",
   },
 } as const;
 
@@ -212,7 +212,7 @@ export const planInclusions = [
 export const trustBadges = [
   { title: trialCopy.label, text: "Sans engagement" },
   { title: "149 € HT/mois", text: "Tout inclus" },
-  { title: "Support FR", text: "Équipe à Tournefeuille" },
+  { title: "Support FR", text: "Équipe à Toulouse" },
   { title: "Mobile", text: "Android & iOS" },
 ] as const;
 
@@ -297,7 +297,7 @@ export const faqItems = [
   },
   {
     q: "Y a-t-il une assistance ?",
-    a: "Oui. Support FR inclus, équipe basée à Tournefeuille (31). Nous vous accompagnons dès la mise en place.",
+    a: "Oui. Support FR inclus, équipe basée à Toulouse (31). Nous vous accompagnons dès la mise en place.",
   },
 ] as const;
 

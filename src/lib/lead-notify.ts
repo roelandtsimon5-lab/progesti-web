@@ -193,7 +193,7 @@ function welcomeEmail(lead: LeadPayload) {
       });
   const base = env.siteUrl.replace(/\/$/, "");
   const logoUrl = `${base}/logo.svg`;
-  const mockupUrl = `${base}/hero-planning.webp`;
+  const mockupUrl = `${base}/hero-planning.png`;
   const ctx = welcomeContext(lead.intent);
   const preheader = demo
     ? "Votre démo PROGESTI est prête — planning, pointage, facturation."

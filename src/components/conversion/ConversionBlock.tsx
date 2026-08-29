@@ -33,7 +33,7 @@ const copy: Record<
   },
   contact: {
     title: "Une question ? On vous répond",
-    lead: "Commercial, migration, essai — équipe MSNE SAS, Tournefeuille (31).",
+    lead: "Commercial, migration, essai — équipe MSNE SAS, Toulouse (31).",
     primary: { href: "/contact", label: "Nous contacter" },
     secondary: {
       href: cta.demo,
@@ -49,11 +49,12 @@ type Props = {
 
 export function ConversionBlock({ variant = "demo", className = "" }: Props) {
   const c = copy[variant];
+  const primaryVariant = variant === "essai" ? "trial" : "white";
 
   return (
     <section className={`gradient-cta text-white ${className}`.trim()}>
       <div className="container py-14 text-center md:py-16">
-        <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-[#B8F5D4]">
+        <p className="font-display text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">
           {site.name}
         </p>
         <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-extrabold text-white md:text-4xl">
@@ -64,7 +65,8 @@ export function ConversionBlock({ variant = "demo", className = "" }: Props) {
           <ButtonLink
             href={c.primary.href}
             size="lg"
-            variant={variant === "essai" ? "trial" : "primary"}
+            variant={primaryVariant}
+            className="!rounded-[2px]"
             event={variant === "essai" ? "trial_start" : "cta_click"}
             eventPayload={{ cta: `conversion_${variant}_primary` }}
           >
@@ -74,6 +76,8 @@ export function ConversionBlock({ variant = "demo", className = "" }: Props) {
             href={c.secondary.href}
             size="lg"
             variant="outline-white"
+            className="!rounded-[2px]"
+            event={variant === "demo" ? "trial_start" : "cta_click"}
             eventPayload={{ cta: `conversion_${variant}_secondary` }}
           >
             {c.secondary.label}

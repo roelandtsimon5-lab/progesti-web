@@ -88,7 +88,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       ["Vue agent", "ou par site"],
       ["Mobile", "Planning terrain live"],
     ],
-    image: "/hero-planning.webp",
+    image: "/hero-planning.png",
     imageAlt: "Planning PROGESTI — vue semaine multi-sites pour entreprises de nettoyage",
     faq: [
       { q: "Peut-on gérer des récurrences complexes par site ?", a: "Oui. Fréquences libres par site, avec titulaire, backup et consignes d'accès rattachées au passage." },
@@ -277,7 +277,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       ["Historique", "Passages & devis"],
       ["Consignes", "Bureau et mobile"],
     ],
-    image: "/hero-planning.webp",
+    image: "/hero-planning.png",
     imageAlt: "Module Clients PROGESTI — fiches clients et sites pour entreprises de nettoyage",
     faq: [
       { q: "Combien de clients et sites puis-je créer ?", a: "Clients et sites illimités dans l'offre à 149 € HT par mois, sans supplément par site." },
@@ -637,7 +637,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       ["Absences", "Liées au planning"],
       ["Heures", "Export paie"],
     ],
-    image: "/hero-planning.webp",
+    image: "/hero-planning.png",
     imageAlt: "Gestion RH PROGESTI — équipes, absences, heures terrain et export paie",
     faq: [
       { q: "PROGESTI remplace-t-il un logiciel de paie ?", a: "Non. PROGESTI centralise heures et variables ; vous exportez vers votre expert paie ou logiciel de paie." },
@@ -817,7 +817,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       ["Prospects", "Suivi commercial"],
       ["Devis", "En 1 clic depuis CRM"],
     ],
-    image: "/hero-planning.webp",
+    image: "/hero-planning.png",
     imageAlt: "Module CRM PROGESTI — pipeline commercial pour entreprises de nettoyage",
     faq: [
       { q: "Le CRM est-il séparé du reste de PROGESTI ?", a: "Non. CRM, devis, clients, planning et facturation partagent la même base." },

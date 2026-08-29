@@ -36,7 +36,8 @@ type Props = {
   config?: IndustryPageConfig;
 };
 
-export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
+/** Snapshot figé de la home IndustryLanding (août 2026) avant recalibrage proportions Jobber. */
+export function IndustryLandingV3({ config = defaultIndustryConfig }: Props) {
   const { hero, empathy, pillars, showcase, proof, grid, faq } = config;
   const ctaSlug = config.slug === "default" ? "industry" : `solution_${config.slug}`;
   const solutionMeta = solutions.find((s) => s.slug === config.slug);
@@ -62,11 +63,9 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                 Solution · {solutionMeta.navHint}
               </p>
             ) : null}
-            <h1 className="font-sans text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.02em] text-white md:text-[2.25rem] lg:text-[2.4rem]">
-              <span className="block text-balance">{hero.h1Lead}</span>
-              <span className="mt-2 block max-w-[22ch] text-[1.05rem] font-semibold leading-snug tracking-normal text-white/75 md:text-[1.2rem] lg:text-[1.3rem]">
-                {hero.h1}
-              </span>
+            <h1 className="font-sans text-[1.85rem] font-extrabold leading-[1.12] tracking-[-0.02em] text-white md:text-[2.35rem] lg:text-[2.55rem]">
+              <span className="block">{hero.h1Lead}</span>
+              <span className="mt-1 block text-white/92">{hero.h1}</span>
             </h1>
             <p className="mt-5 max-w-md text-base leading-relaxed text-white/75 md:text-[1.05rem]">
               {hero.sub}

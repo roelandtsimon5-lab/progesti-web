@@ -22,10 +22,10 @@ export default function SolutionsIndexPage() {
       <SoftwareApplicationLd />
       <section className="industry-hero-bg relative overflow-hidden">
         <div className="container relative max-w-3xl py-14 md:py-16">
-          <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">
             Solutions métier
-          </span>
-          <h1 className="mt-5 font-display text-[2.35rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3.15rem]">
+          </p>
+          <h1 className="mt-3 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3rem]">
             Un logiciel, plusieurs univers de propreté
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-white/80">
@@ -37,6 +37,7 @@ export default function SolutionsIndexPage() {
               href={cta.trial}
               size="lg"
               variant="trial"
+              className="!rounded-[2px]"
               event="trial_start"
               eventPayload={{ cta: "v3_solutions_hub_trial" }}
             >
@@ -46,13 +47,14 @@ export default function SolutionsIndexPage() {
               href={cta.demo}
               size="lg"
               variant="outline-white"
+              className="!rounded-[2px]"
               eventPayload={{ cta: "v3_solutions_hub_demo" }}
             >
               {ctaLabels.demoGate}
             </ButtonLink>
           </div>
-          <p className="mt-6 text-sm text-white/60">
-            ✓ Essai {site.trialDays} jours · ✓ 149 € HT/mois · ✓ Tous modules inclus
+          <p className="mt-5 text-sm text-white/55">
+            Essai {site.trialDays} jours · 149 € HT/mois · Tous modules inclus
           </p>
         </div>
         <div className="industry-hero-wave" aria-hidden />

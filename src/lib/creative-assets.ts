@@ -21,14 +21,14 @@ export type ModuleCreativeAssets = {
 export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
   planification: {
     hero: {
-      src: "/hero-planning.webp",
+      src: "/hero-planning.png",
       alt: "Planning PROGESTI — vue semaine multi-sites pour entreprises de nettoyage",
     },
     showcase: {
       src: "/screen-passages.webp",
       alt: "Passages par site et fréquences programmées dans PROGESTI",
     },
-    og: { src: "/hero-planning.webp", alt: "Planning nettoyage professionnel PROGESTI" },
+    og: { src: "/hero-planning.png", alt: "Planning nettoyage professionnel PROGESTI" },
     primaryMock: "planning-map",
     recipe: "ui-context",
   },
@@ -51,7 +51,7 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
       alt: "Module Clients PROGESTI — fiches clients et sites rattachés",
     },
     showcase: {
-      src: "/hero-planning.webp",
+      src: "/hero-planning.png",
       alt: "Planning des sites rattachés à la fiche client",
     },
     og: { src: "/screen-passages.webp", alt: "Gestion clients propreté PROGESTI" },
@@ -64,7 +64,7 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
       alt: "Module Devis PROGESTI — devis professionnels pour entreprises de nettoyage",
     },
     showcase: {
-      src: "/hero-planning.webp",
+      src: "/hero-planning.png",
       alt: "Conversion devis signé vers sites et fréquences planifiées",
     },
     og: { src: "/screen-factures.webp", alt: "Devis nettoyage PROGESTI" },
@@ -99,14 +99,14 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
   },
   "gestion-rh": {
     hero: {
-      src: "/hero-planning.webp",
+      src: "/hero-planning.png",
       alt: "Module RH PROGESTI — équipes, absences et heures terrain",
     },
     showcase: {
       src: "/screen-telegestion.webp",
       alt: "Export variables de paie depuis les pointages PROGESTI",
     },
-    og: { src: "/hero-planning.webp", alt: "Gestion RH propreté PROGESTI" },
+    og: { src: "/hero-planning.png", alt: "Gestion RH propreté PROGESTI" },
     primaryMock: "rh-stack",
     heroMock: "rh-stack",
     showcaseMock: "rh-payroll",
@@ -127,14 +127,14 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
   },
   crm: {
     hero: {
-      src: "/hero-planning.webp",
+      src: "/hero-planning.png",
       alt: "Module CRM PROGESTI — pipeline commercial pour entreprises de nettoyage",
     },
     showcase: {
       src: "/screen-factures.webp",
       alt: "Devis signés et facturation dans le même flux",
     },
-    og: { src: "/hero-planning.webp", alt: "CRM propreté PROGESTI" },
+    og: { src: "/hero-planning.png", alt: "CRM propreté PROGESTI" },
     primaryMock: "flux-pipeline",
     recipe: "ui-stack",
   },
@@ -150,7 +150,7 @@ export const homeCreative = {
     alt: "Agent de propreté en intervention — entreprise de nettoyage",
   },
   productStrip: {
-    src: "/hero-planning.webp",
+    src: "/hero-planning.png",
     alt: "Planning multi-sites PROGESTI",
     label: "Planning multi-sites · vue réelle",
   },

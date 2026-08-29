@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { LeadForm } from "@/components/forms/LeadForm";
 
@@ -32,7 +32,7 @@ export default function ContactPage() {
 
       <IndustryPageHero
 
-        eyebrow="Équipe MSNE SAS · Tournefeuille"
+        eyebrow="Équipe MSNE SAS · Toulouse"
 
         title="Parlons de votre activité"
 

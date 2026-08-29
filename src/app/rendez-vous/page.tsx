@@ -45,7 +45,7 @@ export default function RendezVousPage() {
               <>
                 <p className="mt-3 text-anthracite">Choisissez un créneau directement dans l&apos;agenda.</p>
                 <a
-                  className="mt-6 inline-flex min-h-12 items-center rounded-[2px] bg-green-action px-5 py-3 font-display text-sm font-extrabold text-white transition hover:bg-green-deep"
+                  className="mt-6 inline-flex min-h-12 items-center rounded-[2px] bg-lime-cta px-5 py-3 font-display text-sm font-extrabold text-brand-navy transition hover:bg-lime-cta-hover"
                   href={calendarUrl}
                   target="_blank"
                   rel="noopener noreferrer"

@@ -34,15 +34,23 @@ const items: Item[] = [
   // —— Site (post sprints) ——
   {
     href: "/",
-    title: "Home — landing Jobber (live)",
+    title: "Home — live (V3 + H1 clarifié)",
     tag: "Référence",
-    desc: "IndustryLanding · 149 € · essai 7 jours · production.",
+    desc: "IndustryLanding V3 · titre plus lisible · 149 €.",
     status: "keep",
     group: "site",
   },
   {
+    href: "/v3",
+    title: "Archive V3 — snapshot",
+    tag: "Archive",
+    desc: "IndustryLanding figée (même base visuelle).",
+    status: "archive",
+    group: "home",
+  },
+  {
     href: "/ancien",
-    title: "Ancienne home V3 (archive)",
+    title: "Ancienne home HomeValidated",
     tag: "Archive",
     desc: "HomeValidated · 29,99 € legacy · noindex.",
     status: "archive",

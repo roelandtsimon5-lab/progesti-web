@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import { RhProductVisual } from "@/components/features/RhProductVisual";
 import { getMockContext } from "@/lib/industry/mock-context";
 import type { MockKind } from "@/lib/industry/types";
@@ -45,9 +45,9 @@ function Stage({ children }: { children: React.ReactNode }) {
 
 function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="absolute left-1/2 top-1/2 w-[46%] max-w-[220px] -translate-x-1/2 -translate-y-1/2">
-      <div className="rounded-[18px] border-[6px] border-brand-navy bg-brand-navy p-1 shadow-[0_24px_60px_rgba(1,41,57,0.35)]">
-        <div className="overflow-hidden rounded-[12px] bg-white">{children}</div>
+    <div className="absolute left-1/2 top-1/2 w-[62%] max-w-[300px] -translate-x-1/2 -translate-y-1/2 md:w-[58%] md:max-w-[320px]">
+      <div className="rounded-[22px] border-[7px] border-brand-navy bg-brand-navy p-1.5 shadow-[0_28px_70px_rgba(1,41,57,0.4)]">
+        <div className="overflow-hidden rounded-[14px] bg-white">{children}</div>
       </div>
     </div>
   );
@@ -62,11 +62,13 @@ export function FeatureMock({ kind, label, context }: Props) {
         <Stage>
           <div className="absolute inset-3 overflow-hidden rounded-[2px] opacity-90 md:inset-4">
             <Image
-              src="/hero-planning.webp"
+              src="/hero-planning.png"
               alt=""
               fill
               className="object-cover object-left-top opacity-40"
               sizes="640px"
+              quality={95}
+
             />
             <div className="absolute inset-0 bg-gradient-to-br from-[#e8f2fa]/90 via-[#eef4f8]/75 to-transparent" />
           </div>
@@ -148,35 +150,35 @@ export function FeatureMock({ kind, label, context }: Props) {
       return (
         <Stage>
           <PhoneFrame>
-            <div className="bg-brand-navy px-3 py-2 text-center text-[10px] font-bold text-white">
+            <div className="bg-brand-navy px-3.5 py-2.5 text-center text-[11px] font-bold tracking-wide text-white">
               PROGESTI · Mon planning
             </div>
-            <div className="space-y-2 p-3">
-              {ctx.planningRows.slice(0, 2).map(([time, siteName, status]) => (
+            <div className="space-y-2.5 p-3.5">
+              {ctx.planningRows.slice(0, 3).map(([time, siteName, status]) => (
                 <div
                   key={siteName}
-                  className="rounded-[2px] border border-line/60 bg-paper/40 px-2.5 py-2"
+                  className="rounded-[2px] border border-line/60 bg-paper/40 px-3 py-2.5"
                 >
-                  <p className="text-[11px] font-bold text-brand-navy">{siteName}</p>
-                  <p className="text-[10px] text-slate">{time}</p>
-                  <span className="mt-1 inline-block rounded-[2px] bg-lime-cta/40 px-1.5 py-0.5 text-[9px] font-bold text-brand-navy">
+                  <p className="text-[12px] font-bold text-brand-navy">{siteName}</p>
+                  <p className="mt-0.5 text-[11px] text-slate">{time}</p>
+                  <span className="mt-1.5 inline-block rounded-[2px] bg-lime-cta/40 px-1.5 py-0.5 text-[10px] font-bold text-brand-navy">
                     {status}
                   </span>
                 </div>
               ))}
               <button
                 type="button"
-                className="w-full rounded-[2px] bg-green-action py-2 text-[11px] font-bold text-white"
+                className="w-full rounded-[2px] bg-green-action py-2.5 text-[12px] font-bold text-white"
               >
                 Pointer arrivée
               </button>
             </div>
           </PhoneFrame>
-          <div className="absolute bottom-5 left-4 md:bottom-8 md:left-8">
+          <div className="absolute bottom-5 left-3 z-10 md:bottom-8 md:left-6">
             <Toast title="App agents" meta="Planning · pointage · consignes" />
           </div>
-          <div className="absolute right-4 top-4 md:right-8 md:top-6">
-            <div className="rounded-[2px] bg-white/90 px-3 py-2 text-xs font-bold text-brand-navy shadow-md">
+          <div className="absolute right-3 top-4 z-10 md:right-6 md:top-6">
+            <div className="rounded-[2px] bg-white/95 px-3 py-2 text-xs font-bold text-brand-navy shadow-md">
               Android · iOS
             </div>
           </div>
@@ -292,45 +294,88 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "devis":
       return (
         <Stage>
-          <Frame className="absolute inset-x-4 top-6 w-[84%] max-w-md rotate-[-1deg] md:inset-x-8 md:top-10">
-            <div className="flex items-center justify-between border-b border-line bg-paper/60 px-4 py-3">
+          {/* Document devis — rendu type PDF professionnel */}
+          <Frame className="absolute inset-x-3 top-4 max-h-[92%] overflow-hidden md:inset-x-5 md:top-5 md:left-5 md:right-[28%]">
+            <div className="border-b border-line bg-brand-navy px-4 py-3 text-white md:px-5">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-lime-cta">
+                    Devis
+                  </p>
+                  <p className="mt-1 font-display text-base font-extrabold md:text-lg">
+                    D-2026-084
+                  </p>
+                </div>
+                <div className="text-right text-[10px] leading-relaxed text-white/75">
+                  <p className="font-bold text-white">Votre société de propreté</p>
+                  <p>31000 Toulouse</p>
+                  <p>SIRET 106 177 116 00014</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center justify-between gap-3 border-b border-line bg-paper/70 px-4 py-2.5 md:px-5">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">
-                  Devis n° 2024-084
+                  Client
                 </p>
-                <p className="mt-0.5 text-sm font-bold text-brand-navy">{ctx.clientName}</p>
+                <p className="text-sm font-bold text-brand-navy">{ctx.clientName}</p>
+                <p className="text-[11px] text-slate">{ctx.clientMeta}</p>
               </div>
-              <span className="rounded-[2px] bg-lime-cta px-2 py-1 text-[10px] font-extrabold text-brand-navy">
-                Accepté ✓
+              <span className="shrink-0 rounded-[2px] bg-lime-cta px-2.5 py-1 text-[10px] font-extrabold text-brand-navy">
+                Signé en ligne ✓
               </span>
+            </div>
+            <div className="hidden border-b border-line/60 bg-paper/40 px-4 py-1.5 text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft sm:grid sm:grid-cols-[1fr_auto_auto_auto] sm:gap-3 md:px-5">
+              <span>Désignation</span>
+              <span>Qté</span>
+              <span>P.U. HT</span>
+              <span className="text-right">Total</span>
             </div>
             <ul className="divide-y divide-line/50 text-sm">
               {[
-                ["Entretien parties communes", "4 sites", "2 480 €"],
-                ["Vitres trimestrielles", "2 sites", "640 €"],
-                ["Consommables inclus", "Forfait", "120 €"],
-              ].map(([label, meta, amount]) => (
-                <li key={label} className="flex items-center justify-between gap-3 px-4 py-3">
-                  <div>
-                    <p className="font-semibold text-brand-navy">{label}</p>
-                    <p className="text-xs text-slate">{meta}</p>
-                  </div>
-                  <span className="font-bold text-brand-navy">{amount}</span>
+                ["Entretien parties communes", "4 sites", "620 €", "2 480 €"],
+                ["Vitres trimestrielles", "2 sites", "320 €", "640 €"],
+                ["Consommables inclus", "1", "120 €", "120 €"],
+              ].map(([label, qty, unit, total]) => (
+                <li
+                  key={label}
+                  className="grid grid-cols-1 gap-1 px-4 py-2.5 sm:grid-cols-[1fr_auto_auto_auto] sm:items-center sm:gap-3 md:px-5"
+                >
+                  <p className="font-semibold text-brand-navy">{label}</p>
+                  <p className="text-xs text-slate sm:text-center sm:text-sm sm:text-brand-navy">{qty}</p>
+                  <p className="hidden text-sm text-slate sm:block">{unit}</p>
+                  <p className="text-right font-bold text-brand-navy">{total}</p>
                 </li>
               ))}
             </ul>
-            <div className="flex items-center justify-between border-t border-line bg-paper/40 px-4 py-3">
-              <p className="text-xs font-bold uppercase tracking-wide text-brand-navy-soft">Total HT</p>
-              <p className="font-display text-lg font-extrabold text-brand-navy">3 240 €</p>
+            <div className="space-y-1 border-t border-line bg-paper/50 px-4 py-3 md:px-5">
+              <div className="flex justify-between text-xs text-slate">
+                <span>Total HT</span>
+                <span className="font-semibold text-brand-navy">3 240 €</span>
+              </div>
+              <div className="flex justify-between text-xs text-slate">
+                <span>TVA 20 %</span>
+                <span className="font-semibold text-brand-navy">648 €</span>
+              </div>
+              <div className="flex items-center justify-between border-t border-line/60 pt-2">
+                <span className="text-xs font-bold uppercase tracking-wide text-brand-navy-soft">
+                  Total TTC
+                </span>
+                <span className="font-display text-xl font-extrabold text-brand-navy">3 888 €</span>
+              </div>
             </div>
           </Frame>
-          <Frame className="absolute bottom-5 right-4 w-[46%] max-w-[210px] rotate-[2deg] p-3 md:bottom-8 md:right-7">
-            <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">Suite</p>
-            <p className="mt-1 text-sm font-bold text-brand-navy">Sites créés</p>
-            <p className="text-[11px] text-slate">Planning prêt · zéro ressaisie</p>
+          <Frame className="absolute bottom-4 right-3 hidden w-[26%] max-w-[160px] rotate-[2deg] p-3 md:bottom-6 md:right-5 md:block">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">
+              Auto
+            </p>
+            <p className="mt-1 text-sm font-bold text-brand-navy">4 sites créés</p>
+            <p className="mt-1 text-[11px] leading-snug text-slate">
+              Planning prêt · zéro ressaisie
+            </p>
           </Frame>
-          <div className="absolute left-4 top-4 md:left-7 md:top-5">
-            <Toast title="Devis signé en ligne" meta="Commercial → ops" />
+          <div className="absolute left-3 top-3 z-10 md:left-4 md:top-3">
+            <Toast title="Devis professionnel" meta="Envoyé · signé · transformé" />
           </div>
         </Stage>
       );
@@ -370,20 +415,22 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "factures-stack":
       return (
         <Stage>
-          <Frame className="absolute inset-x-3 top-5 rotate-[0.6deg] md:inset-x-6 md:top-7">
+          <Frame className="absolute inset-x-3 top-4 md:inset-x-5 md:top-5">
             <Image
-              src="/screen-factures.webp"
+              src="/screen-factures.png"
               alt="Factures PROGESTI"
               width={1682}
               height={828}
               className="h-auto w-full"
-              sizes="(max-width: 1024px) 100vw, 640px"
+              sizes="(max-width: 1024px) 100vw, 720px"
+              quality={95}
+              priority={false}
             />
           </Frame>
-          <div className="absolute bottom-5 left-4 rotate-[-1deg] md:bottom-8 md:left-7">
+          <div className="absolute bottom-4 left-3 z-10 md:bottom-6 md:left-5">
             <Toast title="Facture générée" meta="Alignée sur le réalisé" />
           </div>
-          <Frame className="absolute bottom-4 right-3 w-[42%] max-w-[190px] rotate-[2deg] p-3 md:bottom-7 md:right-6">
+          <Frame className="absolute bottom-3 right-3 z-10 w-[40%] max-w-[180px] rotate-[1.5deg] bg-white/95 p-3 md:bottom-5 md:right-5">
             <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">Ce mois</p>
             <p className="mt-1 font-display text-lg font-extrabold text-brand-navy">Facturé</p>
             <p className="text-xs text-slate">Sans double saisie</p>
@@ -394,34 +441,76 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "impayes":
       return (
         <Stage>
-          <Frame className="absolute inset-x-3 top-8 w-[78%] max-w-md md:left-6 md:top-10">
-            <div className="border-b border-line/60 bg-paper/50 px-4 py-2.5">
-              <p className="text-xs font-bold uppercase tracking-wide text-brand-navy-soft">Impayés</p>
+          <Frame className="absolute inset-x-3 top-4 md:inset-x-5 md:top-5 md:right-[32%]">
+            <div className="flex items-end justify-between gap-3 border-b border-line bg-brand-navy px-4 py-3 text-white md:px-5">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-lime-cta">
+                  Trésorerie
+                </p>
+                <p className="mt-1 text-xs text-white/70">Factures en retard</p>
+              </div>
+              <div className="text-right">
+                <p className="font-display text-2xl font-extrabold tracking-tight">
+                  {ctx.unpaidRows
+                    .reduce((sum, [, amount]) => {
+                      const n = Number(String(amount).replace(/[^\d]/g, ""));
+                      return sum + (Number.isFinite(n) ? n : 0);
+                    }, 0)
+                    .toLocaleString("fr-FR")}{" "}
+                  €
+                </p>
+                <p className="text-[11px] text-white/65">{ctx.unpaidRows.length} à relancer</p>
+              </div>
             </div>
-            <ul className="divide-y divide-line/50 text-sm">
-              {ctx.unpaidRows.map(([client, amount, days]) => (
-                <li key={client} className="flex items-center justify-between px-4 py-3">
-                  <div>
-                    <p className="font-semibold text-brand-navy">{client}</p>
-                    <p className="text-xs text-slate">Retard {days} j</p>
-                  </div>
-                  <span className="font-bold text-brand-navy">{amount}</span>
-                </li>
-              ))}
+            <ul className="divide-y divide-line/50">
+              {ctx.unpaidRows.map(([client, amount, days], i) => {
+                const d = Number(days);
+                const urgent = d >= 21;
+                return (
+                  <li key={client} className="flex items-center gap-3 px-4 py-3 md:px-5">
+                    <span
+                      className={`h-2.5 w-2.5 shrink-0 rounded-full ${
+                        urgent ? "bg-red-500" : d >= 10 ? "bg-amber-400" : "bg-lime-cta"
+                      }`}
+                      aria-hidden
+                    />
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-bold text-brand-navy">{client}</p>
+                      <p className="text-[11px] text-slate">
+                        Retard {days} j
+                        {urgent ? " · prioritaire" : ""}
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm font-extrabold text-brand-navy">{amount}</p>
+                      {i === 0 ? (
+                        <span className="mt-0.5 inline-block rounded-[2px] bg-brand-navy px-1.5 py-0.5 text-[9px] font-bold text-white">
+                          Relancer
+                        </span>
+                      ) : null}
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
-          </Frame>
-          <Frame className="absolute bottom-6 right-3 w-[48%] max-w-[220px] rotate-[1.5deg] md:bottom-10 md:right-6">
-            <div className="border-b border-line bg-paper px-4 py-2.5">
-              <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">Relance J+7</p>
-            </div>
-            <div className="p-4 text-sm">
-              <p className="font-semibold text-brand-navy">{ctx.unpaidRows[0]?.[0] ?? "Client"}</p>
-              <p className="mt-1 text-xs text-slate">Email + historique tracé</p>
+            <div className="border-t border-line bg-paper/60 px-4 py-2.5 text-[11px] text-slate md:px-5">
+              Relances J+7 · historique client tracé · sans tableur
             </div>
           </Frame>
-          <div className="absolute left-4 top-4 md:left-7 md:top-5">
-            <Toast title="2 factures à relancer" meta="Suivi trésorerie" />
-          </div>
+          <Frame className="absolute bottom-4 right-3 w-[30%] max-w-[180px] rotate-[2deg] p-3 md:bottom-6 md:right-5">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">
+              Prochaine action
+            </p>
+            <p className="mt-1 text-sm font-bold text-brand-navy">
+              {ctx.unpaidRows[0]?.[0] ?? "Client"}
+            </p>
+            <p className="mt-1 text-[11px] leading-snug text-slate">
+              Email de relance prêt · pièce jointe facture
+            </p>
+            <div className="mt-2 rounded-[2px] bg-lime-cta px-2 py-1.5 text-center text-[10px] font-extrabold text-brand-navy">
+              Envoyer la relance
+            </div>
+          </Frame>
         </Stage>
       );
 
@@ -504,17 +593,18 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "multi-sites":
       return (
         <Stage>
-          <Frame className="absolute inset-x-3 top-5 md:inset-x-6 md:top-7">
+          <Frame className="absolute inset-x-3 top-4 md:inset-x-5 md:top-5">
             <Image
-              src="/hero-planning.webp"
+              src="/hero-planning.png"
               alt="Planning multi-sites PROGESTI"
               width={1305}
               height={833}
               className="h-auto w-full"
-              sizes="(max-width: 1024px) 100vw, 640px"
+              sizes="(max-width: 1024px) 100vw, 720px"
+              quality={95}
             />
           </Frame>
-          <div className="absolute bottom-5 left-4 flex flex-wrap gap-2 md:bottom-8 md:left-7">
+          <div className="absolute bottom-4 left-3 z-10 flex flex-wrap gap-2 md:bottom-6 md:left-5">
             {ctx.clientSites.slice(0, 3).map((s) => (
               <span
                 key={s}
@@ -524,32 +614,8 @@ export function FeatureMock({ kind, label, context }: Props) {
               </span>
             ))}
           </div>
-          <div className="absolute right-4 top-4 md:right-7 md:top-5">
+          <div className="absolute right-3 top-3 z-10 md:right-5 md:top-4">
             <Toast title="Vue multi-sites" meta="Toute l’entreprise d’un coup d’œil" />
-          </div>
-        </Stage>
-      );
-
-    case "photo-overlay":
-      return (
-        <Stage>
-          <div className="absolute inset-0">
-            <Image
-              src="/screen-telegestion.webp"
-              alt=""
-              fill
-              className="object-cover object-[center_30%]"
-              sizes="640px"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-brand-navy/20 to-transparent" />
-          </div>
-          <div className="absolute left-4 top-4 rotate-[-2deg] md:left-7 md:top-6">
-            <Toast title="Passage terminé" meta={ctx.proofSite} />
-          </div>
-          <div className="absolute bottom-6 right-4 rotate-[1.5deg] md:bottom-10 md:right-7">
-            <div className="rounded-[2px] bg-lime-cta px-4 py-2.5 text-sm font-extrabold text-brand-navy shadow-lg">
-              Qualité terrain ✓
-            </div>
           </div>
         </Stage>
       );
@@ -557,27 +623,47 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "support":
       return (
         <Stage>
-          <div className="absolute inset-0">
-            <Image
-              src="/screen-telegestion.webp"
-              alt=""
-              fill
-              className="object-cover object-[center_30%] opacity-35"
-              sizes="640px"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-navy/20 via-transparent to-paper/40" />
-          </div>
-          <Frame className="absolute inset-x-6 top-1/2 w-auto -translate-y-1/2 p-6 text-center md:inset-x-12 md:p-8">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-green-deep">
-              Support métier FR
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(168,227,0,0.16),transparent_42%),radial-gradient(circle_at_80%_70%,rgba(1,41,57,0.08),transparent_50%)]" />
+          <Frame className="absolute inset-x-4 top-5 md:inset-x-8 md:top-7 md:right-[34%]">
+            <div className="flex items-center justify-between border-b border-line bg-brand-navy px-4 py-3 text-white">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-lime-cta">
+                  Support métier FR
+                </p>
+                <p className="mt-0.5 text-sm font-bold">Conversation en cours</p>
+              </div>
+              <span className="rounded-[2px] bg-lime-cta/20 px-2 py-1 text-[10px] font-bold text-lime-cta">
+                En ligne
+              </span>
+            </div>
+            <div className="space-y-3 bg-paper/40 px-4 py-4">
+              <div className="max-w-[90%] rounded-[2px] rounded-tl-none bg-white px-3 py-2.5 shadow-sm">
+                <p className="text-[11px] font-bold text-brand-navy-soft">Vous</p>
+                <p className="mt-0.5 text-sm text-brand-navy">
+                  Agent absent demain sur Wilson — comment je remplace ?
+                </p>
+              </div>
+              <div className="ml-auto max-w-[90%] rounded-[2px] rounded-tr-none bg-brand-navy px-3 py-2.5 text-white shadow-sm">
+                <p className="text-[11px] font-bold text-lime-cta">Support PROGESTI</p>
+                <p className="mt-0.5 text-sm text-white/95">
+                  Ouvre Remplacements → propose Julie sur 08h–10h. Le planning agents se met à jour tout seul.
+                </p>
+              </div>
+              <div className="max-w-[90%] rounded-[2px] rounded-tl-none bg-white px-3 py-2.5 shadow-sm">
+                <p className="text-[11px] font-bold text-brand-navy-soft">Vous</p>
+                <p className="mt-0.5 text-sm text-brand-navy">Parfait, merci — c’est clair.</p>
+              </div>
+            </div>
+          </Frame>
+          <Frame className="absolute bottom-5 right-4 w-[30%] max-w-[190px] p-4 md:bottom-8 md:right-7">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">
+              Équipe FR
             </p>
-            <p className="mt-3 font-display text-2xl font-extrabold text-brand-navy">
-              On parle planning, agents, contrats.
+            <p className="mt-1 text-sm font-bold text-brand-navy">Planning · agents · contrats</p>
+            <p className="mt-2 font-display text-base font-extrabold text-brand-navy">
+              05 82 95 09 19
             </p>
-            <p className="mt-3 text-sm text-slate">
-              Pas un ticket anonyme — une équipe qui connaît la propreté.
-            </p>
-            <p className="mt-5 font-display text-lg font-bold text-brand-navy-soft">05 82 95 09 19</p>
+            <p className="mt-1 text-[11px] text-slate">Lun–Ven · réponse humaine</p>
           </Frame>
         </Stage>
       );
@@ -585,17 +671,57 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "hub":
       return (
         <Stage>
-          <Frame className="absolute inset-x-3 top-5 md:inset-x-6 md:top-7">
-            <Image
-              src="/screen-telegestion.webp"
-              alt="PROGESTI — un seul outil"
-              width={1400}
-              height={900}
-              className="h-auto w-full"
-              sizes="(max-width: 1024px) 100vw, 640px"
-            />
-          </Frame>
-          <div className="absolute bottom-5 left-1/2 flex w-[90%] -translate-x-1/2 justify-center gap-2 md:bottom-8">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(168,227,0,0.12),transparent_45%),radial-gradient(circle_at_75%_65%,rgba(1,41,57,0.07),transparent_50%)]" />
+          <div className="absolute inset-x-4 top-5 grid grid-cols-[0.9fr_auto_1.15fr] items-center gap-2 md:inset-x-7 md:top-8 md:gap-4">
+            <div className="space-y-2">
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand-navy-soft">
+                Avant
+              </p>
+              {[
+                ["Excel", "Plannings qui divergent"],
+                ["WhatsApp", "Consignes perdues"],
+                ["Mails / PDF", "Factures à retaper"],
+              ].map(([title, meta]) => (
+                <Frame key={title} className="relative px-3 py-2.5 opacity-80">
+                  <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[11px] font-bold text-white">
+                    ×
+                  </span>
+                  <p className="text-sm font-bold text-brand-navy line-through decoration-red-400/80">
+                    {title}
+                  </p>
+                  <p className="text-[11px] text-slate">{meta}</p>
+                </Frame>
+              ))}
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <span className="rounded-full bg-lime-cta px-2.5 py-1 text-[11px] font-extrabold text-brand-navy shadow-md">
+                →
+              </span>
+            </div>
+            <Frame className="overflow-hidden">
+              <div className="border-b border-line bg-brand-navy px-4 py-3 text-white">
+                <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-lime-cta">
+                  Après
+                </p>
+                <p className="mt-0.5 font-display text-lg font-extrabold">PROGESTI</p>
+                <p className="text-[11px] text-white/70">Un seul outil · une seule vérité</p>
+              </div>
+              <ul className="grid grid-cols-2 gap-px bg-line/60">
+                {[
+                  ["Planning", "Multi-sites"],
+                  ["Pointage", "Temps réel"],
+                  ["Factures", "Sans ressaisie"],
+                  ["RH", "Absences"],
+                ].map(([title, meta]) => (
+                  <li key={title} className="bg-white px-3 py-3">
+                    <p className="text-sm font-bold text-brand-navy">{title}</p>
+                    <p className="text-[11px] text-slate">{meta}</p>
+                  </li>
+                ))}
+              </ul>
+            </Frame>
+          </div>
+          <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2 md:bottom-7">
             <Toast title="Excel" meta="remplacé" />
             <Toast title="WhatsApp" meta="allégé" />
           </div>

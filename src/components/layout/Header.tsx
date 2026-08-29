@@ -1,7 +1,6 @@
 ﻿"use client";
 
 import type { ReactNode } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
@@ -178,17 +177,9 @@ export function Header() {
         ref={barRef}
         className="container flex h-[4.25rem] items-center justify-between gap-4 md:h-[4.5rem]"
       >
-        <Link href="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
-          <Image
-            src="/logo.svg"
-            alt="PROGESTI"
-            width={40}
-            height={40}
-            className="h-9 w-9 shrink-0 object-contain"
-            priority
-          />
+        <Link href="/" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
           <span
-            className={`truncate font-display text-lg font-extrabold tracking-tight sm:text-xl ${
+            className={`whitespace-nowrap font-display text-lg font-extrabold tracking-tight sm:text-xl ${
               dark ? "text-lime-cta" : "text-brand-navy"
             }`}
           >

@@ -26,7 +26,7 @@ export const bureauxConfig = mergeIndustryConfig(defaultIndustryConfig, {
   showcase: {
     title: "Planning qui suit vos immeubles",
     sub: "Fréquences, agents titulaires et backups — une semaine lisible pour le tertiaire.",
-    image: "/hero-planning.webp",
+    image: "/hero-planning.png",
     imageAlt: "Planning PROGESTI — passages bureaux et open spaces",
     badgeLeft: { title: "3 étages · 1 agent", sub: "Open space 06:30–08:00" },
     badgeRight: "Passage OK ✓",
@@ -116,7 +116,7 @@ export const syndicsConfig = mergeIndustryConfig(defaultIndustryConfig, {
     },
     {
       q: "Le support comprend-il le métier syndic ?",
-      a: `Oui. Équipe FR joignable au ${site.phone}, basée à Tournefeuille (31).`,
+      a: `Oui. Équipe FR joignable au ${site.phone}, basée à Toulouse (31).`,
     },
     {
       q: "Comment démarrer l’essai ?",
@@ -294,7 +294,7 @@ export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig
     },
     {
       q: "Support disponible ?",
-      a: `Oui — ${site.phone}, équipe FR à Tournefeuille.`,
+      a: `Oui — ${site.phone}, équipe FR à Toulouse.`,
     },
   ],
 });

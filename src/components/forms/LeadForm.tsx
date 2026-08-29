@@ -75,7 +75,7 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false, id 
   }
 
   const field =
-    "w-full rounded-[3px] border border-blue-mist bg-white px-3.5 py-3 text-sm text-ink outline-none transition placeholder:text-muted/70 focus:border-blue-royal focus:ring-4 focus:ring-blue-royal/15";
+    "w-full rounded-[2px] border border-blue-mist bg-white px-3.5 py-3 text-sm text-ink outline-none transition placeholder:text-muted/70 focus:border-blue-royal focus:ring-4 focus:ring-blue-royal/15";
 
   const errorId = `${intent}-form-error`;
 
@@ -195,11 +195,11 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false, id 
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[3px] bg-green-action px-5 py-3 font-display text-sm font-extrabold text-white transition hover:bg-green-deep disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[2px] bg-lime-cta px-5 py-3 font-display text-sm font-extrabold text-brand-navy transition hover:bg-lime-cta-hover disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
       >
         {status === "loading" ? (
           <>
-            <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white motion-reduce:animate-none" aria-hidden />
+            <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-brand-navy/30 border-t-brand-navy motion-reduce:animate-none" aria-hidden />
             Envoi…
           </>
         ) : (

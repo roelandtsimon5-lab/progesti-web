@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ClientLogoStrip } from "@/components/conversion/ClientLogoStrip";
 import { FinalPush } from "@/components/conversion/FinalPush";
@@ -27,7 +27,7 @@ const values = [
   },
   {
     title: "Support humain FR",
-    text: `Équipe joignable au ${site.phone} — Tournefeuille (31), qui comprend planning et terrain.`,
+    text: `Équipe joignable au ${site.phone} — Toulouse (31), qui comprend planning et terrain.`,
   },
 ] as const;
 

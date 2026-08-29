@@ -72,13 +72,15 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
           <div className="anim-rise-delay relative">
             <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
               <Image
-                src="/hero-planning.webp"
+                src="/hero-planning.png"
                 alt={`Planning PROGESTI — vue semaine des passages`}
                 width={900}
                 height={560}
                 priority
                 className="h-auto w-full"
                 sizes="(max-width: 1024px) 100vw, 520px"
+                quality={95}
+
               />
             </div>
           </div>

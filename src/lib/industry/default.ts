@@ -224,7 +224,7 @@ const defaultFaq = [
   },
   {
     q: "Le support est-il en France ?",
-    a: `Oui. Support FR inclus, joignable au ${site.phone}. Société MSNE SAS, Tournefeuille (31).`,
+    a: `Oui. Support FR inclus, joignable au ${site.phone}. Société MSNE SAS, Toulouse (31).`,
   },
 ] as const;
 
@@ -237,9 +237,9 @@ export const defaultIndustryConfig: IndustryPageConfig = {
     path: "/",
   },
   hero: {
-    h1Lead: "Logiciel entreprise de nettoyage",
-    h1: "pour simplifier et faire grandir votre activité",
-    sub: "Planning, pointage terrain et facturation — tout centralisé pour protéger vos contrats et vos équipes.",
+    h1Lead: "Le logiciel des entreprises de nettoyage",
+    h1: "Planifiez, pointez, facturez — sans Excel ni chaos",
+    sub: "Un seul outil pour protéger vos contrats, vos équipes et votre marge. Prix public, tout inclus.",
     claimBefore: "Du planning à la",
     claimHighlight: "facture",
     claimSub: "Un seul outil pour faire tourner la propreté",
@@ -278,7 +278,7 @@ export const defaultIndustryConfig: IndustryPageConfig = {
       },
       {
         title: "Support FR",
-        text: `${site.phone} · équipe MSNE SAS à Tournefeuille (31), qui parle le terrain.`,
+        text: `${site.phone} · équipe MSNE SAS à Toulouse (31), qui parle le terrain.`,
       },
     ],
   },

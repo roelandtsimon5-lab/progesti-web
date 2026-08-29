@@ -32,7 +32,7 @@ export default function PillarPlanningPage() {
           { title: "Statuts live", text: "En cours, OK, retard : le bureau voit sans appeler." },
           { title: "149 € tout inclus", text: "Planning + pointage + facture — pas de module en plus." },
         ]}
-        image="/hero-planning.webp"
+        image="/hero-planning.png"
         imageAlt="Planning PROGESTI — vue semaine des passages"
         links={[
           { href: "/logiciel-entreprise-nettoyage", label: "logiciel nettoyage" },

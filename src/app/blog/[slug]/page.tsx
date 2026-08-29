@@ -107,9 +107,10 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       <article>
-        <header className="section-tight bg-[#F5F8FB]">
-          <div className="container max-w-3xl">
+        <header className="industry-hero-bg relative overflow-hidden">
+          <div className="container relative max-w-3xl py-12 md:py-14">
             <Breadcrumb
+              dark
               items={[
                 { label: "Accueil", href: "/" },
                 { label: "Blog", href: "/blog" },
@@ -117,11 +118,14 @@ export default async function BlogPostPage({ params }: Props) {
                 { label: post.title },
               ]}
             />
-            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-blue-deep md:text-4xl">
+            <p className="mt-4 text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">
+              {categoryLabel}
+            </p>
+            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
               {post.title}
             </h1>
-            <p className="mt-4 text-lg text-slate">{post.excerpt}</p>
-            <p className="mt-4 text-sm text-slate">
+            <p className="mt-4 text-lg text-white/80">{post.excerpt}</p>
+            <p className="mt-4 text-sm text-white/55">
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString("fr-FR", {
                   year: "numeric",
@@ -138,6 +142,7 @@ export default async function BlogPostPage({ params }: Props) {
               </time>
             </p>
           </div>
+          <div className="industry-hero-wave" aria-hidden />
         </header>
 
         <div className="section !pt-10 bg-white pb-28 lg:pb-16">
@@ -147,8 +152,8 @@ export default async function BlogPostPage({ params }: Props) {
               dangerouslySetInnerHTML={{ __html: post.contentHtml }}
             />
 
-            <aside className="mt-14 rounded-2xl border border-blue-mist bg-[#F5F8FB] p-6 md:p-8">
-              <p className="font-display text-lg font-bold text-blue-deep">
+            <aside className="mt-14 rounded-[2px] border border-line bg-paper p-6 md:p-8">
+              <p className="font-display text-lg font-bold text-brand-navy">
                 Prêt à organiser votre nettoyage professionnel ?
               </p>
               <p className="mt-2 text-sm text-slate">
@@ -158,6 +163,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <ButtonLink
                   href={cta.trial}
                   variant="trial"
+                  className="!rounded-[2px]"
                   event="trial_start"
                   eventPayload={{ cta: "v3_blog_article_trial", slug: post.slug }}
                 >
@@ -166,6 +172,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <ButtonLink
                   href={cta.demo}
                   variant="secondary"
+                  className="!rounded-[2px]"
                   eventPayload={{ cta: "v3_blog_article_cta", slug: post.slug }}
                 >
                   {ctaLabels.demoGate}

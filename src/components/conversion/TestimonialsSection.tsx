@@ -260,52 +260,29 @@ export function TestimonialsSection({
 
 
 
-export function HeroSocialProof() {
-
+export function HeroSocialProof({ className = "mt-6" }: { className?: string }) {
   const faces = featuredTestimonials(3);
 
-
-
   return (
-
-    <div className="mt-6 flex flex-wrap items-center gap-3">
-
+    <div className={`flex flex-wrap items-center gap-2.5 ${className}`}>
       <div className="flex -space-x-2" aria-hidden>
-
         {faces.map((t) => (
-
           <span
-
             key={t.id}
-
-            className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-[2px] border-2 border-white/25 bg-white/10"
-
+            className="flex h-7 w-7 items-center justify-center overflow-hidden rounded-[2px] border-2 border-white/25 bg-white/10"
           >
-
             <ClientLogoMark src={t.logo} alt={t.logoAlt} className="!h-full !w-full !border-0" />
-
           </span>
-
         ))}
-
       </div>
-
-      <div className="text-sm text-white/85">
-
-        <Stars className="text-sm" />
-
+      <div className="text-xs text-white/85 md:text-[13px]">
+        <Stars className="text-xs" />
         <p className="mt-0.5 font-semibold">
-
           <span className="text-white">{socialProofStats.headline}</span> {socialProofStats.headlineSub}
-
         </p>
-
       </div>
-
     </div>
-
   );
-
 }
 
 

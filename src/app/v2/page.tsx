@@ -115,6 +115,8 @@ export default function V2ArchiveHomePage() {
                 priority
                 className="h-auto w-full"
                 sizes="(max-width: 1024px) 100vw, 600px"
+                quality={95}
+
               />
             </div>
           </div>
