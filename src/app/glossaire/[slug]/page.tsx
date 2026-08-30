@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { FinalPush } from "@/components/conversion/FinalPush";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { getTerm, glossaryTerms } from "@/lib/glossary";
+import { glossaryLinkLabel } from "@/lib/glossary-links";
+import { cta } from "@/lib/cta";
 import { site } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -53,40 +59,54 @@ export default async function GlossaryTermPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
-      <article className="section-tight surface-atmosphere">
+      <section className="industry-hero-bg relative overflow-hidden">
+        <div className="container relative max-w-3xl py-12 md:py-14">
+          <Breadcrumb
+            items={[
+              { label: "Accueil", href: "/" },
+              { label: "Glossaire", href: "/glossaire" },
+              { label: term.term },
+            ]}
+            dark
+          />
+          <p className="mt-4 text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">Glossaire</p>
+          <h1 className="mt-3 font-display text-[2rem] font-extrabold leading-[1.1] text-white md:text-[2.75rem]">
+            {term.term}
+          </h1>
+        </div>
+      </section>
+      <article className="section bg-white pb-28 lg:pb-16">
         <div className="container max-w-3xl">
-          <nav className="text-sm text-muted">
-            <Link href="/glossaire" className="hover:text-ink">
-              Glossaire
-            </Link>
-            <span className="mx-2">/</span>
-            <span>{term.term}</span>
-          </nav>
-          <h1 className="mt-4 text-4xl font-extrabold">{term.term}</h1>
-          <p className="mt-6 text-lg leading-relaxed text-anthracite">{term.definition}</p>
+          <p className="text-lg leading-relaxed text-anthracite">{term.definition}</p>
           {term.related?.length ? (
-            <div className="mt-10 border-t border-line pt-6">
-              <p className="font-display text-sm font-bold uppercase tracking-wide text-petrol">
+            <div className="mt-10 border-t border-blue-mist pt-6">
+              <p className="font-display text-sm font-bold uppercase tracking-wide text-blue-royal">
                 Voir aussi
               </p>
               <ul className="mt-3 space-y-2">
                 {term.related.map((href) => (
                   <li key={href}>
-                    <Link href={href} className="font-semibold text-emerald-dark hover:underline">
-                      {href}
+                    <Link href={href} className="font-semibold text-blue-royal hover:underline">
+                      {glossaryLinkLabel(href)}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ) : null}
-          <p className="mt-10">
-            <Link href="/glossaire" className="text-sm font-bold text-emerald-dark hover:underline">
+          <div className="mt-10 flex flex-wrap gap-3 border-t border-blue-mist pt-8">
+            <ButtonLink href={cta.trial} variant="secondary" eventPayload={{ cta: "glossary_term_trial" }}>
+              Essai {site.trialDays} jours
+            </ButtonLink>
+            <Link href="/glossaire" className="inline-flex items-center text-sm font-bold text-blue-royal hover:underline">
               ← Tout le glossaire
             </Link>
-          </p>
+          </div>
         </div>
       </article>
+
+      <FinalPush />
+      <MobileCtaBar />
     </>
   );
 }

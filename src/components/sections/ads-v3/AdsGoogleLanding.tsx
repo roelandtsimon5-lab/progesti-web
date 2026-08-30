@@ -4,6 +4,7 @@ import { AdsV2LeadForm } from "@/components/sections/ads-v2/AdsV2LeadForm";
 import { AdsV2TrialForm } from "@/components/sections/ads-v2/AdsV2TrialForm";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { cta } from "@/lib/cta";
+import { adsProductPreview } from "@/lib/creative-assets";
 import { formatEuro, plans, site } from "@/lib/site";
 
 export type MonthStep = {
@@ -320,10 +321,10 @@ export function AdsGoogleLanding(c: AdsGoogleContent) {
               <span className="ml-2 text-xs font-semibold text-muted">Aperçu PROGESTI</span>
             </div>
             <Image
-              src="/dashboard-mockup-opt.webp"
-              alt="Aperçu du logiciel PROGESTI"
-              width={900}
-              height={640}
+              src={adsProductPreview.src}
+              alt={adsProductPreview.alt}
+              width={adsProductPreview.width}
+              height={adsProductPreview.height}
               className="w-full"
             />
           </div>

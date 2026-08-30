@@ -128,6 +128,8 @@ export function HomeValidated() {
                 priority
                 className="h-auto w-full"
                 sizes="(max-width: 1024px) 100vw, 520px"
+                quality={95}
+
               />
             </div>
             <div className="absolute -bottom-5 left-4 right-4 flex flex-wrap justify-center gap-2 sm:left-auto sm:right-6 sm:justify-end">
@@ -480,8 +482,6 @@ export function HomeValidated() {
       </section>
 
       <ConversionBlock variant="essai" />
-
-      <div className="h-20 lg:hidden" aria-hidden />
       <MobileCtaBar />
     </>
   );

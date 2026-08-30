@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { ConversionBlock } from "@/components/conversion/ConversionBlock";
+import { FinalPush } from "@/components/conversion/FinalPush";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
-import { solutions } from "@/lib/site";
-import { cta } from "@/lib/cta";
+import { solutions, modules, site } from "@/lib/site";
+import { cta, ctaLabels } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -20,49 +20,52 @@ export default function SolutionsIndexPage() {
   return (
     <>
       <SoftwareApplicationLd />
-      <section className="relative overflow-hidden bg-blue-deep">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+      <section className="industry-hero-bg relative overflow-hidden">
         <div className="container relative max-w-3xl py-14 md:py-16">
-          <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">
             Solutions métier
-          </span>
-          <h1 className="mt-5 font-display text-[2.35rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3.15rem]">
+          </p>
+          <h1 className="mt-3 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3rem]">
             Un logiciel, plusieurs univers de propreté
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-white/80">
             Bureaux, syndics, locaux pros, fin de chantier — le parcours planning → terrain →
-            facture reste le même. Essai 7 jours gratuit.
+            facture reste le même. Essai {site.trialDays} jours gratuit.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink
-              href={cta.demo}
+              href={cta.trial}
               size="lg"
-              eventPayload={{ cta: "v3_solutions_hub_demo" }}
-            >
-              Demander une démo
-            </ButtonLink>
-            <ButtonLink
-              href={cta.trialApp}
-              size="lg"
-              variant="outline-white"
+              variant="trial"
+              className="!rounded-[2px]"
               event="trial_start"
               eventPayload={{ cta: "v3_solutions_hub_trial" }}
             >
-              Essai 7 jours gratuit
+              {ctaLabels.trialShort}
+            </ButtonLink>
+            <ButtonLink
+              href={cta.demo}
+              size="lg"
+              variant="outline-white"
+              className="!rounded-[2px]"
+              eventPayload={{ cta: "v3_solutions_hub_demo" }}
+            >
+              {ctaLabels.demoGate}
             </ButtonLink>
           </div>
-          <p className="mt-6 text-sm text-white/60">
-            ✓ Essai 7 jours · ✓ 149 € HT/mois · ✓ Tous modules inclus
+          <p className="mt-5 text-sm text-white/55">
+            Essai {site.trialDays} jours · 149 € HT/mois · Tous modules inclus
           </p>
         </div>
+        <div className="industry-hero-wave" aria-hidden />
       </section>
 
       <section className="border-y border-blue-mist bg-white">
         <div className="container grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
           {[
-            ["7 jours", "d’essai gratuit"],
+            [`${site.trialDays} jours`, "d’essai gratuit"],
             ["149 €", "HT/mois tout inclus"],
-            ["11", "modules inclus"],
+            [`${modules.length}`, "modules inclus"],
             ["0 €", "frais d’installation"],
           ].map(([v, l]) => (
             <div key={l}>
@@ -73,7 +76,7 @@ export default function SolutionsIndexPage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-white pb-28 lg:pb-16">
         <div className="container">
           <Reveal>
             <p className="eyebrow">Pour qui</p>
@@ -81,24 +84,22 @@ export default function SolutionsIndexPage() {
               Choisissez votre contexte terrain
             </h2>
           </Reveal>
-          <div className="mt-10 divide-y divide-blue-mist border-y border-blue-mist">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {solutions.map((s, i) => (
               <Reveal key={s.slug} delayMs={i * 40}>
                 <Link
                   href={`/solutions/${s.slug}`}
-                  className="group flex flex-col gap-2 py-7 transition sm:flex-row sm:items-center sm:justify-between sm:gap-8"
+                  className="group flex h-full flex-col rounded-[2px] border border-blue-mist bg-white p-6 transition hover:border-blue-royal hover:shadow-[0_16px_48px_rgba(11,61,110,0.1)]"
                 >
-                  <div>
-                    <p className="font-display text-xs font-bold uppercase tracking-[0.14em] text-blue-royal">
-                      0{i + 1} · {s.navHint}
-                    </p>
-                    <h2 className="mt-2 font-display text-xl font-bold text-blue-deep group-hover:text-blue-royal md:text-2xl">
-                      {s.title}
-                    </h2>
-                    <p className="mt-2 max-w-xl text-sm text-slate">{s.lead}</p>
-                  </div>
-                  <span className="shrink-0 font-display text-sm font-bold text-green-deep">
-                    Découvrir →
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-royal">
+                    {s.navHint}
+                  </p>
+                  <h2 className="mt-2 font-display text-xl font-extrabold text-blue-deep group-hover:text-blue-royal">
+                    {s.title}
+                  </h2>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-slate">{s.lead}</p>
+                  <span className="mt-5 text-sm font-bold text-lime-cta group-hover:underline">
+                    Voir la solution →
                   </span>
                 </Link>
               </Reveal>
@@ -107,9 +108,7 @@ export default function SolutionsIndexPage() {
         </div>
       </section>
 
-      <ConversionBlock variant="essai" />
-
-      <div className="h-20 lg:hidden" aria-hidden />
+      <FinalPush />
       <MobileCtaBar />
     </>
   );

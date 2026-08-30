@@ -1,4 +1,5 @@
 import type { SolutionContent } from "@/components/sections/SolutionLanding";
+import { site, trialCopy } from "./site";
 
 export const solutionPages: Record<string, SolutionContent> = {
   bureaux: {
@@ -9,7 +10,7 @@ export const solutionPages: Record<string, SolutionContent> = {
     lead:
       "Open spaces, immeubles de bureaux, coworking : fréquences, accès et équipes tôt le matin ou en soirée — sans double saisie Excel / WhatsApp.",
     seoDescription:
-      "Logiciel de nettoyage de bureaux : planning multi-sites, pointage agents et facturation. Essai PROGESTI 7 jours.",
+      `Logiciel de nettoyage de bureaux : planning multi-sites, pointage agents et facturation. Essai PROGESTI ${site.trialDays} jours.`,
     pains: [
       {
         title: "Fréquences qui dérivent",
@@ -75,7 +76,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Combien de temps pour démarrer ?",
-        a: "Quelques minutes pour créer le compte et ajouter vos premiers sites. Essai 7 jours gratuit.",
+        a: `Quelques minutes pour créer le compte et ajouter vos premiers sites. ${trialCopy.free}.`,
       },
       {
         q: "Les modules sont-ils payants en plus ?",
@@ -95,7 +96,7 @@ export const solutionPages: Record<string, SolutionContent> = {
     lead:
       "Halls, cages d’escalier, locaux techniques : pilotez les passages récurrents et documentez la qualité pour vos interlocuteurs immobiliers.",
     seoDescription:
-      "Logiciel nettoyage syndics et parties communes : multi-immeubles, preuves terrain, reporting. Essai PROGESTI 7 jours.",
+      `Logiciel nettoyage syndics et parties communes : multi-immeubles, preuves terrain, reporting. Essai PROGESTI ${site.trialDays} jours.`,
     pains: [
       {
         title: "Portefeuille d’immeubles",
@@ -152,7 +153,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Y a-t-il un engagement long ?",
-        a: "Non. Essai 7 jours gratuit, puis abonnement résiliable selon les conditions de l’offre.",
+        a: `Non. ${trialCopy.free}, puis abonnement résiliable selon les conditions de l’offre.`,
       },
       {
         q: "Convient-il aux parties communes uniquement ?",
@@ -172,7 +173,7 @@ export const solutionPages: Record<string, SolutionContent> = {
     lead:
       "Cabinets médicaux, commerces, restaurants : horaires serrés, accès sensibles et preuves de passage — sans chaos WhatsApp.",
     seoDescription:
-      "Logiciel ménage cabinets, commerces et restaurants : plannings d’accès, pointage, facturation. Essai PROGESTI 7 jours.",
+      `Logiciel ménage cabinets, commerces et restaurants : plannings d’accès, pointage, facturation. Essai PROGESTI ${site.trialDays} jours.`,
     pains: [
       {
         title: "Créneaux hors ouverture",
@@ -252,7 +253,7 @@ export const solutionPages: Record<string, SolutionContent> = {
     lead:
       "Prestations ponctuelles après travaux : organisez les équipes, capturez les preuves et facturez dès la livraison.",
     seoDescription:
-      "Logiciel fin de chantier et remise en état : planning, preuves photos, facturation post-chantier. Essai PROGESTI 7 jours.",
+      `Logiciel fin de chantier et remise en état : planning, preuves photos, facturation post-chantier. Essai PROGESTI ${site.trialDays} jours.`,
     pains: [
       {
         title: "Délais de livraison",
@@ -306,7 +307,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Combien de temps dure l’essai ?",
-        a: "7 jours, tous modules inclus.",
+        a: `${site.trialDays} jours, tous modules inclus.`,
       },
       {
         q: "Comment facturer des extras ?",
@@ -324,9 +325,9 @@ export const solutionPages: Record<string, SolutionContent> = {
     badge: "Indépendants & TPE",
     headline: "Démarrer sans usine à gaz — 149 € HT/mois",
     lead:
-      "Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures. Essai 7 jours gratuit.",
+      `Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures. ${trialCopy.free}.`,
     seoDescription:
-      "Logiciel nettoyage auto-entrepreneur : planning, pointage, facturation 149 € HT/mois. Essai 7 jours gratuit.",
+      `Logiciel nettoyage auto-entrepreneur : planning, pointage, facturation 149 € HT/mois. ${trialCopy.free}.`,
     pains: [
       {
         title: "Tout sur Excel",
@@ -387,7 +388,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Puis-je tester avant de payer ?",
-        a: "Oui : essai 7 jours gratuit, accès à tous les modules.",
+        a: `Oui : ${trialCopy.label.toLowerCase()} gratuit, accès à tous les modules.`,
       },
       {
         q: "PROGESTI est-il réservé aux grandes entreprises ?",

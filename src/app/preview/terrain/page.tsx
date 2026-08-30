@@ -118,8 +118,6 @@ export default function PreviewTerrainPage() {
           </div>
         </div>
       </section>
-
-      <div className="h-20 lg:hidden" aria-hidden />
       <MobileCtaBar />
     </>
   );

@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { DM_Sans, Fraunces } from "next/font/google";
+﻿import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import {
@@ -9,22 +9,16 @@ import {
   GtmPageviews,
 } from "@/components/analytics/Gtm";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
+import { StickyDesktopCta } from "@/components/layout/StickyDesktopCta";
 import { env } from "@/lib/env";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const display = Fraunces({
-  variable: "--font-display-family",
+/** Single-family Inter — standard enterprise SaaS (Jobber / Stripe tier). */
+const inter = Inter({
+  variable: "--font-sans-family",
   subsets: ["latin"],
-  weight: ["600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const body = DM_Sans({
-  variable: "--font-body-family",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -53,9 +47,13 @@ export const metadata: Metadata = {
     : {}),
 };
 
+export const viewport: Viewport = {
+  themeColor: "#012939",
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" data-scroll-behavior="smooth" className={`${display.variable} ${body.variable} h-full`}>
+    <html lang="fr" data-scroll-behavior="smooth" className={`${inter.variable} h-full`}>
       <head>
         <GtmHead />
       </head>
@@ -65,7 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <GtmPageviews />
         <a
           href="#contenu-principal"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-blue-deep focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus-visible:not-sr-only focus-visible:absolute focus-visible:left-4 focus-visible:top-4 focus-visible:z-[100] focus-visible:rounded-[2px] focus-visible:bg-brand-navy focus-visible:px-4 focus-visible:py-2 focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-cta"
         >
           Aller au contenu
         </a>
@@ -74,6 +72,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
         </main>
         <Footer />
+        <StickyDesktopCta />
         <CookieConsent />
       </body>
     </html>

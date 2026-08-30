@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/sections/PageHero";
+import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { site } from "@/lib/site";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { pageMeta } from "@/lib/seo";
@@ -14,12 +15,17 @@ export default function CgvPage() {
   const c = site.company;
   return (
     <>
-      <PageHero
+      <IndustryPageHero
         eyebrow="Légal"
         title="Conditions générales de vente"
-        lead="Cadre contractuel de l’abonnement PROGESTI. Document à faire valider par votre conseil avant usage commercial définitif."
+        lead={`Cadre contractuel de l'abonnement PROGESTI — 149 € HT/mois, essai ${site.trialDays} jours, modules inclus.`}
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: "CGV" },
+        ]}
+        showCtas={false}
       />
-      <section className="section !pt-0">
+      <section className="section bg-white">
         <div className="container max-w-3xl space-y-8 text-sm leading-relaxed text-anthracite">
           <section>
             <h2 className="text-lg font-extrabold text-ink">1. Objet</h2>
@@ -32,7 +38,7 @@ export default function CgvPage() {
             <h2 className="text-lg font-extrabold text-ink">2. Offres et prix</h2>
             <p className="mt-2">
               L'offre PROGESTI est décrite sur la page Tarifs : 149 € HT/mois, jusqu'à 5
-              utilisateurs, tous modules inclus. Essai gratuit de 7 jours.
+              utilisateurs, tous modules inclus. Essai gratuit de {site.trialDays} jours.
             </p>
           </section>
           <section>
@@ -92,7 +98,7 @@ export default function CgvPage() {
             <h2 className="text-lg font-extrabold text-ink">10. Contact</h2>
             <p className="mt-2">
               {c.legalName} — {c.address}, {c.city} —{" "}
-              <a className="font-semibold text-emerald-dark" href={`mailto:${site.email}`}>
+              <a className="font-semibold text-blue-royal" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
             </p>
@@ -104,6 +110,7 @@ export default function CgvPage() {
           </div>
         </div>
       </section>
+      <MobileCtaBar />
     </>
   );
 }

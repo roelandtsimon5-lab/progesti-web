@@ -1,15 +1,18 @@
 import Link from "next/link";
-import { site, solutions } from "@/lib/site";
-import { cta } from "@/lib/cta";
+import { site, solutions, modules } from "@/lib/site";
+import { cta, ctaLabels } from "@/lib/cta";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
 const columns = [
   {
     title: "Produit",
     links: [
-      { href: "/fonctionnalites", label: "Fonctionnalités" },
+      ...modules.slice(0, 5).map((m) => ({
+        href: `/fonctionnalites/${m.slug}`,
+        label: m.title,
+      })),
+      { href: "/fonctionnalites", label: "Toutes les fonctionnalités" },
       { href: "/tarifs", label: "Tarifs" },
-      { href: cta.demo, label: "Démo" },
       { href: "/integrations", label: "Intégrations" },
     ],
   },
@@ -23,6 +26,9 @@ const columns = [
   {
     title: "Ressources",
     links: [
+      { href: "/comparatifs", label: "Comparatifs" },
+      { href: "/temoignages", label: "Avis clients" },
+      { href: "/alternative-propret", label: "Alternative Propret" },
       { href: "/blog", label: "Blog" },
       { href: "/ressources", label: "Ressources" },
       { href: "/glossaire", label: "Glossaire" },
@@ -35,6 +41,8 @@ const columns = [
     links: [
       { href: "/contact", label: "Contact" },
       { href: "/support", label: "Support" },
+      { href: "/demo", label: ctaLabels.demoGate },
+      { href: "/essai-gratuit", label: "Essai gratuit" },
       { href: "/a-propos", label: "À propos" },
       { href: "/mentions-legales", label: "Mentions légales" },
       { href: "/confidentialite", label: "Confidentialité" },
@@ -59,14 +67,14 @@ export function Footer() {
               href={cta.demo}
               eventPayload={{ cta: "footer_demo" }}
             >
-              Demander une démo
+              {ctaLabels.demoGate}
             </ButtonLink>
             <ButtonLink
               href={cta.trial}
               variant="outline-white"
               eventPayload={{ cta: "footer_trial" }}
             >
-              Essai 7 jours
+              Essai {site.trialDays} jours
             </ButtonLink>
           </div>
         </div>

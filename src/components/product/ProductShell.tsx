@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { cta } from "@/lib/cta";
+import { site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
 type Mode = "trial" | "demo";
@@ -39,7 +40,7 @@ const DEMO_SITES: SiteRow[] = [
     agent: "Sofia R.",
     status: "Terminé",
     heure: "06:30–08:00",
-    city: "Tournefeuille",
+    city: "Toulouse",
   },
   {
     name: "Immeuble Horizon",
@@ -203,7 +204,7 @@ export function ProductShell({ mode }: Props) {
         <div className="mb-4 px-2">
           <p className="font-display text-lg font-extrabold tracking-tight">PROGESTI</p>
           <p className="mt-1 text-xs text-white/55">
-            {mode === "demo" ? "Démo interactive" : "Essai 7 jours"}
+            {mode === "demo" ? "Démo interactive" : `Essai ${site.trialDays} jours`}
           </p>
         </div>
         {NAV.map((item) => (

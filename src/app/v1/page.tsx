@@ -132,6 +132,8 @@ export default function HomePageV1Archive() {
                 priority
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 className="w-full"
+                quality={95}
+
               />
             </div>
           </div>
@@ -403,8 +405,6 @@ export default function HomePageV1Archive() {
           </Reveal>
         </div>
       </section>
-
-      <div className="h-20 lg:hidden" aria-hidden />
       <MobileCtaBar />
     </>
   );

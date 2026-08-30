@@ -6,16 +6,23 @@ const nextConfig: NextConfig = {
     root: path.join(__dirname),
   },
   /**
-   * Page légale Play Store : HTML statique sans payload RSC « not-found »
-   * (évite le soft-404 Google Play sur « Page introuvable »).
+   * Play Store : lien direct possible vers /confidentialite.html (fichier statique).
+   * La route /confidentialite sert la page React avec header/footer du site.
    */
   async rewrites() {
-    return {
-      beforeFiles: [
-        { source: "/confidentialite", destination: "/confidentialite.html" },
-        { source: "/confidentialite/", destination: "/confidentialite.html" },
-      ],
-    };
+    return { beforeFiles: [] as { source: string; destination: string }[] };
+  },
+  async redirects() {
+    return [
+      { source: "/signup", destination: "/essai-gratuit", permanent: true },
+      { source: "/clients", destination: "/cas-clients", permanent: true },
+      { source: "/nouveau", destination: "/", permanent: true },
+      {
+        source: "/blog/choisir-offre-starter-pro-premium",
+        destination: "/blog/tarif-unique-logiciel-nettoyage",
+        permanent: true,
+      },
+    ];
   },
 };
 

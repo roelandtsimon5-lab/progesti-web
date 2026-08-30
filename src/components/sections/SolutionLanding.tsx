@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ConversionBlock } from "@/components/conversion/ConversionBlock";
+import { ClientLogoStrip } from "@/components/conversion/ClientLogoStrip";
+import { FinalPush } from "@/components/conversion/FinalPush";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Reveal } from "@/components/ui/Reveal";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
-import { cta } from "@/lib/cta";
-import { modules, site } from "@/lib/site";
+import { cta, ctaLabels } from "@/lib/cta";
+import { modules, site, trialCopy } from "@/lib/site";
 
 export type SolutionContent = {
   slug: string;
@@ -23,9 +24,9 @@ export type SolutionContent = {
 };
 
 const proofBar = [
-  { value: "7 jours", label: "d’essai gratuit" },
+  { value: `${site.trialDays} jours`, label: "d’essai gratuit" },
   { value: "149 €", label: "HT/mois tout inclus" },
-  { value: "11", label: "modules inclus" },
+  { value: String(modules.length), label: "modules inclus" },
   { value: "0 €", label: "frais d’installation" },
 ];
 
@@ -46,24 +47,25 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">{content.lead}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <ButtonLink
-                href={cta.demo}
+                href={cta.trial}
                 size="lg"
-                eventPayload={{ cta: `v3_solution_${content.slug}_demo` }}
-              >
-                Demander une démo
-              </ButtonLink>
-              <ButtonLink
-                href={cta.trialApp}
-                size="lg"
-                variant="outline-white"
+                variant="trial"
                 event="trial_start"
                 eventPayload={{ cta: `v3_solution_${content.slug}_hero` }}
               >
-                Essai 7 jours gratuit
+                {trialCopy.free}
+              </ButtonLink>
+              <ButtonLink
+                href={cta.demo}
+                size="lg"
+                variant="outline-white"
+                eventPayload={{ cta: `v3_solution_${content.slug}_demo` }}
+              >
+                {ctaLabels.demoGate}
               </ButtonLink>
             </div>
             <p className="mt-6 text-sm text-white/60">
-              ✓ Essai 7 jours · ✓ 149 € HT/mois · ✓ Jusqu'à 5 utilisateurs
+              ✓ {trialCopy.label} · ✓ 149 € HT/mois · ✓ Jusqu'à 5 utilisateurs
             </p>
           </div>
 
@@ -77,6 +79,8 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
                 priority
                 className="h-auto w-full"
                 sizes="(max-width: 1024px) 100vw, 520px"
+                quality={95}
+
               />
             </div>
           </div>
@@ -203,13 +207,23 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
               <strong className="text-white">149 € HT/mois</strong>, jusqu'à 5 utilisateurs, tous
               modules inclus — pour piloter votre activité de {content.title.toLowerCase()}.
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink
+                href={cta.trial}
+                size="lg"
+                variant="trial"
+                event="trial_start"
+                eventPayload={{ cta: `v3_solution_${content.slug}_why` }}
+              >
+                {ctaLabels.trialShort}
+              </ButtonLink>
               <ButtonLink
                 href={cta.demo}
                 size="lg"
-                eventPayload={{ cta: `v3_solution_${content.slug}_why` }}
+                variant="outline-white"
+                eventPayload={{ cta: `v3_solution_${content.slug}_why_demo` }}
               >
-                Demander une démo
+                {ctaLabels.demoGate}
               </ButtonLink>
             </div>
           </Reveal>
@@ -217,7 +231,7 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-[#F5F8FB]">
+      <section className="section bg-[#F5F8FB] pb-28 lg:pb-16">
         <div className="container max-w-3xl">
           <Reveal>
             <p className="eyebrow">FAQ</p>
@@ -244,9 +258,8 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
         </div>
       </section>
 
-      <ConversionBlock variant="essai" />
-
-      <div className="h-20 lg:hidden" aria-hidden />
+      <ClientLogoStrip />
+      <FinalPush title={`${content.title} — prêt à tester ?`} />
       <MobileCtaBar />
     </>
   );

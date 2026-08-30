@@ -37,6 +37,10 @@ yarn-error.log*
 # local lead store
 .data/
 
+# outbound SIRENE cache & exports
+scripts/outbound/.cache/
+scripts/outbound/output/
+
 # vercel
 .vercel
 

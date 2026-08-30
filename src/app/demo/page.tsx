@@ -3,9 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ConversionBlock } from "@/components/conversion/ConversionBlock";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { cta, demoAppUrl } from "@/lib/cta";
+import { cta, ctaLabels, demoAppUrl } from "@/lib/cta";
+import { HeroSocialProof } from "@/components/conversion/TestimonialsSection";
+import { modules, site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
 const benefits = [
@@ -24,21 +26,30 @@ const benefits = [
 ];
 
 export default function DemoPage() {
-  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    // Sur mobile le formulaire est en premier : focus utile pour conversion
-    if (typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches) {
-      nameRef.current?.focus();
-    }
+    emailRef.current?.focus();
   }, []);
+
+  function clearInvalid(key: string) {
+    if (invalidFields.has(key)) {
+      setInvalidFields((prev) => {
+        const next = new Set(prev);
+        next.delete(key);
+        return next;
+      });
+    }
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError("");
+    setInvalidFields(new Set());
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
 
@@ -48,27 +59,24 @@ export default function DemoPage() {
     }
 
     const firstName = String(data.firstName || "").trim();
-    const lastName = String(data.lastName || "").trim();
-    const name = [firstName, lastName].filter(Boolean).join(" ").trim();
-    const email = String(data.email || "").trim();
-    const phone = String(data.phone || "").trim();
     const company = String(data.company || "").trim();
-    const phoneDigits = phone.replace(/\D/g, "");
+    const name = firstName || company;
+    const email = String(data.email || "").trim();
+    const phoneRaw = String(data.phone || "").trim();
+    const phoneDigits = phoneRaw.replace(/\D/g, "");
+    // Téléphone optionnel : on n'envoie que s'il est assez complet.
+    const phone = phoneDigits.length >= 8 ? phoneRaw : "";
 
-    if (name.length < 2) {
-      setError("Indiquez votre prénom et votre nom.");
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Indiquez une adresse e-mail professionnelle valide.");
+      setInvalidFields(new Set(["email"]));
       setLoading(false);
       return;
     }
 
     if (!company) {
       setError("Indiquez le nom de votre entreprise.");
-      setLoading(false);
-      return;
-    }
-
-    if (phoneDigits.length < 8) {
-      setError("Indiquez un numéro de téléphone valide.");
+      setInvalidFields(new Set(["company"]));
       setLoading(false);
       return;
     }
@@ -81,86 +89,75 @@ export default function DemoPage() {
       source: "demo",
     });
 
+    // Lead en best-effort : email + entreprise suffisent pour ouvrir la démo.
+    const controller = new AbortController();
+    const leadTimeout = window.setTimeout(() => controller.abort(), 4000);
+    let leadTimedOut = false;
     try {
-      const controller = new AbortController();
-      const leadTimeout = window.setTimeout(() => controller.abort(), 5000);
-
-      let res: Response;
-      try {
-        res = await fetch("/api/lead", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            intent: "demo",
-            name,
-            email,
-            phone,
-            company,
-          }),
-          signal: controller.signal,
-        });
-      } catch (fetchErr) {
-        if (fetchErr instanceof DOMException && fetchErr.name === "AbortError") {
-          // Lead peut être en cours côté serveur — on ouvre quand même la démo.
-          sessionStorage.setItem(
-            "progesti_demo",
-            JSON.stringify({ name, email, phone: phone || null, company, createdAt: Date.now() }),
-          );
-          track("form_submit", { intent: "demo", source: "demo_page_hero", lead_timeout: true });
-          window.location.href = redirectUrl;
-          return;
-        }
-        throw fetchErr;
-      } finally {
-        window.clearTimeout(leadTimeout);
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          intent: "demo",
+          name,
+          email,
+          phone: phone || undefined,
+          company,
+        }),
+        signal: controller.signal,
+      });
+      if (res.status === 429) {
+        setError("Trop de tentatives. Réessayez dans une minute.");
+        setLoading(false);
+        return;
       }
-
-      if (!res.ok) {
-        if (res.status === 429) {
-          throw new Error("Trop de tentatives. Réessayez dans une minute.");
-        }
-        throw new Error("Envoi impossible. Réessayez ou écrivez-nous à contact@progesti.fr");
-      }
-
-      sessionStorage.setItem(
-        "progesti_demo",
-        JSON.stringify({ name, email, phone: phone || null, company, createdAt: Date.now() }),
-      );
-      track("form_submit", { intent: "demo", source: "demo_page_hero" });
-      track("demo_view", { source: "demo_gate" });
-      track("signup_start", { source: "demo_gate" });
-      window.location.href = redirectUrl;
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Envoi impossible. Réessayez.");
-      setLoading(false);
+    } catch (fetchErr) {
+      leadTimedOut =
+        fetchErr instanceof DOMException && fetchErr.name === "AbortError";
+    } finally {
+      window.clearTimeout(leadTimeout);
     }
+
+    sessionStorage.setItem(
+      "progesti_demo",
+      JSON.stringify({ name, email, phone: phone || null, company, createdAt: Date.now() }),
+    );
+    track("form_submit", {
+      intent: "demo",
+      source: "demo_page_hero",
+      ...(leadTimedOut ? { lead_timeout: true } : {}),
+    });
+    track("demo_view", { source: "demo_gate" });
+    track("signup_start", { source: "demo_gate" });
+    window.location.href = redirectUrl;
   }
 
   const field =
-    "w-full rounded-xl border-2 border-blue-mist bg-white px-4 py-3.5 text-sm font-medium text-ink outline-none transition placeholder:text-muted/80 focus:border-blue-royal focus:ring-4 focus:ring-blue-royal/15";
+    "w-full rounded-[2px] border border-blue-mist bg-white px-4 py-3.5 text-sm font-medium text-ink outline-none transition placeholder:text-muted/80 focus:border-brand-navy focus:ring-4 focus:ring-lime-cta/25";
 
   return (
     <>
       {/* Hero conversion — form above the fold (mobile first) */}
-      <section className="relative overflow-hidden bg-blue-deep">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
-        <div className="container relative grid items-start gap-10 pb-16 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:pb-20 lg:pt-16">
+      <section className="industry-hero-bg relative overflow-hidden">
+        <div className="container relative grid items-start gap-10 pb-28 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:pb-20 lg:pt-14">
           {/* Formulaire — order 1 mobile */}
           <div className="order-1 lg:order-2 lg:sticky lg:top-24">
             <form
               id="demo-form"
               onSubmit={onSubmit}
-              className="rounded-2xl border border-white/10 bg-white p-6 shadow-2xl md:p-8"
+              className="rounded-[2px] border border-white/10 bg-white p-6 shadow-[0_24px_70px_rgba(0,0,0,0.35)] md:p-8"
               noValidate
+              aria-busy={loading}
+              aria-describedby={error ? "demo-form-error" : undefined}
             >
-              <p className="font-display text-xs font-bold uppercase tracking-[0.14em] text-green-deep">
+              <p className="font-display text-xs font-bold uppercase tracking-[0.18em] text-lime-cta">
                 Démonstration
               </p>
-              <h2 className="mt-2 text-2xl font-extrabold text-blue-deep">
-                Demander une démonstration
-              </h2>
+              <p className="mt-2 text-2xl font-extrabold text-brand-navy">
+                {ctaLabels.demoEnter}
+              </p>
               <p className="mt-2 text-sm text-slate">
-                Quelques informations — puis accès à la vraie application PROGESTI.
+                E-mail + entreprise — accès immédiat à la vraie application PROGESTI.
               </p>
 
               <input
@@ -173,46 +170,12 @@ export default function DemoPage() {
               />
 
               <div className="mt-6 space-y-3">
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="demo-firstname"
-                      className="mb-1.5 block text-sm font-bold text-blue-deep"
-                    >
-                      Prénom *
-                    </label>
-                    <input
-                      ref={nameRef}
-                      id="demo-firstname"
-                      className={field}
-                      name="firstName"
-                      placeholder="Prénom"
-                      required
-                      autoComplete="given-name"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="demo-lastname"
-                      className="mb-1.5 block text-sm font-bold text-blue-deep"
-                    >
-                      Nom *
-                    </label>
-                    <input
-                      id="demo-lastname"
-                      className={field}
-                      name="lastName"
-                      placeholder="Nom"
-                      required
-                      autoComplete="family-name"
-                    />
-                  </div>
-                </div>
                 <div>
                   <label htmlFor="demo-email" className="mb-1.5 block text-sm font-bold text-blue-deep">
                     Email professionnel *
                   </label>
                   <input
+                    ref={emailRef}
                     id="demo-email"
                     className={field}
                     name="email"
@@ -220,21 +183,8 @@ export default function DemoPage() {
                     placeholder="vous@entreprise.fr"
                     required
                     autoComplete="email"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="demo-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
-                    Téléphone *
-                  </label>
-                  <input
-                    id="demo-phone"
-                    className={field}
-                    name="phone"
-                    type="tel"
-                    placeholder="06 12 34 56 78"
-                    required
-                    autoComplete="tel"
-                    inputMode="tel"
+                    aria-invalid={invalidFields.has("email") ? true : undefined}
+                    onChange={() => clearInvalid("email")}
                   />
                 </div>
                 <div>
@@ -242,7 +192,7 @@ export default function DemoPage() {
                     htmlFor="demo-company"
                     className="mb-1.5 block text-sm font-bold text-blue-deep"
                   >
-                    Nom de l’entreprise *
+                    Nom de l&apos;entreprise *
                   </label>
                   <input
                     id="demo-company"
@@ -251,11 +201,48 @@ export default function DemoPage() {
                     placeholder="Société de nettoyage"
                     required
                     autoComplete="organization"
+                    aria-invalid={invalidFields.has("company") ? true : undefined}
+                    onChange={() => clearInvalid("company")}
                   />
                 </div>
 
+                <div className="space-y-3 rounded-[2px] border border-blue-mist/80 bg-paper p-3">
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-navy/80">
+                    Optionnel — pour un rappel commercial
+                  </p>
+                  <div>
+                    <label
+                      htmlFor="demo-firstname"
+                      className="mb-1.5 block text-sm font-bold text-blue-deep"
+                    >
+                      Prénom
+                    </label>
+                    <input
+                      id="demo-firstname"
+                      className={field}
+                      name="firstName"
+                      placeholder="Prénom"
+                      autoComplete="given-name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="demo-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
+                      Téléphone
+                    </label>
+                    <input
+                      id="demo-phone"
+                      className={field}
+                      name="phone"
+                      type="tel"
+                      placeholder="06 12 34 56 78"
+                      autoComplete="tel"
+                      inputMode="tel"
+                    />
+                  </div>
+                </div>
+
                 {error ? (
-                  <p className="text-sm font-semibold text-danger" role="alert">
+                  <p id="demo-form-error" className="text-sm font-semibold text-danger" role="alert">
                     {error}
                   </p>
                 ) : null}
@@ -263,9 +250,20 @@ export default function DemoPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-xl bg-green-action py-4 font-display text-base font-extrabold text-white shadow-[0_10px_28px_rgba(31,168,107,0.35)] transition hover:bg-green-deep disabled:opacity-70"
+                  aria-busy={loading}
+                  className="flex w-full items-center justify-center gap-2 rounded-[2px] bg-lime-cta py-4 font-display text-base font-extrabold text-brand-navy shadow-[0_10px_28px_rgba(168,227,0,0.28)] transition hover:bg-lime-cta-hover disabled:opacity-70"
                 >
-                  {loading ? "Ouverture de l’application…" : "Demander une démonstration"}
+                  {loading ? (
+                    <>
+                      <span
+                        className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-brand-navy/30 border-t-brand-navy motion-reduce:animate-none"
+                        aria-hidden
+                      />
+                      Ouverture de l&apos;application…
+                    </>
+                  ) : (
+                    ctaLabels.demoEnter
+                  )}
                 </button>
               </div>
 
@@ -278,11 +276,11 @@ export default function DemoPage() {
               <p className="mt-4 text-center text-xs text-slate">
                 Vous préférez tester directement ?{" "}
                 <Link
-                  href={cta.trialApp}
+                  href={cta.trial}
                   className="font-bold text-blue-royal underline-offset-2 hover:underline"
                   onClick={() => track("cta_click", { cta: "v3_demo_hero_trial_link" })}
                 >
-                  Créer un compte
+                  Essai {site.trialDays} jours gratuit
                 </Link>
               </p>
             </form>
@@ -290,10 +288,10 @@ export default function DemoPage() {
 
           {/* Copy — order 2 mobile */}
           <div className="order-2 lg:order-1">
-            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">
               Démonstration interactive
-            </span>
-            <h1 className="mt-5 font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3rem]">
+            </p>
+            <h1 className="font-display text-[2.2rem] font-extrabold leading-[1.08] tracking-tight text-white md:text-[3rem]">
               Voyez PROGESTI sur un cas métier réel
             </h1>
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/80">
@@ -305,18 +303,19 @@ export default function DemoPage() {
               {[
                 "Accès immédiat après le formulaire",
                 "Vraie application — pas une maquette",
-                "Essai 7 jours gratuit",
+                "Données démo préchargées · sans rendez-vous",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-sm font-semibold text-white">
-                  <span className="text-green-action" aria-hidden>
+                  <span className="text-lime-cta" aria-hidden>
                     ✓
                   </span>
                   {item}
                 </li>
               ))}
             </ul>
+            <HeroSocialProof />
 
-            <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+            <div className="mt-8 overflow-hidden rounded-[2px] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
               <Image
                 src="/hero-planning.png"
                 alt="Planning PROGESTI — vue semaine des passages par site"
@@ -325,6 +324,8 @@ export default function DemoPage() {
                 priority
                 className="h-auto w-full"
                 sizes="(max-width: 1024px) 100vw, 520px"
+                quality={95}
+
               />
             </div>
 
@@ -335,17 +336,18 @@ export default function DemoPage() {
             </p>
           </div>
         </div>
+        <div className="industry-hero-wave" aria-hidden />
       </section>
 
       {/* Proof */}
       <section className="border-y border-blue-mist bg-white">
         <div className="container grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
-          {[
-            ["30 s", "pour entrer dans la démo"],
-            ["0 €", "carte bancaire"],
-            ["11", "modules visibles"],
-            ["24 h", "si vous voulez un échange"],
-          ].map(([v, l]) => (
+            {[
+              ["30 s", "pour entrer dans la démo"],
+              ["0 €", "carte bancaire"],
+              [String(modules.length), "modules visibles"],
+              ["24 h", "si vous voulez un échange"],
+            ].map(([v, l]) => (
             <div key={l}>
               <p className="font-display text-2xl font-extrabold text-blue-deep">{v}</p>
               <p className="mt-1 text-sm font-medium text-slate">{l}</p>
@@ -367,9 +369,9 @@ export default function DemoPage() {
             {benefits.map((b) => (
               <li
                 key={b.title}
-                className="rounded-xl border border-blue-mist bg-[#F5F8FB] p-6"
+                className="rounded-[2px] border border-line bg-paper p-6"
               >
-                <h3 className="font-display text-lg font-bold text-blue-deep">{b.title}</h3>
+                <h3 className="font-display text-lg font-bold text-brand-navy">{b.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{b.text}</p>
               </li>
             ))}
@@ -377,7 +379,7 @@ export default function DemoPage() {
           <div className="mt-10">
             <a
               href="#demo-form"
-              className="inline-flex min-h-12 items-center justify-center rounded-lg bg-green-action px-7 py-3.5 font-display text-base font-bold text-white shadow-[0_10px_28px_rgba(31,168,107,0.35)] transition hover:bg-green-deep"
+              className="inline-flex min-h-12 items-center justify-center rounded-[2px] bg-lime-cta px-7 py-3.5 font-display text-base font-bold text-brand-navy shadow-[0_10px_28px_rgba(168,227,0,0.28)] transition hover:bg-lime-cta-hover"
             >
               Remplir le formulaire →
             </a>
@@ -386,16 +388,16 @@ export default function DemoPage() {
       </section>
 
       {/* Réassurance */}
-      <section className="section bg-[#F5F8FB]">
+      <section className="section bg-paper">
         <div className="container grid max-w-4xl gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="eyebrow">Sans friction</p>
-            <h2 className="mt-3 text-3xl font-extrabold text-blue-deep">
+            <h2 className="mt-3 text-3xl font-extrabold text-brand-navy">
               Conçu pour décider vite
             </h2>
             <p className="mt-4 text-slate">
-              Pas de rendez-vous obligatoire. Vous explorez librement, puis vous passez à l’essai 2
-              mois si le produit matche votre organisation.
+              Pas de rendez-vous obligatoire. Vous explorez librement, puis vous passez à l&apos;essai{" "}
+              {site.trialDays} jours si le produit matche votre organisation.
             </p>
           </div>
           <ul className="space-y-4">
@@ -406,9 +408,9 @@ export default function DemoPage() {
             ].map((t) => (
               <li
                 key={t}
-                className="flex gap-3 rounded-xl border border-blue-mist bg-white px-4 py-3 text-sm font-medium text-blue-deep"
+                className="flex gap-3 rounded-[2px] border border-line bg-white px-4 py-3 text-sm font-medium text-brand-navy"
               >
-                <span className="text-green-deep" aria-hidden>
+                <span className="text-lime-cta" aria-hidden>
                   ✓
                 </span>
                 {t}
@@ -418,26 +420,20 @@ export default function DemoPage() {
         </div>
       </section>
 
-      <ConversionBlock variant="demo" />
-
-      <div className="h-20 lg:hidden" aria-hidden />
-      <div className="mobile-cta lg:hidden">
-        <a
-          href="#demo-form"
-          className="flex flex-1 items-center justify-center rounded-lg bg-green-action py-3.5 font-display text-sm font-bold text-white"
-        >
-          Demander la démo
-        </a>
-        <ButtonLink
-          href={cta.trialApp}
-          variant="outline-white"
-          className="flex-1 !py-3.5"
-          event="trial_start"
-          eventPayload={{ cta: "v3_demo_mobile_trial" }}
-        >
-          Essai 7 jours
-        </ButtonLink>
-      </div>
+      <MobileCtaBar
+        primary={{
+          href: "#demo-form",
+          label: ctaLabels.demoEnter,
+          anchor: true,
+        }}
+        secondary={{
+          href: cta.trial,
+          label: `Essai ${site.trialDays} jours`,
+          variant: "outline-white",
+          event: "trial_start",
+          eventPayload: { cta: "v3_demo_mobile_trial" },
+        }}
+      />
     </>
   );
 }

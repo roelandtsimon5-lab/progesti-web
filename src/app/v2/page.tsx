@@ -115,6 +115,8 @@ export default function V2ArchiveHomePage() {
                 priority
                 className="h-auto w-full"
                 sizes="(max-width: 1024px) 100vw, 600px"
+                quality={95}
+
               />
             </div>
           </div>
@@ -287,8 +289,6 @@ export default function V2ArchiveHomePage() {
           <FaqAccordion items={faqItems.slice(0, 3)} />
         </div>
       </Section>
-
-      <div className="h-20 lg:hidden" aria-hidden />
       <MobileCtaBar />
     </>
   );

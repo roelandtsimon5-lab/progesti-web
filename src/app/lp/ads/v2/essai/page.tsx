@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AdsV2TrialForm } from "@/components/sections/ads-v2/AdsV2TrialForm";
 import { cta } from "@/lib/cta";
+import { adsProductPreview } from "@/lib/creative-assets";
 
 export const metadata: Metadata = {
   title: "Créer mon compte — Essai 2 mois PROGESTI",
@@ -79,10 +80,10 @@ export default function AdsV2EssaiPage() {
               <span className="ml-2 text-xs font-semibold text-[#6B7280]">app.progesti.fr</span>
             </div>
             <Image
-              src="/dashboard-mockup-opt.webp"
-              alt="Interface PROGESTI"
-              width={800}
-              height={560}
+              src={adsProductPreview.src}
+              alt={adsProductPreview.alt}
+              width={adsProductPreview.width}
+              height={adsProductPreview.height}
               priority
               className="w-full"
             />
