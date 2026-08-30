@@ -130,10 +130,11 @@ export function FeatureMock({ kind, label, context }: Props) {
             <Image
               src="/screen-telegestion.webp"
               alt="Télégestion PROGESTI — pointages terrain"
-              width={1682}
-              height={826}
+              width={4320}
+              height={2700}
               className="h-auto w-full"
-              sizes="(max-width: 1024px) 100vw, 640px"
+              sizes="(max-width: 1024px) 100vw, 720px"
+              quality={95}
             />
           </Frame>
           <div className="absolute bottom-5 left-4 rotate-[-2deg] md:bottom-8 md:left-8">
@@ -193,10 +194,11 @@ export function FeatureMock({ kind, label, context }: Props) {
             <Image
               src="/screen-passages.webp"
               alt="Preuve de passage PROGESTI — pointage télégestion validé"
-              width={1440}
-              height={900}
+              width={4320}
+              height={2700}
               className="h-auto w-full"
-              sizes="(max-width: 1024px) 100vw, 640px"
+              sizes="(max-width: 1024px) 100vw, 720px"
+              quality={95}
             />
           </Frame>
         </Stage>
@@ -412,8 +414,8 @@ export function FeatureMock({ kind, label, context }: Props) {
             <Image
               src="/screen-factures.webp"
               alt="Factures PROGESTI"
-              width={1440}
-              height={900}
+              width={4320}
+              height={2700}
               className="h-auto w-full"
               sizes="(max-width: 1024px) 100vw, 720px"
               quality={95}
@@ -514,8 +516,8 @@ export function FeatureMock({ kind, label, context }: Props) {
             <Image
               src="/screen-rentabilite.webp"
               alt="Rentabilité PROGESTI — chiffre d'affaires réalisé et prévision"
-              width={1440}
-              height={900}
+              width={4320}
+              height={2700}
               className="h-auto w-full"
               sizes="(max-width: 1024px) 100vw, 720px"
               quality={95}
@@ -534,8 +536,8 @@ export function FeatureMock({ kind, label, context }: Props) {
             <Image
               src="/screen-clients.webp"
               alt="Clients PROGESTI — fiches clients et sites"
-              width={1440}
-              height={900}
+              width={4320}
+              height={2700}
               className="h-auto w-full"
               sizes="(max-width: 1024px) 100vw, 720px"
               quality={95}
@@ -554,8 +556,8 @@ export function FeatureMock({ kind, label, context }: Props) {
             <Image
               src="/screen-sites.webp"
               alt="Sites clients PROGESTI — multi-adresses"
-              width={1440}
-              height={900}
+              width={4320}
+              height={2700}
               className="h-auto w-full"
               sizes="(max-width: 1024px) 100vw, 720px"
               quality={95}
@@ -691,10 +693,11 @@ export function FeatureMock({ kind, label, context }: Props) {
             <Image
               src="/screen-telegestion.webp"
               alt="PROGESTI"
-              width={1400}
-              height={900}
+              width={4320}
+              height={2700}
               className="h-auto w-full"
-              sizes="(max-width: 1024px) 100vw, 640px"
+              sizes="(max-width: 1024px) 100vw, 720px"
+              quality={95}
             />
           </Frame>
         </Stage>

@@ -128,6 +128,7 @@ export function ModuleHero({
                     priority
                     className="object-cover object-center transition duration-700 group-hover:scale-[1.02]"
                     sizes="(max-width: 1024px) 100vw, 680px"
+                    quality={95}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/25 to-transparent" />
                 </>
@@ -145,10 +146,11 @@ export function ModuleHero({
                     <Image
                       src={showcaseImage!}
                       alt={showcaseAlt ?? `${title} — autre vue PROGESTI`}
-                      width={640}
-                      height={400}
+                      width={1280}
+                      height={800}
                       className="h-auto w-full"
                       sizes="280px"
+                      quality={95}
                     />
                   )}
                 </div>

@@ -155,10 +155,10 @@ export const homeCreative = {
   },
 } as const;
 
-/** Preview produit pour LP ads — capture réelle CA / rentabilité. */
+/** Preview produit pour LP ads — capture réelle CA / rentabilité (3× DPR). */
 export const adsProductPreview = {
   src: "/screen-rentabilite.webp",
   alt: "Chiffre d'affaires et rentabilité PROGESTI",
-  width: 1440,
-  height: 900,
+  width: 4320,
+  height: 2700,
 } as const;

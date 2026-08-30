@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ClientLogoStrip } from "@/components/conversion/ClientLogoStrip";
@@ -7,7 +7,6 @@ import { HeroSocialProof, TestimonialsSection } from "@/components/conversion/Te
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { cta, ctaLabels } from "@/lib/cta";
-import { homeCreative } from "@/lib/creative-assets";
 import { defaultIndustryConfig, type IndustryPageConfig } from "@/lib/industry";
 import { modules, site, solutions } from "@/lib/site";
 import { Breadcrumb, solutionBreadcrumb } from "@/components/navigation/Breadcrumb";
@@ -54,12 +53,12 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
             {breadcrumbs ? <Breadcrumb items={breadcrumbs} dark /> : null}
             {!solutionMeta ? (
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">
-                Logiciel propreté · France · prix public
+                Logiciel propret� � France � prix public
               </p>
             ) : null}
             {solutionMeta ? (
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-white/55">
-                Solution · {solutionMeta.navHint}
+                Solution � {solutionMeta.navHint}
               </p>
             ) : null}
             <h1 className="font-sans text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.02em] text-white md:text-[2.25rem] lg:text-[2.4rem]">
@@ -93,7 +92,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               </ButtonLink>
             </div>
             <p className="mt-4 text-sm text-white/55">
-              Sans carte bancaire · 149 € HT/mois tout inclus · jusqu&apos;à 5 utilisateurs
+              Sans carte bancaire � 149 � HT/mois tout inclus � jusqu&apos;� 5 utilisateurs
             </p>
             <ul
               className="mt-5 flex flex-wrap gap-2"
@@ -101,9 +100,9 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
             >
               {[
                 `${modules.length} modules inclus`,
-                `Essai ${site.trialDays} j · sans CB`,
-                "Prix public · pas de devis",
-                `Support FR · ${site.company.city}`,
+                `Essai ${site.trialDays} j � sans CB`,
+                "Prix public � pas de devis",
+                `Support FR � ${site.company.city}`,
               ].map((item) => (
                 <li
                   key={item}
@@ -120,16 +119,17 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
             <Link
               href={cta.demo}
               className="group relative block overflow-hidden rounded-[2px] shadow-[0_32px_90px_rgba(0,0,0,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#A8E300]"
-              aria-label="Voir une démo PROGESTI"
+              aria-label="Voir une d�mo PROGESTI"
             >
               <div className="relative aspect-[16/10]">
                 <Image
                   src={hero.mediaPhoto ?? "/screen-telegestion.webp"}
-                  alt={hero.mediaPhotoAlt ?? "Équipe d’entreprise de nettoyage"}
+                  alt={hero.mediaPhotoAlt ?? "�quipe d�entreprise de nettoyage"}
                   fill
                   priority
                   className="object-cover object-[center_22%] transition duration-700 group-hover:scale-[1.02]"
                   sizes="(max-width: 1024px) 100vw, 680px"
+                quality={95}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/45 to-transparent" />
 
@@ -146,22 +146,12 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
 
                 <div className="absolute inset-x-5 bottom-4 sm:inset-x-7 sm:bottom-5">
                   <p className="max-w-lg font-sans text-[1.5rem] font-extrabold leading-[1.05] tracking-[-0.02em] text-white sm:text-[1.9rem] md:text-[2.25rem]">
-                    <span className="text-lime-cta">«</span> {hero.claimBefore}{" "}
+                    <span className="text-lime-cta">�</span> {hero.claimBefore}{" "}
                     <span className="text-lime-cta">{hero.claimHighlight}</span>{" "}
-                    <span className="text-lime-cta">»</span>
+                    <span className="text-lime-cta">�</span>
                   </p>
                   <p className="mt-1 text-sm text-white/85">{hero.claimSub}</p>
                 </div>
-              </div>
-
-              <div className="relative h-[4.5rem] overflow-hidden border-t border-white/10 bg-brand-navy/95 sm:h-[5.25rem]">
-                <Image
-                  src={homeCreative.showcase.primary.src}
-                  alt=""
-                  fill
-                  className="object-cover object-[center_12%] opacity-90"
-                  sizes="100vw"
-                />
               </div>
             </Link>
           </div>
@@ -171,7 +161,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
           <div className="container flex flex-col gap-3.5 py-3.5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             <p className="text-sm font-semibold text-white md:text-[0.95rem]">
               <span className="text-lime-cta">PROGESTI</span>
-              <span className="text-white/35"> — </span>
+              <span className="text-white/35"> � </span>
               {hero.trustLeft}
             </p>
             <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-white/70">
@@ -218,7 +208,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               >
                 Essai {site.trialDays} jours gratuit
               </ButtonLink>
-              <p className="text-sm text-slate">Sans carte bancaire · 149 € HT/mois tout inclus</p>
+              <p className="text-sm text-slate">Sans carte bancaire � 149 � HT/mois tout inclus</p>
             </div>
           </Reveal>
         </div>
@@ -243,20 +233,22 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                 <Image
                   src={showcase.image}
                   alt={showcase.imageAlt}
-                  width={1682}
-                  height={826}
+                  width={4320}
+                  height={2700}
                   className="h-auto w-full"
                   sizes="(max-width: 1024px) 100vw, 960px"
+                  quality={95}
                 />
                 {showcase.stackImage ? (
                   <div className="absolute -bottom-4 -right-3 z-10 w-[42%] max-w-[280px] rotate-[2deg] overflow-hidden rounded-[2px] border border-line bg-white shadow-[0_20px_50px_rgba(1,41,57,0.15)] md:-right-6 md:-bottom-6">
                     <Image
                       src={showcase.stackImage}
                       alt={showcase.stackImageAlt ?? "PROGESTI"}
-                      width={640}
-                      height={400}
+                      width={1280}
+                      height={800}
                       className="h-auto w-full"
                       sizes="280px"
+                    quality={95}
                     />
                   </div>
                 ) : null}
@@ -281,7 +273,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
 
       <section className="border-y border-line bg-paper py-10">
         <div className="container">
-          <p className="eyebrow text-center">Univers métier</p>
+          <p className="eyebrow text-center">Univers m�tier</p>
           <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
             {solutions.map((s) => (
               <li key={s.slug}>
@@ -309,7 +301,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               {proof.h2}
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-center font-display text-xl italic leading-snug text-ink/90 md:text-2xl">
-              « {proof.quote} »
+              � {proof.quote} �
             </p>
             <div className="mx-auto mt-2 flex justify-center">
               <HandMark className="h-3 w-44" />
@@ -330,7 +322,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
 
       <section className="border-y border-line bg-paper py-8">
         <div className="container">
-          <p className="eyebrow text-center">Intégrations & écosystème</p>
+          <p className="eyebrow text-center">Int�grations & �cosyst�me</p>
           <ul className="mx-auto mt-4 flex max-w-3xl flex-wrap items-center justify-center gap-2">
             {[
               "Android",
@@ -338,7 +330,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               "Export compta",
               "Google Agenda",
               "Webhook leads",
-              "Télégestion",
+              "T�l�gestion",
             ].map((item) => (
               <li
                 key={item}
@@ -349,9 +341,9 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
             ))}
           </ul>
           <p className="mx-auto mt-4 max-w-xl text-center text-sm text-slate">
-            PROGESTI s&apos;interface avec vos outils comptables et métier —{" "}
+            PROGESTI s&apos;interface avec vos outils comptables et m�tier �{" "}
             <Link href="/integrations" className="link-accent font-bold">
-              voir les intégrations
+              voir les int�grations
             </Link>
             .
           </p>
@@ -372,7 +364,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               </span>
             </h2>
             <p className="mt-5 text-lg text-slate">
-              Support FR inclus — joignable au{" "}
+              Support FR inclus � joignable au{" "}
               <a href={`tel:${site.phoneTel}`} className="font-bold text-ink underline-offset-4 hover:underline">
                 {site.phone}
               </a>
@@ -396,7 +388,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                 className="!rounded-[2px]"
                 eventPayload={{ cta: `${ctaSlug}_support_demo` }}
               >
-                Parler à l&apos;équipe
+                Parler � l&apos;�quipe
               </ButtonLink>
             </div>
           </Reveal>
@@ -406,28 +398,28 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
       <section className="section bg-white industry-anchor" id="tarifs">
         <div className="container max-w-2xl text-center">
           <Reveal>
-            <p className="eyebrow">Tarif unique · tout inclus</p>
+            <p className="eyebrow">Tarif unique � tout inclus</p>
             <h2 className="mt-3 font-display text-5xl font-extrabold tracking-tight md:text-6xl">
-              <span>149 €</span>
+              <span>149 �</span>
               <span className="ml-2 text-2xl font-bold text-slate md:text-3xl">HT / mois</span>
             </h2>
-            <p className="mt-3 text-lg text-slate">5 utilisateurs · Tous les modules · Pas de surprise</p>
+            <p className="mt-3 text-lg text-slate">5 utilisateurs � Tous les modules � Pas de surprise</p>
             <p className="mt-2 text-sm text-slate">
-              Économie annuelle :{" "}
+              �conomie annuelle :{" "}
               <Link href="/tarifs" className="link-accent font-bold">
-                1 490 € HT/an
+                1 490 � HT/an
               </Link>{" "}
               (2 mois offerts sur facturation annuelle)
             </p>
             <ul className="mx-auto mt-8 max-w-md space-y-2 text-left text-sm text-slate">
               {[
-                "Planning, pointage, devis, facturation, impayés, RH",
-                "Clients & sites illimités",
+                "Planning, pointage, devis, facturation, impay�s, RH",
+                "Clients & sites illimit�s",
                 `Essai ${site.trialDays} jours sans carte bancaire`,
               ].map((line) => (
                 <li key={line} className="flex gap-2">
                   <span className="font-bold text-lime-cta" aria-hidden>
-                    ✓
+                    ?
                   </span>
                   <span>{line}</span>
                 </li>
@@ -451,7 +443,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                 className="!rounded-[3px]"
                 eventPayload={{ cta: `${ctaSlug}_pricing_detail` }}
               >
-                Détail des tarifs
+                D�tail des tarifs
               </ButtonLink>
             </div>
           </Reveal>
@@ -466,7 +458,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
             <Link href="/contact" className="font-semibold text-green-deep hover:underline">
               Contactez-nous
             </Link>
-            {" · "}
+            {" � "}
             <a href={`tel:${site.phoneTel}`} className="font-semibold text-green-deep hover:underline">
               {site.phone}
             </a>
