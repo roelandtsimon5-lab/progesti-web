@@ -162,10 +162,6 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                   className="object-cover object-[center_12%] opacity-90"
                   sizes="100vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/50 to-transparent" />
-                <p className="absolute left-4 top-1/2 -translate-y-1/2 font-sans text-xs font-bold text-white sm:left-5 sm:text-sm">
-                  {hero.productStripLabel ?? homeCreative.productStrip.label}
-                </p>
               </div>
             </Link>
           </div>

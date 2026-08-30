@@ -8,6 +8,8 @@ import {
 
   featuredTestimonials,
 
+  initials,
+
   socialProofStats,
 
   type Testimonial,
@@ -76,7 +78,17 @@ function TestimonialCard({ item }: { item: Testimonial }) {
 
       <footer className="mt-5 flex items-center gap-3 border-t border-line pt-4">
 
-        <ClientLogoMark src={item.logo} alt={item.logoAlt} className="!h-9 !w-9" />
+        <span
+
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[2px] border border-line bg-paper font-display text-[11px] font-extrabold text-ink"
+
+          aria-hidden
+
+        >
+
+          {initials(item.author)}
+
+        </span>
 
         <div className="min-w-0 flex-1">
 

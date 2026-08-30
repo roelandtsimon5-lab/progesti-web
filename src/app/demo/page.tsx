@@ -30,7 +30,6 @@ export default function DemoPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
-  const [showOptional, setShowOptional] = useState(false);
 
   useEffect(() => {
     emailRef.current?.focus();
@@ -60,10 +59,13 @@ export default function DemoPage() {
     }
 
     const firstName = String(data.firstName || "").trim();
-    const name = firstName || String(data.company || "").trim();
-    const email = String(data.email || "").trim();
-    const phone = String(data.phone || "").trim();
     const company = String(data.company || "").trim();
+    const name = firstName || company;
+    const email = String(data.email || "").trim();
+    const phoneRaw = String(data.phone || "").trim();
+    const phoneDigits = phoneRaw.replace(/\D/g, "");
+    // Téléphone optionnel : on n'envoie que s'il est assez complet.
+    const phone = phoneDigits.length >= 8 ? phoneRaw : "";
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setError("Indiquez une adresse e-mail professionnelle valide.");
@@ -87,59 +89,47 @@ export default function DemoPage() {
       source: "demo",
     });
 
+    // Lead en best-effort : email + entreprise suffisent pour ouvrir la démo.
+    const controller = new AbortController();
+    const leadTimeout = window.setTimeout(() => controller.abort(), 4000);
+    let leadTimedOut = false;
     try {
-      const controller = new AbortController();
-      const leadTimeout = window.setTimeout(() => controller.abort(), 5000);
-
-      let res: Response;
-      try {
-        res = await fetch("/api/lead", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            intent: "demo",
-            name,
-            email,
-            phone,
-            company,
-          }),
-          signal: controller.signal,
-        });
-      } catch (fetchErr) {
-        if (fetchErr instanceof DOMException && fetchErr.name === "AbortError") {
-          // Lead peut être en cours côté serveur — on ouvre quand même la démo.
-          sessionStorage.setItem(
-            "progesti_demo",
-            JSON.stringify({ name, email, phone: phone || null, company, createdAt: Date.now() }),
-          );
-          track("form_submit", { intent: "demo", source: "demo_page_hero", lead_timeout: true });
-          window.location.href = redirectUrl;
-          return;
-        }
-        throw fetchErr;
-      } finally {
-        window.clearTimeout(leadTimeout);
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          intent: "demo",
+          name,
+          email,
+          phone: phone || undefined,
+          company,
+        }),
+        signal: controller.signal,
+      });
+      if (res.status === 429) {
+        setError("Trop de tentatives. Réessayez dans une minute.");
+        setLoading(false);
+        return;
       }
-
-      if (!res.ok) {
-        if (res.status === 429) {
-          throw new Error("Trop de tentatives. Réessayez dans une minute.");
-        }
-        throw new Error("Envoi impossible. Réessayez ou écrivez-nous à contact@progesti.fr");
-      }
-
-      sessionStorage.setItem(
-        "progesti_demo",
-        JSON.stringify({ name, email, phone: phone || null, company, createdAt: Date.now() }),
-      );
-      track("form_submit", { intent: "demo", source: "demo_page_hero" });
-      track("demo_view", { source: "demo_gate" });
-      track("signup_start", { source: "demo_gate" });
-      window.location.href = redirectUrl;
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Envoi impossible. Réessayez.");
-      setLoading(false);
+    } catch (fetchErr) {
+      leadTimedOut =
+        fetchErr instanceof DOMException && fetchErr.name === "AbortError";
+    } finally {
+      window.clearTimeout(leadTimeout);
     }
+
+    sessionStorage.setItem(
+      "progesti_demo",
+      JSON.stringify({ name, email, phone: phone || null, company, createdAt: Date.now() }),
+    );
+    track("form_submit", {
+      intent: "demo",
+      source: "demo_page_hero",
+      ...(leadTimedOut ? { lead_timeout: true } : {}),
+    });
+    track("demo_view", { source: "demo_gate" });
+    track("signup_start", { source: "demo_gate" });
+    window.location.href = redirectUrl;
   }
 
   const field =
@@ -216,54 +206,40 @@ export default function DemoPage() {
                   />
                 </div>
 
-                {!showOptional ? (
-                  <button
-                    type="button"
-                    onClick={() => setShowOptional(true)}
-                    className="text-xs font-semibold text-blue-royal underline-offset-2 hover:underline"
-                  >
-                    + Prénom ou téléphone (optionnel)
-                  </button>
-                ) : (
-                  <div className="space-y-3 rounded-[2px] border border-blue-mist/80 bg-paper p-3">
-                    <p className="text-xs font-bold uppercase tracking-wide text-brand-navy/80">
-                      Optionnel — pour un rappel commercial
-                    </p>
-                    <div>
-                      <label
-                        htmlFor="demo-firstname"
-                        className="mb-1.5 block text-sm font-bold text-blue-deep"
-                      >
-                        Prénom
-                      </label>
-                      <input
-                        id="demo-firstname"
-                        className={field}
-                        name="firstName"
-                        placeholder="Prénom"
-                        autoComplete="given-name"
-                        aria-invalid={invalidFields.has("firstName") ? true : undefined}
-                        onChange={() => clearInvalid("firstName")}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="demo-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
-                        Téléphone
-                      </label>
-                      <input
-                        id="demo-phone"
-                        className={field}
-                        name="phone"
-                        type="tel"
-                        placeholder="06 12 34 56 78"
-                        autoComplete="tel"
-                        inputMode="tel"
-                        aria-invalid={invalidFields.has("phone") ? true : undefined}
-                        onChange={() => clearInvalid("phone")}
-                      />
-                    </div>
+                <div className="space-y-3 rounded-[2px] border border-blue-mist/80 bg-paper p-3">
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-navy/80">
+                    Optionnel — pour un rappel commercial
+                  </p>
+                  <div>
+                    <label
+                      htmlFor="demo-firstname"
+                      className="mb-1.5 block text-sm font-bold text-blue-deep"
+                    >
+                      Prénom
+                    </label>
+                    <input
+                      id="demo-firstname"
+                      className={field}
+                      name="firstName"
+                      placeholder="Prénom"
+                      autoComplete="given-name"
+                    />
                   </div>
-                )}
+                  <div>
+                    <label htmlFor="demo-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
+                      Téléphone
+                    </label>
+                    <input
+                      id="demo-phone"
+                      className={field}
+                      name="phone"
+                      type="tel"
+                      placeholder="06 12 34 56 78"
+                      autoComplete="tel"
+                      inputMode="tel"
+                    />
+                  </div>
+                </div>
 
                 {error ? (
                   <p id="demo-form-error" className="text-sm font-semibold text-danger" role="alert">

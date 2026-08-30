@@ -28,7 +28,9 @@ export function ModuleProofBanner({ testimonial, moduleTitle }: Props) {
                 src={testimonial.logo}
                 alt={testimonial.logoAlt}
                 company={testimonial.company}
+                onDark
                 className="!justify-center"
+                iconClassName="!border-white/20"
               />
               <div className="text-center sm:text-left">
                 <p className="text-sm font-bold text-white">{testimonial.author}</p>

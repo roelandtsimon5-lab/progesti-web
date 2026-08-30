@@ -16,7 +16,6 @@ export default function EssaiGratuitPage() {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
-  const [showOptional, setShowOptional] = useState(false);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -46,7 +45,13 @@ export default function EssaiGratuitPage() {
     }
 
     const name = String(data.name || "").trim() || company;
+    const phoneRaw = String(data.phone || "").trim();
+    const phoneDigits = phoneRaw.replace(/\D/g, "");
+    const phone = phoneDigits.length >= 8 ? phoneRaw : undefined;
 
+    // Lead en best-effort : email + entreprise suffisent pour ouvrir l'essai.
+    const controller = new AbortController();
+    const leadTimeout = window.setTimeout(() => controller.abort(), 4000);
     try {
       const res = await fetch("/api/lead", {
         method: "POST",
@@ -56,15 +61,20 @@ export default function EssaiGratuitPage() {
           email,
           company,
           name,
-          phone: String(data.phone || "").trim() || undefined,
+          phone,
         }),
+        signal: controller.signal,
       });
-      if (!res.ok) throw new Error("lead_failed");
+      if (res.status === 429) {
+        setError(true);
+        setErrorMessage("Trop de tentatives. Réessayez dans une minute.");
+        setLoading(false);
+        return;
+      }
     } catch {
-      setError(true);
-      setErrorMessage("");
-      setLoading(false);
-      return;
+      // Timeout / réseau : on ouvre quand même l'app.
+    } finally {
+      window.clearTimeout(leadTimeout);
     }
 
     sessionStorage.setItem(
@@ -200,47 +210,37 @@ export default function EssaiGratuitPage() {
                 />
               </div>
 
-              {!showOptional ? (
-                <button
-                  type="button"
-                  onClick={() => setShowOptional(true)}
-                  className="text-xs font-semibold text-blue-royal underline-offset-2 hover:underline"
-                >
-                  + Nom ou téléphone (optionnel)
-                </button>
-              ) : (
-                <div className="space-y-3 rounded-[2px] border border-blue-mist/80 bg-paper p-3">
-                  <p className="text-xs font-bold uppercase tracking-wide text-brand-navy/80">
-                    Optionnel — pour vous accompagner
-                  </p>
-                  <div>
-                    <label htmlFor="trial-name" className="mb-1.5 block text-sm font-bold text-blue-deep">
-                      Votre nom
-                    </label>
-                    <input
-                      id="trial-name"
-                      className={field}
-                      name="name"
-                      autoComplete="name"
-                      placeholder="Prénom Nom"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="trial-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
-                      Téléphone
-                    </label>
-                    <input
-                      id="trial-phone"
-                      className={field}
-                      name="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      inputMode="tel"
-                      placeholder="06 12 34 56 78"
-                    />
-                  </div>
+              <div className="space-y-3 rounded-[2px] border border-blue-mist/80 bg-paper p-3">
+                <p className="text-xs font-bold uppercase tracking-wide text-brand-navy/80">
+                  Optionnel — pour vous accompagner
+                </p>
+                <div>
+                  <label htmlFor="trial-name" className="mb-1.5 block text-sm font-bold text-blue-deep">
+                    Votre nom
+                  </label>
+                  <input
+                    id="trial-name"
+                    className={field}
+                    name="name"
+                    autoComplete="name"
+                    placeholder="Prénom Nom"
+                  />
                 </div>
-              )}
+                <div>
+                  <label htmlFor="trial-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
+                    Téléphone
+                  </label>
+                  <input
+                    id="trial-phone"
+                    className={field}
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    inputMode="tel"
+                    placeholder="06 12 34 56 78"
+                  />
+                </div>
+              </div>
 
               <button
                 type="submit"

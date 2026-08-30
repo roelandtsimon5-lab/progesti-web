@@ -17,7 +17,7 @@ export type ModuleCreativeAssets = {
   showcaseMock?: MockKind;
 };
 
-/** Source unique hero / showcase / OG par module — évite la fatigue des 4 PNG recyclés. */
+/** Source unique hero / showcase / OG par module — captures réelles app.progesti.fr (démo). */
 export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
   planification: {
     hero: {
@@ -26,7 +26,7 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
     },
     showcase: {
       src: "/screen-passages.webp",
-      alt: "Passages par site et fréquences programmées dans PROGESTI",
+      alt: "Missions et passages programmés dans PROGESTI",
     },
     og: { src: "/hero-planning.png", alt: "Planning nettoyage professionnel PROGESTI" },
     primaryMock: "planning-map",
@@ -39,7 +39,7 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
     },
     showcase: {
       src: "/screen-passages.webp",
-      alt: "Preuves de passage liées aux pointages terrain",
+      alt: "Preuve de passage PROGESTI — pointage télégestion validé",
     },
     og: { src: "/screen-telegestion.webp", alt: "Pointage et télégestion PROGESTI" },
     primaryMock: "telegestion",
@@ -47,27 +47,27 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
   },
   clients: {
     hero: {
-      src: "/screen-passages.webp",
-      alt: "Module Clients PROGESTI — fiches clients et sites rattachés",
+      src: "/screen-clients.webp",
+      alt: "Module Clients PROGESTI — liste des fiches clients actives",
     },
     showcase: {
-      src: "/hero-planning.png",
-      alt: "Planning des sites rattachés à la fiche client",
+      src: "/screen-sites.webp",
+      alt: "Sites rattachés aux fiches clients dans PROGESTI",
     },
-    og: { src: "/screen-passages.webp", alt: "Gestion clients propreté PROGESTI" },
+    og: { src: "/screen-clients.webp", alt: "Gestion clients propreté PROGESTI" },
     primaryMock: "clients",
     recipe: "ui-stack",
   },
   devis: {
     hero: {
-      src: "/screen-factures.webp",
+      src: "/screen-devis.webp",
       alt: "Module Devis PROGESTI — devis professionnels pour entreprises de nettoyage",
     },
     showcase: {
-      src: "/hero-planning.png",
-      alt: "Conversion devis signé vers sites et fréquences planifiées",
+      src: "/screen-clients.webp",
+      alt: "Fiches clients utilisées pour créer les devis",
     },
-    og: { src: "/screen-factures.webp", alt: "Devis nettoyage PROGESTI" },
+    og: { src: "/screen-devis.webp", alt: "Devis nettoyage PROGESTI" },
     primaryMock: "devis",
     recipe: "ui-stack",
   },
@@ -90,8 +90,8 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
       alt: "Module Impayés PROGESTI — suivi trésorerie et relances clients",
     },
     showcase: {
-      src: "/screen-telegestion.webp",
-      alt: "Lien entre interventions réalisées et factures émises",
+      src: "/screen-clients.webp",
+      alt: "Fiches clients liées aux factures et relances",
     },
     og: { src: "/screen-factures.webp", alt: "Gestion impayés PROGESTI" },
     primaryMock: "impayes",
@@ -99,14 +99,14 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
   },
   "gestion-rh": {
     hero: {
-      src: "/hero-planning.png",
+      src: "/screen-rh.webp",
       alt: "Module RH PROGESTI — équipes, absences et heures terrain",
     },
     showcase: {
       src: "/screen-telegestion.webp",
       alt: "Export variables de paie depuis les pointages PROGESTI",
     },
-    og: { src: "/hero-planning.png", alt: "Gestion RH propreté PROGESTI" },
+    og: { src: "/screen-rh.webp", alt: "Gestion RH propreté PROGESTI" },
     primaryMock: "rh-stack",
     heroMock: "rh-stack",
     showcaseMock: "rh-payroll",
@@ -114,27 +114,27 @@ export const moduleCreativeAssets: Record<ModuleSlug, ModuleCreativeAssets> = {
   },
   rentabilite: {
     hero: {
-      src: "/screen-telegestion.webp",
-      alt: "Module Rentabilité PROGESTI — marges et tableaux de bord par site",
+      src: "/screen-rentabilite.webp",
+      alt: "Module Rentabilité PROGESTI — chiffre d'affaires réalisé et prévision",
     },
     showcase: {
-      src: "/screen-passages.webp",
-      alt: "Charge et marge croisées par passage et par site",
+      src: "/screen-factures.webp",
+      alt: "Factures — base du réalisé pour la marge",
     },
-    og: { src: "/screen-telegestion.webp", alt: "Rentabilité entreprise de nettoyage PROGESTI" },
+    og: { src: "/screen-rentabilite.webp", alt: "Rentabilité entreprise de nettoyage PROGESTI" },
     primaryMock: "dashboard-stack",
     recipe: "ui-stack",
   },
   crm: {
     hero: {
-      src: "/hero-planning.png",
-      alt: "Module CRM PROGESTI — pipeline commercial pour entreprises de nettoyage",
+      src: "/screen-devis.webp",
+      alt: "Module CRM PROGESTI — pipeline commercial via devis et clients",
     },
     showcase: {
-      src: "/screen-factures.webp",
-      alt: "Devis signés et facturation dans le même flux",
+      src: "/screen-clients.webp",
+      alt: "Base clients du pipeline commercial PROGESTI",
     },
-    og: { src: "/hero-planning.png", alt: "CRM propreté PROGESTI" },
+    og: { src: "/screen-devis.webp", alt: "CRM propreté PROGESTI" },
     primaryMock: "flux-pipeline",
     recipe: "ui-stack",
   },
@@ -149,21 +149,16 @@ export const homeCreative = {
     src: "/hero-owners.jpg",
     alt: "Agent de propreté en intervention — entreprise de nettoyage",
   },
-  productStrip: {
-    src: "/hero-planning.png",
-    alt: "Planning multi-sites PROGESTI",
-    label: "Planning multi-sites · vue réelle",
-  },
   showcase: {
     primary: { src: "/screen-telegestion.webp", alt: "Pointage terrain PROGESTI" },
     secondary: { src: "/screen-factures.webp", alt: "Facturation PROGESTI" },
   },
 } as const;
 
-/** Remplace `dashboard-mockup-opt.webp` (absent) sur les LP ads. */
+/** Preview produit pour LP ads — capture réelle CA / rentabilité. */
 export const adsProductPreview = {
-  src: "/screen-telegestion.webp",
-  alt: "Tableaux de bord et télégestion PROGESTI",
-  width: 1682,
-  height: 828,
+  src: "/screen-rentabilite.webp",
+  alt: "Chiffre d'affaires et rentabilité PROGESTI",
+  width: 1440,
+  height: 900,
 } as const;

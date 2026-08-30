@@ -317,6 +317,16 @@ export function featuredTestimonials(limit = 4): Testimonial[] {
 
 
 
+/** Wordmark path from the square icon path (`/clients/icons/x.svg` → `/clients/x.svg`). */
+
+export function logoWordmark(logo: string): string {
+
+  return logo.replace("/clients/icons/", "/clients/");
+
+}
+
+
+
 export function initials(name: string): string {
 
   return name

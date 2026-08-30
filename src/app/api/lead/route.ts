@@ -113,9 +113,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: "invalid_name" }, { status: 400 });
     }
 
+    // Contact / RDV : téléphone obligatoire. Démo / essai : optionnel (email + entreprise suffisent).
     if (!isSelfServe && phoneDigits.length < 8) {
       return NextResponse.json({ ok: false, error: "invalid_phone" }, { status: 400 });
     }
+
+    // Si un téléphone partiel est saisi en self-serve, on l'ignore plutôt que de bloquer.
+    const phoneStored =
+      !phone || (isSelfServe && phoneDigits.length > 0 && phoneDigits.length < 8)
+        ? null
+        : phone || null;
 
     const lead = {
       at: new Date().toISOString(),
@@ -124,7 +131,7 @@ export async function POST(request: Request) {
       email,
       name,
       company: company || null,
-      phone: phone || null,
+      phone: phoneStored,
       companySize: body.companySize || null,
       currentSoftware: body.currentSoftware || null,
       need: body.need || null,
@@ -144,11 +151,12 @@ export async function POST(request: Request) {
       phone: lead.phone,
     };
 
-    await persistLocal(lead);
-
-    // E-mails / SMS / webhook en arrière-plan — ne pas bloquer la redirection démo.
-    void Promise.allSettled([notifyNewLead(notifyPayload), sendWebhook(lead)]).then(
-      ([notifySettled]) => {
+    // Persist + notify en arrière-plan — ne jamais bloquer la redirection démo / essai.
+    void Promise.allSettled([persistLocal(lead), notifyNewLead(notifyPayload), sendWebhook(lead)]).then(
+      ([persistSettled, notifySettled]) => {
+        if (persistSettled.status === "rejected") {
+          console.error("[PROGESTI lead persist]", persistSettled.reason);
+        }
         if (notifySettled.status === "rejected") {
           console.error("[PROGESTI lead notify]", notifySettled.reason);
           return;

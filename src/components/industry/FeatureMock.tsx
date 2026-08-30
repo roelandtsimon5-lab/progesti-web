@@ -2,6 +2,7 @@ import Image from "next/image";
 import { RhProductVisual } from "@/components/features/RhProductVisual";
 import { getMockContext } from "@/lib/industry/mock-context";
 import type { MockKind } from "@/lib/industry/types";
+import { site } from "@/lib/site";
 
 type Props = {
   kind: MockKind;
@@ -188,24 +189,16 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "passages":
       return (
         <Stage>
-          <Frame className="absolute inset-x-3 top-5 rotate-[-0.5deg] md:inset-x-6 md:top-7">
+          <Frame className="absolute inset-x-3 top-5 md:inset-x-6 md:top-7">
             <Image
               src="/screen-passages.webp"
-              alt="Passages PROGESTI — suivi des interventions"
-              width={1600}
+              alt="Preuve de passage PROGESTI — pointage télégestion validé"
+              width={1440}
               height={900}
               className="h-auto w-full"
               sizes="(max-width: 1024px) 100vw, 640px"
             />
           </Frame>
-          <div className="absolute bottom-5 right-4 rotate-[1.5deg] md:bottom-8 md:right-7">
-            <Toast title={ctx.proofSite} meta="Passage validé" />
-          </div>
-          <div className="absolute left-4 top-4 md:left-7 md:top-5">
-            <div className="rounded-[2px] bg-lime-cta px-3 py-1.5 text-xs font-extrabold text-brand-navy shadow-md">
-              Preuve OK ✓
-            </div>
-          </div>
         </Stage>
       );
 
@@ -417,10 +410,10 @@ export function FeatureMock({ kind, label, context }: Props) {
         <Stage>
           <Frame className="absolute inset-x-3 top-4 md:inset-x-5 md:top-5">
             <Image
-              src="/screen-factures.png"
+              src="/screen-factures.webp"
               alt="Factures PROGESTI"
-              width={1682}
-              height={828}
+              width={1440}
+              height={900}
               className="h-auto w-full"
               sizes="(max-width: 1024px) 100vw, 720px"
               quality={95}
@@ -517,48 +510,16 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "dashboard-stack":
       return (
         <Stage>
-          <div className="absolute inset-x-5 top-6 grid grid-cols-3 gap-2 md:inset-x-10 md:top-8 md:gap-3">
-            {[
-              ["Marge moy.", "18,4 %", "lime"],
-              ["CA mensuel", "42,8 k€", "navy"],
-              ["Heures fact.", "1 240 h", "navy"],
-            ].map(([label, value, tone]) => (
-              <Frame key={label} className="p-3 md:p-4">
-                <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">
-                  {label}
-                </p>
-                <p
-                  className={`mt-1 font-display text-lg font-extrabold md:text-xl ${
-                    tone === "lime" ? "text-green-action" : "text-brand-navy"
-                  }`}
-                >
-                  {value}
-                </p>
-              </Frame>
-            ))}
-          </div>
-          <Frame className="absolute inset-x-4 bottom-6 top-[9.5rem] md:inset-x-8 md:bottom-8 md:top-[10.5rem]">
-            <div className="border-b border-line bg-paper/50 px-4 py-2.5">
-              <p className="text-xs font-bold uppercase tracking-wide text-brand-navy-soft">
-                Rentabilité par site
-              </p>
-            </div>
-            <ul className="divide-y divide-line/50 text-sm">
-              {ctx.dashboardSites.split(" · ").map((siteName, i) => (
-                <li key={siteName} className="flex items-center gap-3 px-4 py-3">
-                  <span className="min-w-0 flex-1 font-semibold text-brand-navy">{siteName}</span>
-                  <div className="h-2 w-24 overflow-hidden rounded-full bg-paper md:w-32">
-                    <div
-                      className="h-full rounded-full bg-green-action"
-                      style={{ width: `${88 - i * 14}%` }}
-                    />
-                  </div>
-                  <span className="w-10 text-right text-xs font-bold text-brand-navy">
-                    {22 - i * 3}%
-                  </span>
-                </li>
-              ))}
-            </ul>
+          <Frame className="absolute inset-x-3 top-5 md:inset-x-6 md:top-7">
+            <Image
+              src="/screen-rentabilite.webp"
+              alt="Rentabilité PROGESTI — chiffre d'affaires réalisé et prévision"
+              width={1440}
+              height={900}
+              className="h-auto w-full"
+              sizes="(max-width: 1024px) 100vw, 720px"
+              quality={95}
+            />
           </Frame>
           <div className="absolute left-4 top-4 md:left-7 md:top-5">
             <Toast title="Marge lisible" meta="Décisions sur chiffres" />
@@ -569,20 +530,16 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "clients":
       return (
         <Stage>
-          <Frame className="absolute inset-x-4 top-8 p-5 md:inset-x-10 md:top-12 md:p-6">
-            <p className="text-xs font-bold uppercase tracking-wide text-brand-navy-soft">Fiche client</p>
-            <p className="mt-2 font-display text-2xl font-extrabold text-brand-navy">{ctx.clientName}</p>
-            <p className="text-sm text-slate">{ctx.clientMeta}</p>
-            <div className="mt-5 grid grid-cols-2 gap-3">
-              {ctx.clientSites.map((s) => (
-                <div
-                  key={s}
-                  className="rounded-[2px] bg-paper/70 px-3 py-2.5 text-sm font-medium text-brand-navy"
-                >
-                  {s}
-                </div>
-              ))}
-            </div>
+          <Frame className="absolute inset-x-3 top-5 md:inset-x-6 md:top-7">
+            <Image
+              src="/screen-clients.webp"
+              alt="Clients PROGESTI — fiches clients et sites"
+              width={1440}
+              height={900}
+              className="h-auto w-full"
+              sizes="(max-width: 1024px) 100vw, 720px"
+              quality={95}
+            />
           </Frame>
           <div className="absolute bottom-5 right-5 md:bottom-8 md:right-8">
             <Toast title="Historique unifié" meta="Accès · passages · factures" />
@@ -595,10 +552,10 @@ export function FeatureMock({ kind, label, context }: Props) {
         <Stage>
           <Frame className="absolute inset-x-3 top-4 md:inset-x-5 md:top-5">
             <Image
-              src="/hero-planning.png"
-              alt="Planning multi-sites PROGESTI"
-              width={1305}
-              height={833}
+              src="/screen-sites.webp"
+              alt="Sites clients PROGESTI — multi-adresses"
+              width={1440}
+              height={900}
               className="h-auto w-full"
               sizes="(max-width: 1024px) 100vw, 720px"
               quality={95}
@@ -623,48 +580,47 @@ export function FeatureMock({ kind, label, context }: Props) {
     case "support":
       return (
         <Stage>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(168,227,0,0.16),transparent_42%),radial-gradient(circle_at_80%_70%,rgba(1,41,57,0.08),transparent_50%)]" />
-          <Frame className="absolute inset-x-4 top-5 md:inset-x-8 md:top-7 md:right-[34%]">
-            <div className="flex items-center justify-between border-b border-line bg-brand-navy px-4 py-3 text-white">
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-lime-cta">
-                  Support métier FR
-                </p>
-                <p className="mt-0.5 text-sm font-bold">Conversation en cours</p>
-              </div>
-              <span className="rounded-[2px] bg-lime-cta/20 px-2 py-1 text-[10px] font-bold text-lime-cta">
-                En ligne
-              </span>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(168,227,0,0.16),transparent_42%),radial-gradient(circle_at_82%_72%,rgba(1,41,57,0.08),transparent_50%)]" />
+          <Frame className="absolute inset-x-4 top-6 overflow-hidden md:inset-x-10 md:top-10 md:right-[28%]">
+            <div className="border-b border-line bg-brand-navy px-5 py-4 text-white md:px-6 md:py-5">
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-lime-cta">
+                Support métier FR
+              </p>
+              <p className="mt-1 font-display text-xl font-extrabold md:text-2xl">
+                Une équipe qui parle propreté
+              </p>
+              <p className="mt-1 text-sm text-white/70">
+                {site.company.legalName} · {site.company.city.replace(/^\d+\s*/, "")} (31)
+              </p>
             </div>
-            <div className="space-y-3 bg-paper/40 px-4 py-4">
-              <div className="max-w-[90%] rounded-[2px] rounded-tl-none bg-white px-3 py-2.5 shadow-sm">
-                <p className="text-[11px] font-bold text-brand-navy-soft">Vous</p>
-                <p className="mt-0.5 text-sm text-brand-navy">
-                  Agent absent demain sur Wilson — comment je remplace ?
-                </p>
-              </div>
-              <div className="ml-auto max-w-[90%] rounded-[2px] rounded-tr-none bg-brand-navy px-3 py-2.5 text-white shadow-sm">
-                <p className="text-[11px] font-bold text-lime-cta">Support PROGESTI</p>
-                <p className="mt-0.5 text-sm text-white/95">
-                  Ouvre Remplacements → propose Julie sur 08h–10h. Le planning agents se met à jour tout seul.
-                </p>
-              </div>
-              <div className="max-w-[90%] rounded-[2px] rounded-tl-none bg-white px-3 py-2.5 shadow-sm">
-                <p className="text-[11px] font-bold text-brand-navy-soft">Vous</p>
-                <p className="mt-0.5 text-sm text-brand-navy">Parfait, merci — c’est clair.</p>
-              </div>
+            <div className="bg-white px-5 py-5 md:px-6 md:py-6">
+              <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">
+                Ligne directe
+              </p>
+              <p className="mt-1 font-display text-3xl font-extrabold tracking-tight text-brand-navy md:text-4xl">
+                {site.phone}
+              </p>
+              <p className="mt-2 text-sm text-slate">Lun–Ven · 9h–18h · réponse humaine</p>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {["Planning", "Agents", "Contrats", "Facturation"].map((topic) => (
+                  <li
+                    key={topic}
+                    className="rounded-[2px] bg-paper px-2.5 py-1.5 text-[11px] font-bold text-brand-navy"
+                  >
+                    {topic}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Frame>
-          <Frame className="absolute bottom-5 right-4 w-[30%] max-w-[190px] p-4 md:bottom-8 md:right-7">
-            <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">
-              Équipe FR
-            </p>
-            <p className="mt-1 text-sm font-bold text-brand-navy">Planning · agents · contrats</p>
-            <p className="mt-2 font-display text-base font-extrabold text-brand-navy">
-              05 82 95 09 19
-            </p>
-            <p className="mt-1 text-[11px] text-slate">Lun–Ven · réponse humaine</p>
-          </Frame>
+          <div className="absolute bottom-5 right-4 z-10 md:bottom-8 md:right-7">
+            <Toast title="Pas de ticket anonyme" meta="Accompagnement métier FR" />
+          </div>
+          <div className="absolute right-4 top-4 z-10 md:right-8 md:top-6">
+            <div className="rounded-[2px] bg-lime-cta px-3 py-1.5 text-xs font-extrabold text-brand-navy shadow-md">
+              Support FR inclus
+            </div>
+          </div>
         </Stage>
       );
 

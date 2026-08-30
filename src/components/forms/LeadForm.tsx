@@ -18,11 +18,13 @@ function collectInvalidFields(form: HTMLFormElement, intent: Props["intent"]): S
   const name = String(new FormData(form).get("name") || "").trim();
   const email = String(new FormData(form).get("email") || "").trim();
   const phone = String(new FormData(form).get("phone") || "").replace(/\D/g, "");
+  const isSelfServe = intent === "demo" || intent === "trial";
 
   if (intent !== "demo" && !company) invalid.add("company");
-  if (!name) invalid.add("name");
+  // Démo / essai : nom optionnel (fallback entreprise côté API). Contact / RDV : obligatoire.
+  if (!isSelfServe && !name) invalid.add("name");
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) invalid.add("email");
-  if (phone.length < 8) invalid.add("phone");
+  if (!isSelfServe && phone.length < 8) invalid.add("phone");
 
   return invalid;
 }
@@ -54,7 +56,17 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false, id 
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ intent, ...data }),
+        body: JSON.stringify({
+          intent,
+          ...data,
+          // Démo / essai : nom optionnel → fallback entreprise côté API si vide
+          name:
+            String(data.name || "").trim() ||
+            (intent === "demo" || intent === "trial"
+              ? String(data.company || "").trim()
+              : ""),
+          phone: String(data.phone || "").trim() || undefined,
+        }),
       });
       if (!res.ok) {
         const err =
@@ -127,9 +139,16 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false, id 
         </div>
         <div>
           <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-name`}>
-            Nom *
+            {intent === "demo" || intent === "trial" ? "Nom" : "Nom *"}
           </label>
-          <input id={`${intent}-name`} className={field} name="name" required {...fieldProps("name")} />
+          <input
+            id={`${intent}-name`}
+            className={field}
+            name="name"
+            required={intent !== "demo" && intent !== "trial"}
+            placeholder={intent === "demo" || intent === "trial" ? "Nom (optionnel)" : undefined}
+            {...fieldProps("name")}
+          />
         </div>
         <div>
           <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-email`}>
@@ -146,17 +165,19 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false, id 
         </div>
         <div>
           <label className="mb-1 block text-xs font-bold text-blue-deep" htmlFor={`${intent}-phone`}>
-            Téléphone *
+            {intent === "demo" || intent === "trial" ? "Téléphone" : "Téléphone *"}
           </label>
           <input
             id={`${intent}-phone`}
             className={field}
             name="phone"
             type="tel"
-            required
+            required={intent !== "demo" && intent !== "trial"}
             autoComplete="tel"
             inputMode="tel"
-            placeholder="06 12 34 56 78"
+            placeholder={
+              intent === "demo" || intent === "trial" ? "06 12 34 56 78 (optionnel)" : "06 12 34 56 78"
+            }
             {...fieldProps("phone")}
           />
         </div>

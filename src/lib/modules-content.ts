@@ -277,7 +277,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       ["Historique", "Passages & devis"],
       ["Consignes", "Bureau et mobile"],
     ],
-    image: "/hero-planning.png",
+    image: "/screen-clients.webp",
     imageAlt: "Module Clients PROGESTI — fiches clients et sites pour entreprises de nettoyage",
     faq: [
       { q: "Combien de clients et sites puis-je créer ?", a: "Clients et sites illimités dans l'offre à 149 € HT par mois, sans supplément par site." },
@@ -367,7 +367,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       ["PDF", "Devis pro en 1 clic"],
       ["Contrat", "→ planning direct"],
     ],
-    image: "/screen-factures.webp",
+    image: "/screen-devis.webp",
     imageAlt: "Module Devis PROGESTI — devis professionnels pour entreprises de nettoyage",
     faq: [
       { q: "Peut-on personnaliser le format du devis ?", a: "Oui. Devis professionnels avec votre structure de prestations et vos conditions habituelles." },
@@ -637,7 +637,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       ["Absences", "Liées au planning"],
       ["Heures", "Export paie"],
     ],
-    image: "/hero-planning.png",
+    image: "/screen-rh.webp",
     imageAlt: "Gestion RH PROGESTI — équipes, absences, heures terrain et export paie",
     faq: [
       { q: "PROGESTI remplace-t-il un logiciel de paie ?", a: "Non. PROGESTI centralise heures et variables ; vous exportez vers votre expert paie ou logiciel de paie." },
@@ -727,7 +727,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       ["Marges", "Par client & site"],
       ["Charge", "Heures vs budget"],
     ],
-    image: "/screen-telegestion.webp",
+    image: "/screen-rentabilite.webp",
     imageAlt: "Module Rentabilité PROGESTI — marges et tableaux de bord",
     faq: [
       { q: "La marge est-elle calculée par site ?", a: "Oui. Vision par client et par site rattaché, sur la période de votre choix." },
@@ -817,7 +817,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       ["Prospects", "Suivi commercial"],
       ["Devis", "En 1 clic depuis CRM"],
     ],
-    image: "/hero-planning.png",
+    image: "/screen-devis.webp",
     imageAlt: "Module CRM PROGESTI — pipeline commercial pour entreprises de nettoyage",
     faq: [
       { q: "Le CRM est-il séparé du reste de PROGESTI ?", a: "Non. CRM, devis, clients, planning et facturation partagent la même base." },

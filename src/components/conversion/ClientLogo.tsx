@@ -4,10 +4,19 @@ type Props = {
   company: string;
   className?: string;
   iconClassName?: string;
+  /** Dark surfaces (navy banners) — light company name */
+  onDark?: boolean;
 };
 
 /** Logo client — icône + nom entreprise */
-export function ClientLogo({ src, alt, company, className = "", iconClassName = "" }: Props) {
+export function ClientLogo({
+  src,
+  alt,
+  company,
+  className = "",
+  iconClassName = "",
+  onDark = false,
+}: Props) {
   return (
     <div className={`flex items-center gap-2.5 ${className}`.trim()}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -16,9 +25,15 @@ export function ClientLogo({ src, alt, company, className = "", iconClassName = 
         alt={alt}
         width={40}
         height={40}
-        className={`h-9 w-9 shrink-0 rounded-[2px] ${iconClassName}`.trim()}
+        className={`h-10 w-10 shrink-0 rounded-[2px] border border-line/60 ${iconClassName}`.trim()}
       />
-      <span className="font-display text-sm font-extrabold leading-tight text-ink">{company}</span>
+      <span
+        className={`font-display text-sm font-extrabold leading-tight ${
+          onDark ? "text-white" : "text-ink"
+        }`}
+      >
+        {company}
+      </span>
     </div>
   );
 }

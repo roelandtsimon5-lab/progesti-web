@@ -1,5 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-  <rect width="40" height="40" rx="4" fill="#0284C7"/>
-  <circle cx="20" cy="20" r="7" stroke="#fff" stroke-width="2"/>
-  <path d="M20 13v2M20 25v2M13 20h2M25 20h2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" role="img" aria-label="Azur Clean">
+  <rect width="40" height="40" rx="3" fill="#0E4D6B"/>
+  <text x="20" y="26" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">AC</text>
 </svg>
