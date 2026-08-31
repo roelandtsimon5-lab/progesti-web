@@ -102,10 +102,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: "invalid_company" }, { status: 400 });
     }
 
+    // Démo : prénom obligatoire. Essai : fallback entreprise/email si nom vide.
+    if (isDemo && nameRaw.length < 2) {
+      return NextResponse.json({ ok: false, error: "invalid_name" }, { status: 400 });
+    }
+
     const name =
       nameRaw.length >= 2
         ? nameRaw
-        : isSelfServe
+        : isTrial
           ? company || email.split("@")[0] || "Visiteur"
           : "";
 
@@ -113,14 +118,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: "invalid_name" }, { status: 400 });
     }
 
-    // Contact / RDV : téléphone obligatoire. Démo / essai : optionnel (email + entreprise suffisent).
-    if (!isSelfServe && phoneDigits.length < 8) {
+    // Contact / RDV / démo : téléphone obligatoire. Essai : optionnel.
+    if ((!isSelfServe || isDemo) && phoneDigits.length < 8) {
       return NextResponse.json({ ok: false, error: "invalid_phone" }, { status: 400 });
     }
 
-    // Si un téléphone partiel est saisi en self-serve, on l'ignore plutôt que de bloquer.
+    // Si un téléphone partiel est saisi en essai, on l'ignore plutôt que de bloquer.
     const phoneStored =
-      !phone || (isSelfServe && phoneDigits.length > 0 && phoneDigits.length < 8)
+      !phone || (isTrial && phoneDigits.length > 0 && phoneDigits.length < 8)
         ? null
         : phone || null;
 

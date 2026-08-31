@@ -1,10 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
-import { ButtonLink } from "@/components/ui/ButtonLink";
 import { cta, ctaLabels, demoAppUrl } from "@/lib/cta";
 import { HeroSocialProof } from "@/components/conversion/TestimonialsSection";
 import { modules, site } from "@/lib/site";
@@ -60,12 +58,9 @@ export default function DemoPage() {
 
     const firstName = String(data.firstName || "").trim();
     const company = String(data.company || "").trim();
-    const name = firstName || company;
     const email = String(data.email || "").trim();
     const phoneRaw = String(data.phone || "").trim();
     const phoneDigits = phoneRaw.replace(/\D/g, "");
-    // Téléphone optionnel : on n'envoie que s'il est assez complet.
-    const phone = phoneDigits.length >= 8 ? phoneRaw : "";
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setError("Indiquez une adresse e-mail professionnelle valide.");
@@ -81,15 +76,32 @@ export default function DemoPage() {
       return;
     }
 
+    if (!firstName || firstName.length < 2) {
+      setError("Indiquez votre prénom.");
+      setInvalidFields(new Set(["firstName"]));
+      setLoading(false);
+      return;
+    }
+
+    if (phoneDigits.length < 8) {
+      setError("Indiquez un numéro de téléphone valide.");
+      setInvalidFields(new Set(["phone"]));
+      setLoading(false);
+      return;
+    }
+
+    const name = firstName;
+    const phone = phoneRaw;
+
     const redirectUrl = demoAppUrl({
       company,
       name,
       email,
-      phone: phone || undefined,
+      phone,
       source: "demo",
     });
 
-    // Lead en best-effort : email + entreprise suffisent pour ouvrir la démo.
+    // Lead en best-effort : ne bloque pas l'ouverture de la démo (sauf rate limit).
     const controller = new AbortController();
     const leadTimeout = window.setTimeout(() => controller.abort(), 4000);
     let leadTimedOut = false;
@@ -101,7 +113,7 @@ export default function DemoPage() {
           intent: "demo",
           name,
           email,
-          phone: phone || undefined,
+          phone,
           company,
         }),
         signal: controller.signal,
@@ -120,7 +132,7 @@ export default function DemoPage() {
 
     sessionStorage.setItem(
       "progesti_demo",
-      JSON.stringify({ name, email, phone: phone || null, company, createdAt: Date.now() }),
+      JSON.stringify({ name, email, phone, company, createdAt: Date.now() }),
     );
     track("form_submit", {
       intent: "demo",
@@ -157,7 +169,8 @@ export default function DemoPage() {
                 {ctaLabels.demoEnter}
               </p>
               <p className="mt-2 text-sm text-slate">
-                E-mail + entreprise — accès immédiat à la vraie application PROGESTI.
+                E-mail, entreprise, prénom et téléphone — accès immédiat à la vraie application
+                PROGESTI.
               </p>
 
               <input
@@ -206,39 +219,40 @@ export default function DemoPage() {
                   />
                 </div>
 
-                <div className="space-y-3 rounded-[2px] border border-blue-mist/80 bg-paper p-3">
-                  <p className="text-xs font-bold uppercase tracking-wide text-brand-navy/80">
-                    Optionnel — pour un rappel commercial
-                  </p>
-                  <div>
-                    <label
-                      htmlFor="demo-firstname"
-                      className="mb-1.5 block text-sm font-bold text-blue-deep"
-                    >
-                      Prénom
-                    </label>
-                    <input
-                      id="demo-firstname"
-                      className={field}
-                      name="firstName"
-                      placeholder="Prénom"
-                      autoComplete="given-name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="demo-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
-                      Téléphone
-                    </label>
-                    <input
-                      id="demo-phone"
-                      className={field}
-                      name="phone"
-                      type="tel"
-                      placeholder="06 12 34 56 78"
-                      autoComplete="tel"
-                      inputMode="tel"
-                    />
-                  </div>
+                <div>
+                  <label
+                    htmlFor="demo-firstname"
+                    className="mb-1.5 block text-sm font-bold text-blue-deep"
+                  >
+                    Prénom *
+                  </label>
+                  <input
+                    id="demo-firstname"
+                    className={field}
+                    name="firstName"
+                    placeholder="Prénom"
+                    required
+                    autoComplete="given-name"
+                    aria-invalid={invalidFields.has("firstName") ? true : undefined}
+                    onChange={() => clearInvalid("firstName")}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="demo-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
+                    Téléphone *
+                  </label>
+                  <input
+                    id="demo-phone"
+                    className={field}
+                    name="phone"
+                    type="tel"
+                    placeholder="06 12 34 56 78"
+                    required
+                    autoComplete="tel"
+                    inputMode="tel"
+                    aria-invalid={invalidFields.has("phone") ? true : undefined}
+                    onChange={() => clearInvalid("phone")}
+                  />
                 </div>
 
                 {error ? (
@@ -314,20 +328,6 @@ export default function DemoPage() {
               ))}
             </ul>
             <HeroSocialProof />
-
-            <div className="mt-8 overflow-hidden rounded-[2px] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
-              <Image
-                src="/hero-planning.png"
-                alt="Planning PROGESTI — vue semaine des passages par site"
-                width={720}
-                height={432}
-                priority
-                className="h-auto w-full"
-                sizes="(max-width: 1024px) 100vw, 520px"
-                quality={95}
-
-              />
-            </div>
 
             <p className="mt-4 text-sm text-white/60 lg:hidden">
               <a href="#demo-form" className="font-bold text-white underline-offset-2 hover:underline">
