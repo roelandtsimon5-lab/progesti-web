@@ -112,7 +112,7 @@ async function ensureGrowthForecastChart(page) {
     const innerW = width - pad.left - pad.right;
     const innerH = height - pad.top - pad.bottom;
 
-    // Hide existing series (green/blue paths + dots) — we redraw cleanly
+    // Hide existing series (green/blue paths + any plot dots) — we redraw cleanly
     for (const p of svg.querySelectorAll("path")) {
       const stroke = (p.getAttribute("stroke") || "").toLowerCase();
       const fill = (p.getAttribute("fill") || "").toLowerCase();
@@ -129,46 +129,48 @@ async function ensureGrowthForecastChart(page) {
         p.style.display = "none";
       }
     }
+    // Original demo often leaves near-zero markers on the baseline — remove all plot dots
     for (const c of svg.querySelectorAll("circle")) {
-      const fill = (c.getAttribute("fill") || "").toLowerCase();
-      if (
-        fill.includes("3b82f6") ||
-        fill.includes("38bdf8") ||
-        fill.includes("16a34a") ||
-        fill.includes("22c55e")
-      ) {
-        c.style.display = "none";
-      }
+      c.style.display = "none";
     }
     for (const old of svg.querySelectorAll('[data-marketing-forecast="1"]')) old.remove();
 
-    // Jan–Jul réalisé (gentle rise → Aug peak), Aug–Dec prévision (beautiful growth)
+    // Jan–Aug réalisé (gentle rise), Aug–Dec prévision (beautiful growth)
     const n = 12;
     const realiseEnd = 7; // through August (index 7)
     const realise = [
-      null,
-      null,
-      4200,
-      9800,
-      14200,
-      17800,
-      21400,
+      6200,
+      9100,
+      12800,
+      15400,
+      18900,
+      22100,
       24800,
+      26800,
       null,
       null,
       null,
       null,
     ];
     const forecastStart = 7; // Aug anchor
-    const growth = easeOut(n - forecastStart, 24800, 38500);
+    const peak = 40000;
+    const growth = easeOut(n - forecastStart, 26800, peak);
     const forecast = Array(n).fill(null);
     growth.forEach((v, i) => {
       forecast[forecastStart + i] = v;
     });
 
-    const maxV = Math.max(38500, ...realise.filter(Boolean), ...growth, 1);
+    // Nice round ceiling so Y ticks read as real business figures (not 1 €)
+    const rawMax = Math.max(peak, ...realise.filter(Boolean), ...growth, 1);
+    const maxV = Math.ceil(rawMax / 10000) * 10000 || 40000;
     const xAt = (i) => pad.left + (i / (n - 1)) * innerW;
     const yAt = (v) => pad.top + innerH - (v / maxV) * innerH;
+
+    const formatEuro = (v) => {
+      const n0 = Math.round(v);
+      if (n0 === 0) return "0 €";
+      return `${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(n0)} €`;
+    };
 
     const linePath = (vals) => {
       let d = "";
@@ -246,12 +248,78 @@ async function ensureGrowthForecastChart(page) {
     });
 
     svg.appendChild(g);
+
+    // Rewrite Y-axis labels: live demo often scales to ~1€ → "0 € / 1 € / 1 € / 1 €".
+    // Map existing left-side tick texts to our marketing scale (e.g. 0 / 10k / 20k / 30k / 40k).
+    const isYTick = (t) => {
+      const raw = (t.textContent || "").trim();
+      if (!raw) return false;
+      const hasEuro = /€|EUR/i.test(raw);
+      const numeric = /^[\d\s.,]+$/.test(raw.replace(/\u00a0/g, " "));
+      if (!hasEuro && !numeric) return false;
+      let x = parseFloat(t.getAttribute("x") || "NaN");
+      if (Number.isNaN(x)) {
+        try {
+          x = t.getBBox().x;
+        } catch {
+          x = 999;
+        }
+      }
+      return x < pad.left + 8;
+    };
+
+    const yTicks = [...svg.querySelectorAll("text")].filter(isYTick);
+    yTicks.sort(
+      (a, b) =>
+        parseFloat(a.getAttribute("y") || "0") - parseFloat(b.getAttribute("y") || "0"),
+    );
+
+    const tickLabels = [];
+    if (yTicks.length >= 2) {
+      const top = yTicks[0];
+      const bottom = yTicks[yTicks.length - 1];
+      const yTop = parseFloat(top.getAttribute("y") || "0");
+      const yBot = parseFloat(bottom.getAttribute("y") || "0");
+      const span = yBot - yTop || 1;
+      yTicks.forEach((t) => {
+        const y = parseFloat(t.getAttribute("y") || "0");
+        const ratio = (yBot - y) / span; // 1 at top, 0 at bottom
+        const raw = ratio * maxV;
+        // Snap to 1k / 5k for readable business figures
+        const step = maxV >= 20000 ? 5000 : 1000;
+        const v = Math.round(raw / step) * step;
+        const label = formatEuro(v);
+        t.textContent = label;
+        t.style.display = "";
+        tickLabels.push(label);
+      });
+    } else {
+      // No usable ticks — draw our own
+      const steps = 5;
+      for (let i = 0; i < steps; i++) {
+        const v = (maxV / (steps - 1)) * i;
+        const label = formatEuro(v);
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", String(pad.left - 8));
+        text.setAttribute("y", String(yAt(v) + 4));
+        text.setAttribute("text-anchor", "end");
+        text.setAttribute("fill", "#64748b");
+        text.setAttribute("font-size", "11");
+        text.setAttribute("font-family", "ui-sans-serif, system-ui, sans-serif");
+        text.setAttribute("data-marketing-forecast", "1");
+        text.textContent = label;
+        g.appendChild(text);
+        tickLabels.push(label);
+      }
+    }
+
     return {
       ok: true,
       patched: true,
       realiseEnd,
       forecastPoints: growth.length,
       maxV,
+      yTicks: tickLabels,
     };
   });
 }
