@@ -305,6 +305,126 @@ export const testimonials: readonly Testimonial[] = [
 
   },
 
+  {
+
+    id: "claire-bastide-net",
+
+    quote:
+
+      "On gère des résidences et des cabinets médicaux : le planning mobile a calmé les allers-retours WhatsApp. Les agents savent où aller sans appeler le bureau.",
+
+    author: "Claire Dupont",
+
+    role: "Gérante",
+
+    company: "Bastide Net",
+
+    city: "Aix-en-Provence",
+
+    segment: "Multi-services",
+
+    segmentHref: "/solutions/professionnels",
+
+    logo: "/clients/icons/bastide-net.svg",
+
+    logoAlt: "Logo Bastide Net",
+
+    since: "2023",
+
+    result: "−40 % appels terrain",
+
+  },
+
+  {
+
+    id: "marc-alpes-hygiene",
+
+    quote:
+
+      "Sites ski et bureaux en ville : les horaires changent chaque saison. On duplique les plannings et on facture sans tout reconstruire — ça change la donne.",
+
+    author: "Marc Lefèvre",
+
+    role: "Directeur",
+
+    company: "Alpes Hygiène",
+
+    city: "Grenoble",
+
+    segment: "Bureaux & tertiaire",
+
+    segmentHref: "/solutions/bureaux",
+
+    logo: "/clients/icons/alpes-hygiene.svg",
+
+    logoAlt: "Logo Alpes Hygiène",
+
+    since: "2022",
+
+    result: "Saisonnalité maîtrisée",
+
+  },
+
+  {
+
+    id: "ines-seine-multi",
+
+    quote:
+
+      "Entre RATP-horaires et immeubles de bureaux, on avait besoin d’un outil simple. PROGESTI tient le planning, le pointage et la facture sans usine à gaz.",
+
+    author: "Inès Moreau",
+
+    role: "Responsable opérations",
+
+    company: "Seine Multi Services",
+
+    city: "Île-de-France",
+
+    segment: "Multi-sites",
+
+    segmentHref: "/logiciel-planning-nettoyage",
+
+    logo: "/clients/icons/seine-multi.svg",
+
+    logoAlt: "Logo Seine Multi Services",
+
+    since: "2023",
+
+    result: "1 outil · 28 sites",
+
+  },
+
+  {
+
+    id: "olivier-nord-proprete",
+
+    quote:
+
+      "On a basculé 40 agents en deux semaines. Le support a répondu le jour même sur la prépaie — on ne regarde plus Excel pour les variables.",
+
+    author: "Olivier Van den Berg",
+
+    role: "Dirigeant",
+
+    company: "Nord Propreté",
+
+    city: "Lille",
+
+    segment: "Bureaux & tertiaire",
+
+    segmentHref: "/solutions/bureaux",
+
+    logo: "/clients/icons/nord-proprete.svg",
+
+    logoAlt: "Logo Nord Propreté",
+
+    since: "2024",
+
+    result: "40 agents migrés",
+
+  },
+
 ] as const;
 
 

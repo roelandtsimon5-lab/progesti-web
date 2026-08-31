@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" role="img" aria-label="Seine Multi Services">
+  <rect width="40" height="40" rx="3" fill="#012939"/>
+  <!-- river S curve -->
+  <path d="M12 11c6 0 6 6 0 9s-6 6 0 9" stroke="#7EC8E3" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  <path d="M18 11c6 0 6 6 0 9s-6 6 0 9" stroke="#A8E300" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <circle cx="28" cy="14" r="1.5" fill="#A8E300"/>
+  <circle cx="29.5" cy="28" r="1.2" fill="#7EC8E3"/>
+</svg>

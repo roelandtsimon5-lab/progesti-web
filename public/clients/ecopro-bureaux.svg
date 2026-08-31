@@ -1,6 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="48" viewBox="0 0 180 48" fill="none" role="img" aria-label="EcoPro Bureaux">
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 0 200 48" fill="none" role="img" aria-label="ÉcoPro Bureaux">
   <rect x="2" y="6" width="36" height="36" rx="3" fill="#145A4A"/>
-  <text x="20" y="30" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="13" font-weight="800" fill="#A8E300">EB</text>
-  <text x="48" y="22" font-family="Arial,sans-serif" font-size="13" font-weight="800" fill="#012939">EcoPro Bureaux</text>
+  <path d="M12 32c0-7 7-12.5 14-13.5-0.9 7-6.2 13.2-14 13.5Z" fill="#A8E300"/>
+  <path d="M12 32c5.2-1.8 8.8-6.2 10.5-11.5" stroke="#145A4A" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  <path d="M24 34V22h7v12" stroke="#FFFFFF" stroke-width="1.4" stroke-linejoin="round" fill="none" opacity="0.9"/>
+  <path d="M26.2 24.5h2.6M26.2 27.5h2.6M26.2 30.5h2.6" stroke="#FFFFFF" stroke-width="1.1" stroke-linecap="round" opacity="0.75"/>
+  <text x="48" y="22" font-family="Arial Black,Arial,sans-serif" font-size="13" font-weight="800" fill="#012939">ÉcoPro Bureaux</text>
   <text x="48" y="38" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#64748B">Montpellier</text>
 </svg>

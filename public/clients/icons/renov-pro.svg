@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" role="img" aria-label="Renov'Pro Services">
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" role="img" aria-label="Rénov'Pro Services">
   <rect width="40" height="40" rx="3" fill="#1A3A4A"/>
-  <text x="20" y="26" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">RP</text>
+  <!-- checklist / chantier done -->
+  <rect x="9" y="10" width="22" height="20" rx="2" fill="#FFFFFF" opacity="0.95"/>
+  <path d="M13 17.5l2.2 2.2 4.6-5" stroke="#1A3A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M13 24.5l2.2 2.2 4.6-5" stroke="#A8E300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M23 17h5" stroke="#1A3A4A" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
+  <path d="M23 25h5" stroke="#1A3A4A" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
 </svg>

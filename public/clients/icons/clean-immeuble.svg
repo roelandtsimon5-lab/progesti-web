@@ -1,4 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" role="img" aria-label="Clean Immeuble">
   <rect width="40" height="40" rx="3" fill="#023448"/>
-  <text x="20" y="26" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">CI</text>
+  <!-- building -->
+  <path d="M12 30V14h16v16H12Z" fill="#FFFFFF" opacity="0.92"/>
+  <path d="M18 30V18h4v12h-4Z" fill="#023448"/>
+  <rect x="14.5" y="16.5" width="2.2" height="2.2" fill="#023448"/>
+  <rect x="23.3" y="16.5" width="2.2" height="2.2" fill="#023448"/>
+  <rect x="14.5" y="21.5" width="2.2" height="2.2" fill="#023448"/>
+  <rect x="23.3" y="21.5" width="2.2" height="2.2" fill="#023448"/>
+  <!-- sparkle -->
+  <path d="M30 9l0.7 2.4L33 12.2l-2.3 0.9L30 15.5l-0.7-2.4L27 12.2l2.3-0.8Z" fill="#A8E300"/>
 </svg>

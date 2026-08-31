@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" role="img" aria-label="Bastide Net">
+  <rect width="40" height="40" rx="3" fill="#3D4A2E"/>
+  <!-- bastide / roof house -->
+  <path d="M8 22L20 11l12 11" stroke="#A8E300" stroke-width="2" stroke-linejoin="round" fill="none"/>
+  <path d="M12 21.5V30h16v-8.5" stroke="#FFFFFF" stroke-width="1.8" fill="none"/>
+  <rect x="17.5" y="23.5" width="5" height="6.5" fill="#A8E300"/>
+  <circle cx="29" cy="14" r="1.4" fill="#A8E300"/>
+</svg>
