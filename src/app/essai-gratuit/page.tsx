@@ -34,8 +34,14 @@ export default function EssaiGratuitPage() {
     const invalid = new Set<string>();
     const email = String(data.email || "").trim();
     const company = String(data.company || "").trim();
+    const name = String(data.name || "").trim();
+    const phoneRaw = String(data.phone || "").trim();
+    const phoneDigits = phoneRaw.replace(/\D/g, "");
+
     if (!company) invalid.add("company");
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) invalid.add("email");
+    if (!name || name.length < 2) invalid.add("name");
+    if (phoneDigits.length < 8) invalid.add("phone");
 
     if (invalid.size > 0) {
       setInvalidFields(invalid);
@@ -44,12 +50,9 @@ export default function EssaiGratuitPage() {
       return;
     }
 
-    const name = String(data.name || "").trim() || company;
-    const phoneRaw = String(data.phone || "").trim();
-    const phoneDigits = phoneRaw.replace(/\D/g, "");
-    const phone = phoneDigits.length >= 8 ? phoneRaw : undefined;
+    const phone = phoneRaw;
 
-    // Lead en best-effort : email + entreprise suffisent pour ouvrir l'essai.
+    // Lead en best-effort : ne bloque pas l'ouverture de l'essai (sauf rate limit).
     const controller = new AbortController();
     const leadTimeout = window.setTimeout(() => controller.abort(), 4000);
     try {
@@ -79,7 +82,7 @@ export default function EssaiGratuitPage() {
 
     sessionStorage.setItem(
       "progesti_trial",
-      JSON.stringify({ name, email, company, createdAt: Date.now() }),
+      JSON.stringify({ name, email, phone, company, createdAt: Date.now() }),
     );
 
     track("signup_start", { source: "essai-gratuit" });
@@ -89,6 +92,7 @@ export default function EssaiGratuitPage() {
       company,
       name,
       email,
+      phone,
       source: "essai-gratuit",
     });
   }
@@ -171,7 +175,9 @@ export default function EssaiGratuitPage() {
             aria-describedby={error ? "trial-form-error" : undefined}
           >
             <h2 className="text-2xl font-extrabold text-brand-navy">Commencer maintenant</h2>
-            <p className="mt-1 text-sm text-slate">E-mail + entreprise — accès immédiat à l&apos;app.</p>
+            <p className="mt-1 text-sm text-slate">
+              E-mail, entreprise, nom et téléphone — accès immédiat à l&apos;app.
+            </p>
             <div className="mt-6 space-y-3">
               <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden>
                 <label htmlFor="trial-website">Site web</label>
@@ -209,37 +215,37 @@ export default function EssaiGratuitPage() {
                   onChange={() => clearInvalid("company")}
                 />
               </div>
-
-              <div className="space-y-3 rounded-[2px] border border-blue-mist/80 bg-paper p-3">
-                <p className="text-xs font-bold uppercase tracking-wide text-brand-navy/80">
-                  Optionnel — pour vous accompagner
-                </p>
-                <div>
-                  <label htmlFor="trial-name" className="mb-1.5 block text-sm font-bold text-blue-deep">
-                    Votre nom
-                  </label>
-                  <input
-                    id="trial-name"
-                    className={field}
-                    name="name"
-                    autoComplete="name"
-                    placeholder="Prénom Nom"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="trial-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
-                    Téléphone
-                  </label>
-                  <input
-                    id="trial-phone"
-                    className={field}
-                    name="phone"
-                    type="tel"
-                    autoComplete="tel"
-                    inputMode="tel"
-                    placeholder="06 12 34 56 78"
-                  />
-                </div>
+              <div>
+                <label htmlFor="trial-name" className="mb-1.5 block text-sm font-bold text-blue-deep">
+                  Votre nom *
+                </label>
+                <input
+                  id="trial-name"
+                  className={field}
+                  name="name"
+                  required
+                  autoComplete="name"
+                  placeholder="Prénom Nom"
+                  aria-invalid={invalidFields.has("name") ? true : undefined}
+                  onChange={() => clearInvalid("name")}
+                />
+              </div>
+              <div>
+                <label htmlFor="trial-phone" className="mb-1.5 block text-sm font-bold text-blue-deep">
+                  Téléphone *
+                </label>
+                <input
+                  id="trial-phone"
+                  className={field}
+                  name="phone"
+                  type="tel"
+                  required
+                  autoComplete="tel"
+                  inputMode="tel"
+                  placeholder="06 12 34 56 78"
+                  aria-invalid={invalidFields.has("phone") ? true : undefined}
+                  onChange={() => clearInvalid("phone")}
+                />
               </div>
 
               <button

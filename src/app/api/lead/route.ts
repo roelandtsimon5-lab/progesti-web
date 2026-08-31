@@ -82,9 +82,7 @@ export async function POST(request: Request) {
     const company = String(body.company || "").trim();
     const phone = body.phone ? String(body.phone).trim() : "";
     const phoneDigits = phone.replace(/\D/g, "");
-    const isDemo = intent === "demo";
-    const isTrial = intent === "trial";
-    const isSelfServe = isDemo || isTrial;
+    const isSelfServe = intent === "demo" || intent === "trial";
 
     let email = emailRaw;
     if (intent === "ads_quick") {
@@ -102,32 +100,18 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: "invalid_company" }, { status: 400 });
     }
 
-    // Démo : prénom obligatoire. Essai : fallback entreprise/email si nom vide.
-    if (isDemo && nameRaw.length < 2) {
-      return NextResponse.json({ ok: false, error: "invalid_name" }, { status: 400 });
-    }
-
-    const name =
-      nameRaw.length >= 2
-        ? nameRaw
-        : isTrial
-          ? company || email.split("@")[0] || "Visiteur"
-          : "";
+    const name = nameRaw.length >= 2 ? nameRaw : "";
 
     if (!name || name.length < 2) {
       return NextResponse.json({ ok: false, error: "invalid_name" }, { status: 400 });
     }
 
-    // Contact / RDV / démo : téléphone obligatoire. Essai : optionnel.
-    if ((!isSelfServe || isDemo) && phoneDigits.length < 8) {
+    // Contact / RDV / démo / essai : téléphone obligatoire.
+    if (phoneDigits.length < 8) {
       return NextResponse.json({ ok: false, error: "invalid_phone" }, { status: 400 });
     }
 
-    // Si un téléphone partiel est saisi en essai, on l'ignore plutôt que de bloquer.
-    const phoneStored =
-      !phone || (isTrial && phoneDigits.length > 0 && phoneDigits.length < 8)
-        ? null
-        : phone || null;
+    const phoneStored = phone || null;
 
     const lead = {
       at: new Date().toISOString(),
