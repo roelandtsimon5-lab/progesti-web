@@ -17,13 +17,24 @@ const tmpDir = path.join(__dirname, "..", ".tmp-screenshots");
 fs.mkdirSync(tmpDir, { recursive: true });
 
 const SCREENS = [
-  { route: "/clients", file: "screen-clients", label: "CLIENTS" },
-  { route: "/sites", file: "screen-sites", label: "SITES" },
-  { route: "/devis", file: "screen-devis", label: "DEVIS" },
+  { route: "/clients", file: "screen-clients", label: "CLIENTS", empty: [/Aucune? fiche/i, /0\s+fiche/i] },
+  { route: "/sites", file: "screen-sites", label: "SITES", empty: [/Aucun site/i, /0\s+site\(s\)/i] },
+  { route: "/devis", file: "screen-devis", label: "DEVIS", empty: [/Aucun devis/i, /0\s+devis/i] },
   { route: "/planning", file: "hero-planning", label: "PLANNING" },
-  { route: "/telegestion", file: "screen-telegestion", label: "TELEGESTION" },
-  { route: "/factures", file: "screen-factures", label: "FACTURES" },
-  { route: "/missions", file: "screen-passages", label: "MISSIONS" },
+  {
+    route: "/telegestion",
+    file: "screen-telegestion",
+    label: "TELEGESTION",
+    empty: [/Aucun pointage/i, /0\s+pointage/i],
+  },
+  {
+    route: "/factures",
+    file: "screen-factures",
+    label: "FACTURES",
+    empty: [/Aucune facture/i, /0\s+facture/i],
+    recoverMonths: true,
+  },
+  { route: "/missions", file: "screen-passages", label: "MISSIONS", empty: [/Aucune mission/i, /0\s+mission/i] },
   { route: "/rapports/chiffre-affaires", file: "screen-rentabilite", label: "RENTABILITE" },
   { route: "/employees", file: "screen-rh", label: "RH" },
 ];
@@ -324,6 +335,44 @@ async function ensureGrowthForecastChart(page) {
   });
 }
 
+async function pageLooksEmpty(page, patterns) {
+  if (!patterns?.length) return false;
+  const body = await page.evaluate(() => document.body?.innerText || "");
+  return patterns.some((re) => re.test(body));
+}
+
+/** Prefer a billing month that already has invoices (seed often lags current month). */
+async function recoverFacturesMonth(page) {
+  const months = ["juillet", "juin", "mai", "avril", "mars"];
+  await page.evaluate(() => {
+    const header = [...document.querySelectorAll("button, a, [role='button']")].find(
+      (el) =>
+        /FACTURATION DU MOIS|AO[ÛU]T|JUILLET|JUIN|MAI/i.test(el.textContent || "") &&
+        (el.textContent || "").length < 90,
+    );
+    header?.click();
+  });
+  await page.waitForTimeout(500);
+  for (const name of months) {
+    const hit = await page.evaluate((m) => {
+      const el = [...document.querySelectorAll("button, a, [role='option'], li, div")].find(
+        (e) => {
+          const t = (e.textContent || "").trim().toLowerCase();
+          return t.includes(m) && t.length < 60 && e.children.length < 6;
+        },
+      );
+      if (!el) return null;
+      el.click();
+      return (el.textContent || "").trim();
+    }, name);
+    if (!hit) continue;
+    await page.waitForTimeout(1200);
+    const empty = await pageLooksEmpty(page, [/Aucune facture/i, /0\s+facture/i]);
+    if (!empty) return hit;
+  }
+  return null;
+}
+
 async function main() {
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
@@ -352,6 +401,18 @@ async function main() {
       await page.waitForTimeout(1200);
       await preparePage(page);
 
+      if (screen.recoverMonths && (await pageLooksEmpty(page, screen.empty))) {
+        const recovered = await recoverFacturesMonth(page);
+        console.log("  month recovery:", recovered || "none");
+        await preparePage(page);
+      }
+
+      if (screen.empty && (await pageLooksEmpty(page, screen.empty))) {
+        throw new Error(
+          `Empty marketing state detected — refusing to overwrite ${screen.file} (reseed demo or pick another month)`,
+        );
+      }
+
       if (screen.file === "screen-rentabilite") {
         await page.waitForSelector("svg", { timeout: 15000 }).catch(() => {});
         await page.waitForTimeout(500);
@@ -375,6 +436,8 @@ async function main() {
       const meta = await sharp(pngOut).metadata();
       results.push({
         ...screen,
+        empty: undefined,
+        recoverMonths: undefined,
         ok: true,
         png: pngOut,
         webp: webpOut,
@@ -388,7 +451,7 @@ async function main() {
         `  saved ${screen.file} ${meta.width}x${meta.height} png=${fs.statSync(pngOut).size} webp=${fs.statSync(webpOut).size}`,
       );
     } catch (err) {
-      results.push({ ...screen, ok: false, error: String(err) });
+      results.push({ ...screen, empty: undefined, recoverMonths: undefined, ok: false, error: String(err) });
       console.error(`  FAIL ${screen.file}:`, err.message || err);
     }
   }
@@ -399,6 +462,7 @@ async function main() {
     JSON.stringify(results, null, 2),
   );
   console.log("OK:", results.filter((r) => r.ok).length, "/", results.length);
+  if (results.some((r) => !r.ok)) process.exitCode = 1;
 }
 
 main().catch((e) => {

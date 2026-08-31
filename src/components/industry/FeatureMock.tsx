@@ -137,9 +137,6 @@ export function FeatureMock({ kind, label, context }: Props) {
               quality={95}
             />
           </Frame>
-          <div className="absolute bottom-5 left-4 rotate-[-2deg] md:bottom-8 md:left-8">
-            <Toast title="Pointage validé" meta="Arrivée · géoloc OK" />
-          </div>
           <div className="absolute right-4 top-4 rotate-[2deg] md:right-8 md:top-6">
             <div className="rounded-[2px] bg-brand-navy px-3 py-2 text-xs font-bold text-white shadow-lg">
               {ctx.telegestionSite}
@@ -422,9 +419,6 @@ export function FeatureMock({ kind, label, context }: Props) {
               priority={false}
             />
           </Frame>
-          <div className="absolute bottom-4 left-3 z-10 md:bottom-6 md:left-5">
-            <Toast title="Facture générée" meta="Alignée sur le réalisé" />
-          </div>
           <Frame className="absolute bottom-3 right-3 z-10 w-[40%] max-w-[180px] rotate-[1.5deg] bg-white/95 p-3 md:bottom-5 md:right-5">
             <p className="text-[10px] font-bold uppercase tracking-wide text-brand-navy-soft">Ce mois</p>
             <p className="mt-1 font-display text-lg font-extrabold text-brand-navy">Facturé</p>
