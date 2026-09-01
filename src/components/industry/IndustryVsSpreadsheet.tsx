@@ -64,9 +64,11 @@ const rows = [
 
 ] as const;
 
+type Props = {
+  title?: string;
+};
 
-
-export function IndustryVsSpreadsheet() {
+export function IndustryVsSpreadsheet({ title }: Props) {
 
   return (
 
@@ -80,7 +82,7 @@ export function IndustryVsSpreadsheet() {
 
           <h2 className="mt-3 max-w-2xl font-display text-3xl font-extrabold md:text-4xl">
 
-            PROGESTI vs le chaos quotidien
+            {title ?? "PROGESTI vs le chaos quotidien"}
 
           </h2>
 
