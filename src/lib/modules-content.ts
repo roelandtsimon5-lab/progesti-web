@@ -18,6 +18,7 @@ export type ModuleContent = {
   dayInLife?: readonly { time: string; text: string }[];
   relatedModuleSlugs: readonly string[];
   relatedIntro: string;
+  pillarLink?: { href: string; label: string };
   stats: readonly [string, string][];
   image: string;
   imageAlt: string;
@@ -82,6 +83,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     relatedModuleSlugs: ["pointage", "clients", "gestion-rh"],
     relatedIntro:
       "Le planning PROGESTI ne vit pas isolé : il s'appuie sur vos fiches clients, les pointages terrain et la gestion RH pour tenir la promesse opérationnelle.",
+    pillarLink: { href: "/logiciel-planning-nettoyage", label: "logiciel de planning pour le nettoyage" },
     stats: [
       ["Multi-sites", "Parc illimité"],
       ["Récurrences", "Auto-programmées"],
@@ -451,6 +453,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     relatedModuleSlugs: ["pointage", "impayes", "rentabilite"],
     relatedIntro:
       "La facturation PROGESTI s'appuie sur le pointage terrain et alimente le suivi des impayés et la rentabilité.",
+    pillarLink: { href: "/logiciel-facturation-proprete", label: "logiciel de facturation pour la propreté" },
     stats: [
       ["Réalisé", "Base de facturation"],
       ["0", "Double saisie ops → compta"],

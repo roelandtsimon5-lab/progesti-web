@@ -75,6 +75,21 @@ export default function AlternativePropretPage() {
           <p className="mt-2 text-sm text-slate">
             Basée sur des éléments publics — le meilleur test reste un essai sur vos propres sites.
           </p>
+          <p className="mt-4 text-sm text-slate">
+            Découvrez notre{" "}
+            <Link href="/logiciel-entreprise-nettoyage" className="font-semibold text-blue-royal hover:underline">
+              logiciel pour entreprise de nettoyage
+            </Link>
+            , avec{" "}
+            <Link href="/logiciel-planning-nettoyage" className="font-semibold text-blue-royal hover:underline">
+              logiciel de planning nettoyage
+            </Link>
+            {" "}et{" "}
+            <Link href="/logiciel-facturation-proprete" className="font-semibold text-blue-royal hover:underline">
+              logiciel de facturation pour la propreté
+            </Link>
+            {" "}intégrés.
+          </p>
 
           <div className="mt-8 md:hidden">
             <ul className="space-y-3">

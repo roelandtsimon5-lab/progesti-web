@@ -35,9 +35,10 @@ export default function PillarFacturationPage() {
         image="/screen-factures.webp"
         imageAlt="Facturation PROGESTI — factures et suivi"
         links={[
+          { href: "/logiciel-entreprise-nettoyage", label: "logiciel pour entreprise de nettoyage" },
+          { href: "/logiciel-planning-nettoyage", label: "logiciel de planning nettoyage" },
           { href: "/solutions/fin-de-chantier", label: "fin de chantier" },
           { href: "/fonctionnalites/facturation", label: "module facturation" },
-          { href: "/blog", label: "guides" },
         ]}
         trialEvent="pillar_factu_trial"
         demoEvent="pillar_factu_demo"
