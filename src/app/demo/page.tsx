@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { cta, ctaLabels, demoAppUrl } from "@/lib/cta";
 import { HeroSocialProof } from "@/components/conversion/TestimonialsSection";
-import { modules, site } from "@/lib/site";
+import { mainPlan, modules, site } from "@/lib/site";
 import { track } from "@/lib/tracking";
 
 const benefits = [
@@ -172,6 +172,12 @@ export default function DemoPage() {
                 E-mail, entreprise, prénom et téléphone — accès immédiat à la vraie application
                 PROGESTI.
               </p>
+
+              <div className="mt-4 rounded-[2px] border border-lime-cta/30 bg-lime-cta/10 px-4 py-3">
+                <p className="text-sm font-bold text-brand-navy">
+                  {mainPlan.monthly} € HT/mois · {mainPlan.users.toLowerCase()} · essai {site.trialDays} jours
+                </p>
+              </div>
 
               <input
                 type="text"
