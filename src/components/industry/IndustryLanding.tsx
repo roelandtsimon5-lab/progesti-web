@@ -36,7 +36,7 @@ type Props = {
 };
 
 export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
-  const { hero, empathy, pillars, showcase, proof, grid, faq } = config;
+  const { hero, empathy, pillars, showcase, proof, grid, faq, vsTitle } = config;
   const ctaSlug = config.slug === "default" ? "industry" : `solution_${config.slug}`;
   const solutionMeta = solutions.find((s) => s.slug === config.slug);
   const breadcrumbs =
@@ -214,7 +214,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
         </div>
       </section>
 
-      <IndustryVsSpreadsheet />
+      <IndustryVsSpreadsheet title={vsTitle} />
 
       <section className="overflow-hidden bg-white py-14 md:py-20 industry-anchor" id="showcase">
         <div className="container">

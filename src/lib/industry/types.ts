@@ -85,6 +85,8 @@ export type IndustryPageConfig = {
   faq: readonly { q: string; a: string }[];
   /** Fil d'Ariane optionnel (pages SEO hors /solutions) */
   breadcrumbs?: readonly { label: string; href: string }[];
+  /** Titre H2 du comparatif Excel/WhatsApp (optionnel) */
+  vsTitle?: string;
 };
 
 export type IndustrySlug =
