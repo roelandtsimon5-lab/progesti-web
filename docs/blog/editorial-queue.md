@@ -67,12 +67,13 @@ Format d’une ligne :
   angle: Fréquences, zones, horaires, avenants — éviter les malentendus.
   published: 2026-08-25
 
-- status: todo
+- status: done
   date: 2026-09-01
   slug: alternative-excel-planning-nettoyage-2026
   category: comparatifs
   title: Alternatives à Excel pour le planning nettoyage (2026)
   angle: Comparer approches (tableur, WhatsApp, logiciel métier) sans faux avis.
+  published: 2026-09-01
 
 - status: todo
   date: 2026-09-08
