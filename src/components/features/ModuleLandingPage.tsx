@@ -110,6 +110,7 @@ export function ModuleLandingPage({ mod, content, slug }: Props) {
           slug={slug}
           intro={content.relatedIntro}
           modules={related.map((m) => ({ slug: m.slug, title: m.title, short: m.short }))}
+          pillarLink={content.pillarLink}
         />
       ) : null}
 

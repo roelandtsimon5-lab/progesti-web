@@ -11,14 +11,20 @@ type ModuleLink = {
   short: string;
 };
 
+type PillarLink = {
+  href: string;
+  label: string;
+};
+
 type Props = {
   moduleTitle: string;
   slug: string;
   intro: string;
   modules: readonly ModuleLink[];
+  pillarLink?: PillarLink;
 };
 
-export function ModuleConnectStrip({ moduleTitle, slug, intro, modules: related }: Props) {
+export function ModuleConnectStrip({ moduleTitle, slug, intro, modules: related, pillarLink }: Props) {
   const currentIcon = getModuleNavIcon(slug);
 
   return (
@@ -28,7 +34,18 @@ export function ModuleConnectStrip({ moduleTitle, slug, intro, modules: related 
         <h2 className="mt-2 font-sans text-xl font-extrabold text-brand-navy md:text-2xl">
           {moduleTitle} ne fonctionne pas isolé
         </h2>
-        <p className="mt-2 max-w-2xl text-sm text-slate">{intro}</p>
+        <p className="mt-2 max-w-2xl text-sm text-slate">
+          {intro}
+          {pillarLink ? (
+            <>
+              {" "}Découvrez aussi notre{" "}
+              <Link href={pillarLink.href} className="font-semibold text-brand-navy hover:underline">
+                {pillarLink.label}
+              </Link>
+              .
+            </>
+          ) : null}
+        </p>
 
         <div className="mt-8 grid gap-4 lg:grid-cols-[1fr_auto_1fr] lg:items-stretch lg:gap-6">
           <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 lg:gap-4">

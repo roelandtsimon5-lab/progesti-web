@@ -86,7 +86,7 @@ export function IndustryVsSpreadsheet() {
 
           <p className="mt-4 max-w-xl text-slate">
 
-            Pensé pour la propreté en France — prix public, modules métier, support local au {site.phone}.
+            Notre <Link href="/logiciel-entreprise-nettoyage" className="link-accent font-semibold">logiciel pour entreprise de nettoyage</Link> est pensé pour la propreté en France — prix public, modules métier, support local au {site.phone}.
 
           </p>
 

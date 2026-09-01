@@ -36,6 +36,7 @@ export default function PillarPlanningPage() {
         imageAlt="Planning PROGESTI — vue semaine des passages"
         links={[
           { href: "/logiciel-entreprise-nettoyage", label: "logiciel nettoyage" },
+          { href: "/logiciel-facturation-proprete", label: "logiciel de facturation pour la propreté" },
           { href: "/solutions/bureaux", label: "bureaux" },
           { href: "/solutions/syndics", label: "syndics" },
         ]}
