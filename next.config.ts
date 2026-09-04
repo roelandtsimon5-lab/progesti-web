@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Marketing redirects
       { source: "/signup", destination: "/essai-gratuit", permanent: true },
       { source: "/clients", destination: "/cas-clients", permanent: true },
       { source: "/nouveau", destination: "/", permanent: true },
@@ -22,15 +23,7 @@ const nextConfig: NextConfig = {
         destination: "/blog/tarif-unique-logiciel-nettoyage",
         permanent: true,
       },
-    ];
-  },
-  /**
-   * Permanent 301 redirects for URLs removed after Home V2 module rename.
-   * Added 2026-08-19 to fix 404s on live site.
-   */
-  async redirects() {
-    return [
-      // Feature pages merged or removed in Home V2
+      // Feature pages merged or removed in Home V2 (added 2026-08-19)
       {
         source: "/fonctionnalites/bon-intervention",
         destination: "/fonctionnalites/pointage",
