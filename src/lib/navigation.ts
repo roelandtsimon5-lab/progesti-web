@@ -214,7 +214,7 @@ export const resourcesMegaMenu: NavMegaMenu = {
     {
       title: "Entreprise",
       items: [
-        { label: "Tarifs", href: "/tarifs", hint: "149 € HT/mois tout inclus" },
+        { label: "Tarifs", href: "/tarifs", hint: "Dès 29,99 € HT/mois tout inclus" },
         { label: "Contact", href: "/contact", hint: site.phone },
         { label: "À propos", href: "/a-propos", hint: "MSNE SAS · Toulouse" },
       ],

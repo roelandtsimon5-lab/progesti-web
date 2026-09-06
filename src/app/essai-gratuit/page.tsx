@@ -61,6 +61,7 @@ export default function EssaiGratuitPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           intent: "trial",
+          campaign: "essai-gratuit",
           email,
           company,
           name,
@@ -140,7 +141,7 @@ export default function EssaiGratuitPage() {
                 `${site.trialDays} jours gratuits sans engagement`,
                 "Tous les modules ouverts (planning, pointage, facture…)",
                 "Données de démo pour démarrer vite",
-                "149 € HT/mois · Mise en place offerte",
+                "Dès 29,99 € HT/mois · Mise en place offerte",
               ].map((item) => (
                 <li key={item} className="flex gap-3 font-medium">
                   <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-[2px] bg-lime-cta/20 text-brand-navy">

@@ -11,8 +11,7 @@ import { modules, site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Alternative à Propret — Comparaison logiciels propreté",
-  description:
-    `Vous cherchez une alternative à Propret ? Découvrez PROGESTI : ${trialCopy.label.toLowerCase()}, 149 € HT/mois tout inclus (5 utilisateurs). Comparaison factuelle des tarifs et fonctionnalités.`,
+  description: `Vous cherchez une alternative à Propret ? Découvrez PROGESTI : ${trialCopy.label.toLowerCase()}, dès 29,99 € HT/mois (Starter, Pro, Premium). Comparaison factuelle des tarifs et fonctionnalités.`,
   path: "/alternative-propret",
 });
 
@@ -20,26 +19,26 @@ const pricingRows = [
   {
     label: "Formule entrée",
     propret: "29,99 € HT/mois",
-    progesti: "149 € HT/mois",
+    progesti: "29,99 € HT/mois (Starter)",
   },
   {
     label: "Formule intermédiaire",
     propret: "49,99 € HT/mois",
-    progesti: "149 € HT/mois (même tarif)",
+    progesti: "49,99 € HT/mois (Pro)",
   },
   {
     label: "Formule avancée",
     propret: "99,99 € HT/mois",
-    progesti: "149 € HT/mois (même tarif)",
+    progesti: "99,99 € HT/mois (Premium)",
   },
   {
     label: "Utilisateurs inclus",
-    propret: "Variable selon formule",
-    progesti: "Jusqu'à 5 utilisateurs",
+    propret: "Starter 1 · Pro 5 · Premium 20",
+    progesti: "Starter 1 · Pro 5 · Premium 20",
   },
   {
     label: "Modules",
-    propret: "Selon formule",
+    propret: "Tous inclus (annonce)",
     progesti: `${modules.length} modules · tous inclus`,
   },
   {
@@ -98,7 +97,6 @@ export default function AlternativePropretPage() {
         demoEvent="alt_propret_demo"
       />
 
-      {/* Section intro */}
       <section className="section bg-white">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
@@ -128,7 +126,6 @@ export default function AlternativePropretPage() {
         </div>
       </section>
 
-      {/* Section tarifs */}
       <section className="section bg-blue-sky/30">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
@@ -139,7 +136,6 @@ export default function AlternativePropretPage() {
             pour les conditions actuelles.
           </p>
 
-          {/* Mobile pricing */}
           <div className="mt-8 md:hidden">
             <ul className="space-y-3">
               {pricingRows.map((row) => (
@@ -159,7 +155,6 @@ export default function AlternativePropretPage() {
             </ul>
           </div>
 
-          {/* Desktop pricing table */}
           <div className="mt-8 hidden overflow-x-auto md:block">
             <table className="w-full min-w-[640px] border-collapse text-left text-sm">
               <thead>
@@ -191,16 +186,14 @@ export default function AlternativePropretPage() {
 
           <div className="mt-6 rounded-[3px] border-l-4 border-lime-cta bg-white p-4">
             <p className="text-sm text-slate">
-              <strong className="text-blue-deep">À noter :</strong> Propret propose trois paliers
-              tarifaires (29,99 / 49,99 / 99,99 € HT/mois) avec un essai de 14 jours. PROGESTI
-              propose un tarif unique à 149 € HT/mois incluant tous les modules et jusqu&apos;à
-              5 utilisateurs, avec un essai de {site.trialDays} jours sans carte bancaire.
+              <strong className="text-blue-deep">À noter :</strong> Propret et PROGESTI affichent
+              trois paliers publics (29,99 / 49,99 / 99,99 € HT/mois) avec tous les modules inclus.
+              PROGESTI propose un essai de {site.trialDays} jours sans carte bancaire.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section fonctionnalités */}
       <section className="section bg-white">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
@@ -211,7 +204,6 @@ export default function AlternativePropretPage() {
             ci-dessous résume les points vérifiables publiquement.
           </p>
 
-          {/* Mobile features */}
           <div className="mt-8 md:hidden">
             <ul className="space-y-3">
               {featureRows.map((row) => (
@@ -231,7 +223,6 @@ export default function AlternativePropretPage() {
             </ul>
           </div>
 
-          {/* Desktop features table */}
           <div className="mt-8 hidden overflow-x-auto md:block">
             <table className="w-full min-w-[640px] border-collapse text-left text-sm">
               <thead>
@@ -263,7 +254,6 @@ export default function AlternativePropretPage() {
         </div>
       </section>
 
-      {/* Section différences clés */}
       <section className="section bg-blue-sky/30">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
@@ -273,20 +263,16 @@ export default function AlternativePropretPage() {
             <div className="rounded-[3px] border border-blue-mist/70 bg-white p-5">
               <h3 className="font-display text-lg font-bold text-blue-deep">Modèle tarifaire</h3>
               <p className="mt-2 text-sm text-slate">
-                Propret propose plusieurs paliers (de 29,99 à 99,99 € HT/mois) selon les besoins.
-                PROGESTI applique un tarif unique (149 € HT/mois) incluant tous les modules et
-                jusqu&apos;à 5 utilisateurs. Si vous avez une petite équipe et n&apos;avez pas besoin de
-                toutes les fonctions, Propret peut coûter moins cher. Si vous voulez tout inclus
-                sans surprise, PROGESTI simplifie le calcul.
+                Les deux outils affichent des tarifs publics Starter / Pro / Premium (29,99 / 49,99 /
+                99,99 € HT/mois). Chez PROGESTI, tous les modules sont inclus dans chaque offre —
+                pas de surprise en fin de mois.
               </p>
             </div>
             <div className="rounded-[3px] border border-blue-mist/70 bg-white p-5">
               <h3 className="font-display text-lg font-bold text-blue-deep">Durée d&apos;essai</h3>
               <p className="mt-2 text-sm text-slate">
                 Propret affiche un essai de 14 jours. PROGESTI propose {site.trialDays} jours
-                d&apos;essai sans carte bancaire requise. L&apos;essai plus court de PROGESTI peut suffire
-                si vous savez rapidement ce que vous cherchez ; l&apos;essai plus long de Propret
-                convient si vous préférez tester sans urgence.
+                d&apos;essai sans carte bancaire requise pour démarrer.
               </p>
             </div>
             <div className="rounded-[3px] border border-blue-mist/70 bg-white p-5">
@@ -301,7 +287,6 @@ export default function AlternativePropretPage() {
         </div>
       </section>
 
-      {/* Section quand choisir PROGESTI */}
       <section className="section bg-white">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
@@ -310,9 +295,9 @@ export default function AlternativePropretPage() {
           <div className="prose prose-slate mt-4 max-w-none">
             <p>
               PROGESTI s&apos;adresse aux gérants d&apos;entreprises de nettoyage qui veulent un outil
-              complet sans avoir à assembler des modules ou à comparer des paliers tarifaires.
-              Le tarif unique (149 € HT/mois, 5 utilisateurs) convient particulièrement aux
-              structures de 2 à 5 personnes au bureau qui gèrent plusieurs agents terrain.
+              complet avec des tarifs publics clairs. L&apos;offre Starter (29,99 € HT/mois) convient
+              aux auto-entrepreneurs ; Pro et Premium accompagnent la croissance jusqu&apos;à 20
+              utilisateurs.
             </p>
             <p>
               Concrètement, PROGESTI couvre toute la chaîne opérationnelle d&apos;une entreprise
@@ -356,7 +341,6 @@ export default function AlternativePropretPage() {
         </div>
       </section>
 
-      {/* Section liens utiles */}
       <section className="section bg-blue-sky/30">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
@@ -402,7 +386,6 @@ export default function AlternativePropretPage() {
         </div>
       </section>
 
-      {/* Section CTA finale */}
       <section className="section bg-white pb-28 lg:pb-16">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">

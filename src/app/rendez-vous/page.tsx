@@ -36,7 +36,12 @@ export default function RendezVousPage() {
             <h2 className="font-display text-2xl font-extrabold text-blue-deep">Formulaire de qualification</h2>
             <p className="mt-2 text-sm text-slate">Nous vous recontactons pour proposer un créneau.</p>
             <div className="mt-6">
-              <LeadForm id="rdv-form" intent="rdv" submitLabel="Demander un créneau" />
+              <LeadForm
+                id="rdv-form"
+                intent="rdv"
+                campaign="rendez-vous"
+                submitLabel="Demander un créneau"
+              />
             </div>
           </div>
           <div className="rounded-[3px] border border-lime-cta/40 bg-[#F5F8FB] p-6 md:p-8">

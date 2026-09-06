@@ -187,7 +187,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: "offre-progesti",
     term: "Offre PROGESTI",
     definition:
-      "149 € HT/mois, jusqu'à 5 utilisateurs, tous modules inclus. Prix clair, sans surprise.",
+      "Dès 29,99 € HT/mois — Starter, Pro ou Premium, tous modules inclus. Prix clair, sans surprise.",
     related: ["/tarifs"],
   },
   {

@@ -7,6 +7,8 @@ import { notifyNewLead } from "@/lib/lead-notify";
 type LeadBody = {
   intent?: string;
   campaign?: string;
+  /** Alias accepté — normalisé vers campaign. */
+  source?: string;
   email?: string;
   name?: string;
   company?: string;
@@ -113,10 +115,13 @@ export async function POST(request: Request) {
 
     const phoneStored = phone || null;
 
+    const campaignRaw = String(body.campaign || body.source || "").trim();
+    const campaign = campaignRaw || `site_${intent}`;
+
     const lead = {
       at: new Date().toISOString(),
       intent,
-      campaign: body.campaign || null,
+      campaign,
       email,
       name,
       company: company || null,

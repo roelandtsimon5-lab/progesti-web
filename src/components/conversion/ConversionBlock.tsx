@@ -84,7 +84,7 @@ export function ConversionBlock({ variant = "demo", className = "" }: Props) {
           </ButtonLink>
         </div>
         <p className="mt-6 text-sm text-white/75">
-          149 € HT/mois · Tous modules inclus · Support FR
+          dès 29,99 € HT/mois · Tous modules inclus · Support FR
         </p>
       </div>
     </section>

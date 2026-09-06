@@ -29,7 +29,7 @@ export function FinalPush({
 
   title = "Prêt à structurer votre activité ?",
 
-  lead = `149 € HT/mois tout inclus · ${ctaLabels.trialShort} sans CB · support ${socialProofStats.rating}/5`,
+  lead = `Dès 29,99 € HT/mois tout inclus · ${ctaLabels.trialShort} sans CB · support ${socialProofStats.rating}/5`,
 
   className = "",
 

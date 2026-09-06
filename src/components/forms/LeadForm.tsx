@@ -5,6 +5,8 @@ import { track } from "@/lib/tracking";
 
 type Props = {
   intent: "contact" | "demo" | "callback" | "switch" | "onboarding" | "rdv" | "trial";
+  /** Origine du formulaire (toujours envoyée au lead). */
+  campaign?: string;
   submitLabel?: string;
   compact?: boolean;
   id?: string;
@@ -27,10 +29,17 @@ function collectInvalidFields(form: HTMLFormElement, intent: Props["intent"]): S
   return invalid;
 }
 
-export function LeadForm({ intent, submitLabel = "Envoyer", compact = false, id }: Props) {
+export function LeadForm({
+  intent,
+  campaign,
+  submitLabel = "Envoyer",
+  compact = false,
+  id,
+}: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [message, setMessage] = useState("");
   const [invalidFields, setInvalidFields] = useState<Set<FieldKey>>(new Set());
+  const source = campaign || `site_${intent}`;
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -55,8 +64,9 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false, id 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          intent,
           ...data,
+          intent,
+          campaign: source,
           name: String(data.name || "").trim(),
           phone: String(data.phone || "").trim() || undefined,
         }),
@@ -69,7 +79,7 @@ export function LeadForm({ intent, submitLabel = "Envoyer", compact = false, id 
         setMessage(err);
         throw new Error("fail");
       }
-      track("form_submit", { intent });
+      track("form_submit", { intent, source });
       setStatus("ok");
       setInvalidFields(new Set());
       form.reset();

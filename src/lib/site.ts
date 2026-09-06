@@ -9,7 +9,7 @@ export const site = {
   phone: "05 82 95 09 19",
   phoneTel: "+33582950919",
   sameAs: [] as readonly string[],
-  trialDays: 7,
+  trialDays: 15,
   /** @deprecated Use trialDays. Kept for backward compatibility with ads pages. */
   trialMonths: 2,
   company: {
@@ -77,7 +77,7 @@ export const solutions = [
     slug: "auto-entrepreneurs",
     title: "Auto-entrepreneurs & petites équipes",
     navHint: "Indépendants, TPE propreté",
-    headline: "Démarrer sans usine à gaz — 149 € HT/mois",
+    headline: "Démarrer sans usine à gaz — dès 29,99 € HT/mois",
     lead:
       "Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures. Demandez une démo.",
   },
@@ -142,39 +142,45 @@ export const modules = [
 
 export type BillingPeriod = "month" | "year";
 
-export const mainPlan = {
-  id: "progesti",
-  name: "PROGESTI",
-  users: "Jusqu'à 5 utilisateurs",
-  monthly: 149,
-  yearly: 1490,
-  yearlyStrike: 1788,
-  features: [
-    "Tous les modules inclus",
-    "Planning & affectations",
-    "Pointage & télégestion",
-    "Clients & sites illimités",
-    "Devis & facturation",
-    "Gestion des impayés",
-    "RH & prépaie",
-    "Tableaux de bord",
-    "CRM intégré",
-    "App mobile agents",
-    "Support FR inclus",
-  ],
-} as const;
+/** Prix plan avec centimes (ex. 29,99 €). */
+export function formatPlanPrice(value: number) {
+  return new Intl.NumberFormat("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value);
+}
 
-/** @deprecated Use mainPlan. Kept for backward compatibility with ads pages. */
-export const legacyPlans = [
+/** Alias historique — affiche toujours les centimes pour les offres Starter/Pro/Premium. */
+export function formatEuro(value: number) {
+  return formatPlanPrice(value);
+}
+
+/** Features communes à toutes les offres (aligné Propret). */
+export const planInclusions = [
+  "Comptes clients illimités",
+  "Stockage illimité",
+  "Mise en place offerte",
+  "Mises à jour gratuites",
+  "1 Administrateur principal",
+  "Cloud, app Android & iOS",
+  "Tous les modules fonctionnels",
+  "Fiches clients et sites illimitées",
+  "Maintenance comprise",
+] as const;
+
+export const plans = [
   {
     id: "starter",
     name: "Starter",
-    users: "1 administrateur",
+    users: "1 administrateur principal",
     monthly: 29.99,
     yearly: 299.9,
     yearlyStrike: 359.88,
     perUserHint: null as string | null,
     highlight: false,
+    features: planInclusions,
   },
   {
     id: "pro",
@@ -183,8 +189,9 @@ export const legacyPlans = [
     monthly: 49.99,
     yearly: 499.9,
     yearlyStrike: 599.88,
-    perUserHint: "Soit 9,99€ HT / utilisateur",
+    perUserHint: "Soit 9,99€ HT par utilisateur",
     highlight: true,
+    features: planInclusions,
   },
   {
     id: "premium",
@@ -193,25 +200,42 @@ export const legacyPlans = [
     monthly: 99.99,
     yearly: 999.9,
     yearlyStrike: 1199.88,
-    perUserHint: "Soit 4,99€ HT / utilisateur",
+    perUserHint: "Soit 4,99€ HT par utilisateur",
     highlight: false,
+    features: planInclusions,
   },
 ] as const;
 
-export const plans = legacyPlans;
+/** Offre d’entrée — prix affiché « dès … » et schema.org. */
+export const starterPlan = plans[0];
+/** Offre mise en avant (le plus populaire). */
+export const proPlan = plans[1];
 
-export const planInclusions = [
-  "Clients & sites illimités",
-  "Tous les modules inclus",
-  "App mobile Android & iOS",
-  "Mise en place accompagnée",
-  "Support FR inclus",
-  "Mises à jour gratuites",
-] as const;
+/** @deprecated Prefer starterPlan / plans. Kept for callers expecting a single plan shape. */
+export const mainPlan = {
+  id: starterPlan.id,
+  name: starterPlan.name,
+  users: starterPlan.users,
+  monthly: starterPlan.monthly,
+  yearly: starterPlan.yearly,
+  yearlyStrike: starterPlan.yearlyStrike,
+  features: [...starterPlan.features],
+} as const;
+
+/** @deprecated Alias — use plans. */
+export const legacyPlans = plans;
+
+export const pricingCopy = {
+  from: `dès ${formatPlanPrice(starterPlan.monthly)} HT/mois`,
+  fromShort: `dès ${formatPlanPrice(starterPlan.monthly)}`,
+  fromBadge: `Dès ${formatPlanPrice(starterPlan.monthly)} HT/mois`,
+  allInclusive: "tous modules inclus dans chaque offre",
+  plansSummary: `Starter ${formatPlanPrice(plans[0].monthly)} · Pro ${formatPlanPrice(plans[1].monthly)} · Premium ${formatPlanPrice(plans[2].monthly)} HT/mois`,
+} as const;
 
 export const trustBadges = [
   { title: trialCopy.label, text: "Sans engagement" },
-  { title: "149 € HT/mois", text: "Tout inclus" },
+  { title: pricingCopy.fromBadge, text: "Tarifs publics" },
   { title: "Support FR", text: "Équipe à Toulouse" },
   { title: "Mobile", text: "Android & iOS" },
 ] as const;
@@ -227,7 +251,7 @@ export const whyPoints = [
   },
   {
     title: "Prix clair, tout inclus",
-    text: "149 € HT/mois, jusqu'à 5 utilisateurs. Pas de module surprise. Vous savez exactement ce que vous payez.",
+    text: `${pricingCopy.from} — Starter, Pro ou Premium. Pas de module surprise. Vous savez exactement ce que vous payez.`,
   },
 ] as const;
 
@@ -253,7 +277,7 @@ export const benefits = [
 export const faqItems = [
   {
     q: "Combien coûte PROGESTI ?",
-    a: "149 € HT par mois, jusqu'à 5 utilisateurs, tous les modules inclus. Pas de frais d'installation ni de module en supplément.",
+    a: "Trois offres publiques : Starter 29,99 € HT/mois (1 administrateur), Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois (20 utilisateurs). Tous les modules inclus, mise en place offerte.",
   },
   {
     q: "Pour qui est fait PROGESTI ?",
@@ -289,7 +313,7 @@ export const faqItems = [
   },
   {
     q: "PROGESTI est-il adapté aux TPE ?",
-    a: "Oui. L'offre à 149 € HT/mois est conçue pour les petites structures comme pour les entreprises multi-équipes.",
+    a: "Oui. L'offre Starter à 29,99 € HT/mois est conçue pour les auto-entrepreneurs et petites structures ; Pro et Premium accompagnent la croissance.",
   },
   {
     q: "Comment demander une démo ?",
@@ -312,12 +336,3 @@ export const blogCategories = [
   { slug: "fin-de-chantier", label: "Fin de chantier" },
   { slug: "reglementation", label: "Réglementation & bonnes pratiques" },
 ] as const;
-
-export function formatEuro(value: number) {
-  return new Intl.NumberFormat("fr-FR", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(value);
-}

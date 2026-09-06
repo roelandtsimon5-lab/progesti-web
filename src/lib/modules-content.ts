@@ -33,7 +33,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Construisez la semaine de vos équipes de nettoyage en quelques clics : récurrences, titulaires, remplacements et multi-sites dans un seul planning partagé avec le terrain.",
     seoTitle: "Planning nettoyage professionnel",
     seoDescription:
-      "Planning multi-sites pour entreprises de nettoyage : récurrences, affectations et remplacements sans Excel. Inclus à 149 € HT/mois, 5 utilisateurs, essai 7 jours.",
+      "Planning multi-sites pour entreprises de nettoyage : récurrences, affectations et remplacements sans Excel. Inclus dès 29,99 € HT/mois, essai 15 jours.",
     benefits: [
       {
         title: "Fréquences qui tiennent",
@@ -51,7 +51,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     problemBody:
       "Dans une entreprise de nettoyage qui grandit, le planning finit presque toujours dans Excel. Une feuille par semaine, une couleur par agent, des onglets par client — et dès qu'un remplacement tombe un mardi matin, tout le monde appelle tout le monde. Les consignes d'accès traînent dans WhatsApp, les fréquences syndic ne correspondent plus à ce qui est réellement passé, et personne ne sait si le backup a bien été prévenu. Le responsable d'exploitation reconstruit la semaine le dimanche soir ; le commercial promet un créneau sans voir la charge réelle ; la facturation découvre des passages oubliés en fin de mois. Résultat : retards sur site, heures perdues au téléphone, litiges avec les syndics et une équipe terrain qui consulte un PDF périmé dès le premier imprévu. Le problème n'est pas le manque de rigueur : c'est l'absence d'un planning unique, partagé et connecté au reste de l'activité.",
     solutionBody:
-      "PROGESTI centralise votre planning dans un outil pensé pour le nettoyage professionnel. Vous créez vos sites, vos fréquences et vos titulaires une seule fois ; les récurrences se déroulent seules, et chaque modification se propage sur le mobile des agents. Vue par site pour préparer une tournée immeuble, vue par agent pour équilibrer la charge : vous basculez en un clic. Les absences et remplacements se gèrent au même endroit que les affectations, sans copier-coller vers une autre feuille. Le terrain consulte le planning à jour sur l'application ; le bureau voit en direct ce qui est prévu et ce qui a été pointé. Quand un passage est validé, les données alimentent la facturation et le suivi client — plus de double saisie entre Excel, messagerie et logiciel comptable. Pour 149 € HT par mois, jusqu'à 5 utilisateurs, le module planning est inclus avec tous les autres. Essai gratuit 7 jours, sans carte bancaire.",
+      "PROGESTI centralise votre planning dans un outil pensé pour le nettoyage professionnel. Vous créez vos sites, vos fréquences et vos titulaires une seule fois ; les récurrences se déroulent seules, et chaque modification se propage sur le mobile des agents. Vue par site pour préparer une tournée immeuble, vue par agent pour équilibrer la charge : vous basculez en un clic. Les absences et remplacements se gèrent au même endroit que les affectations, sans copier-coller vers une autre feuille. Le terrain consulte le planning à jour sur l'application ; le bureau voit en direct ce qui est prévu et ce qui a été pointé. Quand un passage est validé, les données alimentent la facturation et le suivi client — plus de double saisie entre Excel, messagerie et logiciel comptable. Dès 29,99 € HT par mois, le module planning est inclus avec tous les autres. Essai gratuit 15 jours, sans carte bancaire.",
     solutionBullets: [
       "Récurrences par site : quotidien, hebdo, mensuel ou sur mesure",
       "Titulaire et backup par passage, visibles bureau et mobile",
@@ -96,7 +96,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "Peut-on gérer des récurrences complexes par site ?", a: "Oui. Fréquences libres par site, avec titulaire, backup et consignes d'accès rattachées au passage." },
       { q: "Le planning est-il visible sur mobile pour les agents ?", a: "Oui. Chaque agent consulte ses passages du jour et les mises à jour en direct sur l'application Android ou iOS." },
       { q: "Comment gérer un remplacement de dernière minute ?", a: "Réaffectez le passage depuis la vue semaine : le nouvel agent reçoit la tournée à jour sans appels en chaîne." },
-      { q: "Le module planning est-il payant en supplément ?", a: "Non. Il est inclus dans l'offre à 149 € HT par mois, jusqu'à 5 utilisateurs, tous modules compris." },
+      { q: "Le module planning est-il payant en supplément ?", a: "Non. Il est inclus dans l'offre dès 29,99 € HT par mois, tous modules compris." },
       { q: "Peut-on planifier plusieurs sites pour un même client ?", a: "Oui. Chaque site a ses propres fréquences et affectations, regroupés sous la fiche client." },
       { q: "Un accompagnement est-il proposé à la mise en place ?", a: "Oui. L'équipe PROGESTI vous aide à structurer vos sites et fréquences lors de la prise en main." },
     ],
@@ -133,7 +133,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Vos agents pointent arrivée et départ depuis leur mobile : heures horodatées, géolocalisation optionnelle et remontée bureau en direct pour la paie et la facturation.",
     seoTitle: "Pointage & télégestion nettoyage",
     seoDescription:
-      "Pointage mobile avec géolocalisation pour équipes de nettoyage. Heures terrain en direct, moins de litiges. Inclus à 149 € HT/mois. Essai 7 jours sans CB.",
+      "Pointage mobile avec géolocalisation pour équipes de nettoyage. Heures terrain en direct, moins de litiges. Inclus dès 29,99 € HT/mois. Essai 15 jours sans CB.",
     benefits: [
       {
         title: "Arrivée / départ terrain",
@@ -151,7 +151,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     problemBody:
       "Sans outil de pointage adapté, les entreprises de nettoyage s'appuient sur des feuilles signées, des SMS « je suis arrivé » ou la bonne foi des équipes. Le bureau reçoit les documents en fin de semaine, parfois illisibles ou incomplets. Un client conteste des heures facturées ; le responsable fouille dans un classeur pour retrouver une signature. Les agents oublient de noter un départ, doublent une arrivée ou pointent au mauvais site quand ils enchaînent trois immeubles le matin. La prépaie repose sur des estimations, la facturation sur des durées théoriques plutôt que le réalisé. Les litiges s'accumulent — avec les clients, avec les salariés, avec l'URSSAF quand les heures ne collent pas. Et personne n'a une vue claire de ce qui se passe réellement sur le terrain à 9 h un mardi.",
     solutionBody:
-      "Le module Pointage & télégestion de PROGESTI transforme le smartphone de vos agents en outil de contrôle horaire connecté au reste de l'activité. Depuis l'application mobile, ils consultent leur planning du jour et pointent arrivée et départ sur chaque site. L'horodatage est automatique ; la géolocalisation, si vous l'activez, confirme la présence sur site sans micromanagement. Le bureau voit les statuts en direct : qui est en intervention, où, depuis quand. Ces heures terrain alimentent directement la gestion RH pour les variables de paie et la facturation pour facturer le réalisé — pas une durée théorique héritée du devis. Moins de ressaisie, moins de contestations, plus de traçabilité en cas de litige client. Tout est inclus dans l'offre à 149 € HT par mois, 5 utilisateurs, essai 7 jours sans carte bancaire. Support français au 05 82 95 09 19.",
+      "Le module Pointage & télégestion de PROGESTI transforme le smartphone de vos agents en outil de contrôle horaire connecté au reste de l'activité. Depuis l'application mobile, ils consultent leur planning du jour et pointent arrivée et départ sur chaque site. L'horodatage est automatique ; la géolocalisation, si vous l'activez, confirme la présence sur site sans micromanagement. Le bureau voit les statuts en direct : qui est en intervention, où, depuis quand. Ces heures terrain alimentent directement la gestion RH pour les variables de paie et la facturation pour facturer le réalisé — pas une durée théorique héritée du devis. Moins de ressaisie, moins de contestations, plus de traçabilité en cas de litige client. Tout est inclus dans l'offre dès 29,99 € HT par mois, essai 15 jours sans carte bancaire. Support français au 05 82 95 09 19.",
     solutionBullets: [
       "Pointage arrivée / départ depuis l'app mobile Android et iOS",
       "Géolocalisation optionnelle pour confirmer la présence sur site",
@@ -196,7 +196,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "La géolocalisation est-elle obligatoire ?", a: "Non, c'est optionnel. Vous choisissez de l'activer selon vos contrats et votre politique interne." },
       { q: "Les heures pointées sont-elles utilisées pour la facturation ?", a: "Oui. Les heures terrain alimentent la facturation au réalisé et le module RH pour les variables de paie." },
       { q: "Que se passe-t-il si un agent oublie de pointer ?", a: "Le bureau voit les passages sans pointage et peut corriger ou relancer l'agent depuis PROGESTI." },
-      { q: "Le module est-il inclus dans le tarif ?", a: "Oui — 149 € HT par mois, jusqu'à 5 utilisateurs, tous modules compris. Essai 7 jours sans carte bancaire." },
+      { q: "Le module est-il inclus dans le tarif ?", a: "Oui — Dès 29,99 € HT par mois, tous modules compris (Starter, Pro ou Premium). Essai 15 jours sans carte bancaire." },
       { q: "Peut-on consulter l'historique par client ?", a: "Oui. Filtrez par site, agent ou période pour répondre à un litige ou un contrôle." },
     ],
     useCases: [
@@ -232,7 +232,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Centralisez fiches clients, sites rattachés, consignes d'accès et historique d'interventions : une seule base partagée entre commercial, exploitation et facturation.",
     seoTitle: "Gestion clients & sites nettoyage",
     seoDescription:
-      "Fiches clients, sites illimités et historique pour entreprises de nettoyage. Fini les infos dispersées. Inclus à 149 € HT/mois. Essai 7 jours sans carte bancaire.",
+      "Fiches clients, sites illimités et historique pour entreprises de nettoyage. Fini les infos dispersées. Inclus dès 29,99 € HT/mois. Essai 15 jours sans carte bancaire.",
     benefits: [
       { title: "Fiches clients complètes", text: "Contacts, contrats, sites rattachés — une seule vérité pour toute l'équipe." },
       { title: "Infos d'accès centralisées", text: "Codes, clés, consignes : fini les messages perdus dans WhatsApp ou les mails." },
@@ -241,7 +241,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     problemBody:
       "Les informations client d'une entreprise de nettoyage sont rarement au même endroit. Le commercial a les contacts dans son carnet, l'exploitant les codes d'accès dans un groupe WhatsApp, la comptabilité les adresses de facturation dans un dossier Excel. Quand un agent remplace un collègue sur un immeuble, personne ne sait où trouver le badge parking. Un renouvellement de contrat arrive : il faut recomposer l'historique des passages à la main. Un syndic réclame un relevé trimestriel, et vous passez une demi-journée à croiser planning, factures et feuilles de présence. Les sites se multiplient — bureaux, résidences, locaux industriels — sans structure commune. Chaque départ d'employé emporte avec lui une partie du savoir client. La croissance devient un risque opérationnel plutôt qu'un levier.",
     solutionBody:
-      "Le module Clients de PROGESTI structure votre portefeuille autour d'une fiche par client, avec autant de sites rattachés que nécessaire. Contacts, adresses, conditions contractuelles, consignes d'accès et documents utiles vivent au même endroit — accessibles au bureau et, pour le terrain, via le mobile sur chaque passage. Chaque site alimente directement le planning et reçoit en retour l'historique des interventions, pointages et factures associées. Quand le commercial crée un devis, il part de la fiche existante ; quand l'exploitant planifie, les données sont déjà là ; quand la compta facture, le lien client-site est intact. Clients et sites illimités, inclus dans l'offre à 149 € HT par mois pour 5 utilisateurs. Import possible avec accompagnement. Essai 7 jours sans carte bancaire.",
+      "Le module Clients de PROGESTI structure votre portefeuille autour d'une fiche par client, avec autant de sites rattachés que nécessaire. Contacts, adresses, conditions contractuelles, consignes d'accès et documents utiles vivent au même endroit — accessibles au bureau et, pour le terrain, via le mobile sur chaque passage. Chaque site alimente directement le planning et reçoit en retour l'historique des interventions, pointages et factures associées. Quand le commercial crée un devis, il part de la fiche existante ; quand l'exploitant planifie, les données sont déjà là ; quand la compta facture, le lien client-site est intact. Clients et sites illimités, inclus dans l'offre dès 29,99 € HT par mois. Import possible avec accompagnement. Essai 15 jours sans carte bancaire.",
     solutionBullets: [
       "Fiche client avec contacts, contrat et documents",
       "Sites illimités rattachés, chacun avec ses consignes",
@@ -282,7 +282,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     image: "/screen-clients.webp",
     imageAlt: "Module Clients PROGESTI — fiches clients et sites pour entreprises de nettoyage",
     faq: [
-      { q: "Combien de clients et sites puis-je créer ?", a: "Clients et sites illimités dans l'offre à 149 € HT par mois, sans supplément par site." },
+      { q: "Combien de clients et sites puis-je créer ?", a: "Clients et sites illimités dans l'offre dès 29,99 € HT par mois, sans supplément par site." },
       { q: "Peut-on importer une base existante ?", a: "Oui. PROGESTI propose un import avec accompagnement pour reprendre vos fiches clients et sites." },
       { q: "Les agents voient-ils les consignes d'accès ?", a: "Oui. Les consignes sont visibles sur mobile lors de chaque passage planifié." },
       { q: "L'historique inclut-il les pointages et factures ?", a: "Oui. Par site, vous retrouvez interventions, heures et factures associées." },
@@ -322,7 +322,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Créez des devis professionnels rattachés à vos fiches clients, suivez les acceptations et convertissez en contrat et planning sans ressaisie.",
     seoTitle: "Devis nettoyage professionnel",
     seoDescription:
-      "Devis structurés pour entreprises de nettoyage, liés aux clients et sites. Conversion contrat sans ressaisie. 149 € HT/mois, essai 7 jours sans CB.",
+      "Devis structurés pour entreprises de nettoyage, liés aux clients et sites. Conversion contrat sans ressaisie. Dès 29,99 € HT/mois, essai 15 jours sans CB.",
     benefits: [
       { title: "Devis structurés", text: "Rattachés au client et aux sites — plus de fichiers Word éparpillés sur le bureau." },
       { title: "Envoi rapide", text: "Le commercial et l'exploitation partagent la même base client à jour." },
@@ -331,7 +331,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     problemBody:
       "Dans beaucoup d'entreprises de nettoyage, le devis vit encore dans Word ou un PDF générique. Le commercial l'envoie par mail, le classe dans un dossier, et l'exploitation ne le voit qu'une fois le client signé — parfois avec des montants ou des fréquences mal retranscrits. Les versions s'accumulent : devis_v2_final_modif.docx. Personne ne sait quel prospect est en attente de relance, ni depuis combien de jours. Un appel d'offres syndic exige une réactivité que votre processus manuel ne suit pas. Quand le devis est accepté, il faut recréer le client, les sites, les fréquences et le montant dans le planning et la compta. Chaque conversion est une source d'erreur. Les marges réelles divergent du devis initial parce que personne n'a relié l'estimation au réalisé terrain.",
     solutionBody:
-      "Le module Devis de PROGESTI s'intègre nativement à vos fiches clients et au CRM. Vous composez un devis professionnel directement depuis le dossier prospect ou client : prestations, fréquences, tarifs, sites concernés. Envoi et suivi de statut sont centralisés ; le commercial voit ce qui est en attente, accepté ou refusé. Dès qu'un devis est signé, la conversion vers contrat et planning se fait sans ressaisie — les sites, fréquences et montants alimentent l'exploitation et préparent la facturation. Le pipeline commercial et l'opérationnel travaillent enfin sur la même base. Devis illimités, inclus dans l'offre à 149 € HT par mois pour 5 utilisateurs. Essai 7 jours sans carte bancaire, accompagnement à la prise en main.",
+      "Le module Devis de PROGESTI s'intègre nativement à vos fiches clients et au CRM. Vous composez un devis professionnel directement depuis le dossier prospect ou client : prestations, fréquences, tarifs, sites concernés. Envoi et suivi de statut sont centralisés ; le commercial voit ce qui est en attente, accepté ou refusé. Dès qu'un devis est signé, la conversion vers contrat et planning se fait sans ressaisie — les sites, fréquences et montants alimentent l'exploitation et préparent la facturation. Le pipeline commercial et l'opérationnel travaillent enfin sur la même base. Devis illimités, inclus dans l'offre dès 29,99 € HT par mois. Essai 15 jours sans carte bancaire, accompagnement à la prise en main.",
     solutionBullets: [
       "Devis rattachés à la fiche client ou prospect",
       "Modèle professionnel avec vos prestations types",
@@ -376,7 +376,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "Le devis est-il lié au CRM ?", a: "Oui. Prospects, statuts et relances sont gérés dans le module CRM intégré." },
       { q: "Que se passe-t-il quand le client accepte ?", a: "Vous convertissez en contrat : sites, fréquences et tarifs alimentent le planning sans ressaisie." },
       { q: "Peut-on dupliquer un devis existant ?", a: "Oui. Pratique pour les appels d'offres ou les contrats similaires sur un nouveau site." },
-      { q: "Le module est-il inclus dans le tarif ?", a: "Oui — 149 € HT par mois, 5 utilisateurs, tous modules compris." },
+      { q: "Le module est-il inclus dans le tarif ?", a: "Oui — Dès 29,99 € HT par mois, 5 utilisateurs, tous modules compris." },
       { q: "Export PDF pour envoi client ?", a: "Oui. Envoi par mail ou export PDF depuis PROGESTI." },
     ],
     useCases: [
@@ -412,7 +412,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Facturez ce qui a réellement été fait sur le terrain : planning et pointages alimentent vos factures, sans double saisie ni oubli de fin de mois.",
     seoTitle: "Facturation nettoyage au réalisé",
     seoDescription:
-      "Factures alignées sur le réalisé terrain pour entreprises de nettoyage. Planning et pointage intégrés. 149 € HT/mois, 5 users, essai 7 jours sans CB.",
+      "Factures alignées sur le réalisé terrain pour entreprises de nettoyage. Planning et pointage intégrés. Dès 29,99 € HT/mois, essai 15 jours sans CB.",
     benefits: [
       { title: "Du réalisé à la facture", text: "Planning et pointage alimentent la facturation — facturez ce qui a vraiment été fait." },
       { title: "Moins d'oublis", text: "Fin de mois sans recomptage manuel ni factures oubliées sur un site." },
@@ -421,7 +421,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     problemBody:
       "La facturation est souvent le maillon faible des entreprises de nettoyage. L'exploitation connaît le réalisé, la compta facture des forfaits théoriques, et personne ne recoupe avant l'envoi. Des passages non facturés s'accumulent silencieusement ; des prestations exceptionnelles restent dans la tête du chef d'équipe. Fin de mois rime avec stress : Excel des heures, liste des sites, modèles Word de facture, relances pour savoir ce qui manque. Les factures partent en retard, la trésorerie souffre, les clients professionnels râlent. Les exports vers le comptable sont une rafale de corrections. Quand un syndic demande une facture détaillée par immeuble, c'est une demi-journée de reconstruction. Le lien entre terrain et chiffre d'affaires reste opaque — vous facturez « à peu près » ce que vous pensez avoir fait.",
     solutionBody:
-      "PROGESTI aligne la facturation sur le réalisé terrain. Les passages planifiés et pointés constituent la base de facturation : vous validez, ajustez si besoin, et générez les factures par client ou par site. Les contrats récurrents produisent des factures périodiques ; les prestations exceptionnelles sont rattrapées avant qu'elles ne disparaissent. Plus de double saisie entre ops et facturation — les mêmes données nourrissent le CA et la rentabilité. Export comptable disponible selon vos intégrations. Factures illimitées, module inclus à 149 € HT par mois pour 5 utilisateurs. Essai 7 jours sans carte bancaire. Support français au 05 82 95 09 19 pour la mise en place de vos modèles de facturation.",
+      "PROGESTI aligne la facturation sur le réalisé terrain. Les passages planifiés et pointés constituent la base de facturation : vous validez, ajustez si besoin, et générez les factures par client ou par site. Les contrats récurrents produisent des factures périodiques ; les prestations exceptionnelles sont rattrapées avant qu'elles ne disparaissent. Plus de double saisie entre ops et facturation — les mêmes données nourrissent le CA et la rentabilité. Export comptable disponible selon vos intégrations. Factures illimitées, module inclus dès 29,99 € HT par mois. Essai 15 jours sans carte bancaire. Support français au 05 82 95 09 19 pour la mise en place de vos modèles de facturation.",
     solutionBullets: [
       "Base de facturation alimentée par planning et pointages",
       "Factures récurrentes alignées sur les contrats",
@@ -467,7 +467,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "Peut-on facturer des contrats récurrents automatiquement ?", a: "Oui. Factures périodiques alignées sur vos contrats et fréquences." },
       { q: "Export vers mon logiciel comptable ?", a: "Consultez la page Intégrations pour les options d'export disponibles." },
       { q: "Facturation détaillée par site pour les syndics ?", a: "Oui. Ventilation par site rattaché au client." },
-      { q: "Le module est-il inclus ?", a: "Oui — 149 € HT par mois, 5 utilisateurs, sans module payant en supplément." },
+      { q: "Le module est-il inclus ?", a: "Oui — Dès 29,99 € HT par mois, 5 utilisateurs, sans module payant en supplément." },
       { q: "Peut-on inclure des prestations exceptionnelles ?", a: "Oui. Interventions hors contrat intégrées avant génération de la facture." },
     ],
     useCases: [
@@ -503,7 +503,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Visualisez ce qui est dû, suivez vos relances et protégez votre trésorerie — sans tableur parallèle ni factures oubliées dans les brouillons.",
     seoTitle: "Suivi impayés & relances",
     seoDescription:
-      "Suivez factures impayées et relances pour entreprises de nettoyage. Trésorerie sous contrôle, sans Excel. 149 € HT/mois. Essai 7 jours sans CB.",
+      "Suivez factures impayées et relances pour entreprises de nettoyage. Trésorerie sous contrôle, sans Excel. Dès 29,99 € HT/mois. Essai 15 jours sans CB.",
     benefits: [
       { title: "Vue trésorerie claire", text: "Ce qui est dû, par client, sans tableur parallèle ni post-it sur l'écran." },
       { title: "Relances suivies", text: "Gardez le fil des relances, échéances et litiges en cours." },
@@ -512,7 +512,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     problemBody:
       "Les impayés tuinent silencieusement les entreprises de nettoyage. Vous facturez, vous envoyez, et vous espérez. Personne ne regarde vraiment l'échéancier avant que la trésorerie ne se serre. Les relances sont irrégulières — un mail un jour, un appel trois semaines plus tard, selon l'humeur. Certains clients professionnels paient à 60 ou 90 jours ; d'autres traînent sans réponse. Le dirigeant découvre 15 000 € de retard en préparant la paie. Les litiges sur des prestations contestées bloquent des factures entières pendant des mois. Excel liste les factures « en attente », mais personne ne le met à jour. La relation commerciale souffre quand les relances sont tardives ou mal cadrées. Et vous continuez de prestater chez des clients qui ne paient plus depuis deux mois.",
     solutionBody:
-      "Le module Impayés de PROGESTI donne une vue claire de votre poste client : factures émises, échues, partiellement payées ou en litige. Par client, par facture, par ancienneté — vous priorisez les relances qui comptent. Chaque action est tracée : mail, appel, mise en demeure. Vous voyez qui paie régulièrement et qui nécessite une vigilance accrue avant d'accepter de nouvelles prestations. Lié à la facturation, le module évite les tableurs parallèles : dès qu'une facture est émise, elle entre dans le suivi. La trésorerie redevient prévisible ; les mauvaises surprises de fin de trimestre diminuent. Inclus à 149 € HT par mois, 5 utilisateurs. Essai 7 jours sans carte bancaire.",
+      "Le module Impayés de PROGESTI donne une vue claire de votre poste client : factures émises, échues, partiellement payées ou en litige. Par client, par facture, par ancienneté — vous priorisez les relances qui comptent. Chaque action est tracée : mail, appel, mise en demeure. Vous voyez qui paie régulièrement et qui nécessite une vigilance accrue avant d'accepter de nouvelles prestations. Lié à la facturation, le module évite les tableurs parallèles : dès qu'une facture est émise, elle entre dans le suivi. La trésorerie redevient prévisible ; les mauvaises surprises de fin de trimestre diminuent. Inclus dès 29,99 € HT par mois. Essai 15 jours sans carte bancaire.",
     solutionBullets: [
       "Tableau de bord des factures échues et en retard",
       "Suivi des relances par client et par facture",
@@ -557,7 +557,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "Peut-on voir les impayés par client ?", a: "Oui. Vue par client, par facture et par ancienneté de retard." },
       { q: "Comment gérer un litige sur une prestation ?", a: "Statut litige sur la facture, avec commentaire et suspension des relances automatiques." },
       { q: "Le module est-il lié à la facturation ?", a: "Oui. Chaque facture émise entre dans le suivi impayés sans ressaisie." },
-      { q: "Inclus dans le tarif ?", a: "Oui — 149 € HT par mois, 5 utilisateurs, sans supplément." },
+      { q: "Inclus dans le tarif ?", a: "Oui — Dès 29,99 € HT par mois, 5 utilisateurs, sans supplément." },
       { q: "Peut-on identifier les clients à risque ?", a: "Oui. Historique de paiement visible avant d'accepter un nouveau contrat." },
     ],
     useCases: [
@@ -593,7 +593,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Contrats, absences, remplacements et heures terrain : la gestion RH de PROGESTI vit au même endroit que le planning, sans tableur prépaie parallèle.",
     seoTitle: "Gestion RH entreprise de nettoyage",
     seoDescription:
-      "RH, absences et heures terrain pour entreprises de nettoyage. Lié au planning et pointage. 149 € HT/mois, 5 users. Essai 7 jours sans CB.",
+      "RH, absences et heures terrain pour entreprises de nettoyage. Lié au planning et pointage. Dès 29,99 € HT/mois. Essai 15 jours sans CB.",
     benefits: [
       { title: "Absences & remplacements", text: "Gérés au même endroit que le planning — pas de double communication." },
       { title: "Heures terrain", text: "Pointages alimentent variables et prépaie, moins d'oubli d'heures sup." },
@@ -602,7 +602,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     problemBody:
       "La gestion RH des entreprises de nettoyage est souvent éclatée. Les contrats traînent dans un classeur, les absences arrivent par SMS, les remplacements se gèrent au téléphone en parallèle du planning Excel. Le responsable d'exploitation apprend à 7 h qu'un agent est malade ; la prépaie découvre des heures supplémentaires non déclarées le 28 du mois. Les variables de paie se calculent sur des feuilles papier ramassées en retard. Personne ne voit la charge globale par agent sur le mois. Les remplacements récurrents ne sont pas tracés : le même intérimaire revient sans que sa fiche soit à jour. Turnover élevé, multi-sites, horaires décalés : la complexité RH explose avec la croissance, mais les outils restent ceux d'une équipe de cinq personnes.",
     solutionBody:
-      "Le module RH de PROGESTI connecte les fiches agents au planning et au pointage. Vous gérez contrats, absences et remplacements au même endroit où vous affectez les passages. Une absence signalée déclenche la recherche de backup sur le planning ; les heures pointées alimentent les variables de paie sans ressaisie. Chaque agent a sa fiche : coordonnées, type de contrat, sites habituels, historique d'interventions. Le bureau voit la charge du mois par agent avant de valider la prépaie. Ce n'est pas un logiciel de paie complet, mais la base fiable que votre comptable ou votre expert paie attend — heures réelles, propres, traçables. Inclus à 149 € HT par mois, 5 utilisateurs. Essai 7 jours sans carte bancaire.",
+      "Le module RH de PROGESTI connecte les fiches agents au planning et au pointage. Vous gérez contrats, absences et remplacements au même endroit où vous affectez les passages. Une absence signalée déclenche la recherche de backup sur le planning ; les heures pointées alimentent les variables de paie sans ressaisie. Chaque agent a sa fiche : coordonnées, type de contrat, sites habituels, historique d'interventions. Le bureau voit la charge du mois par agent avant de valider la prépaie. Ce n'est pas un logiciel de paie complet, mais la base fiable que votre comptable ou votre expert paie attend — heures réelles, propres, traçables. Inclus dès 29,99 € HT par mois. Essai 15 jours sans carte bancaire.",
     solutionBullets: [
       "Fiches agents avec contrat et sites habituels",
       "Absences liées au planning et aux remplacements",
@@ -647,7 +647,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "Comment gérer un remplacement ?", a: "Depuis l'absence, réaffectez les passages à un backup — visible sur le planning mobile." },
       { q: "Les heures supplémentaires sont-elles visibles ?", a: "Oui. Heures planifiées vs pointées par agent sur la période." },
       { q: "Combien d'agents puis-je gérer ?", a: "Agents illimités. L'offre inclut 5 utilisateurs bureau ; le terrain pointe via l'app mobile." },
-      { q: "Inclus dans le tarif ?", a: "Oui — 149 € HT par mois, tous modules compris." },
+      { q: "Inclus dans le tarif ?", a: "Oui — Dès 29,99 € HT par mois, tous modules compris." },
       { q: "Fiches agents avec documents ?", a: "Oui. Contrat, coordonnées et affectations centralisés par agent." },
     ],
     useCases: [
@@ -683,7 +683,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Lisez vos marges par client et par site : tableaux de bord alimentés par le réalisé terrain, pour décider avec des chiffres et non une impression de fin de mois.",
     seoTitle: "Rentabilité & marges nettoyage",
     seoDescription:
-      "Marges par client et site pour entreprises de nettoyage. Tableaux de bord alimentés par le réalisé. 149 € HT/mois. Essai 7 jours sans CB.",
+      "Marges par client et site pour entreprises de nettoyage. Tableaux de bord alimentés par le réalisé. Dès 29,99 € HT/mois. Essai 15 jours sans CB.",
     benefits: [
       { title: "Marges par client / site", text: "Lisez où vous gagnez — et où vous perdez du temps ou de l'argent." },
       { title: "Tableaux de bord", text: "Activité, charge et priorités du mois en un coup d'œil." },
@@ -692,7 +692,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     problemBody:
       "Beaucoup de dirigeants d'entreprises de nettoyage pilotent à l'instinct. Le CA est connu — plus ou moins — mais la marge par client reste floue. Un contrat syndic semble rentable jusqu'au jour où vous comptez les heures réelles et les remplacements non facturés. Un site bureaux « stratégique » consomme deux agents là où le devis n'en prévoyait qu'un. Excel ne suit pas le réalisé terrain ; le comptable voit le CA encaissé, pas le coût opérationnel. Les renégociations annuelles se font au doigt mouillé. Vous acceptez des contrats sous-tarifés par peur de perdre un client, sans chiffre pour dire non. Les fins de mois apportent une impression de rush sans visibilité sur ce qui a réellement rapporté. La croissance du chiffre d'affaires masque parfois une érosion silencieuse des marges.",
     solutionBody:
-      "Le module Rentabilité de PROGESTI croise facturation, heures terrain et structure de coûts pour afficher des marges par client, par site et par période. Les données viennent du réalisé — passages pointés, factures émises — pas d'estimations manuelles. Vous identifiez les contrats qui tiennent la promesse commerciale et ceux qui grignotent votre marge avec des heures supplémentaires non refacturées. Les tableaux de bord donnent une lecture mensuelle : activité, charge, CA, tendances. Avant une renégociation ou un refus de baisse de prix, vous avez des arguments chiffrés. Le dirigeant passe d'une impression de fin de mois à un pilotage actif. Inclus à 149 € HT par mois, 5 utilisateurs. Essai 7 jours sans carte bancaire.",
+      "Le module Rentabilité de PROGESTI croise facturation, heures terrain et structure de coûts pour afficher des marges par client, par site et par période. Les données viennent du réalisé — passages pointés, factures émises — pas d'estimations manuelles. Vous identifiez les contrats qui tiennent la promesse commerciale et ceux qui grignotent votre marge avec des heures supplémentaires non refacturées. Les tableaux de bord donnent une lecture mensuelle : activité, charge, CA, tendances. Avant une renégociation ou un refus de baisse de prix, vous avez des arguments chiffrés. Le dirigeant passe d'une impression de fin de mois à un pilotage actif. Inclus dès 29,99 € HT par mois. Essai 15 jours sans carte bancaire.",
     solutionBullets: [
       "Marge par client, site et période",
       "Données alimentées par facturation et pointages",
@@ -736,7 +736,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "La marge est-elle calculée par site ?", a: "Oui. Vision par client et par site rattaché, sur la période de votre choix." },
       { q: "Les données sont-elles en temps réel ?", a: "Alimentées en continu par planning, pointages et facturation — pas de saisie manuelle." },
       { q: "Peut-on comparer devis et réalisé ?", a: "Oui. Écarts entre estimation commerciale et heures réellement consommées." },
-      { q: "Module payant en supplément ?", a: "Non. Inclus à 149 € HT par mois, 5 utilisateurs." },
+      { q: "Module payant en supplément ?", a: "Non. Inclus dès 29,99 € HT par mois." },
       { q: "Utile pour les renégociations ?", a: "Oui. Historique CA et heures par contrat pour argumenter une revalorisation." },
       { q: "Tableaux de bord personnalisables ?", a: "Vues par période, client et site pour le pilotage mensuel." },
     ],
@@ -773,7 +773,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Suivez prospects, devis en cours et relances commerciales dans le même outil que votre exploitation — sans CRM parallèle ni prospects oubliés.",
     seoTitle: "CRM entreprise de nettoyage",
     seoDescription:
-      "CRM intégré pour entreprises de nettoyage : prospects, devis et relances dans le même outil que l'ops. 149 € HT/mois. Essai 7 jours sans CB.",
+      "CRM intégré pour entreprises de nettoyage : prospects, devis et relances dans le même outil que l'ops. Dès 29,99 € HT/mois. Essai 15 jours sans CB.",
     benefits: [
       { title: "Pipeline commercial", text: "Suivez prospects et devis en cours avec statuts et prochaines actions." },
       { title: "Devis → contrat", text: "Enchaînement fluide vers l'exploitation sans ressaisie ni perte d'info." },
@@ -782,7 +782,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     problemBody:
       "Le commercial d'une entreprise de nettoyage jongle entre carnet d'adresses, mails et fichiers Excel. Un prospect demande un devis lundi ; la relance part trois semaines plus tard, ou jamais. Personne ne sait combien d'opportunités sont en cours, ni leur valeur totale. Le dirigeant découvre un appel d'offres raté parce que personne n'a suivi la date limite. Quand le client signe, l'information arrive au bureau d'exploitation par oral — adresse incomplète, fréquences floues. Deux CRM généralistes ont été testés et abandonnés : trop lourds, pas connectés au planning. Les prospects refroidissent pendant que le commercial roule sur le terrain. La croissance commerciale repose sur la mémoire d'une ou deux personnes.",
     solutionBody:
-      "Le CRM de PROGESTI est intégré au reste de l'outil — pas un silo à part. Vous créez un prospect, enregistrez les échanges, lancez un devis et suivez son statut jusqu'à la signature. Pipeline visible : combien en cours, quel montant, quelle prochaine action. Les relances sont structurées ; les échéances d'appels d'offres ne passent plus inaperçues. Dès qu'un devis est accepté, la conversion alimente la fiche client, le planning et la facturation. Le commercial et l'exploitation travaillent enfin sur la même base. Simple, adapté aux TPE de nettoyage, sans usine à gaz. Inclus à 149 € HT par mois, 5 utilisateurs. Essai 7 jours sans carte bancaire. Support au 05 82 95 09 19.",
+      "Le CRM de PROGESTI est intégré au reste de l'outil — pas un silo à part. Vous créez un prospect, enregistrez les échanges, lancez un devis et suivez son statut jusqu'à la signature. Pipeline visible : combien en cours, quel montant, quelle prochaine action. Les relances sont structurées ; les échéances d'appels d'offres ne passent plus inaperçues. Dès qu'un devis est accepté, la conversion alimente la fiche client, le planning et la facturation. Le commercial et l'exploitation travaillent enfin sur la même base. Simple, adapté aux TPE de nettoyage, sans usine à gaz. Inclus dès 29,99 € HT par mois. Essai 15 jours sans carte bancaire. Support au 05 82 95 09 19.",
     solutionBullets: [
       "Pipeline prospects avec statuts et montants",
       "Relances et prochaines actions planifiées",
@@ -796,7 +796,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { aspect: "Devis", excel: "Word séparé du suivi", progesti: "Devis natif depuis la fiche prospect" },
       { aspect: "Conversion ops", excel: "Mail au bureau d'exploitation", progesti: "Acceptation → client + planning automatiques" },
       { aspect: "Vision dirigeant", excel: "Impossible sans demander au commercial", progesti: "Pipeline et CA prévisionnel visibles" },
-      { aspect: "Outils", excel: "CRM + ops + compta séparés", progesti: "Tout dans PROGESTI à 149 € HT/mois" },
+      { aspect: "Outils", excel: "CRM + ops + compta séparés", progesti: "Tout dans PROGESTI dès 29,99 € HT/mois" },
     ],
     workflow: [
       { step: "01", text: "Créez le prospect avec contacts, source et potentiel estimé" },
@@ -826,7 +826,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "Le CRM est-il séparé du reste de PROGESTI ?", a: "Non. CRM, devis, clients, planning et facturation partagent la même base." },
       { q: "Adapté aux TPE de nettoyage ?", a: "Oui. Simple, sans fonctionnalités inutiles — pensé pour les équipes de 5 à 30 personnes." },
       { q: "Peut-on suivir les appels d'offres ?", a: "Oui. Échéances, statuts et relances par opportunité." },
-      { q: "Inclus dans le tarif ?", a: "Oui — 149 € HT par mois, 5 utilisateurs, tous modules." },
+      { q: "Inclus dans le tarif ?", a: "Oui — Dès 29,99 € HT par mois, 5 utilisateurs, tous modules." },
       { q: "Historique des échanges ?", a: "Oui. Compte-rendus et actions tracés par prospect." },
       { q: "Conversion vers client automatique ?", a: "Devis accepté → fiche client et données ops sans ressaisie." },
     ],

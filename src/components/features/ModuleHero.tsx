@@ -89,7 +89,7 @@ export function ModuleHero({
             {[
               `${modules.length} modules inclus`,
               `Essai ${site.trialDays} j · sans CB`,
-              "149 € HT/mois public",
+              "Dès 29,99 € HT/mois public",
             ].map((item) => (
               <li
                 key={item}

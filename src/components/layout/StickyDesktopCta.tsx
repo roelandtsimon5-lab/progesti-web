@@ -106,14 +106,14 @@ export function StickyDesktopCta() {
                     <span className="font-extrabold text-brand-navy">{activeModule.title}</span>
                     <span className="mx-2 text-line">·</span>
                     <span className="text-slate">
-                      149 € HT/mois · essai {site.trialDays} j
+                      dès 29,99 € HT/mois · essai {site.trialDays} j
                     </span>
                   </>
                 ) : (
                   <>
-                    <span className="font-extrabold">149 € HT/mois</span>
+                    <span className="font-extrabold">dès 29,99 € HT/mois</span>
                     <span className="mx-2 text-line">·</span>
-                    <span className="text-slate">5 utilisateurs · tout inclus</span>
+                    <span className="text-slate">dès 29,99 € · tout inclus</span>
                   </>
                 )}
               </p>

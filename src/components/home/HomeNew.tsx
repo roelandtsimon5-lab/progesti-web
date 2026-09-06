@@ -41,7 +41,7 @@ export function HomeNew() {
             </div>
 
             <p className="mt-8 text-sm text-white/70">
-              Essai 7 jours · 149 € HT/mois · 05 82 95 09 19
+              Essai 15 jours · dès 29,99 € HT/mois · 05 82 95 09 19
             </p>
           </div>
 
@@ -218,12 +218,12 @@ export function HomeNew() {
       <section className="section bg-white" id="tarifs">
         <div className="container max-w-2xl text-center">
           <Reveal>
-            <p className="eyebrow">Tarif unique</p>
+            <p className="eyebrow">Tarifs publics</p>
             <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
-              149 € HT / mois
+              dès 29,99 € HT / mois
             </h2>
             <p className="mt-2 text-lg text-slate">
-              5 utilisateurs · Tout inclus
+              Starter · Pro · Premium · Tout inclus
             </p>
             <p className="mt-6 text-slate">
               Planning, pointage, facturation — pas de module en plus.
@@ -254,7 +254,7 @@ export function HomeNew() {
                 variant="secondary"
                 eventPayload={{ cta: "home_pricing_trial" }}
               >
-                Essai 7 jours gratuit
+                Essai 15 jours gratuit
               </ButtonLink>
             </div>
           </Reveal>

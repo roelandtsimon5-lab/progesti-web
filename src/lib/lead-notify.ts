@@ -350,7 +350,7 @@ function alertEmail(lead: LeadPayload) {
     `Téléphone    : ${lead.phone || "—"}`,
     `Entreprise   : ${lead.company || "—"}`,
     `Intent       : ${lead.intent}`,
-    `Campagne     : ${lead.campaign || "—"}`,
+    `Source       : ${lead.campaign || lead.intent}`,
     `Reçu le      : ${when}`,
     ``,
     phoneE164 ? `Appeler : tel:${phoneE164}` : "",
@@ -375,6 +375,7 @@ function simonSms(lead: LeadPayload) {
     lead.phone || "",
     isPlaceholderEmail(lead.email) ? "" : lead.email,
     lead.company || "",
+    lead.campaign ? `src:${lead.campaign}` : "",
   ].filter(Boolean);
   return parts.join("\n");
 }

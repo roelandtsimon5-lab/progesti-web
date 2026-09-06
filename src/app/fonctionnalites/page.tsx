@@ -47,10 +47,10 @@ export default function FonctionnalitesPage() {
               <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.14em] text-lime-cta">
-                    Tarif unique · prix public
+                    Tarifs publics
                   </p>
                   <p className="mt-2 font-sans text-2xl font-extrabold">
-                    149 € HT/mois · {modules.length} modules · 5 utilisateurs
+                    dès 29,99 € HT/mois · {modules.length} modules · Starter / Pro / Premium
                   </p>
                   <p className="mt-2 text-sm text-white/70">
                     Essai {site.trialDays} jours sans CB · support {site.phone}

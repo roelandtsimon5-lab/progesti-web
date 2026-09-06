@@ -6,7 +6,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 
 import { cta } from "@/lib/cta";
 
-import { mainPlan, modules, site } from "@/lib/site";
+import { formatEuro, mainPlan, modules, site } from "@/lib/site";
 
 
 
@@ -18,7 +18,7 @@ const rows = [
 
     chaos: "Devis sur demande · modules en plus",
 
-    progesti: "149 € HT/mois · public",
+    progesti: "Dès 29,99 € HT/mois · public",
 
   },
 
@@ -200,11 +200,15 @@ export function IndustryVsSpreadsheet({ title }: Props) {
 
         <p className="mt-6 text-center text-sm text-slate">
 
-          Économie annuelle vs mensuel :{" "}
+          Économie annuelle vs mensuel (Starter) :{" "}
 
-          <span className="font-bold text-ink">{mainPlan.yearlyStrike - mainPlan.yearly} € HT</span> (2 mois offerts ·{" "}
+          <span className="font-bold text-ink">
 
-          {mainPlan.yearly} €/an)
+            {formatEuro(mainPlan.yearlyStrike - mainPlan.yearly)} HT
+
+          </span>{" "}
+
+          (2 mois offerts · {formatEuro(mainPlan.yearly)}/an)
 
         </p>
 

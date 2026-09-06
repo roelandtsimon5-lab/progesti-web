@@ -9,12 +9,12 @@ import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { cta, ctaLabels } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
-import { site, trialCopy, mainPlan } from "@/lib/site";
+import { site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Logiciel facturation propreté — Devis, réalisé terrain, factures",
   description:
-    `Logiciel de facturation pour entreprise de nettoyage : du devis au règlement, aligné sur le pointage terrain. ${mainPlan.monthly} € HT/mois, ${trialCopy.metaSuffix}`,
+    `Logiciel de facturation pour entreprise de nettoyage : du devis au règlement, aligné sur le pointage terrain. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
   path: "/logiciel-facturation-proprete",
 });
 
@@ -261,9 +261,9 @@ export default function PillarFacturationPage() {
             </Reveal>
             <Reveal delayMs={100}>
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
-                <h3 className="font-display font-extrabold text-blue-deep">{mainPlan.monthly} € tout inclus</h3>
+                <h3 className="font-display font-extrabold text-blue-deep">Dès 29,99 € tout inclus</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Facturation + planning + pointage — pas de module en supplément. {mainPlan.users}.
+                  Facturation + planning + pointage — pas de module en supplément. Starter, Pro ou Premium.
                 </p>
               </li>
             </Reveal>

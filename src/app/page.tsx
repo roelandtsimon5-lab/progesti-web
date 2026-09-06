@@ -194,12 +194,12 @@ const homeConfig = mergeIndustryConfig(defaultIndustryConfig, {
     sub: "Pointage mobile · géoloc · statuts live — le bureau voit sans appeler le terrain.",
   },
   proof: {
-    h2: "149 € HT/mois, tout inclus — vraiment",
-    quote: "Un prix public, des modules métier, un support qui répond.",
+    h2: "Dès 29,99 € HT/mois — tarifs publics",
+    quote: "Un prix affiché, des modules métier, un support qui répond.",
     items: [
       {
         title: "Prix affiché",
-        text: "149 € HT/mois, jusqu'à 5 utilisateurs, tous modules inclus. Pas de devis à négocier.",
+        text: "Starter 29,99 · Pro 49,99 · Premium 99,99 € HT/mois. Tous modules inclus. Pas de devis à négocier.",
       },
       {
         title: "Modules métier",
@@ -220,14 +220,14 @@ const homeConfig = mergeIndustryConfig(defaultIndustryConfig, {
 });
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel entreprise de nettoyage — 149 € HT/mois",
+  title: "Logiciel entreprise de nettoyage — dès 29,99 € HT/mois",
   description:
-    `Simplifiez et faites grandir votre entreprise de nettoyage : planning, pointage, facture. 149 € HT/mois, 5 utilisateurs, tout inclus. ${trialCopy.noCard}.`,
+    `Simplifiez et faites grandir votre entreprise de nettoyage : planning, pointage, facture. Dès 29,99 € HT/mois, tout inclus. ${trialCopy.noCard}.`,
   path: "/",
   openGraph: {
-    title: "Logiciel entreprise de nettoyage — 149 € HT/mois | PROGESTI",
+    title: "Logiciel entreprise de nettoyage — dès 29,99 € HT/mois | PROGESTI",
     description:
-      `Planning, pointage et facturation pour entreprises de propreté. 149 € HT/mois tout inclus. ${trialCopy.label}.`,
+      `Planning, pointage et facturation pour entreprises de propreté. Dès 29,99 € HT/mois tout inclus. ${trialCopy.label}.`,
   },
 });
 

@@ -49,7 +49,7 @@ export const socialProofStats = {
 
   modules: "9",
 
-  modulesLabel: "modules inclus · 149 € HT/mois",
+  modulesLabel: "modules inclus · dès 29,99 € HT/mois",
 
 } as const;
 
@@ -127,7 +127,7 @@ export const testimonials: readonly Testimonial[] = [
 
     quote:
 
-      "149 € tout inclus, pas de module caché. J'ai lancé mon activité seule avec cinq clients — le planning et la facture tiennent dans le même outil.",
+      "Dès 29,99 € tout inclus, pas de module caché. J'ai lancé mon activité seule avec cinq clients — le planning et la facture tiennent dans le même outil.",
 
     author: "Sophie Martin",
 
@@ -301,7 +301,7 @@ export const testimonials: readonly Testimonial[] = [
 
     since: "2024",
 
-    result: "Migration 7 jours",
+    result: "Migration 15 jours",
 
   },
 

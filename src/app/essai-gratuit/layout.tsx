@@ -7,7 +7,7 @@ import { site, trialCopy } from "@/lib/site";
 export const metadata: Metadata = pageMeta({
   title: trialCopy.free,
   description:
-    `Testez PROGESTI gratuitement pendant ${site.trialDays} jours. Sans engagement, tous modules inclus. 149 € HT/mois.`,  path: "/essai-gratuit",
+    `Testez PROGESTI gratuitement pendant ${site.trialDays} jours. Sans engagement, tous modules inclus. Dès 29,99 € HT/mois.`,  path: "/essai-gratuit",
 });
 
 export default function EssaiLayout({ children }: { children: React.ReactNode }) {

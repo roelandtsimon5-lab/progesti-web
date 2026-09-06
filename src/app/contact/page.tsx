@@ -106,7 +106,7 @@ export default function ContactPage() {
 
               <li>✓ Essai {site.trialDays} jours · sans CB</li>
 
-              <li>✓ 149 € HT/mois · tout inclus</li>
+              <li>✓ dès 29,99 € HT/mois · tout inclus</li>
 
               <li>✓ Apps Android & iOS</li>
 
@@ -128,7 +128,12 @@ export default function ContactPage() {
 
             <div className="mt-6">
 
-              <LeadForm id="contact-form" intent="contact" submitLabel="Envoyer le message" />
+              <LeadForm
+                id="contact-form"
+                intent="contact"
+                campaign="contact"
+                submitLabel="Envoyer le message"
+              />
 
             </div>
 

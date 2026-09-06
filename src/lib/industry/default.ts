@@ -178,10 +178,10 @@ export const defaultPillars: readonly IndustryPillar[] = [
 ] as const;
 
 const defaultTrust = [
-  { label: "Essai 7 jours", value: "" },
+  { label: "Essai 15 jours", value: "" },
   { label: "Sans carte bancaire", value: "" },
-  { label: "149 € HT/mois", value: "" },
-  { label: "5 utilisateurs", value: "" },
+  { label: "Dès 29,99 € HT/mois", value: "" },
+  { label: "Starter · Pro · Premium", value: "" },
   { label: "Support FR", value: "" },
 ] as const;
 
@@ -208,7 +208,7 @@ const defaultFaq = [
   },
   {
     q: "Combien coûte PROGESTI ? Qu’est-ce qui est inclus ?",
-    a: "149 € HT/mois, jusqu’à 5 utilisateurs, tous modules inclus (planning, pointage, devis, facturation, impayés, RH, tableaux de bord, CRM…). Pas de module payant en plus.",
+    a: "Dès 29,99 € HT/mois — Starter, Pro ou Premium, tous modules inclus (planning, pointage, devis, facturation, impayés, RH, tableaux de bord, CRM…). Pas de module payant en plus.",
   },
   {
     q: `Combien dure l’essai ? Faut-il une carte bancaire ?`,
@@ -220,7 +220,7 @@ const defaultFaq = [
   },
   {
     q: "Combien d’utilisateurs sont inclus ?",
-    a: "Jusqu’à 5 utilisateurs dans l’offre à 149 € HT/mois. Idéal pour TPE et petites équipes de propreté.",
+    a: "Starter : 1 administrateur. Pro : 5 utilisateurs. Premium : 20 utilisateurs. Tous modules inclus dès 29,99 € HT/mois.",
   },
   {
     q: "Le support est-il en France ?",
@@ -231,9 +231,9 @@ const defaultFaq = [
 export const defaultIndustryConfig: IndustryPageConfig = {
   slug: "default",
   seo: {
-    title: "Logiciel entreprise de nettoyage — 149 € HT/mois",
+    title: "Logiciel entreprise de nettoyage — dès 29,99 € HT/mois",
     description:
-      `Simplifiez et faites grandir votre entreprise de nettoyage : planning, pointage, facture. 149 € HT/mois, 5 utilisateurs, tout inclus. ${trialCopy.label}.`,
+      `Simplifiez et faites grandir votre entreprise de nettoyage : planning, pointage, facture. Dès 29,99 € HT/mois, tout inclus. ${trialCopy.label}.`,
     path: "/",
   },
   hero: {
@@ -270,7 +270,7 @@ export const defaultIndustryConfig: IndustryPageConfig = {
     items: [
       {
         title: "Prix public",
-        text: "149 € HT/mois, jusqu’à 5 utilisateurs, tous modules inclus. Pas de devis opaque.",
+        text: "Dès 29,99 € HT/mois — Starter, Pro ou Premium, tous modules inclus. Pas de devis opaque.",
       },
       {
         title: "Tout inclus",

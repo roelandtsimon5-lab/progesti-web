@@ -54,7 +54,7 @@ export default function SolutionsIndexPage() {
             </ButtonLink>
           </div>
           <p className="mt-5 text-sm text-white/55">
-            Essai {site.trialDays} jours · 149 € HT/mois · Tous modules inclus
+            Essai {site.trialDays} jours · dès 29,99 € HT/mois · Tous modules inclus
           </p>
         </div>
         <div className="industry-hero-wave" aria-hidden />
@@ -64,7 +64,7 @@ export default function SolutionsIndexPage() {
         <div className="container grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
           {[
             [`${site.trialDays} jours`, "d’essai gratuit"],
-            ["149 €", "HT/mois tout inclus"],
+            ["Dès 29,99 €", "HT/mois tout inclus"],
             [`${modules.length}`, "modules inclus"],
             ["0 €", "frais d’installation"],
           ].map(([v, l]) => (

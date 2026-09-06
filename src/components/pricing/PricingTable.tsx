@@ -55,7 +55,7 @@ export function PricingTable() {
                 </span>
               ) : null}
 
-              <h3 className="font-display text-2xl font-extrabold text-ink">{plan.name}</h3>
+              <h3 className="font-display text-2xl font-extrabold text-ink">Offre {plan.name}</h3>
               <p className="mt-1 text-sm font-medium text-muted">{plan.users}</p>
 
               <div className="mt-6">
@@ -92,7 +92,7 @@ export function PricingTable() {
                   event="trial_start"
                   eventPayload={{ plan: plan.id, period, cta: "v3_pricing" }}
                 >
-                  Commencez gratuitement
+                  Essai Gratuit
                 </ButtonLink>
               </div>
             </article>

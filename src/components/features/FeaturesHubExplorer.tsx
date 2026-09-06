@@ -38,7 +38,7 @@ export function FeaturesHubExplorer() {
             >
               Essai {site.trialDays} jours gratuit
             </ButtonLink>
-            <p className="text-sm text-slate">Sans carte bancaire · 149 € HT/mois tout inclus</p>
+            <p className="text-sm text-slate">Sans carte bancaire · dès 29,99 € HT/mois tout inclus</p>
           </div>
         </Reveal>
       </div>

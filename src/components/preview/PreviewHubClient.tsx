@@ -36,7 +36,7 @@ const items: Item[] = [
     href: "/",
     title: "Home — live (V3 + H1 clarifié)",
     tag: "Référence",
-    desc: "IndustryLanding V3 · titre plus lisible · 149 €.",
+    desc: "IndustryLanding V3 · titre plus lisible · dès 29,99 €.",
     status: "keep",
     group: "site",
   },

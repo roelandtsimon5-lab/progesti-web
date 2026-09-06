@@ -91,7 +91,7 @@ export function IndustryLandingV3({ config = defaultIndustryConfig }: Props) {
               </ButtonLink>
             </div>
             <p className="mt-4 text-sm text-white/55">
-              Sans carte bancaire · 149 € HT/mois tout inclus · jusqu&apos;à 5 utilisateurs
+              Sans carte bancaire · dès 29,99 € HT/mois tout inclus · jusqu&apos;à 5 utilisateurs
             </p>
             <ul
               className="mt-5 flex flex-wrap gap-2"
@@ -207,7 +207,7 @@ export function IndustryLandingV3({ config = defaultIndustryConfig }: Props) {
               >
                 Essai {site.trialDays} jours gratuit
               </ButtonLink>
-              <p className="text-sm text-slate">Sans carte bancaire · 149 € HT/mois tout inclus</p>
+              <p className="text-sm text-slate">Sans carte bancaire · dès 29,99 € HT/mois tout inclus</p>
             </div>
           </Reveal>
         </div>
@@ -397,18 +397,17 @@ export function IndustryLandingV3({ config = defaultIndustryConfig }: Props) {
       <section className="section bg-white industry-anchor" id="tarifs">
         <div className="container max-w-2xl text-center">
           <Reveal>
-            <p className="eyebrow">Tarif unique · tout inclus</p>
+            <p className="eyebrow">Tarifs publics · tout inclus</p>
             <h2 className="mt-3 font-display text-5xl font-extrabold tracking-tight md:text-6xl">
-              <span>149 €</span>
+              <span>dès 29,99 €</span>
               <span className="ml-2 text-2xl font-bold text-slate md:text-3xl">HT / mois</span>
             </h2>
-            <p className="mt-3 text-lg text-slate">5 utilisateurs · Tous les modules · Pas de surprise</p>
+            <p className="mt-3 text-lg text-slate">Starter, Pro ou Premium · Tous les modules · Pas de surprise</p>
             <p className="mt-2 text-sm text-slate">
-              Économie annuelle :{" "}
+              Annuel = 2 mois offerts. Voir les{" "}
               <Link href="/tarifs" className="link-accent font-bold">
-                1 490 € HT/an
-              </Link>{" "}
-              (2 mois offerts sur facturation annuelle)
+                tarifs Starter / Pro / Premium
+              </Link>
             </p>
             <ul className="mx-auto mt-8 max-w-md space-y-2 text-left text-sm text-slate">
               {[

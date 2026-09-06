@@ -80,7 +80,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Les modules sont-ils payants en plus ?",
-        a: "Non. Planning, pointage, facturation, RH… tout est inclus à 149 € HT/mois.",
+        a: "Non. Planning, pointage, facturation, RH… tout est inclus dès 29,99 € HT/mois.",
       },
       {
         q: "Peut-on remplacer Excel progressivement ?",
@@ -233,7 +233,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Quels tarifs ?",
-        a: "149 € HT/mois, jusqu'à 5 utilisateurs, tous modules inclus. Voir la page Tarifs.",
+        a: "Dès 29,99 € HT/mois — Starter, Pro ou Premium, tous modules inclus. Voir la page Tarifs.",
       },
       {
         q: "Faut-il une app pour les agents ?",
@@ -315,7 +315,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "Convient-il aux petites équipes ponctuelles ?",
-        a: "Oui — de l’indépendant à la PME. 149 € HT/mois, jusqu’à 5 utilisateurs.",
+        a: "Oui — de l’indépendant à la PME. Dès 29,99 € HT/mois.",
       },
     ],
   },
@@ -323,11 +323,11 @@ export const solutionPages: Record<string, SolutionContent> = {
     slug: "auto-entrepreneurs",
     title: "Auto-entrepreneurs & petites équipes",
     badge: "Indépendants & TPE",
-    headline: "Démarrer sans usine à gaz — 149 € HT/mois",
+    headline: "Démarrer sans usine à gaz — dès 29,99 € HT/mois",
     lead:
       `Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures. ${trialCopy.free}.`,
     seoDescription:
-      `Logiciel nettoyage auto-entrepreneur : planning, pointage, facturation 149 € HT/mois. ${trialCopy.free}.`,
+      `Logiciel nettoyage auto-entrepreneur : planning, pointage, facturation dès 29,99 € HT/mois. ${trialCopy.free}.`,
     pains: [
       {
         title: "Tout sur Excel",
@@ -376,7 +376,7 @@ export const solutionPages: Record<string, SolutionContent> = {
     faq: [
       {
         q: "L’offre convient-elle aux petites équipes ?",
-        a: "Oui. 149 € HT/mois, jusqu’à 5 utilisateurs, tous modules inclus.",
+        a: "Oui. Dès 29,99 € HT/mois — Starter, Pro ou Premium, tous modules inclus.",
       },
       {
         q: "Faut-il une formation longue ?",
@@ -392,7 +392,7 @@ export const solutionPages: Record<string, SolutionContent> = {
       },
       {
         q: "PROGESTI est-il réservé aux grandes entreprises ?",
-        a: "Non. Il est pensé aussi pour les AE et petites équipes — 149 € HT/mois, jusqu'à 5 utilisateurs.",
+        a: "Non. Il est pensé aussi pour les AE et petites équipes — dès 29,99 € HT/mois.",
       },
     ],
   },

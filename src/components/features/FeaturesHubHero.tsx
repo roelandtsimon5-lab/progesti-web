@@ -22,7 +22,7 @@ export function FeaturesHubHero() {
             dark
           />
           <p className="mt-4 text-xs font-bold uppercase tracking-[0.16em] text-lime-cta/90">
-            Produit · {modules.length} modules · 149 € HT/mois
+            Produit · {modules.length} modules · dès 29,99 € HT/mois
           </p>
           <h1 className="mt-3 font-sans text-[1.85rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-white md:text-[2.5rem] lg:text-[2.75rem]">
             Tout le métier de la propreté,{" "}
@@ -98,7 +98,7 @@ export function FeaturesHubHero() {
           <div className="grid grid-cols-2 gap-x-8 gap-y-4 md:grid-cols-4">
           {[
             [`${site.trialDays} jours`, "d'essai gratuit"],
-            ["149 €", "HT/mois tout inclus"],
+            ["Dès 29,99 €", "HT/mois tout inclus"],
             [`${modules.length}`, "modules inclus"],
             ["0", "module payant en plus"],
           ].map(([value, label]) => (

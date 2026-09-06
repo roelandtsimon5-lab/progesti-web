@@ -62,7 +62,7 @@ export default function OpenGraphImage() {
               maxWidth: 820,
             }}
           >
-            Planning · Pointage · Facturation — 149 € HT/mois · essai 7 jours sans CB
+            Planning · Pointage · Facturation — dès 29,99 € HT/mois · essai 15 jours sans CB
           </div>
         </div>
         <div style={{ display: "flex", fontSize: 22, color: "#e8f0f4" }}>progesti.fr</div>

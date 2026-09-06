@@ -12,40 +12,39 @@ import { FinalPush } from "@/components/conversion/FinalPush";
 import { ReviewsLd } from "@/components/seo/ReviewsLd";
 import { cta, ctaLabels } from "@/lib/cta";
 import { socialProofStats } from "@/lib/testimonials";
-import { solutions, site, trustBadges, trialCopy } from "@/lib/site";
+import { pricingCopy, solutions, site, trustBadges, trialCopy } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Tarifs — 149 € HT/mois, tout inclus",
-  description:
-    `Tarifs PROGESTI : 149 € HT/mois, jusqu'à 5 utilisateurs, tous modules inclus. ${trialCopy.free}, sans engagement.`,
+  title: "Tarifs — dès 29,99 € HT/mois",
+  description: `Tarifs PROGESTI : Starter 29,99 €, Pro 49,99 €, Premium 99,99 € HT/mois. Tous modules inclus. ${trialCopy.free}, sans engagement.`,
   path: "/tarifs",
 });
 
 const pricingFaq = [
   {
     q: "Les modules sont-ils tous inclus ?",
-    a: "Oui. Planning, pointage, facturation, RH, CRM et tous les autres modules sont inclus dans l'offre à 149 € HT/mois.",
+    a: "Oui. Planning, pointage, facturation, RH, CRM et tous les autres modules sont inclus dans chaque offre (Starter, Pro, Premium).",
   },
   {
     q: "Combien d'utilisateurs sont inclus ?",
-    a: "Jusqu'à 5 utilisateurs. Contactez-nous si vous avez besoin de plus.",
+    a: "Starter : 1 administrateur principal. Pro : 5 utilisateurs. Premium : 20 utilisateurs. Contactez-nous si vous avez besoin de plus.",
   },
   {
     q: "Y a-t-il des frais d'installation ?",
-    a: "Non. Mise en place offerte. Pas de frais cachés.",
+    a: "Non. Mise en place offerte. Pas de frais cachés. Stockage illimité et mises à jour gratuites.",
   },
   {
     q: "Puis-je essayer avant de m'engager ?",
     a: `Oui. Essai ${site.trialDays} jours gratuit, sans carte bancaire.`,
   },
   {
-    q: "Existe-t-il plusieurs formules ou tiers ?",
-    a: "Non. Un seul tarif public : 149 € HT/mois (ou 1 490 € HT/an), tout inclus. Pas de module payant en supplément.",
+    q: "Quelles sont les offres ?",
+    a: "Trois tarifs publics : Starter 29,99 € HT/mois, Pro 49,99 € HT/mois (soit 9,99 € HT/utilisateur), Premium 99,99 € HT/mois (soit 4,99 € HT/utilisateur). Tous modules inclus.",
   },
   {
     q: "L'offre annuelle est-elle avantageuse ?",
-    a: "Oui. 1 490 € HT/an équivaut à 2 mois offerts par rapport au mensuel (149 € × 12).",
+    a: "Oui. L'annuel équivaut à 2 mois offerts (10 mois facturés pour 12 mois d'usage).",
   },
 ];
 
@@ -65,10 +64,10 @@ export default function TarifsPage() {
             dark
           />
           <h1 className="mt-4 max-w-2xl font-sans text-[2.35rem] font-extrabold leading-[1.08] tracking-[-0.02em] text-white md:text-[3rem]">
-            Un prix public. Tout inclus.
+            Des tarifs publics. Tout inclus.
           </h1>
           <p className="mt-5 max-w-xl text-lg text-white/80">
-            149 € HT/mois · 5 utilisateurs · tous les modules. Pas de devis opaque, pas de surprise en fin de mois.
+            {pricingCopy.plansSummary}. Pas de devis opaque, pas de surprise en fin de mois.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink
@@ -134,7 +133,7 @@ export default function TarifsPage() {
               Adapté à votre métier
             </h2>
             <p className="mt-3 max-w-xl text-slate">
-              Même tarif, même outil — bureaux, syndics, locaux pros ou fin de chantier.
+              Mêmes offres, même outil — bureaux, syndics, locaux pros ou fin de chantier.
             </p>
           </Reveal>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -171,7 +170,7 @@ export default function TarifsPage() {
         </div>
       </section>
 
-      <FinalPush title="Un tarif public. Testez sur votre activité." />
+      <FinalPush title="Tarifs publics. Testez sur votre activité." />
       <MobileCtaBar />
     </>
   );

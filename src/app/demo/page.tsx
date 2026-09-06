@@ -111,6 +111,7 @@ export default function DemoPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           intent: "demo",
+          campaign: "demo_page",
           name,
           email,
           phone,

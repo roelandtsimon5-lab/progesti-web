@@ -7,7 +7,7 @@ export const cta = {
   demo: "/demo",
   /** Funnel lead puis redirection vers l'app. */
   trial: "/essai-gratuit",
-  /** Inscription self-serve sur l'app (app.progesti.fr) - essai 7 jours. */
+  /** Inscription self-serve sur l'app (app.progesti.fr) - essai 15 jours. */
   trialApp: appUrl("/creer-mon-espace"),
   /** Cockpit demo pre-rempli (session guest, donnees Pro Nettoyage). */
   demoApp: appUrl("/api/public/demo-session"),

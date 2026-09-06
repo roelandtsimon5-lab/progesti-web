@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = stripSiteSuffix(rawTitle);
   const description =
     content?.seoDescription ??
-    `${mod.short} Essai ${site.trialDays} jours sans CB · 149 € HT/mois tout inclus.`;
+    `${mod.short} Essai ${site.trialDays} jours sans CB · dès 29,99 € HT/mois tout inclus.`;
   return {
     title: { absolute: `${title} | ${site.name}` },
     description,
@@ -55,7 +55,7 @@ export default async function ModulePage({ params }: Props) {
   const pageTitle = stripSiteSuffix(content.seoTitle ?? `${mod.title} pour entreprises de nettoyage`);
   const pageDescription =
     content.seoDescription ??
-    `${mod.short} Essai ${site.trialDays} jours sans CB · 149 € HT/mois tout inclus.`;
+    `${mod.short} Essai ${site.trialDays} jours sans CB · dès 29,99 € HT/mois tout inclus.`;
 
   return (
     <>

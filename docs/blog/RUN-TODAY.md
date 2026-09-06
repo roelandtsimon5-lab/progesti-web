@@ -1,4 +1,4 @@
-﻿# Publication blog â€” 2026-08-25
+﻿# Publication blog â€” 2026-09-01
 
 Ouvre le chat Cursor et envoie :
 

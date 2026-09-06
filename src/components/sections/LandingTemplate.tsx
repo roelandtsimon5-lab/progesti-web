@@ -2,6 +2,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { ConversionBlock } from "@/components/conversion/ConversionBlock";
+import { site } from "@/lib/site";
 
 type Props = {
   badge: string;
@@ -30,7 +31,7 @@ export function LandingTemplate({
   subhead,
   primaryCta,
   secondaryCta,
-  trustLine = "Sans carte bancaire · Essai 7 jours · Tous modules · Dès 149 € HT/mois",
+  trustLine = `Sans carte bancaire · Essai ${site.trialDays} jours · Tous modules · Dès 29,99 € HT/mois`,
   proofPoints,
   steps,
   benefits,
@@ -146,7 +147,12 @@ export function LandingTemplate({
                 <h2 className="text-2xl font-extrabold text-brand-navy">{formTitle}</h2>
                 <p className="mt-2 text-sm text-slate">{formLead}</p>
                 <div className="mt-6">
-                  <LeadForm intent={formIntent!} submitLabel={formLabel ?? "Envoyer"} compact />
+                  <LeadForm
+                    intent={formIntent!}
+                    campaign={campaign || `lp_${formIntent}`}
+                    submitLabel={formLabel ?? "Envoyer"}
+                    compact
+                  />
                 </div>
               </div>
             </div>
@@ -158,8 +164,8 @@ export function LandingTemplate({
       <section className="border-y border-line bg-white">
         <div className="container grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
           {[
-            ["7 jours", "d’essai gratuit"],
-            ["149 €", "HT/mois tout inclus"],
+            [`${site.trialDays} jours`, "d’essai gratuit"],
+            ["Dès 29,99 €", "HT/mois tout inclus"],
             ["11", "modules inclus"],
             ["0 €", "frais d’installation"],
           ].map(([v, l]) => (
@@ -259,7 +265,7 @@ export function LandingTemplate({
               event="trial_start"
               eventPayload={{ campaign, cta: "v3_lp_mobile_trial" }}
             >
-              Essai 7 jours
+              Essai {site.trialDays} jours
             </ButtonLink>
           </div>
         </>

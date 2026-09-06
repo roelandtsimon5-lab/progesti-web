@@ -6,20 +6,20 @@ import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { cta } from "@/lib/cta";
-import { mainPlan, modules, site } from "@/lib/site";
+import { formatEuro, mainPlan, modules, site } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Comparatifs",
   description:
-    "Comparatif logiciels pour entreprises de nettoyage — PROGESTI vs Excel, WhatsApp et alternatives. Prix public 149 € HT/mois.",
+    "Comparatif logiciels pour entreprises de nettoyage — PROGESTI vs Excel, WhatsApp et alternatives. Prix public dès 29,99 € HT/mois.",
   path: "/comparatifs",
 });
 
 const rows = [
   {
     label: "Prix",
-    progesti: "149 € HT/mois · public",
+    progesti: "Dès 29,99 € HT/mois · public",
     other: "Devis / modules en plus",
   },
   {
@@ -85,7 +85,7 @@ export default function ComparatifsPage() {
               <h2 className="font-display text-xl font-extrabold text-blue-deep">PROGESTI vs Propret</h2>
               <ul className="mt-4 space-y-2 text-slate">
                 <li>• Même niche : entreprises de nettoyage en France</li>
-                <li>• PROGESTI : tarif unique {mainPlan.monthly} € HT/mois — pas de Starter/Pro/Premium</li>
+                <li>• PROGESTI : tarifs publics Starter / Pro / Premium — dès {formatEuro(mainPlan.monthly)} HT/mois, tous modules inclus</li>
                 <li>• Essai {site.trialDays} jours sans CB · support FR · fait par des gens du métier</li>
               </ul>
               <div className="mt-6 flex flex-wrap gap-3">

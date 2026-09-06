@@ -15,7 +15,7 @@ import { socialProofStats, testimonials } from "@/lib/testimonials";
 export const metadata: Metadata = pageMeta({
   title: "Avis clients — entreprises de nettoyage",
   description:
-    "Retours d'entreprises de propreté sur PROGESTI : planning, pointage terrain, facturation. Support 4,8/5 · essai 7 jours.",
+    "Retours d'entreprises de propreté sur PROGESTI : planning, pointage terrain, facturation. Support 4,8/5 · essai 15 jours.",
   path: "/temoignages",
 });
 

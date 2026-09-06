@@ -9,12 +9,12 @@ import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { cta, ctaLabels } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
-import { site, trialCopy, mainPlan } from "@/lib/site";
+import { site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Logiciel planning nettoyage — Multi-sites, remplacements, facturation",
   description:
-    `Logiciel de planning pour entreprise de nettoyage : affectez agents et sites, gérez absences et remplacements. 149 € HT/mois, ${trialCopy.metaSuffix}`,
+    `Logiciel de planning pour entreprise de nettoyage : affectez agents et sites, gérez absences et remplacements. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
   path: "/logiciel-planning-nettoyage",
 });
 
@@ -257,9 +257,9 @@ export default function PillarPlanningPage() {
             </Reveal>
             <Reveal delayMs={100}>
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
-                <h3 className="font-display font-extrabold text-blue-deep">{mainPlan.monthly} € tout inclus</h3>
+                <h3 className="font-display font-extrabold text-blue-deep">Dès 29,99 € tout inclus</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Planning + pointage + facturation — pas de module en supplément. {mainPlan.users}.
+                  Planning + pointage + facturation — pas de module en supplément. Starter, Pro ou Premium.
                 </p>
               </li>
             </Reveal>

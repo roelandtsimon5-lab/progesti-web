@@ -23,7 +23,7 @@ const values = [
   },
   {
     title: "Prix public",
-    text: "149 € HT/mois affiché. Pas de devis opaque, pas de module payant caché après signature.",
+    text: "Dès 29,99 € HT/mois affiché. Pas de devis opaque, pas de module payant caché après signature.",
   },
   {
     title: "Support humain FR",
@@ -62,8 +62,8 @@ export default function AProposPage() {
               <p className="text-xs text-slate">satisfaction support</p>
             </li>
             <li>
-              <p className="font-display text-2xl font-extrabold text-blue-deep">149 €</p>
-              <p className="text-xs text-slate">HT/mois · tout inclus</p>
+              <p className="font-display text-2xl font-extrabold text-blue-deep">29,99 €</p>
+              <p className="text-xs text-slate">HT/mois dès Starter</p>
             </li>
           </ul>
         </div>

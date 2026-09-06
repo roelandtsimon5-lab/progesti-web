@@ -18,7 +18,7 @@ export default function CgvPage() {
       <IndustryPageHero
         eyebrow="Légal"
         title="Conditions générales de vente"
-        lead={`Cadre contractuel de l'abonnement PROGESTI — 149 € HT/mois, essai ${site.trialDays} jours, modules inclus.`}
+        lead={`Cadre contractuel de l'abonnement PROGESTI — dès 29,99 € HT/mois, essai ${site.trialDays} jours, modules inclus.`}
         breadcrumbs={[
           { label: "Accueil", href: "/" },
           { label: "CGV" },
@@ -37,8 +37,10 @@ export default function CgvPage() {
           <section>
             <h2 className="text-lg font-extrabold text-ink">2. Offres et prix</h2>
             <p className="mt-2">
-              L'offre PROGESTI est décrite sur la page Tarifs : 149 € HT/mois, jusqu'à 5
-              utilisateurs, tous modules inclus. Essai gratuit de {site.trialDays} jours.
+              Les offres PROGESTI sont décrites sur la page Tarifs : Starter 29,99 € HT/mois
+              (1 administrateur), Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois
+              (20 utilisateurs). Tous modules inclus, mise en place offerte. Essai gratuit de{" "}
+              {site.trialDays} jours.
             </p>
           </section>
           <section>

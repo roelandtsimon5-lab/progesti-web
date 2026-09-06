@@ -14,7 +14,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "FAQ",
   description:
-    `FAQ PROGESTI : ${trialCopy.label.toLowerCase()}, tarif 149 € HT/mois, mobile, migration Excel, support FR.`,
+    `FAQ PROGESTI : ${trialCopy.label.toLowerCase()}, tarif dès 29,99 € HT/mois, mobile, migration Excel, support FR.`,
   path: "/faq",
 });
 
