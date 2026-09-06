@@ -79,6 +79,18 @@ export default function FonctionnalitesPage() {
               solutions par métier
             </Link>{" "}
             ·{" "}
+            <Link href="/logiciel-planning-nettoyage" className="font-semibold text-brand-navy-soft hover:underline">
+              planning
+            </Link>{" "}
+            ·{" "}
+            <Link href="/logiciel-pointage-proprete" className="font-semibold text-brand-navy-soft hover:underline">
+              pointage
+            </Link>{" "}
+            ·{" "}
+            <Link href="/logiciel-facturation-proprete" className="font-semibold text-brand-navy-soft hover:underline">
+              facturation
+            </Link>{" "}
+            ·{" "}
             <Link href="/comparatifs" className="font-semibold text-brand-navy-soft hover:underline">
               comparatifs
             </Link>{" "}

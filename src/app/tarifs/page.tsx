@@ -148,6 +148,20 @@ export default function TarifsPage() {
               </li>
             ))}
           </ul>
+          <p className="mt-6 text-center text-sm text-slate">
+            Voir aussi :{" "}
+            <Link href="/logiciel-planning-nettoyage" className="font-semibold text-blue-royal hover:underline">
+              planning
+            </Link>
+            {" · "}
+            <Link href="/logiciel-pointage-proprete" className="font-semibold text-blue-royal hover:underline">
+              pointage
+            </Link>
+            {" · "}
+            <Link href="/logiciel-facturation-proprete" className="font-semibold text-blue-royal hover:underline">
+              facturation
+            </Link>
+          </p>
         </div>
       </section>
 

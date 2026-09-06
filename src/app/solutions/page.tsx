@@ -108,6 +108,36 @@ export default function SolutionsIndexPage() {
         </div>
       </section>
 
+      <section className="section bg-white pb-28 lg:pb-16">
+        <div className="container">
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+              Pages piliers par fonction
+            </h2>
+            <p className="mt-3 max-w-xl text-slate">
+              Explorez nos guides complets par domaine fonctionnel.
+            </p>
+          </Reveal>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { href: "/logiciel-entreprise-nettoyage", label: "Logiciel nettoyage" },
+              { href: "/logiciel-planning-nettoyage", label: "Planning nettoyage" },
+              { href: "/logiciel-pointage-proprete", label: "Pointage propreté" },
+              { href: "/logiciel-facturation-proprete", label: "Facturation propreté" },
+            ].map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block rounded-[2px] border border-blue-mist px-4 py-3 text-sm font-semibold text-blue-deep transition hover:border-blue-royal hover:bg-blue-sky/30"
+                >
+                  {link.label} →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <FinalPush />
       <MobileCtaBar />
     </>

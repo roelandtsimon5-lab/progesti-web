@@ -76,6 +76,25 @@ const nextConfig: NextConfig = {
         destination: "/fonctionnalites/:path*",
         permanent: true,
       },
+      // Legacy solution path redirects (SEO cleanup)
+      { source: "/bureaux", destination: "/solutions/bureaux", permanent: true },
+      { source: "/syndics", destination: "/solutions/syndics", permanent: true },
+      {
+        source: "/fin-de-chantier",
+        destination: "/solutions/fin-de-chantier",
+        permanent: true,
+      },
+      {
+        source: "/auto-entrepreneur",
+        destination: "/solutions/auto-entrepreneurs",
+        permanent: true,
+      },
+      // E-facture intent redirect (covered by main facturation pillar)
+      {
+        source: "/facturation-electronique-proprete",
+        destination: "/logiciel-facturation-proprete",
+        permanent: true,
+      },
     ];
   },
 };

@@ -12,50 +12,54 @@ import { pageMeta } from "@/lib/seo";
 import { site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel planning nettoyage — Multi-sites, remplacements, facturation",
+  title: "Logiciel pointage propreté — Télégestion & preuves terrain",
   description:
-    `Logiciel de planning pour entreprise de nettoyage : affectez agents et sites, gérez absences et remplacements. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
-  path: "/logiciel-planning-nettoyage",
+    `Logiciel de pointage pour entreprise de nettoyage : app mobile, géolocalisation, preuves de passages. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
+  path: "/logiciel-pointage-proprete",
 });
 
-export default function PillarPlanningPage() {
+export default function PillarPointagePage() {
   return (
     <>
       <SoftwareApplicationLd />
       <IndustryPageHero
-        eyebrow="Planning propreté"
-        title="Logiciel de planning pour le nettoyage"
-        lead="Affectez le bon agent au bon site, au bon créneau — bureaux, syndics, locaux pros ou fin de chantier, sans Excel ni messages perdus."
+        eyebrow="Pointage propreté"
+        title="Logiciel de pointage pour la propreté"
+        lead="Tracez chaque intervention sur le terrain — arrivée, départ, géolocalisation. Fini les feuilles papier et les heures contestées."
         breadcrumbs={[
           { label: "Accueil", href: "/" },
-          { label: "Logiciel planning nettoyage" },
+          { label: "Logiciel pointage propreté" },
         ]}
-        trialEvent="pillar_planning_trial"
-        demoEvent="pillar_planning_demo"
+        trialEvent="pillar_pointage_trial"
+        demoEvent="pillar_pointage_demo"
       />
 
       <section className="section bg-white">
         <div className="container grid items-start gap-12 lg:grid-cols-2">
           <Reveal>
             <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
-              Pourquoi un planning métier pour la propreté ?
+              Pourquoi un pointage métier pour la propreté ?
             </h2>
             <p className="mt-4 text-slate">
-              Un tableau Excel peut suffire avec trois agents et cinq sites. Mais dès que l&apos;activité grandit — dix sites, des fréquences différentes, des clients exigeants — le bricolage ne tient plus. Les oublis se multiplient, les remplacements se gèrent par SMS, et personne ne sait vraiment qui était où la semaine dernière.
+              Les feuilles de pointage papier se perdent. Les heures déclarées par SMS sont contestées. 
+              Et quand un client demande une preuve de passage, vous improvisez. Dans une entreprise de 
+              nettoyage, le terrain est la vérité — encore faut-il la capturer.
             </p>
             <p className="mt-4 text-slate">
               PROGESTI est un{" "}
               <Link href="/logiciel-entreprise-nettoyage" className="font-semibold text-blue-royal hover:underline">
                 logiciel conçu pour les entreprises de nettoyage
               </Link>
-              . Le planning n&apos;est pas un module isolé : il est relié au pointage terrain et à la facturation. Ce que vous planifiez, vos agents le pointent sur mobile. Ce qu&apos;ils pointent alimente directement vos factures. Pas de double saisie, pas de fichier parallèle.
+              . Le pointage mobile n&apos;est pas un gadget isolé : il est relié au planning et à la 
+              facturation. Quand un agent pointe, les données remontent au bureau. Quand vous facturez, 
+              les heures terrain sont déjà là.
             </p>
             <ul className="mt-6 space-y-2.5">
               {[
-                "Vue semaine par agent ou par site",
-                "Fréquences et récurrences automatiques",
-                "Remplacements et absences gérés au même endroit",
-                "Base pour le pointage mobile et la facturation",
+                "Pointage mobile (Android & iOS)",
+                "Géolocalisation optionnelle",
+                "Preuves de passages horodatées",
+                "Lien direct avec planning et facturation",
               ].map((b) => (
                 <li key={b} className="flex gap-2 text-sm text-slate md:text-base">
                   <span className="font-bold text-lime-cta" aria-hidden>
@@ -66,10 +70,10 @@ export default function PillarPlanningPage() {
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={cta.trial} variant="trial" event="trial_start" eventPayload={{ cta: "pillar_planning_trial" }}>
+              <ButtonLink href={cta.trial} variant="trial" event="trial_start" eventPayload={{ cta: "pillar_pointage_trial" }}>
                 Essai {site.trialDays} jours
               </ButtonLink>
-              <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "pillar_planning_demo" }}>
+              <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "pillar_pointage_demo" }}>
                 {ctaLabels.demoGate}
               </ButtonLink>
             </div>
@@ -77,8 +81,8 @@ export default function PillarPlanningPage() {
           <Reveal delayMs={60}>
             <div className="overflow-hidden rounded-[3px] border border-blue-mist/60 shadow-[0_20px_56px_rgba(11,61,110,0.12)]">
               <Image
-                src="/hero-planning.png"
-                alt="Planning PROGESTI — vue semaine des passages"
+                src="/screen-telegestion.webp"
+                alt="Pointage PROGESTI — télégestion mobile"
                 width={800}
                 height={500}
                 className="h-auto w-full"
@@ -94,10 +98,11 @@ export default function PillarPlanningPage() {
         <div className="container">
           <Reveal>
             <h2 className="text-center font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
-              Planning multi-sites : bureaux, syndics, commerces
+              Pointage terrain : bureaux, syndics, commerces
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-center text-slate">
-              Chaque site a ses contraintes : fréquence de passage, horaires d&apos;accès, interlocuteur sur place. Un logiciel de planning propreté doit gérer cette diversité sans complexité inutile.
+              Que vous interveniez en open space, dans un hall d&apos;immeuble ou chez un commerçant, 
+              le pointage mobile trace le passage — sans papier, sans contestation possible.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -105,7 +110,8 @@ export default function PillarPlanningPage() {
               <div className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
                 <h3 className="font-display font-extrabold text-blue-deep">Bureaux et tertiaire</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Open spaces, étages multiples, horaires décalés. Planifiez des passages quotidiens ou hebdomadaires selon les besoins du client, avec des créneaux adaptés (tôt le matin, en journée, le soir).
+                  Équipes tôt le matin ou le soir : le pointage confirme l&apos;arrivée et le départ, 
+                  même quand personne n&apos;est là pour vérifier.
                 </p>
               </div>
             </Reveal>
@@ -113,7 +119,8 @@ export default function PillarPlanningPage() {
               <div className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
                 <h3 className="font-display font-extrabold text-blue-deep">Syndics et copropriétés</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Halls, cages d&apos;escalier, locaux poubelles. Gérez plusieurs immeubles avec des fréquences différentes (2× par semaine, mensuel pour les vitres). Gardez l&apos;historique pour répondre aux questions du syndic.
+                  Preuves de passages pour le syndic : historique, horaires, et géolocalisation si activée. 
+                  Vous répondez aux questions avec des faits.
                 </p>
               </div>
             </Reveal>
@@ -121,7 +128,8 @@ export default function PillarPlanningPage() {
               <div className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
                 <h3 className="font-display font-extrabold text-blue-deep">Commerces et locaux pros</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Restaurants, cabinets médicaux, commerces de détail. Des créneaux serrés avant l&apos;ouverture ou après la fermeture, des exigences d&apos;hygiène strictes. Le planning doit être précis et respecté.
+                  Créneaux serrés avant ouverture ou après fermeture : le pointage horodaté rassure 
+                  le client — et documente le travail effectué.
                 </p>
               </div>
             </Reveal>
@@ -133,25 +141,30 @@ export default function PillarPlanningPage() {
         <div className="container max-w-4xl">
           <Reveal>
             <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
-              Absences et remplacements : réagir sans panique
+              Fini les heures contestées
             </h2>
             <p className="mt-4 text-slate">
-              Un agent malade à 6h du matin. Un arrêt de travail qui tombe un vendredi. Une absence prévue qu&apos;on avait oubliée. Dans une entreprise de nettoyage, les imprévus font partie du quotidien.
+              « Mon agent dit qu&apos;il était là, le client dit qu&apos;il n&apos;a vu personne. » 
+              Ce genre de litige coûte du temps, de l&apos;argent et parfois un contrat.
             </p>
             <p className="mt-4 text-slate">
-              Avec PROGESTI, absences et remplacements se gèrent dans le même écran que le planning. Vous voyez immédiatement quels sites sont à découvert, quels agents sont disponibles, et vous réaffectez en quelques clics. Pas besoin de jongler entre un fichier Excel, une messagerie et un planning papier.
+              Avec le pointage mobile PROGESTI, chaque arrivée et chaque départ sont horodatés. 
+              La géolocalisation optionnelle confirme la présence sur site. En cas de contestation, 
+              vous avez les données — pas juste une parole contre une autre.
             </p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               <div className="rounded-[3px] border border-line bg-paper p-5">
-                <p className="font-display font-bold text-ink">Absences prévues</p>
+                <p className="font-display font-bold text-ink">Arrivée et départ tracés</p>
                 <p className="mt-2 text-sm text-slate">
-                  Congés, formations, rendez-vous : saisissez l&apos;absence à l&apos;avance, le planning s&apos;ajuste et vous alerte si un site reste sans agent.
+                  L&apos;agent pointe sur son mobile. L&apos;heure exacte est enregistrée — pas de déclaration 
+                  approximative le lendemain.
                 </p>
               </div>
               <div className="rounded-[3px] border border-line bg-paper p-5">
-                <p className="font-display font-bold text-ink">Remplacements de dernière minute</p>
+                <p className="font-display font-bold text-ink">Géolocalisation optionnelle</p>
                 <p className="mt-2 text-sm text-slate">
-                  Maladie ou imprévu le matin même : identifiez rapidement un remplaçant disponible et réaffectez le site sans perdre de temps.
+                  Si vous l&apos;activez, la position GPS confirme que l&apos;agent était bien sur le site 
+                  au moment du pointage.
                 </p>
               </div>
             </div>
@@ -163,19 +176,28 @@ export default function PillarPlanningPage() {
         <div className="container max-w-4xl">
           <Reveal>
             <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
-              Du pointage terrain à la facture : un seul flux
+              Du pointage à la facture : un seul flux
             </h2>
             <p className="mt-4 text-slate">
-              Le planning ne sert pas qu&apos;à savoir qui va où. C&apos;est la base de toute votre chaîne : ce que vous planifiez, vos agents le pointent. Ce qu&apos;ils pointent devient des heures travaillées. Ces heures alimentent vos factures.
+              Le pointage ne sert pas qu&apos;à contrôler. C&apos;est la base de votre facturation. 
+              Dans PROGESTI, ce qui est pointé alimente directement les heures facturables — sans ressaisie.
             </p>
             <p className="mt-4 text-slate">
-              Dans PROGESTI, le lien est automatique. Quand un agent pointe son arrivée et son départ sur l&apos;application mobile, les données remontent au bureau. Vous voyez en temps réel si le passage a eu lieu, combien de temps il a duré, et si la géolocalisation confirme la présence sur site. Au moment de facturer, les heures réalisées sont déjà là — pas besoin de ressaisir, pas de risque d&apos;oublier un passage.
+              Le{" "}
+              <Link href="/logiciel-planning-nettoyage" className="font-semibold text-blue-royal hover:underline">
+                planning
+              </Link>{" "}
+              définit ce qui doit être fait. Le pointage trace ce qui a été fait. Et la{" "}
+              <Link href="/logiciel-facturation-proprete" className="font-semibold text-blue-royal hover:underline">
+                facturation
+              </Link>{" "}
+              s&apos;appuie sur ces données. Moins d&apos;oublis, moins d&apos;écarts, des factures alignées sur le terrain.
             </p>
             <ul className="mt-6 space-y-2.5">
               {[
-                "Le planning définit ce qui doit être fait",
-                "Le pointage mobile trace ce qui a été fait",
-                "La facturation s&apos;appuie sur le réalisé terrain",
+                "Le planning définit les interventions prévues",
+                "Le pointage mobile trace les passages réels",
+                "La facturation s'aligne sur le réalisé terrain",
               ].map((item) => (
                 <li key={item} className="flex gap-2 text-sm text-slate md:text-base">
                   <span className="font-bold text-lime-cta" aria-hidden>
@@ -185,16 +207,6 @@ export default function PillarPlanningPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-slate">
-              Voir aussi :{" "}
-              <Link href="/logiciel-pointage-proprete" className="font-semibold text-blue-royal hover:underline">
-                pointage propreté
-              </Link>
-              {" · "}
-              <Link href="/logiciel-facturation-proprete" className="font-semibold text-blue-royal hover:underline">
-                facturation propreté
-              </Link>
-            </p>
           </Reveal>
         </div>
       </section>
@@ -203,34 +215,28 @@ export default function PillarPlanningPage() {
         <div className="container max-w-4xl">
           <Reveal>
             <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
-              Fini le bricolage Excel et WhatsApp
+              App mobile pour vos agents
             </h2>
             <p className="mt-4 text-slate">
-              Excel a ses mérites : c&apos;est gratuit, flexible, tout le monde sait s&apos;en servir. Mais pour gérer un planning de propreté avec dix, vingt ou trente sites, les limites apparaissent vite.
+              Vos agents ont leur planning dans la poche. Ils voient les sites à couvrir, 
+              les consignes d&apos;accès, et pointent en un tap. Pas besoin de formation compliquée : 
+              l&apos;interface est pensée pour le terrain.
             </p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-[3px] border border-line bg-paper p-5">
-                <p className="font-display font-bold text-ink">Avec Excel et WhatsApp</p>
-                <ul className="mt-3 space-y-2 text-sm text-slate">
-                  <li>• Planning reconstruit chaque semaine</li>
-                  <li>• Remplacements gérés par messages</li>
-                  <li>• Pas de lien avec le pointage</li>
-                  <li>• Facturation manuelle, oublis fréquents</li>
-                </ul>
+                <p className="font-display font-bold text-ink">Android & iOS</p>
+                <p className="mt-2 text-sm text-slate">
+                  Compatible avec les smartphones de vos agents — pas besoin de matériel spécifique.
+                </p>
               </div>
-              <div className="rounded-[3px] border border-lime-cta/30 bg-lime-cta/5 p-5">
-                <p className="font-display font-bold text-ink">Avec PROGESTI</p>
-                <ul className="mt-3 space-y-2 text-sm text-slate">
-                  <li>• Récurrences automatiques</li>
-                  <li>• Absences et remplacements centralisés</li>
-                  <li>• Pointage mobile relié au planning</li>
-                  <li>• Facturation alignée sur le terrain</li>
-                </ul>
+              <div className="rounded-[3px] border border-line bg-paper p-5">
+                <p className="font-display font-bold text-ink">Mode hors-ligne</p>
+                <p className="mt-2 text-sm text-slate">
+                  Le pointage fonctionne même sans réseau — les données se synchronisent dès que la 
+                  connexion revient.
+                </p>
               </div>
             </div>
-            <p className="mt-6 text-slate">
-              Le passage à un logiciel métier n&apos;est pas une révolution. C&apos;est un gain de temps chaque semaine, moins d&apos;erreurs, et une vision claire de l&apos;activité — pour vous et pour vos clients.
-            </p>
           </Reveal>
         </div>
       </section>
@@ -245,17 +251,17 @@ export default function PillarPlanningPage() {
           <ul className="mt-10 grid gap-5 sm:grid-cols-3">
             <Reveal delayMs={0}>
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
-                <h3 className="font-display font-extrabold text-blue-deep">Multi-sites</h3>
+                <h3 className="font-display font-extrabold text-blue-deep">Pointage mobile</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Bureaux, syndics, commerces — tous vos sites dans un seul planning lisible, avec fréquences et récurrences.
+                  Arrivée, départ, géoloc optionnelle. Les données remontent au bureau en temps réel.
                 </p>
               </li>
             </Reveal>
             <Reveal delayMs={50}>
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
-                <h3 className="font-display font-extrabold text-blue-deep">Statuts en temps réel</h3>
+                <h3 className="font-display font-extrabold text-blue-deep">Preuves de passages</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  En cours, terminé, retard : le bureau voit l&apos;avancement sans appeler le terrain.
+                  Historique conservé, horodatage, prêt pour répondre aux questions clients ou syndics.
                 </p>
               </li>
             </Reveal>
@@ -263,7 +269,7 @@ export default function PillarPlanningPage() {
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
                 <h3 className="font-display font-extrabold text-blue-deep">Dès 29,99 € tout inclus</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Planning + pointage + facturation — pas de module en supplément. Starter, Pro ou Premium.
+                  Pointage + planning + facturation — pas de module en supplément. Starter, Pro ou Premium.
                 </p>
               </li>
             </Reveal>
@@ -275,12 +281,12 @@ export default function PillarPlanningPage() {
                 logiciel entreprise de nettoyage
               </Link>
               {" · "}
-              <Link href="/solutions/bureaux" className="font-semibold text-blue-royal hover:underline">
-                bureaux
+              <Link href="/logiciel-planning-nettoyage" className="font-semibold text-blue-royal hover:underline">
+                planning nettoyage
               </Link>
               {" · "}
-              <Link href="/solutions/syndics" className="font-semibold text-blue-royal hover:underline">
-                syndics
+              <Link href="/logiciel-facturation-proprete" className="font-semibold text-blue-royal hover:underline">
+                facturation propreté
               </Link>
             </p>
           </Reveal>
