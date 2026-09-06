@@ -65,17 +65,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/solutions/${s.slug}`, 0.8, "monthly"),
   );
 
-  const featurePages = modules.map((m) =>
-    entry(`/fonctionnalites/${m.slug}`, 0.6, "monthly"),
-  );
+  /**
+   * Locs en 308 (next.config redirects) — ne pas les réindexer.
+   * Inclut aussi d’anciennes pages fonctionnalités fusionnées.
+   */
+  const SITEMAP_EXCLUDE = new Set([
+    "/blog/choisir-offre-starter-pro-premium",
+    "/fonctionnalites/prepaie",
+    "/fonctionnalites/tableaux-de-bord",
+  ]);
+
+  const featurePages = modules
+    .map((m) => `/fonctionnalites/${m.slug}`)
+    .filter((path) => !SITEMAP_EXCLUDE.has(path))
+    .map((path) => entry(path, 0.6, "monthly"));
 
   const categoryPages = getActiveBlogCategories().map((c) =>
     entry(`/blog/categorie/${c.slug}`, 0.5, "weekly"),
   );
 
-  const posts = getAllPosts().map((p) =>
-    entry(`/blog/${p.slug}`, 0.55, "monthly", new Date(p.updatedAt || p.date)),
-  );
+  const posts = getAllPosts()
+    .filter((p) => !SITEMAP_EXCLUDE.has(`/blog/${p.slug}`))
+    .map((p) =>
+      entry(`/blog/${p.slug}`, 0.55, "monthly", new Date(p.updatedAt || p.date)),
+    );
 
   const glossary = glossaryTerms.map((t) =>
     entry(`/glossaire/${t.slug}`, 0.4, "monthly"),
