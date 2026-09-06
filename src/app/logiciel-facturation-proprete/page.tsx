@@ -6,10 +6,43 @@ import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { IndustryFaq } from "@/components/industry/IndustryFaq";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
+import { FaqPageLd } from "@/components/seo/FaqPageLd";
 import { cta, ctaLabels } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
 import { site, trialCopy } from "@/lib/site";
+
+const facturationFaq = [
+  {
+    q: "Combien coûte un logiciel de facturation pour entreprise de nettoyage ?",
+    a: `PROGESTI propose trois offres publiques : Starter à 29,99 € HT/mois (1 administrateur), Pro à 49,99 € HT/mois (5 utilisateurs) et Premium à 99,99 € HT/mois (20 utilisateurs). Facturation, planning et pointage sont inclus dans chaque formule — pas de module payant en supplément.`,
+  },
+  {
+    q: "La facturation est-elle reliée au pointage terrain ?",
+    a: "Oui. Les heures pointées par vos agents sur l'app mobile remontent automatiquement. Au moment de facturer, vous avez les données du terrain — pas besoin de ressaisir ni de croiser des fichiers.",
+  },
+  {
+    q: "Puis-je facturer des contrats récurrents et des prestations ponctuelles ?",
+    a: "Oui. Pour un contrat d'entretien mensuel, la facturation est générée automatiquement selon la fréquence définie. Pour une fin de chantier, vous validez et facturez dès la livraison.",
+  },
+  {
+    q: "Comment suivre les impayés et relancer ?",
+    a: "PROGESTI centralise le suivi des paiements. Vous voyez les factures échues, les retards et les montants en jeu. Les relances partent depuis le même outil, avec l'historique client sous les yeux.",
+  },
+  {
+    q: "Puis-je exporter vers ma comptabilité ?",
+    a: "Oui. PROGESTI permet l'export comptable pour faciliter le rapprochement avec votre logiciel de comptabilité ou votre expert-comptable.",
+  },
+  {
+    q: "Le logiciel gère-t-il les devis ?",
+    a: "Oui. Vous créez un devis, l'envoyez au client, puis le convertissez en contrat ou en facture en quelques clics. Les lignes et tarifs sont conservés sans ressaisie.",
+  },
+  {
+    q: "Puis-je essayer avant de m'engager ?",
+    a: `Oui. Essai ${site.trialDays} jours gratuit, sans carte bancaire. Vous testez sur vos vrais clients et factures, sans engagement.`,
+  },
+] as const;
 
 export const metadata: Metadata = pageMeta({
   title: "Logiciel facturation propreté — Devis, réalisé terrain, factures",
@@ -22,6 +55,7 @@ export default function PillarFacturationPage() {
   return (
     <>
       <SoftwareApplicationLd />
+      <FaqPageLd items={[...facturationFaq]} />
       <IndustryPageHero
         eyebrow="Facturation propreté"
         title="Logiciel de facturation pour la propreté"
@@ -284,6 +318,116 @@ export default function PillarFacturationPage() {
               </Link>
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section bg-white">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+              Pourquoi choisir PROGESTI pour votre facturation ?
+            </h2>
+            <p className="mt-4 text-slate">
+              Un tableur peut suffire pour éditer quelques factures. Mais quand vous gérez des dizaines de contrats, des prestations ponctuelles et des variables chaque mois, vous passez des heures à recouper les données. Avec PROGESTI, le flux devis → terrain → facture est automatique : moins d&apos;oublis, moins de litiges, une trésorerie plus saine.
+            </p>
+            <p className="mt-4 text-slate">
+              Vous n&apos;êtes pas seul pour démarrer. L&apos;équipe de Toulouse vous accompagne sur l&apos;import de vos clients et la mise en place. En quelques jours, vous facturez depuis un outil qui parle votre métier — pas depuis un ERP générique qui demande des semaines de paramétrage.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[3px] border border-line bg-paper p-5">
+                <p className="font-display font-bold text-ink">Tarifs publics</p>
+                <p className="mt-2 text-sm text-slate">
+                  Trois offres claires : Starter 29,99 €, Pro 49,99 €, Premium 99,99 € HT/mois. Facturation + planning + pointage inclus.{" "}
+                  <Link href="/tarifs" className="font-semibold text-blue-royal hover:underline">
+                    Voir les tarifs
+                  </Link>
+                </p>
+              </div>
+              <div className="rounded-[3px] border border-line bg-paper p-5">
+                <p className="font-display font-bold text-ink">Support FR à Toulouse</p>
+                <p className="mt-2 text-sm text-slate">
+                  Équipe joignable au{" "}
+                  <a href={`tel:${site.phoneTel}`} className="font-semibold text-blue-royal hover:underline">
+                    {site.phone}
+                  </a>
+                  . Accompagnement à la mise en place et à l&apos;import de vos données.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-y border-blue-mist bg-[#F5F8FB] py-14">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <p className="eyebrow text-center">Univers métier</p>
+            <h2 className="mt-3 text-center font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+              Adapté à votre secteur
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-slate">
+              PROGESTI accompagne les entreprises de nettoyage sur différents marchés. Retrouvez les pages dédiées à votre activité :
+            </p>
+          </Reveal>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { href: "/solutions/bureaux", label: "Nettoyage de bureaux" },
+              { href: "/solutions/syndics", label: "Syndics & copropriétés" },
+              { href: "/solutions/professionnels", label: "Commerces & locaux pros" },
+              { href: "/solutions/fin-de-chantier", label: "Fin de chantier" },
+              { href: "/solutions/auto-entrepreneurs", label: "Auto-entrepreneurs" },
+              { href: "/alternative-propret", label: "Alternative à Propret" },
+            ].map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block rounded-[2px] border border-blue-mist px-4 py-3 text-sm font-semibold text-blue-deep transition hover:border-blue-royal hover:bg-blue-sky/30"
+                >
+                  {link.label} →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section bg-white pb-28 lg:pb-16" data-cta-sticky-safe>
+        <div className="container max-w-3xl">
+          <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+            Questions fréquentes — Facturation propreté
+          </h2>
+          <p className="mt-3 text-slate">
+            Une autre question ?{" "}
+            <a href={`tel:${site.phoneTel}`} className="font-semibold text-blue-royal hover:underline">
+              {site.phone}
+            </a>
+            {" · "}
+            <Link href="/contact" className="font-semibold text-blue-royal hover:underline">
+              Contactez-nous
+            </Link>
+          </p>
+          <div className="mt-8">
+            <IndustryFaq items={facturationFaq} />
+          </div>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <ButtonLink
+              href={cta.trial}
+              variant="trial"
+              event="trial_start"
+              eventPayload={{ cta: "pillar_factu_faq_trial" }}
+            >
+              Essai {site.trialDays} jours gratuit
+            </ButtonLink>
+            <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "pillar_factu_faq_demo" }}>
+              {ctaLabels.demoGate}
+            </ButtonLink>
+            <a
+              href={`tel:${site.phoneTel}`}
+              className="inline-flex items-center gap-2 font-bold text-blue-royal underline-offset-4 hover:underline"
+            >
+              <span aria-hidden>📞</span> {site.phone}
+            </a>
+          </div>
         </div>
       </section>
 
