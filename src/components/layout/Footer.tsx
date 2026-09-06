@@ -41,7 +41,7 @@ const columns = [
     links: [
       { href: "/contact", label: "Contact" },
       { href: "/support", label: "Support" },
-      { href: "/demo", label: ctaLabels.demoGate },
+      { href: cta.demo, label: ctaLabels.demoGate },
       { href: "/essai-gratuit", label: "Essai gratuit" },
       { href: "/a-propos", label: "À propos" },
       { href: "/mentions-legales", label: "Mentions légales" },

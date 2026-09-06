@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Reveal } from "@/components/ui/Reveal";
 import { cta } from "@/lib/cta";
 import { defaultPillars } from "@/lib/industry/default";
-import { site } from "@/lib/site";
+import { pricingCopy, site } from "@/lib/site";
 
 export function FeaturesHubExplorer() {
   return (
@@ -38,7 +38,7 @@ export function FeaturesHubExplorer() {
             >
               Essai {site.trialDays} jours gratuit
             </ButtonLink>
-            <p className="text-sm text-slate">Sans carte bancaire · dès 29,99 € HT/mois tout inclus</p>
+            <p className="text-sm text-slate">Sans carte bancaire · {pricingCopy.from}</p>
           </div>
         </Reveal>
       </div>

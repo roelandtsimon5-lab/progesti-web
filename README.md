@@ -35,7 +35,7 @@ Défaut `NEXT_PUBLIC_AUTH_URL` si vide :
 |---|---|
 | Connexion | `{AUTH_URL}/login` |
 | Essai | lead `/api/lead` puis `{AUTH_URL}/creer-mon-espace` |
-| Démo | lead `/api/lead` puis `{AUTH_URL}/api/public/demo-session` → `/demo-mvp` |
+| Démo | `{AUTH_URL}/api/public/demo-session` → `/demo-mvp` (accès direct) |
 | Mot de passe oublié | `{AUTH_URL}/forgot-password` |
 
 ### Sur le service **app** (planning-mvp)

@@ -14,7 +14,7 @@ export default function LandingEssaiPage() {
       headline="Essayez gratuitement pendant 15 jours"
       subhead="Accès immédiat à tous les modules. Sans carte bancaire. Sans engagement."
       primaryCta={{ href: cta.trialApp, label: "Créer mon essai maintenant" }}
-      secondaryCta={{ href: "/demo", label: "Préférer la démo 30s" }}
+      secondaryCta={{ href: cta.demo, label: "Préférer la démo 30s" }}
       benefits={[
         "Friction minimale : formulaire court puis entrée dans l’app",
         "Tous les modules ouverts pendant 15 jours",

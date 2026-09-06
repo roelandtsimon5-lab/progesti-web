@@ -268,7 +268,7 @@ export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig
     sub: "Planning, pointage, devis, factures, RH — dès 29,99 € HT/mois.",
     image: "/screen-telegestion.webp",
     imageAlt: "Tableau de bord PROGESTI — vue activité TPE",
-    badgeLeft: { title: "5 utilisateurs", sub: "Tous modules inclus" },
+    badgeLeft: { title: "Starter · Pro · Premium", sub: "Tous modules inclus" },
     badgeRight: "Dès 29,99 € HT/mois",
   },
   faq: [

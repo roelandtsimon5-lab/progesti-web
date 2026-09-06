@@ -44,9 +44,9 @@ export default function PreviewMinimalPage() {
           </div>
           <p className="mt-6 text-sm text-neutral-500">
             Dès 29,99 € HT/mois ·{" "}
-            <Link href={cta.demo} className="underline underline-offset-4">
+            <a href={cta.demo} className="underline underline-offset-4" rel="noopener noreferrer">
               Démo
-            </Link>
+            </a>
           </p>
         </div>
       </section>

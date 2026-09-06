@@ -8,7 +8,7 @@ import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { cta, ctaLabels } from "@/lib/cta";
 import { defaultIndustryConfig, type IndustryPageConfig } from "@/lib/industry";
-import { modules, site, solutions } from "@/lib/site";
+import { modules, pricingCopy, site, solutions } from "@/lib/site";
 import { Breadcrumb, solutionBreadcrumb } from "@/components/navigation/Breadcrumb";
 import { IndustryProductExplorer } from "./IndustryProductExplorer";
 import { IndustryFaq } from "./IndustryFaq";
@@ -92,7 +92,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               </ButtonLink>
             </div>
             <p className="mt-4 text-sm text-white/55">
-              Sans carte bancaire · dès 29,99 € HT/mois tout inclus · jusqu&apos;à 5 utilisateurs
+              Sans carte bancaire · {pricingCopy.from} · Starter, Pro ou Premium
             </p>
             <ul
               className="mt-5 flex flex-wrap gap-2"
@@ -116,10 +116,11 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
           </div>
 
           <div className="industry-hero-rise industry-hero-rise-delay relative">
-            <Link
+            <a
               href={cta.demo}
               className="group relative block overflow-hidden rounded-[2px] shadow-[0_32px_90px_rgba(0,0,0,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#A8E300]"
               aria-label="Voir une démo PROGESTI"
+              rel="noopener noreferrer"
             >
               <div className="relative aspect-[16/10]">
                 <Image
@@ -153,7 +154,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                   <p className="mt-1 text-sm text-white/85">{hero.claimSub}</p>
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -208,7 +209,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               >
                 Essai {site.trialDays} jours gratuit
               </ButtonLink>
-              <p className="text-sm text-slate">Sans carte bancaire · dès 29,99 € HT/mois tout inclus</p>
+              <p className="text-sm text-slate">Sans carte bancaire · {pricingCopy.from}</p>
             </div>
           </Reveal>
         </div>

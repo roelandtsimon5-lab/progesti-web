@@ -163,9 +163,9 @@ export default function TarifsPage() {
               {site.phone}
             </a>
             {" · "}
-            <Link href={cta.demo} className="font-bold text-blue-royal hover:underline">
+            <a href={cta.demo} className="font-bold text-blue-royal hover:underline" rel="noopener noreferrer">
               {ctaLabels.demoGate}
-            </Link>
+            </a>
           </p>
         </div>
       </section>

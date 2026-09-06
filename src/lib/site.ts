@@ -317,7 +317,7 @@ export const faqItems = [
   },
   {
     q: "Comment demander une démo ?",
-    a: "Cliquez sur « Demander une démo » : vous accédez à la vraie application après un court formulaire. Aucun rendez-vous obligatoire — vous explorez librement. L'équipe peut vous rappeler si vous le souhaitez.",
+    a: "Cliquez sur « Demander une démo » : vous entrez directement dans la vraie application PROGESTI (données démo préchargées). Aucun rendez-vous obligatoire — vous explorez librement. L'équipe peut vous rappeler si vous le souhaitez.",
   },
   {
     q: "Y a-t-il une assistance ?",

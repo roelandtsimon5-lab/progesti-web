@@ -8,7 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { cta, ctaLabels } from "@/lib/cta";
-import { modules, site, trialCopy } from "@/lib/site";
+import { modules, pricingCopy, site, trialCopy } from "@/lib/site";
 
 export type SolutionContent = {
   slug: string;
@@ -65,7 +65,7 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
               </ButtonLink>
             </div>
             <p className="mt-6 text-sm text-white/60">
-              ✓ {trialCopy.label} · ✓ dès 29,99 € HT/mois · ✓ Jusqu'à 5 utilisateurs
+              ✓ {trialCopy.label} · ✓ {pricingCopy.from} · ✓ Starter, Pro ou Premium
             </p>
           </div>
 

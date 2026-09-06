@@ -34,16 +34,18 @@ export default function NotFound() {
           </Link>
         </p>
         <nav className="mt-8 flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-white/60" aria-label="Pages utiles">
-          {[
-            ["/tarifs", "Tarifs"],
-            ["/demo", ctaLabels.demoGate],
-            ["/temoignages", "Avis clients"],
-            ["/fonctionnalites", "Fonctionnalités"],
-          ].map(([href, label]) => (
-            <Link key={href} href={href} className="font-semibold hover:text-white/90 hover:underline">
-              {label}
-            </Link>
-          ))}
+          <Link href="/tarifs" className="font-semibold hover:text-white/90 hover:underline">
+            Tarifs
+          </Link>
+          <a href={cta.demo} className="font-semibold hover:text-white/90 hover:underline" rel="noopener noreferrer">
+            {ctaLabels.demoGate}
+          </a>
+          <Link href="/temoignages" className="font-semibold hover:text-white/90 hover:underline">
+            Avis clients
+          </Link>
+          <Link href="/fonctionnalites" className="font-semibold hover:text-white/90 hover:underline">
+            Fonctionnalités
+          </Link>
         </nav>
       </div>
       <MobileCtaBar />

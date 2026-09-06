@@ -12,6 +12,8 @@ import { Reveal } from "@/components/ui/Reveal";
 
 import { pageMeta } from "@/lib/seo";
 
+import { cta } from "@/lib/cta";
+
 import { site } from "@/lib/site";
 
 
@@ -196,11 +198,11 @@ export default function IntegrationsPage() {
 
             et les{" "}
 
-            <Link href="/demo" className="font-semibold text-blue-royal hover:underline">
+            <a href={cta.demo} className="font-semibold text-blue-royal hover:underline" rel="noopener noreferrer">
 
-              démo ou rendez-vous
+              démo interactive
 
-            </Link>
+            </a>
 
             .
 

@@ -111,10 +111,11 @@ export function ModuleHero({
         </div>
 
         <div className="industry-hero-rise industry-hero-rise-delay relative max-lg:order-1 max-lg:-mx-4 max-lg:w-[calc(100%+2rem)]">
-          <Link
+          <a
             href={cta.demo}
             className="group relative block overflow-hidden rounded-[2px] shadow-[0_32px_90px_rgba(0,0,0,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lime-cta max-lg:rounded-none"
             aria-label={`Voir ${title} en démo PROGESTI`}
+            rel="noopener noreferrer"
           >
             <div className="relative aspect-[16/10] max-lg:aspect-[2/1]">
               {heroMock ? (
@@ -173,7 +174,7 @@ export function ModuleHero({
                 Démo
               </span>
             </div>
-          </Link>
+          </a>
         </div>
       </div>
 

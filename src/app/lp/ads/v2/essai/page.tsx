@@ -106,9 +106,9 @@ export default function AdsV2EssaiPage() {
           </div>
           <p className="mt-5 text-center text-xs text-[#6B7280]">
             Vous préférez juste regarder ?{" "}
-            <Link href={cta.demo} className="font-bold text-[#067647] hover:underline">
+            <a href={cta.demo} className="font-bold text-[#067647] hover:underline" rel="noopener noreferrer">
               Voir une démo
-            </Link>
+            </a>
             {" · "}
             <Link href="/rendez-vous" className="font-bold text-[#067647] hover:underline">
               Être rappelé

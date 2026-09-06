@@ -39,9 +39,9 @@ export type Testimonial = {
 
 export const socialProofStats = {
 
-  headline: "Entreprises de propreté",
+  headline: "Avis clients",
 
-  headlineSub: "en France",
+  headlineSub: "entreprises de propreté",
 
   rating: "4,8",
 
@@ -79,7 +79,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/pro-nettoyage-31.svg",
 
-    logoAlt: "Logo Pro Nettoyage 31",
+    logoAlt: "Pro Nettoyage 31",
 
     since: "2023",
 
@@ -111,7 +111,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/clean-immeuble.svg",
 
-    logoAlt: "Logo Clean Immeuble",
+    logoAlt: "Clean Immeuble",
 
     since: "2022",
 
@@ -143,7 +143,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/sm-proprete.svg",
 
-    logoAlt: "Logo SM Propreté",
+    logoAlt: "SM Propreté",
 
     since: "2024",
 
@@ -175,7 +175,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/renov-pro.svg",
 
-    logoAlt: "Logo Rénov'Pro Services",
+    logoAlt: "Rénov'Pro Services",
 
     since: "2023",
 
@@ -207,7 +207,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/azur-clean.svg",
 
-    logoAlt: "Logo Azur Clean",
+    logoAlt: "Azur Clean",
 
     since: "2023",
 
@@ -237,7 +237,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/ecopro-bureaux.svg",
 
-    logoAlt: "Logo ÉcoPro Bureaux",
+    logoAlt: "ÉcoPro Bureaux",
 
     since: "2022",
 
@@ -267,7 +267,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/lot-proprete.svg",
 
-    logoAlt: "Logo Lot Propreté",
+    logoAlt: "Lot Propreté",
 
     since: "2024",
 
@@ -297,7 +297,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/chantier-express.svg",
 
-    logoAlt: "Logo Chantier Express Net",
+    logoAlt: "Chantier Express Net",
 
     since: "2024",
 
@@ -327,7 +327,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/bastide-net.svg",
 
-    logoAlt: "Logo Bastide Net",
+    logoAlt: "Bastide Net",
 
     since: "2023",
 
@@ -357,7 +357,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/alpes-hygiene.svg",
 
-    logoAlt: "Logo Alpes Hygiène",
+    logoAlt: "Alpes Hygiène",
 
     since: "2022",
 
@@ -387,7 +387,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/seine-multi.svg",
 
-    logoAlt: "Logo Seine Multi Services",
+    logoAlt: "Seine Multi Services",
 
     since: "2023",
 
@@ -417,7 +417,7 @@ export const testimonials: readonly Testimonial[] = [
 
     logo: "/clients/icons/nord-proprete.svg",
 
-    logoAlt: "Logo Nord Propreté",
+    logoAlt: "Nord Propreté",
 
     since: "2024",
 

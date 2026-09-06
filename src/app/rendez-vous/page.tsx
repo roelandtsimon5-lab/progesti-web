@@ -83,9 +83,9 @@ export default function RendezVousPage() {
             </ol>
             <p className="mt-6 text-sm text-slate">
               Préférez tester seul ?{" "}
-              <Link href={cta.demo} className="font-bold text-blue-royal hover:underline">
+              <a href={cta.demo} className="font-bold text-blue-royal hover:underline" rel="noopener noreferrer">
                 Démo interactive
-              </Link>
+              </a>
               {" · "}
               <Link href={cta.trial} className="font-bold text-blue-royal hover:underline">
                 Essai {site.trialDays} jours

@@ -14,9 +14,9 @@ export default function LandingSimplifierPage() {
       headline="Le logiciel qui simplifie la gestion de votre entreprise de nettoyage"
       subhead="Stop Excel et WhatsApp. Planning, pointage et facturation dans un seul outil — demandez une démo ou démarrez l’essai."
       primaryCta={{ href: cta.trialApp, label: "Essai gratuit 15 jours" }}
-      secondaryCta={{ href: "/demo", label: "Démo interactive" }}
+      secondaryCta={{ href: cta.demo, label: "Démo interactive" }}
       formTitle="Demander une démo / être recontacté"
-      formLead="Réponse sous 24h ouvrées. Ou lancez la démo interactive sur /demo."
+      formLead="Réponse sous 24h ouvrées. Ou lancez la démo interactive directement dans le logiciel."
       formIntent="demo"
       formLabel="Envoyer ma demande"
       benefits={[
