@@ -89,12 +89,6 @@ const nextConfig: NextConfig = {
         destination: "/solutions/auto-entrepreneurs",
         permanent: true,
       },
-      // E-facture intent redirect (covered by main facturation pillar)
-      {
-        source: "/facturation-electronique-proprete",
-        destination: "/logiciel-facturation-proprete",
-        permanent: true,
-      },
     ];
   },
 };
