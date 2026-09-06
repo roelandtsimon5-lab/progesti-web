@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMeta({
 export default function EssaiLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path="/essai-gratuit" />
       <ReviewsLd />
       {children}
     </>

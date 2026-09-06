@@ -19,7 +19,7 @@ export const metadata: Metadata = pageMeta({
 export default function SolutionsIndexPage() {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path="/solutions" />
       <section className="industry-hero-bg relative overflow-hidden">
         <div className="container relative max-w-3xl py-14 md:py-16">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">

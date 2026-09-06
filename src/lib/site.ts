@@ -20,7 +20,10 @@ export const site = {
     rcs: "Toulouse",
     capital: "5 000 €",
     address: "56 boulevard Vincent Auriol",
-    city: "31000 Toulouse",
+    /** Affichage NAP (code postal + commune) — siège légal INSEE / Kbis. */
+    city: "31170 Tournefeuille",
+    postalCode: "31170",
+    addressLocality: "Tournefeuille",
   },
 } as const;
 

@@ -84,7 +84,7 @@ const featureRows = [
 export default function AlternativePropretPage() {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path="/alternative-propret" />
       <IndustryPageHero
         eyebrow="Comparaison"
         title="PROGESTI, une alternative à Propret"

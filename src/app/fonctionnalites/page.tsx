@@ -27,7 +27,7 @@ export const metadata = pageMeta({
 export default function FonctionnalitesPage() {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path="/fonctionnalites" />
       <BreadcrumbListLd
         items={[
           { name: "Accueil", path: "/" },

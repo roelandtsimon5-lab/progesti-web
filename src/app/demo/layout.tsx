@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMeta({
 export default function DemoLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path="/demo" />
       <ReviewsLd />
       {children}
     </>

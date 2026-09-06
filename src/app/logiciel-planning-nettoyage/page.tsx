@@ -21,7 +21,7 @@ export const metadata: Metadata = pageMeta({
 export default function PillarPlanningPage() {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path="/logiciel-planning-nettoyage" />
       <IndustryPageHero
         eyebrow="Planning propreté"
         title="Logiciel de planning pour le nettoyage"

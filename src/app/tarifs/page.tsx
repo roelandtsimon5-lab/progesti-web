@@ -51,7 +51,7 @@ const pricingFaq = [
 export default function TarifsPage() {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path="/tarifs" />
       <ReviewsLd />
       <FaqPageLd items={pricingFaq} />
       <section className="industry-hero-bg relative overflow-hidden">

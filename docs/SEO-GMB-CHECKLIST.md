@@ -2,7 +2,7 @@
 
 Source unique NAP / identité : `src/lib/site.ts`  
 Site : https://progesti.fr · Contact : contact@progesti.fr · Tél. 05 82 95 09 19  
-Siège : 56 boulevard Vincent Auriol, 31000 Toulouse (MSNE SAS)
+Siège : 56 boulevard Vincent Auriol, 31170 Tournefeuille (MSNE SAS)
 
 ---
 
@@ -51,7 +51,7 @@ Siège : 56 boulevard Vincent Auriol, 31000 Toulouse (MSNE SAS)
 2. Nom : **PROGESTI** (si Google refuse → **MSNE SAS** + nom commercial PROGESTI dans la description)
 3. Catégorie principale : **Éditeur de logiciels** / Software company  
    (ne pas choisir “Entreprise de nettoyage” — ce n’est pas le métier affiché)
-4. Adresse : **exactement** `site.company` → 56 boulevard Vincent Auriol, 31000 Toulouse
+4. Adresse : **exactement** `site.company` → 56 boulevard Vincent Auriol, 31170 Tournefeuille
 5. Site web : `https://progesti.fr`
 6. Téléphone : **05 82 95 09 19** (identique à `site.phone` / `site.phoneTel`)
 7. Description (ex.) :
@@ -73,7 +73,7 @@ Siège : 56 boulevard Vincent Auriol, 31000 Toulouse (MSNE SAS)
 ### Attendu réaliste
 
 Signal de confiance + présence Maps.  
-Pas de volume SEO local type “entreprise de nettoyage Toulouse”.
+Pas de volume SEO local type “entreprise de nettoyage Tournefeuille”.
 
 ---
 

@@ -6,7 +6,7 @@ import { ReviewsLd } from "@/components/seo/ReviewsLd";
 import { defaultIndustryConfig, mergeIndustryConfig, defaultPillars } from "@/lib/industry";
 import type { IndustryPillar } from "@/lib/industry";
 import { pageMeta } from "@/lib/seo";
-import { trialCopy } from "@/lib/site";
+import { site, trialCopy } from "@/lib/site";
 
 const homePillars: readonly IndustryPillar[] = [
   {
@@ -207,7 +207,7 @@ const homeConfig = mergeIndustryConfig(defaultIndustryConfig, {
       },
       {
         title: "Support réactif",
-        text: "Équipe MSNE SAS à Toulouse (31). Joignable au 05 82 95 09 19.",
+        text: `Équipe MSNE SAS à Toulouse (31). Joignable au ${site.phone}.`,
       },
     ],
   },
@@ -234,7 +234,7 @@ export const metadata: Metadata = pageMeta({
 export default function HomePage() {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path="/" />
       <ReviewsLd />
       <FaqPageLd items={[...homeConfig.faq]} />
       <IndustryLanding config={homeConfig} />

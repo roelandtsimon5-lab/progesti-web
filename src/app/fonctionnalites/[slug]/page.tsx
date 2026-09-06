@@ -59,7 +59,7 @@ export default async function ModulePage({ params }: Props) {
 
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path={path} />
       <WebPageLd name={pageTitle} description={pageDescription} path={path} />
       <BreadcrumbListLd
         items={[

@@ -21,7 +21,7 @@ export const metadata: Metadata = pageMeta({
 export default function PillarFacturationPage() {
   return (
     <>
-      <SoftwareApplicationLd />
+      <SoftwareApplicationLd path="/logiciel-facturation-proprete" />
       <IndustryPageHero
         eyebrow="Facturation propreté"
         title="Logiciel de facturation pour la propreté"

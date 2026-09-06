@@ -2,8 +2,10 @@ import { plans, site } from "@/lib/site";
 import { organizationLd } from "@/components/seo/OrganizationLd";
 
 type Props = {
-  /** Custom URL for this page. Defaults to site.url (homepage). */
+  /** Absolute page URL. Defaults to site.url (homepage). */
   url?: string;
+  /** Pathname alternative to `url`, e.g. `/tarifs`. */
+  path?: string;
 };
 
 /**
@@ -11,7 +13,11 @@ type Props = {
  * Include only on product pages: homepage, /logiciel-*, /fonctionnalites*,
  * /solutions*, /tarifs, /essai-gratuit, /demo, /alternative-*.
  */
-export function SoftwareApplicationLd({ url }: Props = {}) {
+export function SoftwareApplicationLd({ url, path }: Props = {}) {
+  const resolvedUrl =
+    url ??
+    (path ? (path === "/" ? site.url : `${site.url}${path}`) : site.url);
+
   const softwareApplicationLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -19,7 +25,7 @@ export function SoftwareApplicationLd({ url }: Props = {}) {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web, Android, iOS",
     description: site.description,
-    url: url ?? site.url,
+    url: resolvedUrl,
     offers: {
       "@type": "AggregateOffer",
       lowPrice: String(plans[0].monthly),
