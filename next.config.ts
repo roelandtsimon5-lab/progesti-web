@@ -76,6 +76,34 @@ const nextConfig: NextConfig = {
         destination: "/fonctionnalites/:path*",
         permanent: true,
       },
+      // Short / legacy paths → solution & money targets
+      { source: "/bureaux", destination: "/solutions/bureaux", permanent: true },
+      { source: "/syndics", destination: "/solutions/syndics", permanent: true },
+      {
+        source: "/fin-de-chantier",
+        destination: "/solutions/fin-de-chantier",
+        permanent: true,
+      },
+      {
+        source: "/auto-entrepreneur",
+        destination: "/solutions/auto-entrepreneurs",
+        permanent: true,
+      },
+      {
+        source: "/professionnels",
+        destination: "/solutions/professionnels",
+        permanent: true,
+      },
+      {
+        source: "/facturation-electronique-proprete",
+        destination: "/logiciel-facturation-proprete",
+        permanent: true,
+      },
+      {
+        source: "/logiciel-pointage-proprete",
+        destination: "/fonctionnalites/pointage",
+        permanent: true,
+      },
     ];
   },
 };

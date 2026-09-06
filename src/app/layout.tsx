@@ -10,6 +10,7 @@ import {
 } from "@/components/analytics/Gtm";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { StickyDesktopCta } from "@/components/layout/StickyDesktopCta";
+import { OrganizationLd } from "@/components/seo/OrganizationLd";
 import { env } from "@/lib/env";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <GtmNoscript />
         <GtmConsentBootstrap />
         <GtmPageviews />
+        <OrganizationLd />
         <a
           href="#contenu-principal"
           className="sr-only focus-visible:not-sr-only focus-visible:absolute focus-visible:left-4 focus-visible:top-4 focus-visible:z-[100] focus-visible:rounded-[2px] focus-visible:bg-brand-navy focus-visible:px-4 focus-visible:py-2 focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-cta"

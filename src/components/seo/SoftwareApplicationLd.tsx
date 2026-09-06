@@ -1,20 +1,5 @@
 import { plans, site } from "@/lib/site";
-
-const provider = {
-  "@type": "Organization" as const,
-  name: site.company.legalName,
-  url: site.url,
-  email: site.email,
-  ...(site.phone ? { telephone: site.phone } : {}),
-  address: {
-    "@type": "PostalAddress" as const,
-    streetAddress: site.company.address,
-    addressLocality: "Toulouse",
-    postalCode: "31000",
-    addressCountry: "FR",
-  },
-  ...(site.sameAs.length > 0 ? { sameAs: [...site.sameAs] } : {}),
-};
+import { organizationLd } from "@/components/seo/OrganizationLd";
 
 type Props = {
   /** Custom URL for this page. Defaults to site.url (homepage). */
@@ -42,7 +27,7 @@ export function SoftwareApplicationLd({ url }: Props = {}) {
       priceCurrency: "EUR",
       offerCount: plans.length,
     },
-    provider,
+    provider: organizationLd,
   };
 
   return (

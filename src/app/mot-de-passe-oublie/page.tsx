@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { appUrl } from "@/lib/env";
 
-/** Reset MDP = logiciel Railway. */
-export default function ForgotPasswordPage() {
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
+
+/** Redirect to app password reset. */
+export default function MotDePasseOubliePage() {
   redirect(appUrl("/forgot-password"));
 }

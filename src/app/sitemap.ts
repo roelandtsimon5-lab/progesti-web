@@ -66,8 +66,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   /**
-   * Locs en 308 (next.config redirects) — ne pas les réindexer.
-   * Inclut aussi d’anciennes pages fonctionnalités fusionnées.
+   * URLs en 308 (next.config) ou retirées — ne pas les réindexer.
+   * (Anciens posts / features fusionnées ; pas de /lp/** ici.)
    */
   const SITEMAP_EXCLUDE = new Set([
     "/blog/choisir-offre-starter-pro-premium",
