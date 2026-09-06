@@ -48,8 +48,8 @@ const pricingRows = [
   },
   {
     label: "CB à l'essai",
-    propret: "Non précisé publiquement",
-    progesti: "Non requise",
+    propret: "Sans carte bancaire",
+    progesti: "Sans carte bancaire",
   },
 ] as const;
 
@@ -261,26 +261,28 @@ export default function AlternativePropretPage() {
           </h2>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             <div className="rounded-[3px] border border-blue-mist/70 bg-white p-5">
-              <h3 className="font-display text-lg font-bold text-blue-deep">Modèle tarifaire</h3>
+              <h3 className="font-display text-lg font-bold text-blue-deep">Spécialisation métier</h3>
               <p className="mt-2 text-sm text-slate">
-                Les deux outils affichent des tarifs publics Starter / Pro / Premium (29,99 / 49,99 /
-                99,99 € HT/mois). Chez PROGESTI, tous les modules sont inclus dans chaque offre —
-                pas de surprise en fin de mois.
+                Les deux outils ciblent les entreprises de propreté. PROGESTI structure ses workflows
+                autour de quatre contextes précis : bureaux et tertiaire, syndics et parties communes,
+                locaux professionnels, remise en état post-chantier. Chaque vertical a ses propres
+                enjeux (fréquences, preuves, reporting).
               </p>
             </div>
             <div className="rounded-[3px] border border-blue-mist/70 bg-white p-5">
               <h3 className="font-display text-lg font-bold text-blue-deep">Durée d&apos;essai</h3>
               <p className="mt-2 text-sm text-slate">
-                Propret affiche un essai de 14 jours. PROGESTI propose {site.trialDays} jours
-                d&apos;essai sans carte bancaire requise pour démarrer.
+                Propret propose 14 jours d&apos;essai. PROGESTI offre {site.trialDays} jours
+                sans carte bancaire — un jour de plus pour tester sur vos vrais sites
+                avant de décider.
               </p>
             </div>
             <div className="rounded-[3px] border border-blue-mist/70 bg-white p-5">
-              <h3 className="font-display text-lg font-bold text-blue-deep">Accompagnement</h3>
+              <h3 className="font-display text-lg font-bold text-blue-deep">Support FR dédié</h3>
               <p className="mt-2 text-sm text-slate">
-                PROGESTI inclut un support FR (équipe basée à Toulouse, joignable au{" "}
-                {site.phone}) et peut accompagner la migration de vos données existantes.
-                Le niveau d&apos;accompagnement proposé par Propret n&apos;est pas détaillé publiquement.
+                PROGESTI dispose d&apos;une équipe support basée à Toulouse, joignable au{" "}
+                {site.phone}. Migration de données, prise en main, questions métier :
+                un interlocuteur qui connaît le secteur du nettoyage professionnel.
               </p>
             </div>
           </div>

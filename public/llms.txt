@@ -8,8 +8,8 @@ PROGESTI est un logiciel conçu pour les sociétés de nettoyage professionnel (
 
 - Site : https://progesti.fr
 - Application : https://app.progesti.fr
-- Tarif : 149 € HT/mois — jusqu'à 5 utilisateurs, tous modules inclus
-- Essai : 7 jours gratuit, sans engagement
+- Tarif : Starter 29,99 € · Pro 49,99 € (5 utilisateurs) · Premium 99,99 € (20 utilisateurs) HT/mois — tous modules inclus
+- Essai : 15 jours gratuit, sans carte bancaire
 - Contact : contact@progesti.fr · Tél. 05 82 95 09 19
 
 ## Éditeur

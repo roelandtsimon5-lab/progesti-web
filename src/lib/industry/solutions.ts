@@ -261,14 +261,14 @@ export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig
   },
   empathy: {
     h2: "Professionnaliser sans vous noyer",
-    body: "Vous jonglez entre Excel, WhatsApp et factures Word : une heure oubliée, un site en double, une facture en retard. PROGESTI regroupe l’essentiel pour une TPE propre — sans module surprise ni devis opaque.",
+    body: "Quand vous êtes seul ou à deux, chaque minute compte. Excel pour le planning, WhatsApp pour prévenir les clients, Word pour la facture — et une heure oubliée qui vous coûte une journée de stress. PROGESTI regroupe l'essentiel pour gérer vos clients et vos interventions proprement, sans module surprise ni usine à gaz.",
   },
   showcase: {
     title: "Tout inclus, prix affiché",
     sub: "Planning, pointage, devis, factures, RH — dès 29,99 € HT/mois.",
     image: "/screen-telegestion.webp",
     imageAlt: "Tableau de bord PROGESTI — vue activité TPE",
-    badgeLeft: { title: "5 utilisateurs", sub: "Tous modules inclus" },
+    badgeLeft: { title: "Starter", sub: "1 administrateur" },
     badgeRight: "Dès 29,99 € HT/mois",
   },
   faq: [
