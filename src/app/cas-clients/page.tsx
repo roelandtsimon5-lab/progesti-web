@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Cas clients",
   description:
     "Scénarios d'usage PROGESTI pour entreprises de nettoyage. Études de cas chiffrées publiées dès validation — pas de faux résultats.",
+  alternates: { canonical: "https://progesti.fr/cas-clients" },
   robots: { index: false, follow: true },
 };
 

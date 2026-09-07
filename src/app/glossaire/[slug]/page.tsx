@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${term.term} — glossaire propreté`,
     description: term.definition.slice(0, 155),
-    alternates: { canonical: path },
+    alternates: { canonical: `${site.url}${path}` },
     openGraph: {
       title: `${term.term} — glossaire propreté | ${site.name}`,
       description: term.definition.slice(0, 155),

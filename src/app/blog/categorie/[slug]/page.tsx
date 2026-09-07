@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Blog — ${label}`,
     description: `Articles PROGESTI dans la catégorie ${label} : conseils et guides pour entreprises de nettoyage.`,
-    alternates: { canonical: path },
+    alternates: { canonical: `${site.url}${path}` },
     openGraph: {
       title: `Blog — ${label} | ${site.name}`,
       description: `Articles PROGESTI dans la catégorie ${label} : conseils et guides pour entreprises de nettoyage.`,
