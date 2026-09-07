@@ -1,7 +1,9 @@
-import { socialProofStats, testimonials } from "@/lib/testimonials";
 import { site } from "@/lib/site";
 
-/** AggregateRating + avis — SEO confiance (données marketing centralisées). */
+/**
+ * SoftwareApplication structured data for SEO.
+ * Note: No aggregateRating or reviews included — Progesti has no verified customer reviews yet.
+ */
 export function ReviewsLd() {
   const data = {
     "@context": "https://schema.org",
@@ -9,24 +11,14 @@ export function ReviewsLd() {
     name: site.name,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web, Android, iOS",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: socialProofStats.rating.replace(",", "."),
-      bestRating: "5",
-      ratingCount: String(testimonials.length * 16),
-      reviewCount: String(testimonials.length),
+    description: site.description,
+    url: site.url,
+    offers: {
+      "@type": "Offer",
+      price: "29.99",
+      priceCurrency: "EUR",
+      priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
     },
-    review: testimonials.slice(0, 4).map((t) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: t.author },
-      reviewBody: t.quote,
-      name: `${t.company} — ${t.segment}`,
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-        bestRating: "5",
-      },
-    })),
   };
 
   return (

@@ -2,7 +2,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 
 import { cta, ctaLabels } from "@/lib/cta";
 
-import { socialProofStats } from "@/lib/testimonials";
+import { site } from "@/lib/site";
 
 
 
@@ -29,7 +29,7 @@ export function FinalPush({
 
   title = "Prêt à structurer votre activité ?",
 
-  lead = `Dès 29,99 € HT/mois tout inclus · ${ctaLabels.trialShort} sans CB · support ${socialProofStats.rating}/5`,
+  lead = `Dès 29,99 € HT/mois tout inclus · ${ctaLabels.trialShort} sans CB · Support FR ${site.company.city}`,
 
   className = "",
 

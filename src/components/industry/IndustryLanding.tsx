@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { ClientLogoStrip } from "@/components/conversion/ClientLogoStrip";
 import { FinalPush } from "@/components/conversion/FinalPush";
 import { HeroSocialProof, TestimonialsSection } from "@/components/conversion/TestimonialsSection";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
@@ -293,7 +292,6 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
       </section>
 
       <TestimonialsSection limit={4} />
-      <ClientLogoStrip />
 
       <section className="section bg-white industry-anchor" id="preuve">
         <div className="container">

@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ClientLogoStrip } from "@/components/conversion/ClientLogoStrip";
 import { FinalPush } from "@/components/conversion/FinalPush";
 import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { cta, ctaLabels } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
-import { site } from "@/lib/site";
-import { socialProofStats } from "@/lib/testimonials";
+import { site, modules } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "À propos",
@@ -50,16 +48,15 @@ export default function AProposPage() {
           <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center">
             <li>
               <p className="font-display text-2xl font-extrabold text-blue-deep">
-                {socialProofStats.headline}
+                {modules.length}
               </p>
-              <p className="text-xs text-slate">{socialProofStats.headlineSub}</p>
+              <p className="text-xs text-slate">modules inclus</p>
             </li>
             <li>
               <p className="font-display text-2xl font-extrabold text-blue-deep">
-                {socialProofStats.rating}
-                <span className="text-lg text-lime-cta">/5</span>
+                Support FR
               </p>
-              <p className="text-xs text-slate">satisfaction support</p>
+              <p className="text-xs text-slate">Équipe à Toulouse</p>
             </li>
             <li>
               <p className="font-display text-2xl font-extrabold text-blue-deep">29,99 €</p>
@@ -89,8 +86,8 @@ export default function AProposPage() {
             </ul>
             <p className="mt-6 text-sm text-slate">
               Voir les{" "}
-              <Link href="/temoignages" className="font-semibold text-blue-royal hover:underline">
-                avis clients
+              <Link href="/cas-usage" className="font-semibold text-blue-royal hover:underline">
+                cas d'usage
               </Link>
               {" · "}
               <Link href="/solutions" className="font-semibold text-blue-royal hover:underline">
@@ -132,8 +129,7 @@ export default function AProposPage() {
           </div>
         </div>
       </section>
-      <ClientLogoStrip />
-      <FinalPush title="Rejoignez les entreprises qui structurent leur propreté" />
+      <FinalPush title="Prêt à structurer votre activité ?" />
       <MobileCtaBar />
     </>
   );
