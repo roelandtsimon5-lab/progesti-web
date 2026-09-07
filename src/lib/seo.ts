@@ -74,7 +74,7 @@ export function pageMeta({
 
     description,
 
-    alternates: { canonical },
+    alternates: { canonical: absoluteUrl },
 
     openGraph: {
 

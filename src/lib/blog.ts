@@ -6,6 +6,14 @@ import { blogCategories } from "@/lib/site";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
+/**
+ * Slugs exclus du blog public (sitemap, listing, static params).
+ * MDX conserve + redirect 308 dans next.config — ne pas republier.
+ */
+export const EXCLUDED_BLOG_SLUGS = new Set<string>([
+  "choisir-offre-starter-pro-premium", // 308 -> /blog/tarif-unique-logiciel-nettoyage
+]);
+
 export type BlogPostMeta = {
   title: string;
   slug: string;
@@ -54,6 +62,7 @@ export function getAllPosts(): BlogPost[] {
     .readdirSync(BLOG_DIR)
     .filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
     .map(parseFile)
+    .filter((p) => !EXCLUDED_BLOG_SLUGS.has(p.slug))
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
