@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { IndustryPillarPage } from "@/components/industry/IndustryPillarPage";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { pageMeta } from "@/lib/seo";
-import { trialCopy } from "@/lib/site";
+import { trialCopy, mainPlan } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel facturation propreté",
+  title: "Logiciel facturation nettoyage",
   description:
-    `Facturez plus vite votre activité de nettoyage : devis, factures et suivi liés au réalisé terrain. 149 € HT/mois, ${trialCopy.metaSuffix}`,
+    `Logiciel de facturation pour entreprise de nettoyage : devis, factures et suivi liés au réalisé terrain. ${mainPlan.monthly} € HT/mois, ${trialCopy.metaSuffix}`,
   path: "/logiciel-facturation-proprete",
 });
 
@@ -17,9 +17,9 @@ export default function PillarFacturationPage() {
       <SoftwareApplicationLd />
       <IndustryPillarPage
         eyebrow="Facturation"
-        title="Logiciel de facturation pour la propreté"
+        title="Logiciel de facturation pour entreprise de nettoyage"
         lead="Passez du terrain à la facture sans ressaisie — entretien récurrent comme fin de chantier."
-        h2="Du réalisé à la facture"
+        h2="Facturation nettoyage : du réalisé à la facture"
         body="Quand le pointage et les bons d'intervention sont dans le même outil, la facturation devient un contrôle — plus une chasse aux informations dans Excel."
         bullets={[
           "Devis et factures alignés sur les sites",
