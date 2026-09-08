@@ -1,11 +1,9 @@
 ﻿"use client";
 
 import { useRef, useState } from "react";
-import Link from "next/link";
 import { cta, ctaLabels, trialAppUrl } from "@/lib/cta";
 import { track } from "@/lib/tracking";
 import { site } from "@/lib/site";
-import { ClientLogoStrip } from "@/components/conversion/ClientLogoStrip";
 import { TrustStrip } from "@/components/conversion/TrustStrip";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -290,7 +288,6 @@ export default function EssaiGratuitPage() {
           </form>
         </div>
       </section>
-      <ClientLogoStrip />
       <MobileCtaBar
         primary={{
           href: "#trial-form",

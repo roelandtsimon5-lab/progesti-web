@@ -5,45 +5,47 @@ type ModuleSlug = (typeof modules)[number]["slug"];
 
 export type ModuleUiMeta = {
   heroQuote: string;
-  testimonialId: string;
+  useCaseId: string;
+  /** @deprecated Use useCaseId instead */
+  testimonialId?: string;
 };
 
 export const moduleUi: Record<ModuleSlug, ModuleUiMeta> = {
   planification: {
     heroQuote: "Fini le planning Excel du dimanche soir",
-    testimonialId: "marie-pro-nettoyage-31",
+    useCaseId: "multi-sites",
   },
   pointage: {
     heroQuote: "Les heures terrain remontent sans feuille papier",
-    testimonialId: "karim-clean-immeuble",
+    useCaseId: "proof-passages",
   },
   clients: {
     heroQuote: "Une fiche client, tous vos sites au même endroit",
-    testimonialId: "julien-ecopro-bureaux",
+    useCaseId: "multi-sites",
   },
   devis: {
     heroQuote: "Du devis signé au planning, sans ressaisie",
-    testimonialId: "thomas-renov-pro",
+    useCaseId: "chantier-cash",
   },
   facturation: {
     heroQuote: "Facturer le réalisé, pas une estimation Excel",
-    testimonialId: "sophie-sm-proprete",
+    useCaseId: "admin-time",
   },
   impayes: {
     heroQuote: "Relances tracées, trésorerie sous contrôle",
-    testimonialId: "nadia-azur-clean",
+    useCaseId: "chantier-cash",
   },
   "gestion-rh": {
     heroQuote: "Absences, heures et planning dans le même flux",
-    testimonialId: "fatima-lot-proprete",
+    useCaseId: "prepaie",
   },
   rentabilite: {
     heroQuote: "Voir la marge par site avant qu'il soit trop tard",
-    testimonialId: "marie-pro-nettoyage-31",
+    useCaseId: "admin-time",
   },
   crm: {
     heroQuote: "Pipeline commercial connecté à l'exploitation",
-    testimonialId: "david-chantier-express",
+    useCaseId: "tpe-simple",
   },
 };
 

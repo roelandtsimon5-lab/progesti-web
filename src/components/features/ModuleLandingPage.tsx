@@ -6,7 +6,7 @@ import { ModuleHero } from "@/components/features/ModuleHero";
 import { ModulePager } from "@/components/features/ModulePager";
 import { ModuleProductSection } from "@/components/features/ModuleProductSection";
 import {
-  getModuleTestimonial,
+  getModuleUseCase,
   ModuleProofBanner,
 } from "@/components/features/ModuleProofBanner";
 import { ModuleFaqHelp } from "@/components/features/ModuleFaqHelp";
@@ -32,7 +32,7 @@ export function ModuleLandingPage({ mod, content, slug }: Props) {
   const assets = getModuleCreativeAssets(slug);
   const pillar = getModulePillar(slug);
   const pager = getModulePager(slug);
-  const testimonial = ui ? getModuleTestimonial(ui.testimonialId) : undefined;
+  const useCase = ui?.useCaseId ? getModuleUseCase(ui.useCaseId) : undefined;
   const related = content.relatedModuleSlugs
     ?.map((s) => modules.find((m) => m.slug === s))
     .filter(Boolean) as Module[] | undefined;
@@ -45,7 +45,7 @@ export function ModuleLandingPage({ mod, content, slug }: Props) {
   const navSections = [
     { id: "produit", label: "Produit" },
     content.useCases?.length ? { id: "cas-usage", label: "Cas d'usage" } : null,
-    testimonial ? { id: "preuve", label: "Avis" } : null,
+    useCase ? { id: "preuve", label: "Avantage" } : null,
     { id: "pourquoi", label: "Pourquoi" },
     related?.length ? { id: "ecosysteme", label: "Écosystème" } : null,
     { id: "faq", label: "FAQ" },
@@ -91,8 +91,8 @@ export function ModuleLandingPage({ mod, content, slug }: Props) {
         <FeatureUseCaseTabs useCases={content.useCases} moduleTitle={mod.title} />
       ) : null}
 
-      {testimonial ? (
-        <ModuleProofBanner testimonial={testimonial} moduleTitle={mod.title} />
+      {useCase ? (
+        <ModuleProofBanner useCase={useCase} moduleTitle={mod.title} />
       ) : null}
 
       <ModuleWhySection

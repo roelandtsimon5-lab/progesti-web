@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { FinalPush } from "@/components/conversion/FinalPush";
-import { ClientLogoStrip } from "@/components/conversion/ClientLogoStrip";
 import { TestimonialsSection } from "@/components/conversion/TestimonialsSection";
 import { FeaturesHubFlow } from "@/components/features/FeaturesHubFlow";
 import { FeaturesHubExplorer } from "@/components/features/FeaturesHubExplorer";
@@ -90,7 +89,6 @@ export default function FonctionnalitesPage() {
         </div>
       </section>
 
-      <ClientLogoStrip />
       <FinalPush title="Pilotez toute votre activité depuis PROGESTI" />
       <IndustryHelpRail />
       <MobileCtaBar />

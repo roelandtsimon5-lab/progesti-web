@@ -11,8 +11,7 @@ import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { FinalPush } from "@/components/conversion/FinalPush";
 import { ReviewsLd } from "@/components/seo/ReviewsLd";
 import { cta, ctaLabels } from "@/lib/cta";
-import { socialProofStats } from "@/lib/testimonials";
-import { pricingCopy, solutions, site, trustBadges, trialCopy } from "@/lib/site";
+import { pricingCopy, solutions, site, trustBadges, trialCopy, modules } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -110,10 +109,10 @@ export default function TarifsPage() {
           ))}
         </div>
         <p className="container border-t border-blue-mist/60 pb-8 pt-6 text-center text-sm text-slate">
-          <span className="font-bold text-blue-deep">{socialProofStats.rating}/5</span> support ·{" "}
-          <span className="font-bold text-blue-deep">{socialProofStats.modules} modules</span> ·{" "}
-          <Link href="/temoignages" className="font-bold text-blue-royal hover:underline">
-            lire les avis clients
+          <span className="font-bold text-blue-deep">Support FR</span> à Toulouse ·{" "}
+          <span className="font-bold text-blue-deep">{modules.length} modules</span> inclus ·{" "}
+          <Link href="/cas-usage" className="font-bold text-blue-royal hover:underline">
+            voir les cas d'usage
           </Link>
         </p>
       </section>

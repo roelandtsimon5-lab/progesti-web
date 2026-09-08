@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ClientLogoStrip } from "@/components/conversion/ClientLogoStrip";
 import { FinalPush } from "@/components/conversion/FinalPush";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Reveal } from "@/components/ui/Reveal";
@@ -258,7 +257,6 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
         </div>
       </section>
 
-      <ClientLogoStrip />
       <FinalPush title={`${content.title} — prêt à tester ?`} />
       <MobileCtaBar />
     </>
