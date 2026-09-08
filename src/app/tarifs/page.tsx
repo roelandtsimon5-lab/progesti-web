@@ -126,6 +126,31 @@ export default function TarifsPage() {
       </section>
 
       <section className="section bg-white">
+        <div className="container max-w-3xl">
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+              Ce que le tarif couvre
+            </h2>
+            <p className="mt-4 text-slate">
+              Chaque offre est le même{" "}
+              <Link href="/logiciel-entreprise-nettoyage" className="font-semibold text-blue-royal hover:underline">
+                logiciel pour entreprise de nettoyage
+              </Link>
+              : planning, pointage et facturation inclus, sans module en option. Le{" "}
+              <Link href="/logiciel-planning-nettoyage" className="font-semibold text-blue-royal hover:underline">
+                logiciel de planning nettoyage
+              </Link>{" "}
+              relie sites, agents et remplacements. Le{" "}
+              <Link href="/logiciel-facturation-proprete" className="font-semibold text-blue-royal hover:underline">
+                logiciel de facturation pour la propreté
+              </Link>{" "}
+              reprend les heures réellement réalisées, pour facturer sans ressaisie.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section bg-white">
         <div className="container">
           <Reveal>
             <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
