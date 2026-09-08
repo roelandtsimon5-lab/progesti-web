@@ -75,12 +75,13 @@ Format d’une ligne :
   angle: Comparer approches (tableur, WhatsApp, logiciel métier) sans faux avis.
   published: 2026-09-01
 
-- status: todo
+- status: done
   date: 2026-09-08
   slug: fin-de-chantier-photos-avant-apres-process
   category: fin-de-chantier
   title: Photos avant/après en fin de chantier : process simple et utile
   angle: Quand photographier, quoi stocker, comment facturer sans oubli.
+  published: 2026-09-08
 
 - status: todo
   date: 2026-09-15
