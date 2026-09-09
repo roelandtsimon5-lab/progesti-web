@@ -6,10 +6,43 @@ import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { IndustryFaq } from "@/components/industry/IndustryFaq";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
+import { FaqPageLd } from "@/components/seo/FaqPageLd";
 import { cta, ctaLabels } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
 import { site, trialCopy } from "@/lib/site";
+
+const planningFaq = [
+  {
+    q: "Combien coûte un logiciel de planning pour entreprise de nettoyage ?",
+    a: `PROGESTI propose trois offres publiques : Starter à 29,99 € HT/mois (1 administrateur), Pro à 49,99 € HT/mois (5 utilisateurs) et Premium à 99,99 € HT/mois (20 utilisateurs). Planning, pointage et facturation sont inclus dans chaque formule — pas de module payant en supplément.`,
+  },
+  {
+    q: "Le planning est-il relié au pointage et à la facturation ?",
+    a: "Oui. Ce que vous planifiez, vos agents le pointent sur l'app mobile. Ce qu'ils pointent alimente la facturation. Pas de double saisie entre ces trois étapes — le flux est automatique.",
+  },
+  {
+    q: "Puis-je gérer des fréquences différentes par site ?",
+    a: "Oui. Chaque site peut avoir sa propre fréquence : quotidien, 2× par semaine, hebdomadaire, mensuel. Les récurrences se programment une fois et se répètent automatiquement.",
+  },
+  {
+    q: "Comment gérer les absences et remplacements ?",
+    a: "Les absences (congés, maladie, formation) se saisissent dans le même écran que le planning. Vous voyez immédiatement les sites à découvert et réaffectez un remplaçant en quelques clics.",
+  },
+  {
+    q: "Mes agents peuvent-ils voir leur planning sur mobile ?",
+    a: "Oui. L'app mobile (Android et iOS) affiche le planning de chaque agent : sites du jour, horaires, adresses. Ils peuvent pointer leur arrivée et départ directement depuis l'application.",
+  },
+  {
+    q: "Est-ce adapté aux petites équipes ?",
+    a: "Oui. L'offre Starter à 29,99 € HT/mois convient aux auto-entrepreneurs et TPE. Pro et Premium accompagnent la croissance jusqu'à 20 utilisateurs.",
+  },
+  {
+    q: "Puis-je essayer avant de m'engager ?",
+    a: `Oui. Essai ${site.trialDays} jours gratuit, sans carte bancaire. Vous testez sur vos vrais sites et agents, sans engagement.`,
+  },
+] as const;
 
 export const metadata: Metadata = pageMeta({
   title: "Logiciel planning nettoyage — Multi-sites, remplacements, facturation",
@@ -22,6 +55,7 @@ export default function PillarPlanningPage() {
   return (
     <>
       <SoftwareApplicationLd />
+      <FaqPageLd items={[...planningFaq]} />
       <IndustryPageHero
         eyebrow="Planning propreté"
         title="Logiciel de planning pour le nettoyage"
@@ -280,6 +314,116 @@ export default function PillarPlanningPage() {
               </Link>
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section bg-white">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+              Pourquoi choisir PROGESTI pour votre planning ?
+            </h2>
+            <p className="mt-4 text-slate">
+              Les logiciels de planning génériques ne parlent pas votre métier. Ils demandent des heures de paramétrage pour reproduire ce qu&apos;un outil pensé pour la propreté fait nativement : gérer des sites avec des fréquences différentes, affecter des titulaires et des backups, relier le planning au pointage terrain.
+            </p>
+            <p className="mt-4 text-slate">
+              PROGESTI a été conçu par des gens qui connaissent le nettoyage. Le vocabulaire est celui du métier : sites, agents, vacations, syndics, fin de chantier. Pas de traduction mentale entre votre réalité et les écrans du logiciel. Vous retrouvez tout de suite vos repères.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[3px] border border-line bg-paper p-5">
+                <p className="font-display font-bold text-ink">Tarifs publics</p>
+                <p className="mt-2 text-sm text-slate">
+                  Trois offres claires : Starter 29,99 €, Pro 49,99 €, Premium 99,99 € HT/mois. Tous les modules inclus, pas de surprise.{" "}
+                  <Link href="/tarifs" className="font-semibold text-blue-royal hover:underline">
+                    Voir les tarifs
+                  </Link>
+                </p>
+              </div>
+              <div className="rounded-[3px] border border-line bg-paper p-5">
+                <p className="font-display font-bold text-ink">Support FR à Toulouse</p>
+                <p className="mt-2 text-sm text-slate">
+                  Équipe joignable au{" "}
+                  <a href={`tel:${site.phoneTel}`} className="font-semibold text-blue-royal hover:underline">
+                    {site.phone}
+                  </a>
+                  . Accompagnement à la mise en place et à l&apos;import de vos données.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-y border-blue-mist bg-[#F5F8FB] py-14">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <p className="eyebrow text-center">Univers métier</p>
+            <h2 className="mt-3 text-center font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+              Adapté à votre secteur
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-slate">
+              PROGESTI accompagne les entreprises de nettoyage sur différents marchés. Retrouvez les pages dédiées à votre activité :
+            </p>
+          </Reveal>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { href: "/solutions/bureaux", label: "Nettoyage de bureaux" },
+              { href: "/solutions/syndics", label: "Syndics & copropriétés" },
+              { href: "/solutions/professionnels", label: "Commerces & locaux pros" },
+              { href: "/solutions/fin-de-chantier", label: "Fin de chantier" },
+              { href: "/solutions/auto-entrepreneurs", label: "Auto-entrepreneurs" },
+              { href: "/alternative-propret", label: "Alternative à Propret" },
+            ].map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block rounded-[2px] border border-blue-mist px-4 py-3 text-sm font-semibold text-blue-deep transition hover:border-blue-royal hover:bg-blue-sky/30"
+                >
+                  {link.label} →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section bg-white pb-28 lg:pb-16" data-cta-sticky-safe>
+        <div className="container max-w-3xl">
+          <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+            Questions fréquentes — Planning nettoyage
+          </h2>
+          <p className="mt-3 text-slate">
+            Une autre question ?{" "}
+            <a href={`tel:${site.phoneTel}`} className="font-semibold text-blue-royal hover:underline">
+              {site.phone}
+            </a>
+            {" · "}
+            <Link href="/contact" className="font-semibold text-blue-royal hover:underline">
+              Contactez-nous
+            </Link>
+          </p>
+          <div className="mt-8">
+            <IndustryFaq items={planningFaq} />
+          </div>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <ButtonLink
+              href={cta.trial}
+              variant="trial"
+              event="trial_start"
+              eventPayload={{ cta: "pillar_planning_faq_trial" }}
+            >
+              Essai {site.trialDays} jours gratuit
+            </ButtonLink>
+            <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "pillar_planning_faq_demo" }}>
+              {ctaLabels.demoGate}
+            </ButtonLink>
+            <a
+              href={`tel:${site.phoneTel}`}
+              className="inline-flex items-center gap-2 font-bold text-blue-royal underline-offset-4 hover:underline"
+            >
+              <span aria-hidden>📞</span> {site.phone}
+            </a>
+          </div>
         </div>
       </section>
 
