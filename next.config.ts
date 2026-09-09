@@ -78,6 +78,19 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  /**
+   * OG image routes are assets, not indexable pages.
+   * X-Robots-Tag stops Google treating /opengraph-image* as HTML.
+   */
+  async headers() {
+    const noindex = [
+      { key: "X-Robots-Tag", value: "noindex, nofollow" },
+    ];
+    return [
+      { source: "/opengraph-image", headers: noindex },
+      { source: "/opengraph-image(.*)", headers: noindex },
+    ];
+  },
 };
 
 export default nextConfig;
