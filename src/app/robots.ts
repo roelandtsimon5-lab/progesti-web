@@ -25,6 +25,8 @@ export default function robots(): MetadataRoute.Robots {
         "/login",
         "/signup",
         "/mot-de-passe-oublie",
+        "/_next/",
+        "/cdn-cgi/",
       ],
     },
     sitemap: "https://progesti.fr/sitemap.xml",
