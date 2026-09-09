@@ -376,6 +376,14 @@ export default function AlternativePropretPage() {
             </li>
             <li>
               <Link
+                href="/logiciel-pointage-proprete"
+                className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
+              >
+                Logiciel de pointage propreté →
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/essai-gratuit"
                 className="block rounded-[3px] border border-lime-cta bg-lime-cta/10 p-4 font-semibold text-blue-deep hover:bg-lime-cta/20"
               >

@@ -187,6 +187,10 @@ export default function PillarPlanningPage() {
             </ul>
             <p className="mt-6 text-sm text-slate">
               Voir aussi :{" "}
+              <Link href="/logiciel-pointage-proprete" className="font-semibold text-blue-royal hover:underline">
+                pointage propreté
+              </Link>
+              {" · "}
               <Link href="/logiciel-facturation-proprete" className="font-semibold text-blue-royal hover:underline">
                 facturation propreté
               </Link>

@@ -279,6 +279,10 @@ export default function PillarFacturationPage() {
                 planning nettoyage
               </Link>
               {" · "}
+              <Link href="/logiciel-pointage-proprete" className="font-semibold text-blue-royal hover:underline">
+                pointage propreté
+              </Link>
+              {" · "}
               <Link href="/fonctionnalites/facturation" className="font-semibold text-blue-royal hover:underline">
                 module facturation
               </Link>
