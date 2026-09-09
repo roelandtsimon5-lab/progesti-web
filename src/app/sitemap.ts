@@ -21,7 +21,8 @@ function entry(
 
 /**
  * Sitemap organique uniquement.
- * Exclus volontairement : /lp/** (noindex), /preview, /v1–v3, /app, /demo/live, /login, /signup.
+ * Exclus volontairement : /lp/** (noindex), /preview, /v1–v3, /app, /demo/live, /login, /signup,
+ * /temoignages et /cas-clients (noindex,follow — avis / études non validés).
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   /** Pages conversion / intent — priorité haute */
@@ -48,7 +49,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/glossaire", 0.55, "monthly"),
     entry("/guides", 0.55, "weekly"),
     entry("/comparatifs", 0.55, "weekly"),
-    entry("/temoignages", 0.6, "monthly"),
     entry("/integrations", 0.45, "monthly"),
     entry("/a-propos", 0.45, "monthly"),
   ];
