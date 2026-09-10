@@ -330,6 +330,7 @@ export const blogCategories = [
   { slug: "conseils-metier", label: "Conseils métier propreté" },
   { slug: "comparatifs", label: "Comparatifs & alternatives" },
   { slug: "etudes-de-cas", label: "Études de cas" },
+  { slug: "tutoriels", label: "Tutoriels produit" },
   { slug: "nouveautes", label: "Nouveautés produit" },
   { slug: "bureaux-tertiaire", label: "Bureaux & tertiaire" },
   { slug: "syndics-immobilier", label: "Syndics & immobilier" },
