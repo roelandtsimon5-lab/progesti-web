@@ -15,6 +15,7 @@ export default function GuidesPage() {
   const guides = [
     ...getPostsByCategory("guides"),
     ...getPostsByCategory("conseils-metier"),
+    ...getPostsByCategory("tutoriels"),
   ].sort((a, b) => (a.date < b.date ? 1 : -1));
 
   return (
