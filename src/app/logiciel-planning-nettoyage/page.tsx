@@ -12,9 +12,9 @@ import { pageMeta } from "@/lib/seo";
 import { site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel planning nettoyage — Multi-sites, remplacements, facturation",
+  title: "Logiciel planning nettoyage — Multi-sites, remplacements",
   description:
-    `Logiciel de planning pour entreprise de nettoyage : affectez agents et sites, gérez absences et remplacements. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
+    `Logiciel de planning nettoyage : multi-sites, absences et remplacements. Affectez, pointez, facturez. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
   path: "/logiciel-planning-nettoyage",
 });
 
@@ -25,7 +25,7 @@ export default function PillarPlanningPage() {
       <IndustryPageHero
         eyebrow="Planning propreté"
         title="Logiciel de planning pour le nettoyage"
-        lead="Affectez le bon agent au bon site, au bon créneau — bureaux, syndics, locaux pros ou fin de chantier, sans Excel ni messages perdus."
+        lead="Affectez le bon agent au bon site et gérez absences comme remplacements multi-sites — sans Excel ni SMS. Le planning alimente le pointage mobile puis la facture, dans le même outil conçu pour les gérants de nettoyage."
         breadcrumbs={[
           { label: "Accueil", href: "/" },
           { label: "Logiciel planning nettoyage" },

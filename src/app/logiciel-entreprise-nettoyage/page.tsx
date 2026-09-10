@@ -36,14 +36,14 @@ const pillarFaq = [
 ] as const;
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel pour entreprise de nettoyage — Essai gratuit",
+  title: "Logiciel entreprise de nettoyage — Du planning à la facture",
   description:
-    "Gérant d'entreprise de nettoyage ? Planning, pointage, facture en un seul logiciel. Dès 29,99 € HT/mois inclus. Essai 15 jours sans engagement.",
+    "Du planning au pointage puis à la facture — pour gérants d'entreprise ou société de nettoyage. Dès 29,99 € HT/mois. Essai 15 jours sans CB.",
   path: "/logiciel-entreprise-nettoyage",
   openGraph: {
-    title: "Logiciel pour entreprise de nettoyage — Essai gratuit",
+    title: "Logiciel entreprise de nettoyage — Du planning à la facture",
     description:
-      "Gérant d'entreprise de nettoyage ? Planning, pointage, facture en un seul logiciel. Dès 29,99 € HT/mois inclus. Essai 15 jours sans engagement.",
+      "Du planning au pointage puis à la facture — pour gérants d'entreprise ou société de nettoyage. Dès 29,99 € HT/mois. Essai 15 jours sans CB.",
   },
 });
 
