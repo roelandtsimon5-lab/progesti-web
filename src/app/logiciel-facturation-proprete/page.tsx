@@ -12,9 +12,9 @@ import { pageMeta } from "@/lib/seo";
 import { site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel facturation propreté — Devis, réalisé terrain, factures",
+  title: "Logiciel facturation nettoyage — Devis, réalisé, factures",
   description:
-    `Logiciel de facturation pour entreprise de nettoyage : du devis au règlement, aligné sur le pointage terrain. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
+    `Logiciel de facturation nettoyage : devis, factures et suivi alignés sur le pointage terrain. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
   path: "/logiciel-facturation-proprete",
 });
 
