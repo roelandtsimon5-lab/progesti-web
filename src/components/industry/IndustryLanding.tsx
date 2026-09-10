@@ -35,7 +35,7 @@ type Props = {
 };
 
 export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
-  const { hero, empathy, pillars, showcase, proof, grid, faq, vsTitle } = config;
+  const { hero, empathy, pillars, showcase, proof, grid, faq, vsTitle, compareNote } = config;
   const ctaSlug = config.slug === "default" ? "industry" : `solution_${config.slug}`;
   const solutionMeta = solutions.find((s) => s.slug === config.slug);
   const breadcrumbs =
@@ -191,6 +191,15 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate md:text-lg md:leading-relaxed">
                 {empathy.body}
               </p>
+              {compareNote ? (
+                <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate md:text-lg md:leading-relaxed">
+                  {compareNote.before}
+                  <Link href={compareNote.href} className="font-semibold text-blue-royal hover:underline">
+                    {compareNote.anchor}
+                  </Link>
+                  {compareNote.after}
+                </p>
+              ) : null}
             </div>
           </Reveal>
           <div className="mt-12 md:mt-16">
