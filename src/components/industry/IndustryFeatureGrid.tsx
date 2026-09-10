@@ -158,6 +158,13 @@ function GridIconSvg({ kind }: { kind: GridIcon }) {
 
 
 
+
+function moneyCtaLabel(href: string): string {
+  if (href === "/logiciel-planning-nettoyage") return "logiciel de planning nettoyage";
+  if (href === "/logiciel-facturation-proprete") return "logiciel de facturation pour la propreté";
+  return "Voir la fonctionnalité";
+}
+
 function resolveIcon(href: string): GridIcon {
 
   if (iconByHref[href]) return iconByHref[href]!;
@@ -234,7 +241,7 @@ export function IndustryFeatureGrid({ grid }: Props) {
 
                 <Link href={item.href} className="link-accent mt-3 inline-flex items-center gap-1 text-sm font-bold transition group-hover:gap-2">
 
-                  Voir la fonctionnalité
+                  {moneyCtaLabel(item.href)}
 
                   <span aria-hidden>→</span>
 

@@ -62,6 +62,12 @@ export default function PillarNettoyagePage() {
       h2: "Vous êtes gérant. Votre semaine ne devrait pas ressembler à ça.",
       body: "Dimanche soir à refaire le planning sur Excel. Lundi matin à gérer une absence par SMS. Mardi à chercher qui était sur quel site. Vendredi à facturer de mémoire parce que les feuilles de pointage sont illisibles. PROGESTI remplace ce chaos : un seul outil pour affecter, pointer, prouver et facturer — sans retaper, sans oublier.",
     },
+    compareNote: {
+      before: "Vous évaluez aussi une ",
+      href: "/alternative-propret",
+      anchor: "alternative à Propret",
+      after: " ? Comparez tarifs publics, durée d'essai et périmètre modules — sans changer d'outil pour chaque besoin.",
+    },
     faq: pillarFaq,
   });
 

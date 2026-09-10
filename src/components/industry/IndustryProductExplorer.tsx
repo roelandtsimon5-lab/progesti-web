@@ -6,6 +6,12 @@ import { FeatureMock } from "./FeatureMock";
 import type { IndustryPillar } from "@/lib/industry/types";
 import { defaultPillars } from "@/lib/industry/default";
 
+function moneyCtaLabel(href: string): string {
+  if (href === "/logiciel-planning-nettoyage") return "logiciel de planning nettoyage";
+  if (href === "/logiciel-facturation-proprete") return "logiciel de facturation pour la propreté";
+  return "Voir la fonctionnalité";
+}
+
 function PillarIcon({ icon }: { icon: IndustryPillar["icon"] }) {
   const common = "h-5 w-5 text-lime-cta";
   switch (icon) {
@@ -307,7 +313,7 @@ export function IndustryProductExplorer({ pillars = defaultPillars, mockContext 
               href={feature.href}
               className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-blue-deep underline-offset-4 hover:text-green-deep hover:underline"
             >
-              Voir la fonctionnalité
+              {moneyCtaLabel(feature.href)}
               <span className="text-lime-cta" aria-hidden>
                 →
               </span>

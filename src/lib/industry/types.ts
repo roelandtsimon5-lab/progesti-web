@@ -87,6 +87,13 @@ export type IndustryPageConfig = {
   breadcrumbs?: readonly { label: string; href: string }[];
   /** Titre H2 du comparatif Excel/WhatsApp (optionnel) */
   vsTitle?: string;
+  /** Lien éditorial corps (ex. alternative concurrente) — hors footer */
+  compareNote?: {
+    before: string;
+    href: string;
+    anchor: string;
+    after: string;
+  };
 };
 
 export type IndustrySlug =
