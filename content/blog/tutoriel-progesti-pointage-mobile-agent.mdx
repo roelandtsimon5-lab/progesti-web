@@ -1,0 +1,117 @@
+---
+title: "Tutoriel Progesti : pointage mobile agent (arrivée / départ)"
+slug: "tutoriel-progesti-pointage-mobile-agent"
+category: "tutoriels"
+excerpt: "Pas à pas avec captures : liste télégestion, arrivée et départ mobile, géoloc GPS, passage lié, connexions mobiles et activation agent — pour une entreprise de nettoyage."
+date: "2026-09-11"
+updatedAt: "2026-09-11"
+readingTime: 8
+seoTitle: "Tutoriel Progesti : pointage mobile arrivée / départ (captures)"
+seoDescription: "Comment lire et contrôler le pointage mobile d’un agent dans Progesti : arrivée, départ, GPS, passage lié et accès app — captures réelles de la démo."
+keywords: ["tutoriel progesti", "pointage mobile nettoyage", "télégestion agents propreté", "pointage arrivée départ", "géolocalisation pointage"]
+---
+
+# Tutoriel Progesti : pointage mobile agent (arrivée / départ)
+
+Le syndic appelle à 9h12 : « personne n’est passé ». Votre agent dit le contraire. Sans arrivée / départ horodatés sur le site, vous arbitragez au feeling. Avec un pointage mobile relié au passage, vous ouvrez la preuve et vous clôturez le sujet.
+
+Ce tutoriel montre le parcours **côté gérant** dans Progesti : liste télégestion, fiche arrivée, fiche départ, géolocalisation, lien vers le passage, connexions mobiles, puis activation de l’accès agent. Captures prises sur la démo produit (données fictives Pro Nettoyage Services).
+
+Objectif terrain : savoir en 30 secondes si l’agent a badgé sur place — pas une feuille Excel le vendredi soir.
+
+## 1. Ouvrir la télégestion (liste des pointages)
+
+Menu **Télégestion** → **Télégestion**.
+
+Vous voyez la liste : code agent, nom, client / site, origine (**Application mobile**), événement (**Arrivée** ou **Départ**), heure à la seconde, statut (**Télégestion réussie**). En démo : environ 120 pointages, bouton vert **+ Créer** en haut à droite.
+
+![Liste télégestion Progesti : pointages mobiles arrivée et départ avec horodatage et statut réussi](/tutoriels/tutoriel-progesti-pointage-mobile-agent/01-telegestion-liste.png)
+
+**Terrain :** filtrez d’abord le client qui crie, pas toute la flotte. Si l’origine n’est pas « Application mobile », ce n’est pas le même niveau de preuve (saisie manuelle = exception à justifier).
+
+C’est le même socle que la page [pointage & télégestion](/fonctionnalites/pointage) : preuve terrain avant litige, pas un gadget GPS.
+
+## 2. Lire une arrivée (début de présence)
+
+Cliquez une ligne **Arrivée**. Exemple démo : Garcia, Inès — Coworking La Cantine — **01/07/2026 04:05:00** — origine Application mobile — statut Télégestion réussie. L’intervention liée apparaît (créneau prévu 13:00, durée 02:00).
+
+Boutons utiles en haut à droite : **Planning intervenant** et **Géolocalisation**.
+
+![Fiche pointage arrivée : agent Garcia, site Coworking La Cantine, origine application mobile](/tutoriels/tutoriel-progesti-pointage-mobile-agent/04-pointage-arrivee.png)
+
+**Scénario bureaux :** l’arrivée prouve le début de présence. Si le syndic dit « 8h pile » et que l’arrivée est à 8h17, vous savez déjà si c’est un retard réel ou une réclamation floue.
+
+À droite : panneaux **Fichier**, **Date de réception**, **Tâches effectuées**. Si **Fichier** est vide, pas de photo jointe sur ce pointage — la preuve reste heure + GPS + lien intervention.
+
+## 3. Lire le départ (fin de présence)
+
+Même agent, même site : ouvrez le **Départ** correspondant. Exemple : Garcia, Inès — départ **06:05:00** — même client, même intervention liée.
+
+![Fiche pointage départ : fin de présence mobile liée à l’intervention](/tutoriels/tutoriel-progesti-pointage-mobile-agent/05-pointage-depart.png)
+
+**Terrain :** une arrivée sans départ = trou. Un départ sans arrivée = alerte. Les deux sur le même site avec des heures cohérentes = vous pouvez répondre au client sans appeler l’agent en urgence.
+
+Autre exemple démo (Kowalski, Anna) : même structure de fiche, événement Départ, client Espace Bureaux Compans Caffarelli.
+
+![Détail pointage départ Kowalski : statut télégestion réussie et intervention liée](/tutoriels/tutoriel-progesti-pointage-mobile-agent/02-pointage-detail.png)
+
+## 4. Vérifier la géolocalisation
+
+Sur la fiche pointage, cliquez **Géolocalisation**.
+
+Une carte s’ouvre (Leaflet) avec le pin GPS. Texte sous la carte : coordonnées affichées (ex. 43.6047000, 1.4442000). Vous pouvez repositionner si besoin, puis confirmer l’usage du point pour l’intervention liée.
+
+![Carte géolocalisation du pointage mobile avec pin GPS et coordonnées](/tutoriels/tutoriel-progesti-pointage-mobile-agent/03-pointage-geoloc.png)
+
+**Scénario syndic / parties communes :** la géoloc ne remplace pas le cahier des charges, mais elle coupe court au « je suis passé » sans être sur le hall. Hors zone répétée = sujet RH ou formation, pas une discussion WhatsApp à 22h.
+
+## 5. Relier au passage (exécution début / fin)
+
+Depuis la fiche, ouvrez l’**Intervention** liée (ou **Planning** → **Passages**).
+
+Sur le passage, le bloc **Pointage** montre l’exécution : **COMPLETED**, **Début** et **Fin** (ex. 13:05 → 15:05). À côté : commentaires interne / client / intervenant.
+
+![Passage lié : exécution COMPLETED avec début et fin issus du pointage](/tutoriels/tutoriel-progesti-pointage-mobile-agent/08-passage-pointage.png)
+
+**Pourquoi c’est le cœur du métier :** le pointage ne vit pas tout seul. Il nourrit le passage, puis la facture du réalisé. Sans ce lien, vous avez des badges jolis et une facturation Excel.
+
+## 6. Contrôler les connexions mobiles
+
+Ouvrez **Télégestion** → connexions mobiles (URL `/telegestion/connexions-mobiles` en démo).
+
+Liste des appareils : intervenant, statut (**Actif** / **Expiré**), modèle, version app, dernière connexion. Utile quand un agent dit « l’appli ne marche plus » : session expirée vs téléphone changé vs jamais activé.
+
+![Liste des connexions mobiles agents : statut actif ou expiré, modèle et version app](/tutoriels/tutoriel-progesti-pointage-mobile-agent/07-connexions-mobiles.png)
+
+## 7. Activer l’accès mobile d’un agent
+
+**Agents** → fiche agent → onglet **Télégestion**.
+
+Bloc **Télégestion — accès mobile** : compte mobile séparé du compte admin. Si vous voyez **Accès non provisionné** / **Accès non activé**, l’agent ne peut pas pointer correctement — corrigez ici (e-mail de connexion, invitation) avant d’exiger des preuves terrain.
+
+![Fiche agent onglet Télégestion : activation de l’accès mobile pour pointer](/tutoriels/tutoriel-progesti-pointage-mobile-agent/10-autre-utile.png)
+
+**Ordre sain :** 1) provisionner l’accès, 2) premier badge sur un vrai site, 3) vérifier arrivée + départ + GPS dans la liste. Pas l’inverse.
+
+## 8. Secours : saisie manuelle (exception)
+
+Bouton **+ Créer** → **Nouveau pointage**.
+
+Origine **Saisie manuelle**, événement, heure, agent, client, intervention, et surtout **Raison du badgeage manuel** (obligatoire). C’est le filet : téléphone mort, oubli, hors ligne prolongé. Pas le mode par défaut.
+
+![Formulaire nouveau pointage en saisie manuelle avec raison obligatoire](/tutoriels/tutoriel-progesti-pointage-mobile-agent/09-nouveau-pointage.png)
+
+**Règle gérant :** trop de manuels = la preuve s’érode. Traitez-les comme des exceptions documentées, pas comme un second Excel.
+
+## Pièges fréquents
+
+- **Exiger le pointage sans activer l’accès mobile** → l’agent ne peut pas badgé ; vous regardez une liste vide.
+- **Regarder seulement l’arrivée** → sans départ, durée et exécution passage restent floues.
+- **Ignorer la géoloc** → litige site « voisin » ou mauvais hall.
+- **Tout passer en saisie manuelle** → plus de preuve terrain crédible.
+- **Connexion mobile expirée** → « l’appli bug » alors que la session est morte.
+- **Fichier photo vide** → normal si aucune photo n’a été jointe ; la preuve reste heure + GPS + passage lié.
+
+## Essayer sur votre activité
+
+Essai **15 jours** sans carte, offres dès **29,99 € HT/mois** (tous modules). Démo interactive ou appel : **05 82 95 09 19**.
