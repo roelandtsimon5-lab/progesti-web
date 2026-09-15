@@ -125,15 +125,6 @@ export function StickyDesktopCta() {
                   {site.phone}
                 </a>
                 <ButtonLink
-                  href={cta.demo}
-                  size="md"
-                  variant="secondary"
-                  className="!min-h-10 !rounded-[2px] !px-5 !text-sm"
-                  eventPayload={{ cta: "sticky_desktop_demo" }}
-                >
-                  {ctaLabels.demoGate}
-                </ButtonLink>
-                <ButtonLink
                   href={cta.trial}
                   size="md"
                   variant="trial"
@@ -145,6 +136,15 @@ export function StickyDesktopCta() {
                   }}
                 >
                   {ctaLabels.trialShort}
+                </ButtonLink>
+                <ButtonLink
+                  href={cta.demo}
+                  size="md"
+                  variant="secondary"
+                  className="!min-h-10 !rounded-[2px] !px-5 !text-sm"
+                  eventPayload={{ cta: "sticky_desktop_demo" }}
+                >
+                  {ctaLabels.demoGate}
                 </ButtonLink>
               </div>
             </div>
