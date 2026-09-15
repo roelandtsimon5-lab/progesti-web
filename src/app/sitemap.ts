@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const money: MetadataRoute.Sitemap = [
     entry("", 1, "weekly"),
     entry("/logiciel-entreprise-nettoyage", 0.95, "weekly"),
+    entry("/logiciel-nettoyage-gratuit", 0.95, "weekly"),
     entry("/logiciel-planning-nettoyage", 0.9, "weekly"),
     entry("/logiciel-facturation-proprete", 0.9, "weekly"),
     entry("/alternative-propret", 0.9, "weekly"),

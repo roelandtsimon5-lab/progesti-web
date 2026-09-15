@@ -261,7 +261,7 @@ export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig
   },
   empathy: {
     h2: "Professionnaliser sans vous noyer",
-    body: "Vous jonglez entre Excel, WhatsApp et factures Word : une heure oubliée, un site en double, une facture en retard. PROGESTI regroupe l’essentiel pour une TPE propre — sans module surprise ni devis opaque.",
+    body: "Vous jonglez entre Excel, WhatsApp et factures Word : une heure oubliée, un site en double, une facture en retard. PROGESTI regroupe l’essentiel pour une TPE propre — sans module surprise ni devis opaque. Notre logiciel de nettoyage gratuit vous donne accès à la facturation, au planning et au pointage dès maintenant — 0 € par mois pour les indépendants.",
   },
   showcase: {
     title: "Tout inclus, prix affiché",
@@ -295,6 +295,10 @@ export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig
     {
       q: "Support disponible ?",
       a: `Oui — ${site.phone}, équipe FR à Toulouse.`,
+    },
+    {
+      q: "Où trouver plus d'infos sur l'offre gratuite ?",
+      a: "Consultez notre page logiciel nettoyage gratuit pour tout savoir : fonctionnalités incluses, différences avec Pro/Premium, et comment démarrer.",
     },
   ],
 });

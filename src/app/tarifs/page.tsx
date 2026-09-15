@@ -151,6 +151,14 @@ export default function TarifsPage() {
               reprend les heures réellement réalisées, pour facturer sans ressaisie.
             </p>
             <p className="mt-4 text-slate">
+              Indépendant ou auto-entrepreneur ? L'offre Gratuit est faite pour vous : découvrez notre{" "}
+              <Link href="/logiciel-nettoyage-gratuit" className="font-semibold text-blue-royal hover:underline">
+                logiciel de nettoyage gratuit
+              </Link>
+              {" "}
+              — 0 € par mois, tous modules inclus.
+            </p>
+            <p className="mt-4 text-slate">
               Vous comparez les logiciels du marché ? Consultez aussi notre{" "}
               <Link href="/alternative-propret" className="font-semibold text-blue-royal hover:underline">
                 alternative à Propret
