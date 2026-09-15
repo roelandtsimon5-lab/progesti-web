@@ -43,7 +43,7 @@ export function HomeNew() {
             </div>
 
             <p className="mt-8 text-sm text-white/70">
-              Essai 15 jours · dès 29,99 € HT/mois · 05 82 95 09 19
+              Essai 15 jours · Gratuit pour indépendants · 05 82 95 09 19
             </p>
           </div>
 
@@ -222,7 +222,7 @@ export function HomeNew() {
           <Reveal>
             <p className="eyebrow">Tarifs publics</p>
             <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
-              dès 29,99 € HT / mois
+              Gratuit HT / mois
             </h2>
             <p className="mt-2 text-lg text-slate">
               Starter · Pro · Premium · Tout inclus

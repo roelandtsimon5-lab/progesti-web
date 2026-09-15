@@ -398,7 +398,7 @@ export function IndustryLandingV3({ config = defaultIndustryConfig }: Props) {
           <Reveal>
             <p className="eyebrow">Tarifs publics · tout inclus</p>
             <h2 className="mt-3 font-display text-5xl font-extrabold tracking-tight md:text-6xl">
-              <span>dès 29,99 €</span>
+              <span>Gratuit</span>
               <span className="ml-2 text-2xl font-bold text-slate md:text-3xl">HT / mois</span>
             </h2>
             <p className="mt-3 text-lg text-slate">Starter, Pro ou Premium · Tous les modules · Pas de surprise</p>

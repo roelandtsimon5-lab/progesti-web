@@ -180,8 +180,8 @@ export const defaultPillars: readonly IndustryPillar[] = [
 const defaultTrust = [
   { label: "Essai 15 jours", value: "" },
   { label: "Sans carte bancaire", value: "" },
-  { label: "Dès 29,99 € HT/mois", value: "" },
-  { label: "Starter · Pro · Premium", value: "" },
+  { label: "Gratuit pour indépendants", value: "" },
+  { label: "Gratuit · Pro · Premium", value: "" },
   { label: "Support FR", value: "" },
 ] as const;
 
@@ -208,7 +208,7 @@ const defaultFaq = [
   },
   {
     q: "Combien coûte PROGESTI ? Qu’est-ce qui est inclus ?",
-    a: "Dès 29,99 € HT/mois — Starter, Pro ou Premium, tous modules inclus (planning, pointage, devis, facturation, impayés, RH, tableaux de bord, CRM…). Pas de module payant en plus.",
+    a: "Gratuit pour indépendants (1 admin, tous modules). Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois (20 utilisateurs). Mise en place offerte.",
   },
   {
     q: `Combien dure l’essai ? Faut-il une carte bancaire ?`,
@@ -220,7 +220,7 @@ const defaultFaq = [
   },
   {
     q: "Combien d’utilisateurs sont inclus ?",
-    a: "Starter : 1 administrateur. Pro : 5 utilisateurs. Premium : 20 utilisateurs. Tous modules inclus dès 29,99 € HT/mois.",
+    a: "Gratuit : 1 administrateur (indépendants). Pro : 5 utilisateurs. Premium : 20 utilisateurs. Tous modules inclus.",
   },
   {
     q: "Le support est-il en France ?",
@@ -231,9 +231,9 @@ const defaultFaq = [
 export const defaultIndustryConfig: IndustryPageConfig = {
   slug: "default",
   seo: {
-    title: "Logiciel entreprise de nettoyage — dès 29,99 € HT/mois",
+    title: "Logiciel entreprise de nettoyage — Gratuit pour indépendants",
     description:
-      `Simplifiez et faites grandir votre entreprise de nettoyage : planning, pointage, facture. Dès 29,99 € HT/mois, tout inclus. ${trialCopy.label}.`,
+      `Simplifiez et faites grandir votre entreprise de nettoyage : planning, pointage, facture. Gratuit pour indépendants, tous modules inclus.`,
     path: "/",
   },
   hero: {
@@ -270,7 +270,7 @@ export const defaultIndustryConfig: IndustryPageConfig = {
     items: [
       {
         title: "Prix public",
-        text: "Dès 29,99 € HT/mois — Starter, Pro ou Premium, tous modules inclus. Pas de devis opaque.",
+        text: "Gratuit pour indépendants. Pro et Premium pour les équipes. Tous modules inclus.",
       },
       {
         title: "Tout inclus",

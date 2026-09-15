@@ -72,7 +72,7 @@ export default async function ModuleOpenGraphImage({ params }: Props) {
         </div>
 
         <div style={{ display: "flex", fontSize: 22, color: "#e8f0f4" }}>
-          {`Dès 29,99 € HT/mois · essai ${site.trialDays} j sans CB · progesti.fr`}
+          {`Gratuit pour indépendants · essai ${site.trialDays} j sans CB · progesti.fr`}
         </div>
       </div>
     ),

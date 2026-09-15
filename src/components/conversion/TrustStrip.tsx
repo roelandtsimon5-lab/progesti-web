@@ -1,7 +1,7 @@
 import { trialCopy } from "@/lib/site";
 
 export const trustPoints = [
-  "Dès 29,99 € HT/mois, tout inclus",
+  "Gratuit pour indépendants · Pro/Premium pour équipes",
   `${trialCopy.label} sans engagement`,
   "Support FR à Toulouse",
 ] as const;

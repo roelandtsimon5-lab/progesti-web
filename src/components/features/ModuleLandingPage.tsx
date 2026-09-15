@@ -136,7 +136,7 @@ export function ModuleLandingPage({ mod, content, slug }: Props) {
         compact
         eventModule={slug}
         title={`Testez ${mod.title} dans PROGESTI`}
-        lead={`Dès 29,99 € HT/mois · essai ${site.trialDays} jours sans CB · ${modules.length} modules inclus`}
+        lead={`Gratuit pour indépendants · essai ${site.trialDays} jours sans CB · ${modules.length} modules inclus`}
       />
       <MobileCtaBar
         primary={{

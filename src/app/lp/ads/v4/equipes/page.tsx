@@ -4,7 +4,7 @@ import { AdsKillerLanding } from "@/components/sections/ads-v4/AdsKillerLanding"
 export const metadata: Metadata = {
   title: "Planning équipes — Logiciel nettoyage PROGESTI",
   description:
-    "Agents et sites clairs, multi-sites. Planning équipes pour entreprises de nettoyage. Essai 2 mois sans CB, dès 29,99 € HT/mois.",
+    "Agents et sites clairs, multi-sites. Planning équipes pour entreprises de nettoyage. Essai 2 mois sans CB, Gratuit pour indépendants.",
   robots: { index: false },
 };
 
@@ -19,13 +19,13 @@ export default function AdsV4EquipesPage() {
       ctaLabel="Voir le planning équipes →"
       next="demo"
       headline="Agents et sites clairs, sans chaos"
-      subhead="Planning agents, sites et équipes multi-sites pour entreprises de nettoyage. Essai 2 mois sans CB, puis dès 29,99 € HT/mois. Tous modules inclus."
+      subhead="Planning agents, sites et équipes multi-sites pour entreprises de nettoyage. Essai 2 mois sans CB, puis Gratuit pour indépendants. Tous modules inclus."
       bullets={[
         "Affectations agents / sites lisibles",
         "2 mois gratuits sans carte bancaire",
-        "Puis dès 29,99 € HT/mois — tout inclus",
+        "Puis Gratuit pour indépendants — tout inclus",
       ]}
-      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : dès 29,99 € HT  →  Résiliable"
+      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : Gratuit HT  →  Résiliable"
       pains={[
         "Plusieurs sites, plusieurs agents — le planning devient illisible",
         "Une absence ou un remplacement casse toute la journée",
@@ -50,7 +50,7 @@ export default function AdsV4EquipesPage() {
         },
         {
           q: "Combien après l’essai ?",
-          a: "Dès 29,99 € HT/mois (Starter). Tarifs publics, tous modules inclus.",
+          a: "Gratuit pour indépendants (Starter). Tarifs publics, tous modules inclus.",
         },
       ]}
       finalLine="Clarifiez vos équipes dès aujourd’hui — sans CB."

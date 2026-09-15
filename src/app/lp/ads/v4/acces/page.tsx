@@ -23,9 +23,9 @@ export default function AdsV4AccesPage() {
       bullets={[
         "Essai 2 mois sans carte bancaire",
         "Tous les modules inclus",
-        "Dès 29,99 € HT/mois après l’essai",
+        "Gratuit pour indépendants après l’essai",
       ]}
-      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : dès 29,99 € HT  →  Résiliable"
+      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : Gratuit HT  →  Résiliable"
       pains={[
         "Planning Excel + WhatsApp : erreurs et appels en boucle",
         "Factures en retard faute de lien avec le terrain",
@@ -50,7 +50,7 @@ export default function AdsV4AccesPage() {
         },
         {
           q: "Combien après l’essai ?",
-          a: "Dès 29,99 € HT/mois (Starter). Tarifs publics, tous modules inclus.",
+          a: "Gratuit pour indépendants (Starter). Tarifs publics, tous modules inclus.",
         },
       ]}
       finalLine="Voyez PROGESTI maintenant — sans rendez-vous."

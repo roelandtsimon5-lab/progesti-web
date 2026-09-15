@@ -3,9 +3,9 @@ import { AdsGoogleLanding } from "@/components/sections/ads-v3/AdsGoogleLanding"
 import { formatEuro, plans, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "2 mois gratuits puis dès 29,99 €/mois — Logiciel nettoyage PROGESTI",
+  title: "2 mois gratuits puis Gratuit pour indépendants — Logiciel nettoyage PROGESTI",
   description:
-    "Essai 2 mois sans CB, puis dès 29,99 € HT/mois. Logiciel de gestion pour entreprises de nettoyage : planning, pointage, facturation. ROI visible dès le 1er mois.",
+    "Essai 2 mois sans CB, puis Gratuit pour indépendants. Logiciel de gestion pour entreprises de nettoyage : planning, pointage, facturation. ROI visible dès le 1er mois.",
   robots: { index: false },
 };
 
@@ -17,7 +17,7 @@ export default function AdsV3RoiPage() {
       campaign="ads_v3_roi"
       badge={`${site.trialMonths} mois gratuits · Sans CB`}
       priceAnchor={`Dès ${formatEuro(starter.monthly)} HT / mois après l’essai`}
-      headline="2 mois gratuits. Puis dès 29,99 € HT/mois pour piloter toute votre boîte."
+      headline="2 mois gratuits. Puis Gratuit pour indépendants pour piloter toute votre boîte."
       subhead="Planning, pointage terrain et facturation dans un seul logiciel métier — conçu pour les entreprises de nettoyage. Vous testez 2 mois sans carte bancaire, vous ne payez que si ça vous fait gagner."
       formType="trial"
       formTitle="Démarrer mes 2 mois gratuits"
@@ -98,7 +98,7 @@ export default function AdsV3RoiPage() {
         "Administration : quelques minutes par jour",
         "Facturation : alignée sur le réalisé terrain",
         "Visibilité : cockpit agents / sites en direct",
-        "Coût : dès 29,99 € HT/mois si vous continuez",
+        "Coût : Gratuit pour indépendants si vous continuez",
       ]}
       demoTitle="Ce que vous testez gratuitement pendant 2 mois"
       demoLead="Pas une démo vidéo — votre vrai compte avec tous les modules ouverts."
@@ -141,7 +141,7 @@ export default function AdsV3RoiPage() {
         },
         {
           title: "Mois 3 : vous décidez",
-          text: "Starter dès 29,99 € HT/mois ou vous arrêtez. Aucun prélèvement sans votre accord.",
+          text: "Starter Gratuit pour indépendants ou vous arrêtez. Aucun prélèvement sans votre accord.",
         },
       ]}
       faq={[
@@ -154,7 +154,7 @@ export default function AdsV3RoiPage() {
           a: "Rien n’est prélevé automatiquement sans votre décision. Vous choisissez une offre ou vous arrêtez.",
         },
         {
-          q: "Puis-je rester sur Starter à 29,99 €/mois ?",
+          q: "Puis-je rester sur Starter à Gratuit pour indépendants ?",
           a: "Oui. Starter = 1 admin, tous modules, facturation mensuelle HT. Vous passez à Pro ou Premium quand vous grandissez.",
         },
         {

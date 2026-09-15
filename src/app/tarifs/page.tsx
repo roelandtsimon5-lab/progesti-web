@@ -15,35 +15,39 @@ import { pricingCopy, solutions, site, trustBadges, trialCopy, modules } from "@
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Tarifs — dès 29,99 € HT/mois",
-  description: `Tarifs PROGESTI : Starter 29,99 €, Pro 49,99 €, Premium 99,99 € HT/mois. Tous modules inclus. ${trialCopy.free}, sans engagement.`,
+  title: "Tarifs — Gratuit pour indépendants",
+  description: `Tarifs PROGESTI : Gratuit pour indépendants et micro-entreprises, Pro 49,99 €, Premium 99,99 € HT/mois. Tous modules inclus. ${trialCopy.free} sur offres payantes.`,
   path: "/tarifs",
 });
 
 const pricingFaq = [
   {
+    q: "Qui peut bénéficier de l'offre Gratuit ?",
+    a: "L'offre Gratuit est réservée aux indépendants, auto-entrepreneurs et micro-entreprises. Elle inclut tous les modules avec 1 administrateur principal, sans limite de durée.",
+  },
+  {
     q: "Les modules sont-ils tous inclus ?",
-    a: "Oui. Planning, pointage, facturation, RH, CRM et tous les autres modules sont inclus dans chaque offre (Starter, Pro, Premium).",
+    a: "Oui. Planning, pointage, facturation, RH, CRM et tous les autres modules sont inclus dans chaque offre (Gratuit, Pro, Premium).",
   },
   {
     q: "Combien d'utilisateurs sont inclus ?",
-    a: "Starter : 1 administrateur principal. Pro : 5 utilisateurs. Premium : 20 utilisateurs. Contactez-nous si vous avez besoin de plus.",
+    a: "Gratuit : 1 administrateur. Pro : 5 utilisateurs. Premium : 20 utilisateurs. Contactez-nous si vous avez besoin de plus.",
   },
   {
     q: "Y a-t-il des frais d'installation ?",
     a: "Non. Mise en place offerte. Pas de frais cachés. Stockage illimité et mises à jour gratuites.",
   },
   {
-    q: "Puis-je essayer avant de m'engager ?",
-    a: `Oui. Essai ${site.trialDays} jours gratuit, sans carte bancaire.`,
+    q: "Puis-je essayer Pro ou Premium avant de m'engager ?",
+    a: `Oui. Essai ${site.trialDays} jours gratuit sur les offres payantes, sans carte bancaire.`,
   },
   {
     q: "Quelles sont les offres ?",
-    a: "Trois tarifs publics : Starter 29,99 € HT/mois, Pro 49,99 € HT/mois (soit 9,99 € HT/utilisateur), Premium 99,99 € HT/mois (soit 4,99 € HT/utilisateur). Tous modules inclus.",
+    a: "Trois offres publiques : Gratuit pour indépendants (0 €, 1 admin), Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois (20 utilisateurs). Tous modules inclus.",
   },
   {
     q: "L'offre annuelle est-elle avantageuse ?",
-    a: "Oui. L'annuel équivaut à 2 mois offerts (10 mois facturés pour 12 mois d'usage).",
+    a: "Oui. Sur Pro et Premium, l'annuel équivaut à 2 mois offerts (10 mois facturés pour 12 mois d'usage).",
   },
 ];
 

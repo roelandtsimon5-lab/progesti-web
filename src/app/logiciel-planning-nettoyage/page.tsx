@@ -14,7 +14,7 @@ import { site, trialCopy } from "@/lib/site";
 export const metadata: Metadata = pageMeta({
   title: "Logiciel planning nettoyage — Multi-sites, remplacements",
   description:
-    `Logiciel de planning nettoyage : multi-sites, absences et remplacements. Affectez, pointez, facturez. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
+    `Logiciel de planning nettoyage : multi-sites, absences et remplacements. Affectez, pointez, facturez. Gratuit pour indépendants, ${trialCopy.metaSuffix}`,
   path: "/logiciel-planning-nettoyage",
 });
 
@@ -257,7 +257,7 @@ export default function PillarPlanningPage() {
             </Reveal>
             <Reveal delayMs={100}>
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
-                <h3 className="font-display font-extrabold text-blue-deep">Dès 29,99 € tout inclus</h3>
+                <h3 className="font-display font-extrabold text-blue-deep">Gratuit pour indépendants</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
                   Planning + pointage + facturation — pas de module en supplément. Starter, Pro ou Premium.
                 </p>

@@ -12,14 +12,14 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Comparatifs",
   description:
-    "Comparatif logiciels pour entreprises de nettoyage — PROGESTI vs Excel, WhatsApp et alternatives. Prix public dès 29,99 € HT/mois.",
+    "Comparatif logiciels pour entreprises de nettoyage — PROGESTI vs Excel, WhatsApp et alternatives. Prix public Gratuit pour indépendants.",
   path: "/comparatifs",
 });
 
 const rows = [
   {
     label: "Prix",
-    progesti: "Dès 29,99 € HT/mois · public",
+    progesti: "Gratuit pour indépendants · public",
     other: "Devis / modules en plus",
   },
   {

@@ -55,7 +55,7 @@ export function ProgestiPricing() {
         </div>
         {period === "year" ? (
           <span className="rounded-[2px] bg-lime-cta/30 px-3 py-1.5 text-xs font-bold text-blue-deep">
-            2 mois offerts sur l&apos;annuel
+            2 mois offerts sur l&apos;annuel (Pro &amp; Premium)
           </span>
         ) : null}
       </div>
@@ -67,18 +67,28 @@ export function ProgestiPricing() {
         className="grid items-stretch gap-6 lg:grid-cols-3"
       >
         {plans.map((plan) => {
+          const isFree = plan.isFree;
           const price = period === "month" ? plan.monthly : plan.yearly;
-          const strike = period === "year" ? plan.yearlyStrike : null;
+          const strike = !isFree && period === "year" ? plan.yearlyStrike : null;
           return (
             <article
               key={plan.id}
               className={`relative flex flex-col overflow-hidden rounded-[2px] border bg-white p-7 shadow-[0_16px_48px_rgba(11,61,110,0.08)] ${
-                plan.highlight ? "border-2 border-lime-cta/60" : "border-blue-mist"
+                plan.highlight
+                  ? "border-2 border-lime-cta/60"
+                  : isFree
+                    ? "border-2 border-blue-royal/40"
+                    : "border-blue-mist"
               }`}
             >
               {plan.highlight ? (
                 <span className="absolute right-4 top-4 rounded-[2px] bg-lime-cta px-2.5 py-1 text-[11px] font-extrabold uppercase text-blue-deep">
                   Le plus populaire
+                </span>
+              ) : null}
+              {isFree ? (
+                <span className="absolute right-4 top-4 rounded-[2px] bg-blue-royal px-2.5 py-1 text-[11px] font-extrabold uppercase text-white">
+                  Indépendants
                 </span>
               ) : null}
 
@@ -91,12 +101,25 @@ export function ProgestiPricing() {
                 {strike ? (
                   <p className="text-sm font-medium text-slate line-through">{formatEuro(strike)} HT</p>
                 ) : null}
-                <p className="font-display text-4xl font-extrabold tracking-tight text-blue-deep md:text-5xl">
-                  {formatEuro(price)}
-                </p>
-                <p className="mt-2 text-sm font-semibold text-slate">
-                  HT {period === "month" ? "/ mois" : "/ an"}
-                </p>
+                {isFree ? (
+                  <>
+                    <p className="font-display text-4xl font-extrabold tracking-tight text-blue-deep md:text-5xl">
+                      Gratuit
+                    </p>
+                    <p className="mt-2 text-sm font-semibold text-lime-cta">
+                      0 € — pour toujours
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="font-display text-4xl font-extrabold tracking-tight text-blue-deep md:text-5xl">
+                      {formatEuro(price)}
+                    </p>
+                    <p className="mt-2 text-sm font-semibold text-slate">
+                      HT {period === "month" ? "/ mois" : "/ an"}
+                    </p>
+                  </>
+                )}
                 {plan.perUserHint && period === "month" ? (
                   <p className="mt-1 text-xs text-slate">{plan.perUserHint}</p>
                 ) : null}
@@ -112,16 +135,29 @@ export function ProgestiPricing() {
               </ul>
 
               <div className="mt-8 flex flex-col gap-3">
-                <ButtonLink
-                  href={cta.trial}
-                  variant={plan.highlight ? "trial" : "secondary"}
-                  size="lg"
-                  className="!w-full !rounded-[2px]"
-                  event="trial_start"
-                  eventPayload={{ plan: plan.id, period, cta: "tarifs_card_trial" }}
-                >
-                  Essai Gratuit
-                </ButtonLink>
+                {isFree ? (
+                  <ButtonLink
+                    href={cta.trial}
+                    variant="trial"
+                    size="lg"
+                    className="!w-full !rounded-[2px]"
+                    event="signup_start"
+                    eventPayload={{ plan: plan.id, cta: "tarifs_card_free" }}
+                  >
+                    Créer mon compte gratuit
+                  </ButtonLink>
+                ) : (
+                  <ButtonLink
+                    href={cta.trial}
+                    variant={plan.highlight ? "trial" : "secondary"}
+                    size="lg"
+                    className="!w-full !rounded-[2px]"
+                    event="trial_start"
+                    eventPayload={{ plan: plan.id, period, cta: "tarifs_card_trial" }}
+                  >
+                    Essai {site.trialDays} jours
+                  </ButtonLink>
+                )}
                 <ButtonLink
                   href={cta.demo}
                   size="lg"

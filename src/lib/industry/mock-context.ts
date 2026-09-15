@@ -418,7 +418,7 @@ export const mockContextBySlug: Record<string, MockContext> = {
     ],
     planningSummary: "3 clients · 1 équipe",
     clientName: "Mon activité propreté",
-    clientMeta: "3 clients · TPE · Dès 29,99 €",
+    clientMeta: "3 clients · TPE · Gratuit",
     clientSites: ["Client A", "Client B", "Client C"],
     rhEntries: [
       ["Moi", "Titulaire", "Planning du jour"],
@@ -435,7 +435,7 @@ export const mockContextBySlug: Record<string, MockContext> = {
     ],
     reportStats: [
       ["Clients", "3"],
-      ["Prix", "Dès 29,99 €"],
+      ["Prix", "Gratuit indépendants"],
       ["Users", "5 max"],
     ],
     unpaidRows: [

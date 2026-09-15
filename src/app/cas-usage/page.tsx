@@ -14,7 +14,7 @@ import { useCases, productFacts } from "@/lib/use-cases";
 export const metadata: Metadata = pageMeta({
   title: "Cas d'usage — entreprises de nettoyage",
   description:
-    "Cas d'usage PROGESTI pour entreprises de propreté : gain de temps admin, preuves de passage, facturation accélérée. Dès 29,99 € HT/mois.",
+    "Cas d'usage PROGESTI pour entreprises de propreté : gain de temps admin, preuves de passage, facturation accélérée. Gratuit pour indépendants.",
   path: "/cas-usage",
 });
 

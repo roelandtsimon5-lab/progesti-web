@@ -14,7 +14,7 @@ export default function AdsConcurrentPage() {
       subhead="Même métier. Essai 2 mois. Accédez avec prénom + téléphone."
       bullets={[
         "Essai 2 mois sans carte bancaire",
-        "Dès 29,99€ HT/mois",
+        "Gratuit pour indépendants",
         "Migration possible si ça matche",
       ]}
     />

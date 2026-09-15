@@ -75,11 +75,11 @@ export const solutions = [
   },
   {
     slug: "auto-entrepreneurs",
-    title: "Auto-entrepreneurs & petites équipes",
-    navHint: "Indépendants, TPE propreté",
-    headline: "Démarrer sans usine à gaz — dès 29,99 € HT/mois",
+    title: "Auto-entrepreneurs & indépendants",
+    navHint: "Indépendants, micro-entreprises, TPE propreté",
+    headline: "Logiciel gratuit pour indépendants — 0 € par mois",
     lead:
-      "Un seul outil pour remplacer Excel et WhatsApp : sites, planning, pointage et factures. Demandez une démo.",
+      "Facturation, suivi client, planning : tout ce qu'il faut pour gérer votre activité solo. Gratuit, tous modules inclus.",
   },
 ] as const;
 
@@ -172,14 +172,15 @@ export const planInclusions = [
 
 export const plans = [
   {
-    id: "starter",
-    name: "Starter",
-    users: "1 administrateur principal",
-    monthly: 29.99,
-    yearly: 299.9,
-    yearlyStrike: 359.88,
+    id: "gratuit",
+    name: "Gratuit",
+    users: "1 administrateur — indépendants & micro-entreprises",
+    monthly: 0,
+    yearly: 0,
+    yearlyStrike: null as number | null,
     perUserHint: null as string | null,
     highlight: false,
+    isFree: true,
     features: planInclusions,
   },
   {
@@ -191,6 +192,7 @@ export const plans = [
     yearlyStrike: 599.88,
     perUserHint: "Soit 9,99€ HT par utilisateur",
     highlight: true,
+    isFree: false,
     features: planInclusions,
   },
   {
@@ -202,40 +204,45 @@ export const plans = [
     yearlyStrike: 1199.88,
     perUserHint: "Soit 4,99€ HT par utilisateur",
     highlight: false,
+    isFree: false,
     features: planInclusions,
   },
 ] as const;
 
-/** Offre d’entrée — prix affiché « dès … » et schema.org. */
-export const starterPlan = plans[0];
+/** Offre gratuite pour indépendants / micro-entreprises / auto-entrepreneurs. */
+export const freePlan = plans[0];
+/** @deprecated Alias pour freePlan — anciennement Starter. */
+export const starterPlan = freePlan;
 /** Offre mise en avant (le plus populaire). */
 export const proPlan = plans[1];
 
-/** @deprecated Prefer starterPlan / plans. Kept for callers expecting a single plan shape. */
+/** @deprecated Prefer freePlan / plans. Kept for callers expecting a single plan shape. */
 export const mainPlan = {
-  id: starterPlan.id,
-  name: starterPlan.name,
-  users: starterPlan.users,
-  monthly: starterPlan.monthly,
-  yearly: starterPlan.yearly,
-  yearlyStrike: starterPlan.yearlyStrike,
-  features: [...starterPlan.features],
+  id: freePlan.id,
+  name: freePlan.name,
+  users: freePlan.users,
+  monthly: freePlan.monthly,
+  yearly: freePlan.yearly,
+  yearlyStrike: freePlan.yearlyStrike,
+  features: [...freePlan.features],
 } as const;
 
 /** @deprecated Alias — use plans. */
 export const legacyPlans = plans;
 
 export const pricingCopy = {
-  from: `dès ${formatPlanPrice(starterPlan.monthly)} HT/mois`,
-  fromShort: `dès ${formatPlanPrice(starterPlan.monthly)}`,
-  fromBadge: `Dès ${formatPlanPrice(starterPlan.monthly)} HT/mois`,
+  freeForAE: "Gratuit pour indépendants & micro-entreprises",
+  freeLabel: "0 € HT/mois",
+  from: `dès ${formatPlanPrice(proPlan.monthly)} HT/mois`,
+  fromShort: `dès ${formatPlanPrice(proPlan.monthly)}`,
+  fromBadge: `Gratuit pour indépendants`,
   allInclusive: "tous modules inclus dans chaque offre",
-  plansSummary: `Starter ${formatPlanPrice(plans[0].monthly)} · Pro ${formatPlanPrice(plans[1].monthly)} · Premium ${formatPlanPrice(plans[2].monthly)} HT/mois`,
+  plansSummary: `Gratuit (indépendants) · Pro ${formatPlanPrice(plans[1].monthly)} · Premium ${formatPlanPrice(plans[2].monthly)} HT/mois`,
 } as const;
 
 export const trustBadges = [
-  { title: trialCopy.label, text: "Sans engagement" },
-  { title: pricingCopy.fromBadge, text: "Tarifs publics" },
+  { title: pricingCopy.fromBadge, text: "Tous modules inclus" },
+  { title: trialCopy.label, text: "Offres payantes" },
   { title: "Support FR", text: "Équipe à Toulouse" },
   { title: "Mobile", text: "Android & iOS" },
 ] as const;
@@ -251,7 +258,7 @@ export const whyPoints = [
   },
   {
     title: "Prix clair, tout inclus",
-    text: `${pricingCopy.from} — Starter, Pro ou Premium. Pas de module surprise. Vous savez exactement ce que vous payez.`,
+    text: `Gratuit pour indépendants, Pro ou Premium pour les équipes. Pas de module surprise.`,
   },
 ] as const;
 
@@ -277,7 +284,7 @@ export const benefits = [
 export const faqItems = [
   {
     q: "Combien coûte PROGESTI ?",
-    a: "Trois offres publiques : Starter 29,99 € HT/mois (1 administrateur), Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois (20 utilisateurs). Tous les modules inclus, mise en place offerte.",
+    a: "Trois offres publiques : Gratuit pour indépendants et micro-entrepreneurs (1 administrateur, tous modules), Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois (20 utilisateurs). Mise en place offerte.",
   },
   {
     q: "Pour qui est fait PROGESTI ?",
@@ -313,7 +320,7 @@ export const faqItems = [
   },
   {
     q: "PROGESTI est-il adapté aux TPE ?",
-    a: "Oui. L'offre Starter à 29,99 € HT/mois est conçue pour les auto-entrepreneurs et petites structures ; Pro et Premium accompagnent la croissance.",
+    a: "Oui. L'offre Gratuit est conçue pour les auto-entrepreneurs, indépendants et micro-entreprises — 0 € par mois, tous modules inclus. Pro et Premium accompagnent la croissance.",
   },
   {
     q: "Comment demander une démo ?",

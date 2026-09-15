@@ -18,7 +18,7 @@ const rows = [
 
     chaos: "Devis sur demande · modules en plus",
 
-    progesti: "Dès 29,99 € HT/mois · public",
+    progesti: "Gratuit pour indépendants · public",
 
   },
 
@@ -198,19 +198,25 @@ export function IndustryVsSpreadsheet({ title }: Props) {
 
         </div>
 
-        <p className="mt-6 text-center text-sm text-slate">
+        {mainPlan.yearlyStrike != null && mainPlan.yearly > 0 ? (
+          <p className="mt-6 text-center text-sm text-slate">
 
-          Économie annuelle vs mensuel (Starter) :{" "}
+            Économie annuelle vs mensuel :{" "}
 
-          <span className="font-bold text-ink">
+            <span className="font-bold text-ink">
 
-            {formatEuro(mainPlan.yearlyStrike - mainPlan.yearly)} HT
+              {formatEuro(mainPlan.yearlyStrike - mainPlan.yearly)} HT
 
-          </span>{" "}
+            </span>{" "}
 
-          (2 mois offerts · {formatEuro(mainPlan.yearly)}/an)
+            (2 mois offerts · {formatEuro(mainPlan.yearly)}/an)
 
-        </p>
+          </p>
+        ) : (
+          <p className="mt-6 text-center text-sm text-slate">
+            <span className="font-bold text-ink">Gratuit</span> pour indépendants et micro-entreprises — tous modules inclus
+          </p>
+        )}
 
       </div>
 

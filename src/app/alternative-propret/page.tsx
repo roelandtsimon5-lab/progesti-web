@@ -13,15 +13,15 @@ import { modules, site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Alternative Propret — Logiciel nettoyage, essai 15j",
-  description: `Vous comparez une alternative à Propret ? PROGESTI structure planning, pointage et facture. Dès 29,99 € HT/mois, essai ${site.trialDays}j sans CB · ${site.phone}.`,
+  description: `Vous comparez une alternative à Propret ? PROGESTI structure planning, pointage et facture. Gratuit pour indépendants, essai ${site.trialDays}j sans CB · ${site.phone}.`,
   path: "/alternative-propret",
 });
 
 const pricingRows = [
   {
     label: "Formule entrée",
-    propret: "29,99 € HT/mois",
-    progesti: "29,99 € HT/mois (Starter)",
+    propret: "Gratuit (indépendants)",
+    progesti: "Gratuit (indépendants)",
   },
   {
     label: "Formule intermédiaire",
@@ -59,7 +59,7 @@ const featureRows = [
   {
     label: "Cible métier",
     propret: "Entreprises de propreté",
-    progesti: "Nettoyage : bureaux, syndics, pros, fin de chantier, AE",
+    progesti: "Nettoyage : bureaux, syndics, pros, fin de chantier, indépendants",
   },
   {
     label: "Chaîne ops",
@@ -91,7 +91,7 @@ const featureRows = [
 const faqItems = [
   {
     q: "PROGESTI est-il vraiment moins cher que Propret ?",
-    a: "Non — et ce n'est pas l'argument. Les deux affichent publiquement la même grille (29,99 / 49,99 / 99,99 € HT/mois) avec tous les modules inclus. La différence se joue sur le métier nettoyage (vocabulaire, workflows), la chaîne planning → pointage → facture, et le support FR basé à Toulouse.",
+    a: "Non — et ce n'est pas l'argument. Les deux affichent publiquement la même grille (0 € (indépendants) / 49,99 / 99,99 € HT/mois) avec tous les modules inclus. La différence se joue sur le métier nettoyage (vocabulaire, workflows), la chaîne planning → pointage → facture, et le support FR basé à Toulouse.",
   },
   {
     q: "Je suis déjà sur Propret : la migration est-elle lourde ?",
@@ -111,7 +111,7 @@ const faqItems = [
   },
   {
     q: "L'essai suffit-il pour une petite équipe ou un AE ?",
-    a: "Oui. Starter à 29,99 € HT/mois est pensé pour les auto-entrepreneurs et très petites équipes (1 administrateur). Pro (5 utilisateurs) et Premium (20) suivent la croissance. Même stack métier à chaque palier.",
+    a: "Oui. L'offre Gratuit est pensée pour les indépendants et micro-entreprises (1 administrateur, tous modules inclus). Pro (5 utilisateurs) et Premium (20) accompagnent la croissance.",
   },
 ] as const;
 
@@ -123,7 +123,7 @@ export default function AlternativePropretPage() {
       <IndustryPageHero
         eyebrow="Comparaison factuelle"
         title="Alternative à Propret pour entreprises de nettoyage"
-        lead="Même grille tarifaire publique que Propret (29,99 / 49,99 / 99,99 € HT/mois). La différence : un outil pensé métier nettoyage — planning → pointage → facture — avec support FR à Toulouse."
+        lead="Même grille tarifaire publique que Propret (0 € (indépendants) / 49,99 / 99,99 € HT/mois). La différence : un outil pensé métier nettoyage — planning → pointage → facture — avec support FR à Toulouse."
         breadcrumbs={[
           { label: "Accueil", href: "/" },
           { label: "Alternative Propret" },
@@ -219,7 +219,7 @@ export default function AlternativePropretPage() {
 
           <div className="mt-6 rounded-[3px] border-l-4 border-lime-cta bg-white p-4">
             <p className="text-sm text-slate">
-              <strong className="text-blue-deep">À noter :</strong> même grille publique (29,99 /
+              <strong className="text-blue-deep">À noter :</strong> PROGESTI offre une entrée gratuite pour indépendants, là où Propret commence à 29,99 €. Pour équipes : mêmes paliers (
               49,99 / 99,99 € HT/mois), modules inclus des deux côtés. PROGESTI propose un essai de{" "}
               {site.trialDays} jours <strong>sans carte bancaire</strong>. Détail des paliers sur{" "}
               <Link href="/tarifs" className="font-semibold text-blue-royal hover:underline">
@@ -350,7 +350,7 @@ export default function AlternativePropretPage() {
           <div className="prose prose-slate mt-4 max-w-none">
             <p>
               Si vous voulez un outil complet avec tarifs publics clairs, sans argument « on est
-              moins cher ». Starter (29,99 € HT/mois) pour AE / solo ; Pro et Premium jusqu&apos;à
+              moins cher ». Gratuit (0 € pour indépendants) pour AE / solo ; Pro et Premium jusqu&apos;à
               20 utilisateurs.
             </p>
             <ul>
@@ -526,7 +526,7 @@ export default function AlternativePropretPage() {
 
       <FinalPush
         title="Le meilleur comparatif, c'est votre propre essai"
-        lead={`Dès 29,99 € HT/mois tout inclus · ${trialCopy.noCard} · Support FR ${site.phone}`}
+        lead={`Gratuit pour indépendants · ${trialCopy.noCard} offres payantes · Support FR ${site.phone}`}
       />
       <MobileCtaBar />
     </>

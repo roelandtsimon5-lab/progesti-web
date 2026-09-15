@@ -21,7 +21,7 @@ const values = [
   },
   {
     title: "Prix public",
-    text: "Dès 29,99 € HT/mois affiché. Pas de devis opaque, pas de module payant caché après signature.",
+    text: "Gratuit pour indépendants et micro-entreprises. Pas de devis opaque, pas de module payant caché après signature.",
   },
   {
     title: "Support humain FR",
@@ -59,7 +59,7 @@ export default function AProposPage() {
               <p className="text-xs text-slate">Équipe à Toulouse</p>
             </li>
             <li>
-              <p className="font-display text-2xl font-extrabold text-blue-deep">29,99 €</p>
+              <p className="font-display text-2xl font-extrabold text-blue-deep">0 €</p>
               <p className="text-xs text-slate">HT/mois dès Starter</p>
             </li>
           </ul>

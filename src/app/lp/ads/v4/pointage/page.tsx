@@ -4,7 +4,7 @@ import { AdsKillerLanding } from "@/components/sections/ads-v4/AdsKillerLanding"
 export const metadata: Metadata = {
   title: "Pointage mobile — Logiciel nettoyage PROGESTI",
   description:
-    "Preuves de passage sur Android & iOS. Pointage mobile pour entreprises de nettoyage. Essai 2 mois sans CB, dès 29,99 € HT/mois.",
+    "Preuves de passage sur Android & iOS. Pointage mobile pour entreprises de nettoyage. Essai 2 mois sans CB, Gratuit pour indépendants.",
   robots: { index: false },
 };
 
@@ -19,13 +19,13 @@ export default function AdsV4PointagePage() {
       ctaLabel="Voir le pointage mobile →"
       next="demo"
       headline="Preuves terrain sur Android & iOS"
-      subhead="Pointage mobile et preuves de passage pour entreprises de nettoyage. Essai 2 mois sans CB, puis dès 29,99 € HT/mois. Tous modules inclus."
+      subhead="Pointage mobile et preuves de passage pour entreprises de nettoyage. Essai 2 mois sans CB, puis Gratuit pour indépendants. Tous modules inclus."
       bullets={[
         "Pointage agents sur mobile",
         "2 mois gratuits sans carte bancaire",
-        "Puis dès 29,99 € HT/mois — tout inclus",
+        "Puis Gratuit pour indépendants — tout inclus",
       ]}
-      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : dès 29,99 € HT  →  Résiliable"
+      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : Gratuit HT  →  Résiliable"
       pains={[
         "Sans preuve de passage, les litiges clients s’éternisent",
         "Le bureau ne sait pas qui a réellement fait le site",
@@ -50,7 +50,7 @@ export default function AdsV4PointagePage() {
         },
         {
           q: "Combien après l’essai ?",
-          a: "Dès 29,99 € HT/mois (Starter). Tarifs publics, tous modules inclus.",
+          a: "Gratuit pour indépendants (Starter). Tarifs publics, tous modules inclus.",
         },
       ]}
       finalLine="Des preuves terrain dès aujourd’hui — sans CB."

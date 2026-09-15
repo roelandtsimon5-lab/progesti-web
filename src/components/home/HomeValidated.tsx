@@ -13,7 +13,7 @@ import { cta } from "@/lib/cta";
 /** Différenciateurs vs marché (Propret 14j, ERP sur devis, etc.) */
 const proofBar = [
   { value: "2 mois", label: "d’essai sans CB" },
-  { value: "29,99 €", label: "HT/mois dès Starter" },
+  { value: "Gratuit", label: "Pour indépendants" },
   { value: "11", label: "modules inclus" },
   { value: "0 €", label: "frais d’installation" },
 ];
@@ -59,7 +59,7 @@ const whyUs = [
   },
   {
     title: "Prix public, tout inclus",
-    text: "Dès 29,99 € HT/mois. Aucun module payant en plus. Pas de devis opaque, pas de frais d’installation.",
+    text: "Gratuit pour indépendants. Aucun module payant en plus. Pas de devis opaque, pas de frais d’installation.",
   },
   {
     title: "Fait pour le métier",
@@ -114,7 +114,7 @@ export function HomeValidated() {
             </div>
 
             <p className="mt-6 text-sm text-white/60">
-              ✓ Sans carte bancaire · ✓ Dès 29,99 € HT/mois · ✓ Tous modules inclus
+              ✓ Sans carte bancaire · ✓ Gratuit pour indépendants · ✓ Tous modules inclus
             </p>
           </div>
 
@@ -336,7 +336,7 @@ export function HomeValidated() {
           <Reveal>
             <p className="eyebrow">Tarifs publics</p>
             <h2 className="mt-3 text-3xl font-extrabold text-blue-deep md:text-4xl">
-              Dès 29,99 € HT/mois — tout inclus
+              Gratuit pour indépendants — tout inclus
             </h2>
             <p className="lead mt-4">
               Starter, Pro ou Premium. Mêmes modules. Essai 2 mois sans CB. Sans engagement long.

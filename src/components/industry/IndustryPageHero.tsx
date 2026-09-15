@@ -55,7 +55,7 @@ export function IndustryPageHero({
               </ButtonLink>
             </div>
             <p className="mt-5 text-sm text-white/55">
-              dès 29,99 € HT/mois · sans CB ·{" "}
+              Gratuit pour indépendants · sans CB ·{" "}
               <Link href="/tarifs" className="font-semibold text-white/80 underline-offset-4 hover:underline">
                 tarif public
               </Link>

@@ -6,7 +6,7 @@ export const bureauxConfig = mergeIndustryConfig(defaultIndustryConfig, {
   seo: {
     title: "Logiciel nettoyage de bureaux — planning & facturation",
     description:
-      `Organisez le ménage des bureaux et open spaces : planning multi-sites, pointage, facturation. Dès 29,99 € HT/mois tout inclus. ${trialCopy.label}.`,
+      `Organisez le ménage des bureaux et open spaces : planning multi-sites, pointage, facturation. Gratuit pour indépendants, dès 49,99 € (Pro). ${trialCopy.label}.`,
     path: "/solutions/bureaux",
   },
   hero: {
@@ -50,7 +50,7 @@ export const bureauxConfig = mergeIndustryConfig(defaultIndustryConfig, {
     },
     {
       q: "Combien coûte PROGESTI pour une TPE bureaux ?",
-      a: `Dès 29,99 € HT/mois — Starter, Pro ou Premium, tous modules inclus. ${trialCopy.noCard}.`,
+      a: `Gratuit pour indépendants (1 admin, tous modules). Pro et Premium pour les équipes. ${trialCopy.noCard}.`,
     },
     {
       q: "Peut-on remplacer Excel progressivement ?",
@@ -58,7 +58,7 @@ export const bureauxConfig = mergeIndustryConfig(defaultIndustryConfig, {
     },
     {
       q: "Les modules sont-ils payants en plus ?",
-      a: "Non. Planning, pointage, facturation, RH… tout est inclus dès 29,99 € HT/mois.",
+      a: "Non. Tous les modules sont inclus, même dans l'offre Gratuit pour indépendants.",
     },
   ],
 });
@@ -68,7 +68,7 @@ export const syndicsConfig = mergeIndustryConfig(defaultIndustryConfig, {
   seo: {
     title: "Logiciel nettoyage syndics & parties communes",
     description:
-      `Multi-immeubles, passages récurrents, preuves terrain pour syndics. PROGESTI dès 29,99 € HT/mois tout inclus. ${trialCopy.label}.`,
+      `Multi-immeubles, passages récurrents, preuves terrain pour syndics. PROGESTI gratuit pour indépendants. ${trialCopy.label}.`,
     path: "/solutions/syndics",
   },
   hero: {
@@ -112,7 +112,7 @@ export const syndicsConfig = mergeIndustryConfig(defaultIndustryConfig, {
     },
     {
       q: "Combien coûte PROGESTI ?",
-      a: "Dès 29,99 € HT/mois, tous modules. Pas de surcoût par immeuble.",
+      a: "Gratuit pour indépendants, Pro ou Premium pour les équipes. Tous modules inclus.",
     },
     {
       q: "Le support comprend-il le métier syndic ?",
@@ -130,7 +130,7 @@ export const professionnelsConfig = mergeIndustryConfig(defaultIndustryConfig, {
   seo: {
     title: "Logiciel nettoyage commerces & cabinets",
     description:
-      `Cabinets médicaux, commerces, restaurants : horaires serrés, accès sensibles, preuves. PROGESTI dès 29,99 € HT/mois. ${trialCopy.label}.`,
+      `Cabinets médicaux, commerces, restaurants : horaires serrés, accès sensibles, preuves. PROGESTI gratuit pour indépendants. ${trialCopy.label}.`,
     path: "/solutions/professionnels",
   },
   hero: {
@@ -170,7 +170,7 @@ export const professionnelsConfig = mergeIndustryConfig(defaultIndustryConfig, {
     },
     {
       q: "Prix et essai ?",
-      a: `Dès 29,99 € HT/mois tout inclus · ${trialCopy.noCard.toLowerCase()}.`,
+      a: `Gratuit pour indépendants, dès 49,99 € (Pro) · ${trialCopy.noCard.toLowerCase()}.`,
     },
     {
       q: "Facturation depuis le terrain ?",
@@ -188,7 +188,7 @@ export const finDeChantierConfig = mergeIndustryConfig(defaultIndustryConfig, {
   seo: {
     title: "Logiciel remise en état & fin de chantier",
     description:
-      `Remise en état après travaux : planning serré, preuves photos, facturation rapide. PROGESTI dès 29,99 € HT/mois. ${trialCopy.label}.`,
+      `Remise en état après travaux : planning serré, preuves photos, facturation rapide. PROGESTI gratuit pour indépendants. ${trialCopy.label}.`,
     path: "/solutions/fin-de-chantier",
   },
   hero: {
@@ -228,7 +228,7 @@ export const finDeChantierConfig = mergeIndustryConfig(defaultIndustryConfig, {
     },
     {
       q: "Prix ?",
-      a: "Dès 29,99 € HT/mois, tous modules.",
+      a: "Gratuit pour indépendants, Pro 49,99 €, Premium 99,99 € HT/mois.",
     },
     {
       q: "Essai gratuit ?",
@@ -244,7 +244,7 @@ export const finDeChantierConfig = mergeIndustryConfig(defaultIndustryConfig, {
 export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig, {
   slug: "auto-entrepreneurs",
   seo: {
-    title: "Logiciel nettoyage auto-entrepreneur — dès 29,99 € HT/mois",
+    title: "Logiciel gratuit pour indépendants — 0 € par mois",
     description:
       `Remplacez Excel et WhatsApp : sites, planning, pointage et factures. PROGESTI tout inclus pour TPE propreté. ${trialCopy.label}.`,
     path: "/solutions/auto-entrepreneurs",
@@ -252,12 +252,12 @@ export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig
   hero: {
     h1Lead: "Logiciel nettoyage TPE",
     h1: "pour démarrer sans usine à gaz",
-    sub: "Un seul outil dès 29,99 € HT/mois : sites, planning, pointage et factures — idéal auto-entrepreneurs et petites équipes.",
+    sub: "Facturation, suivi client, planning et pointage — Gratuit pour indépendants, tous modules inclus.",
     claimBefore: "D’Excel à la",
     claimHighlight: "facture",
     claimSub: "Simple, tout inclus, prix public",
     trustLeft: "Pensé pour les petites équipes propreté",
-    productStripLabel: "Dès 29,99 € HT · tout inclus",
+    productStripLabel: "Gratuit · tous modules inclus",
   },
   empathy: {
     h2: "Professionnaliser sans vous noyer",
@@ -265,11 +265,11 @@ export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig
   },
   showcase: {
     title: "Tout inclus, prix affiché",
-    sub: "Planning, pointage, devis, factures, RH — dès 29,99 € HT/mois.",
+    sub: "Planning, pointage, devis, factures, RH — Gratuit pour indépendants.",
     image: "/screen-telegestion.webp",
     imageAlt: "Tableau de bord PROGESTI — vue activité TPE",
-    badgeLeft: { title: "Starter · Pro · Premium", sub: "Tous modules inclus" },
-    badgeRight: "Dès 29,99 € HT/mois",
+    badgeLeft: { title: "Gratuit · Pro · Premium", sub: "Tous modules inclus" },
+    badgeRight: "Gratuit pour indépendants",
   },
   faq: [
     {
@@ -278,7 +278,7 @@ export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig
     },
     {
       q: "Combien ça coûte vraiment ?",
-      a: "Dès 29,99 € HT/mois — Starter, Pro ou Premium, tous modules inclus.",
+      a: "Gratuit pour indépendants (1 admin), Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois (20 utilisateurs).",
     },
     {
       q: "Faut-il une carte bancaire pour l’essai ?",

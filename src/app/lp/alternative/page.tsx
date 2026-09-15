@@ -17,7 +17,7 @@ export default function LandingAlternativePage() {
       secondaryCta={{ href: "/alternative-propret", label: "Voir la comparaison" }}
       benefits={[
         "Même niche : entreprises de nettoyage",
-        "Tarifs publics dès 29,99 € HT/mois",
+        "Tarifs publics Gratuit pour indépendants",
         "Essai 15 jours vs essai court ailleurs",
         "Accompagnement possible pour migrer",
       ]}

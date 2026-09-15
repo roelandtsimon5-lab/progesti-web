@@ -136,10 +136,10 @@ export default function EssaiGratuitPage() {
             <h2 className="text-2xl font-extrabold text-brand-navy">Ce que vous obtenez</h2>
             <ul className="mt-6 space-y-3 text-slate">
               {[
-                `${site.trialDays} jours gratuits sans engagement`,
+                `${site.trialDays} jours gratuits sur Pro/Premium`,
+                "Gratuit à vie pour indépendants et micro-entreprises",
                 "Tous les modules ouverts (planning, pointage, facture…)",
-                "Données de démo pour démarrer vite",
-                "Dès 29,99 € HT/mois · Mise en place offerte",
+                "Mise en place offerte · Support FR",
               ].map((item) => (
                 <li key={item} className="flex gap-3 font-medium">
                   <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-[2px] bg-lime-cta/20 text-brand-navy">

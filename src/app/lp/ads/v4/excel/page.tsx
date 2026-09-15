@@ -25,7 +25,7 @@ export default function AdsV4ExcelPage() {
         "Plus de versions Excel qui divergent",
         "Essai 2 mois sans carte bancaire",
       ]}
-      monthStrip="Mois 1–2 : 0 € pour basculer  →  Puis dès 29,99 € HT/mois"
+      monthStrip="Mois 1–2 : 0 € pour basculer  →  Puis Gratuit pour indépendants"
       pains={[
         "Le fichier bureau ≠ le fichier téléphone → mauvais site",
         "Absences et remplacements noyés dans WhatsApp",

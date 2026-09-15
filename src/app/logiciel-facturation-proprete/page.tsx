@@ -14,7 +14,7 @@ import { site, trialCopy } from "@/lib/site";
 export const metadata: Metadata = pageMeta({
   title: "Logiciel facturation nettoyage — Devis, réalisé, factures",
   description:
-    `Logiciel de facturation nettoyage : devis, factures et suivi alignés sur le pointage terrain. Dès 29,99 € HT/mois, ${trialCopy.metaSuffix}`,
+    `Logiciel de facturation nettoyage : devis, factures et suivi alignés sur le pointage terrain. Gratuit pour indépendants, ${trialCopy.metaSuffix}`,
   path: "/logiciel-facturation-proprete",
 });
 
@@ -261,7 +261,7 @@ export default function PillarFacturationPage() {
             </Reveal>
             <Reveal delayMs={100}>
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
-                <h3 className="font-display font-extrabold text-blue-deep">Dès 29,99 € tout inclus</h3>
+                <h3 className="font-display font-extrabold text-blue-deep">Gratuit pour indépendants</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
                   Facturation + planning + pointage — pas de module en supplément. Starter, Pro ou Premium.
                 </p>
