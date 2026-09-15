@@ -91,7 +91,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               </ButtonLink>
             </div>
             <p className="mt-4 text-sm text-white/55">
-              Sans carte bancaire · {pricingCopy.from} · Starter, Pro ou Premium
+              Sans carte bancaire · {pricingCopy.from} · Gratuit, Pro ou Premium
             </p>
             <ul
               className="mt-5 flex flex-wrap gap-2"
@@ -411,11 +411,11 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               <span>Gratuit</span>
               <span className="ml-2 text-2xl font-bold text-slate md:text-3xl">HT / mois</span>
             </h2>
-            <p className="mt-3 text-lg text-slate">Starter, Pro ou Premium · Tous les modules · Pas de surprise</p>
+            <p className="mt-3 text-lg text-slate">Gratuit, Pro ou Premium · Tous les modules · Pas de surprise</p>
             <p className="mt-2 text-sm text-slate">
               Annuel = 2 mois offerts. Voir les{" "}
               <Link href="/tarifs" className="link-accent font-bold">
-                tarifs Starter / Pro / Premium
+                tarifs Gratuit / Pro / Premium
               </Link>
             </p>
             <ul className="mx-auto mt-8 max-w-md space-y-2 text-left text-sm text-slate">

@@ -50,7 +50,7 @@ export default function AdsV4PointagePage() {
         },
         {
           q: "Combien après l’essai ?",
-          a: "Gratuit pour indépendants (Starter). Tarifs publics, tous modules inclus.",
+          a: "Gratuit pour indépendants . Tarifs publics, tous modules inclus.",
         },
       ]}
       finalLine="Des preuves terrain dès aujourd’hui — sans CB."

@@ -50,7 +50,7 @@ export default function AdsV4ToutInclusPage() {
         },
         {
           q: "Quel est le prix après l’essai ?",
-          a: "Gratuit pour indépendants (Starter). Pro et Premium selon le nombre d’utilisateurs.",
+          a: "Gratuit pour indépendants . Pro et Premium selon le nombre d’utilisateurs.",
         },
       ]}
       finalLine="Prix clair. Modules inclus. Testez 2 mois sans CB."

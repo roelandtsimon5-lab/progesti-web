@@ -50,7 +50,7 @@ export default function AdsV4FacturationPage() {
         },
         {
           q: "Combien après l’essai ?",
-          a: "Gratuit pour indépendants (Starter). Tarifs publics, tous modules inclus.",
+          a: "Gratuit pour indépendants . Tarifs publics, tous modules inclus.",
         },
       ]}
       finalLine="Facturez le réalisé — dès aujourd’hui, sans CB."

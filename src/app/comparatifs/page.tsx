@@ -85,7 +85,7 @@ export default function ComparatifsPage() {
               <h2 className="font-display text-xl font-extrabold text-blue-deep">PROGESTI vs Propret</h2>
               <ul className="mt-4 space-y-2 text-slate">
                 <li>• Même niche : entreprises de nettoyage en France</li>
-                <li>• PROGESTI : tarifs publics Starter / Pro / Premium — dès {formatEuro(mainPlan.monthly)} HT/mois, tous modules inclus</li>
+                <li>• PROGESTI : tarifs publics Gratuit / Pro / Premium — dès {formatEuro(mainPlan.monthly)} HT/mois, tous modules inclus</li>
                 <li>• Essai {site.trialDays} jours sans CB · support FR · fait par des gens du métier</li>
               </ul>
               <div className="mt-6 flex flex-wrap gap-3">

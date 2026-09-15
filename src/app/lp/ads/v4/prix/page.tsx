@@ -24,7 +24,7 @@ export default function AdsV4PrixPage() {
       ctaLabel="Voir le prix et tester →"
       next="demo"
       headline={`Dès ${formatEuro(starter.monthly)} HT/mois — après 2 mois offerts`}
-      subhead={`Starter ${formatEuro(starter.monthly)} · Pro ${formatEuro(pro.monthly)} · Premium ${formatEuro(premium.monthly)} HT/mois. Tous modules inclus. Essai 2 mois sans CB.`}
+      subhead={`Gratuit ${formatEuro(starter.monthly)} · Pro ${formatEuro(pro.monthly)} · Premium ${formatEuro(premium.monthly)} HT/mois. Tous modules inclus. Essai 2 mois sans CB.`}
       bullets={[
         "Tarifs publics — pas de devis opaque",
         "2 mois gratuits sans carte bancaire",
@@ -46,7 +46,7 @@ export default function AdsV4PrixPage() {
       productTitle="Ce que vous payez (HT / mois)"
       productSteps={[
         {
-          title: `Starter ${formatEuro(starter.monthly)}`,
+          title: `Gratuit ${formatEuro(starter.monthly)}`,
           text: "1 administrateur · tous modules · sites illimités",
         },
         {

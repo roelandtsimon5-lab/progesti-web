@@ -64,7 +64,7 @@ export default function AdsV3PlanningPage() {
         {
           label: "Planning PROGESTI",
           value: `${formatEuro(starter.monthly)}/mois`,
-          note: "Starter · 1 admin · planning + pointage + facturation inclus",
+          note: "Gratuit · 1 admin · planning + pointage + facturation inclus",
         },
         {
           label: "Temps récupéré",
@@ -144,7 +144,7 @@ export default function AdsV3PlanningPage() {
         },
         {
           title: "Mois 3 : vous décidez",
-          text: `Starter dès ${formatEuro(starter.monthly)} HT/mois ou vous repassez à Excel. Votre choix.`,
+          text: `Gratuit ${formatEuro(starter.monthly)} HT/mois ou vous repassez à Excel. Votre choix.`,
         },
       ]}
       faq={[

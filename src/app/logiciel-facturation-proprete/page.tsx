@@ -263,7 +263,7 @@ export default function PillarFacturationPage() {
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
                 <h3 className="font-display font-extrabold text-blue-deep">Gratuit pour indépendants</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Facturation + planning + pointage — pas de module en supplément. Starter, Pro ou Premium.
+                  Facturation + planning + pointage — pas de module en supplément. Gratuit, Pro ou Premium.
                 </p>
               </li>
             </Reveal>

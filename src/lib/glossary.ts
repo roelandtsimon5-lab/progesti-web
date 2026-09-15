@@ -187,7 +187,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: "offre-progesti",
     term: "Offre PROGESTI",
     definition:
-      "Gratuit pour indépendants — Starter, Pro ou Premium, tous modules inclus. Prix clair, sans surprise.",
+      "Gratuit pour indépendants — Gratuit, Pro ou Premium, tous modules inclus. Prix clair, sans surprise.",
     related: ["/tarifs"],
   },
   {

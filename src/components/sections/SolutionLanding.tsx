@@ -64,7 +64,7 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
               </ButtonLink>
             </div>
             <p className="mt-6 text-sm text-white/60">
-              ✓ {trialCopy.label} · ✓ {pricingCopy.from} · ✓ Starter, Pro ou Premium
+              ✓ {trialCopy.label} · ✓ {pricingCopy.from} · ✓ Gratuit, Pro ou Premium
             </p>
           </div>
 
@@ -203,7 +203,7 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
               Testez PROGESTI sur vos vrais sites
             </h2>
             <p className="mt-4 text-lg text-white/90">
-              <strong className="text-white">Gratuit pour indépendants</strong> — Starter, Pro ou Premium, tous
+              <strong className="text-white">Gratuit pour indépendants</strong> — Gratuit, Pro ou Premium, tous
               modules inclus — pour piloter votre activité de {content.title.toLowerCase()}.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

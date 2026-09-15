@@ -118,7 +118,7 @@ export default function AdsV2TempsPage() {
         },
         {
           q: "C’est pour les grosses structures seulement ?",
-          a: "Non. Starter Gratuit pour indépendants pour AE et petites équipes. Vous grandissez ensuite sans changer d’outil.",
+          a: "Non. Gratuit pour AE et petites équipes. Vous grandissez ensuite sans changer d’outil.",
         },
         {
           q: "Que se passe-t-il après les 2 mois ?",

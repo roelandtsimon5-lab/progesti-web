@@ -339,7 +339,7 @@ export function HomeValidated() {
               Gratuit pour indépendants — tout inclus
             </h2>
             <p className="lead mt-4">
-              Starter, Pro ou Premium. Mêmes modules. Essai 2 mois sans CB. Sans engagement long.
+              Gratuit, Pro ou Premium. Mêmes modules. Essai 2 mois sans CB. Sans engagement long.
             </p>
           </Reveal>
           <div className="mt-12">

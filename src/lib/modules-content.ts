@@ -646,7 +646,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "PROGESTI remplace-t-il un logiciel de paie ?", a: "Non. PROGESTI centralise heures et variables ; vous exportez vers votre expert paie ou logiciel de paie." },
       { q: "Comment gérer un remplacement ?", a: "Depuis l'absence, réaffectez les passages à un backup — visible sur le planning mobile." },
       { q: "Les heures supplémentaires sont-elles visibles ?", a: "Oui. Heures planifiées vs pointées par agent sur la période." },
-      { q: "Combien d'agents puis-je gérer ?", a: "Agents illimités. Les offres incluent 1 à 20 utilisateurs bureau (Starter / Pro / Premium) ; le terrain pointe via l'app mobile." },
+      { q: "Combien d'agents puis-je gérer ?", a: "Agents illimités. Les offres incluent 1 à 20 utilisateurs bureau (Gratuit / Pro / Premium) ; le terrain pointe via l'app mobile." },
       { q: "Inclus dans le tarif ?", a: "Oui — Gratuit pour indépendants, tous modules inclus." },
       { q: "Fiches agents avec documents ?", a: "Oui. Contrat, coordonnées et affectations centralisés par agent." },
     ],

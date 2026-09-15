@@ -260,7 +260,7 @@ export default function V2ArchiveHomePage() {
             <Eyebrow>Tarifs</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">Prix publics, tout inclus</h2>
             <Lead className="mt-4">
-              Starter, Pro ou Premium — mêmes modules. Essai 2 mois sans CB.
+              Gratuit, Pro ou Premium — mêmes modules. Essai 2 mois sans CB.
             </Lead>
           </Reveal>
           <div className="mt-12">

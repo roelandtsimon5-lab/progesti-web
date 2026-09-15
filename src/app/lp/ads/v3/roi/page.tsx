@@ -48,7 +48,7 @@ export default function AdsV3RoiPage() {
         {
           label: "Mois 3 et +",
           price: `dès ${formatEuro(starter.monthly)}`,
-          detail: "Vous choisissez Starter, Pro ou Premium. Facturation mensuelle HT. Résiliable à tout moment.",
+          detail: "Vous choisissez Gratuit, Pro ou Premium. Facturation mensuelle HT. Résiliable à tout moment.",
         },
       ]}
       roiTitle="Le calcul ROI que font les gérants avant de signer"
@@ -141,7 +141,7 @@ export default function AdsV3RoiPage() {
         },
         {
           title: "Mois 3 : vous décidez",
-          text: "Starter Gratuit pour indépendants ou vous arrêtez. Aucun prélèvement sans votre accord.",
+          text: "Gratuit ou vous arrêtez. Aucun prélèvement sans votre accord.",
         },
       ]}
       faq={[
@@ -154,8 +154,8 @@ export default function AdsV3RoiPage() {
           a: "Rien n’est prélevé automatiquement sans votre décision. Vous choisissez une offre ou vous arrêtez.",
         },
         {
-          q: "Puis-je rester sur Starter à Gratuit pour indépendants ?",
-          a: "Oui. Starter = 1 admin, tous modules, facturation mensuelle HT. Vous passez à Pro ou Premium quand vous grandissez.",
+          q: "Puis-je rester sur Gratuit à Gratuit pour indépendants ?",
+          a: "Oui. Gratuit = 1 admin, tous modules, facturation mensuelle HT. Vous passez à Pro ou Premium quand vous grandissez.",
         },
         {
           q: "Y a-t-il un engagement minimum ?",

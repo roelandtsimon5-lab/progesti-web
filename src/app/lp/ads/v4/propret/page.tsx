@@ -50,7 +50,7 @@ export default function AdsV4PropretPage() {
         },
         {
           q: "Combien ça coûte ensuite ?",
-          a: "Gratuit pour indépendants. Starter, Pro ou Premium — tous modules inclus.",
+          a: "Gratuit pour indépendants. Gratuit, Pro ou Premium — tous modules inclus.",
         },
       ]}
       finalLine="Même métier. Essai plus long. Prix affiché. Comparez maintenant."
