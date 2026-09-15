@@ -150,6 +150,14 @@ export default function TarifsPage() {
               </Link>{" "}
               reprend les heures réellement réalisées, pour facturer sans ressaisie.
             </p>
+            <p className="mt-4 text-slate">
+              Vous comparez les logiciels du marché ? Consultez aussi notre{" "}
+              <Link href="/alternative-propret" className="font-semibold text-blue-royal hover:underline">
+                alternative à Propret
+              </Link>
+              {" "}
+              — mêmes modules, prix affichés, essai sans carte bancaire.
+            </p>
           </Reveal>
         </div>
       </section>
