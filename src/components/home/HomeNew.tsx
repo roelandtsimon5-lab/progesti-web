@@ -24,19 +24,21 @@ export function HomeNew() {
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <ButtonLink
+                href={cta.trial}
+                size="lg"
+                variant="trial"
+                event="trial_start"
+                eventPayload={{ cta: "home_hero_trial" }}
+              >
+                Essai 15 jours gratuit
+              </ButtonLink>
+              <ButtonLink
                 href={cta.demo}
                 size="lg"
+                variant="outline-white"
                 eventPayload={{ cta: "home_hero_demo" }}
               >
                 Demander une démo
-              </ButtonLink>
-              <ButtonLink
-                href="#produit"
-                size="lg"
-                variant="outline-white"
-                eventPayload={{ cta: "home_hero_scroll" }}
-              >
-                Voir le produit
               </ButtonLink>
             </div>
 
@@ -242,19 +244,21 @@ export function HomeNew() {
           <Reveal delayMs={100}>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <ButtonLink
-                href={cta.demo}
-                size="lg"
-                eventPayload={{ cta: "home_pricing_demo" }}
-              >
-                Demander une démo
-              </ButtonLink>
-              <ButtonLink
                 href={cta.trial}
                 size="lg"
-                variant="secondary"
+                variant="trial"
+                event="trial_start"
                 eventPayload={{ cta: "home_pricing_trial" }}
               >
                 Essai 15 jours gratuit
+              </ButtonLink>
+              <ButtonLink
+                href={cta.demo}
+                size="lg"
+                variant="secondary"
+                eventPayload={{ cta: "home_pricing_demo" }}
+              >
+                Demander une démo
               </ButtonLink>
             </div>
           </Reveal>

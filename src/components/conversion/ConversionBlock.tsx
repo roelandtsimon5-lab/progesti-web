@@ -15,12 +15,12 @@ const copy: Record<
 > = {
   demo: {
     title: "Prêt à simplifier votre gestion ?",
-    lead: "Demandez une démo et découvrez PROGESTI sur vos cas d'usage réels.",
+    lead: "Essayez PROGESTI 15 jours sans CB, ou demandez une démo sur vos cas d'usage réels.",
     primary: {
-      href: cta.demo,
-      label: ctaLabels.demoGate,
+      href: cta.trial,
+      label: ctaLabels.trial,
     },
-    secondary: { href: cta.trial, label: ctaLabels.trial },
+    secondary: { href: cta.demo, label: ctaLabels.demoGate },
   },
   essai: {
     title: "Mettez PROGESTI au travail",
@@ -47,9 +47,10 @@ type Props = {
   className?: string;
 };
 
-export function ConversionBlock({ variant = "demo", className = "" }: Props) {
+export function ConversionBlock({ variant = "essai", className = "" }: Props) {
   const c = copy[variant];
-  const primaryVariant = variant === "essai" ? "trial" : "white";
+  const primaryIsTrial = c.primary.href === cta.trial;
+  const primaryVariant = primaryIsTrial ? "trial" : "white";
 
   return (
     <section className={`gradient-cta text-white ${className}`.trim()}>
@@ -67,7 +68,7 @@ export function ConversionBlock({ variant = "demo", className = "" }: Props) {
             size="lg"
             variant={primaryVariant}
             className="!rounded-[2px]"
-            event={variant === "essai" ? "trial_start" : "cta_click"}
+            event={primaryIsTrial ? "trial_start" : "cta_click"}
             eventPayload={{ cta: `conversion_${variant}_primary` }}
           >
             {c.primary.label}
@@ -77,7 +78,7 @@ export function ConversionBlock({ variant = "demo", className = "" }: Props) {
             size="lg"
             variant="outline-white"
             className="!rounded-[2px]"
-            event={variant === "demo" ? "trial_start" : "cta_click"}
+            event="cta_click"
             eventPayload={{ cta: `conversion_${variant}_secondary` }}
           >
             {c.secondary.label}

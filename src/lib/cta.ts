@@ -6,22 +6,17 @@ const demoAppPath = appUrl("/api/public/demo-session");
 /** Destinations marketing -> produit (une seule source de verite). */
 export const cta = {
   /**
-   * « Demander une démo » : ouverture directe du logiciel (session guest).
-   * Page SEO /demo reste dispo pour accès manuel / formulaire.
+   * « Demander une démo » / « Démo » : page marketing `/demo` (formulaire).
+   * Ne jamais pointer les CTAs site vers demo-session (atterrit sur login ILICO).
    */
-  demo: (() => {
-    const url = new URL(demoAppPath);
-    url.searchParams.set("next", "/demo-mvp");
-    url.searchParams.set("source", "site_cta");
-    return url.toString();
-  })(),
-  /** Page gate formulaire (SEO / accès direct URL). */
+  demo: "/demo",
+  /** Alias explicite page gate formulaire (SEO / accès direct URL). */
   demoPage: "/demo",
   /** Funnel lead puis redirection vers l'app. */
   trial: "/essai-gratuit",
   /** Inscription self-serve sur l'app (app.progesti.fr) - essai 15 jours. */
   trialApp: appUrl("/creer-mon-espace"),
-  /** Cockpit demo pre-rempli (session guest, donnees Pro Nettoyage). */
+  /** Session guest app — uniquement après lead / entrée depuis /demo. */
   demoApp: demoAppPath,
   /** Connexion logiciel. */
   login: appUrl("/login"),
@@ -29,7 +24,7 @@ export const cta = {
 
 /** Libellés CTA — une seule voix sur tout le site public. */
 export const ctaLabels = {
-  /** Lien vers le logiciel (session démo). */
+  /** Lien vers la page marketing /demo. */
   demoGate: "Demander une démo",
   /** Bouton submit sur /demo uniquement. */
   demoEnter: "Entrer dans la démo",
@@ -55,7 +50,7 @@ export function trialAppUrl(prefill?: {
   return url.toString();
 }
 
-/** Entree demo publique : cookie session sur tenant demo -> /demo-mvp. */
+/** Entree demo publique : cookie session sur tenant demo -> /demo-mvp (après lead). */
 export function demoAppUrl(prefill?: {
   company?: string;
   name?: string;

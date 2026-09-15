@@ -317,7 +317,7 @@ export const faqItems = [
   },
   {
     q: "Comment demander une démo ?",
-    a: "Cliquez sur « Demander une démo » : vous entrez directement dans la vraie application PROGESTI (données démo préchargées). Aucun rendez-vous obligatoire — vous explorez librement. L'équipe peut vous rappeler si vous le souhaitez.",
+    a: "Cliquez sur « Demander une démo » : vous arrivez sur la page démo PROGESTI. Laissez vos coordonnées pour accéder à la démo interactive (données préchargées) ou pour qu'un conseiller vous rappelle. L'essai 15 jours sans CB reste disponible à tout moment.",
   },
   {
     q: "Y a-t-il une assistance ?",
