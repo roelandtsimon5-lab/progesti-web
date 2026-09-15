@@ -65,7 +65,7 @@ export default function AdsV3SyndicPage() {
           note: "1 litige / oubli facturé évité par mois sur un portefeuille moyen",
         },
         {
-          label: "Coût PROGESTI Starter",
+          label: "Coût PROGESTI Gratuit",
           value: `${formatEuro(starter.monthly)}/mois`,
           note: "Sites illimités · planning · pointage · facturation · HT",
         },
@@ -147,7 +147,7 @@ export default function AdsV3SyndicPage() {
         },
         {
           title: "Mois 3 : vous décidez",
-          text: `Starter dès ${formatEuro(starter.monthly)} HT/mois ou vous arrêtez. Aucune CB pour démarrer.`,
+          text: `Gratuit ${formatEuro(starter.monthly)} HT/mois ou vous arrêtez. Aucune CB pour démarrer.`,
         },
       ]}
       faq={[
@@ -165,7 +165,7 @@ export default function AdsV3SyndicPage() {
         },
         {
           q: "Combien coûte PROGESTI après l’essai ?",
-          a: `Dès ${formatEuro(starter.monthly)} HT/mois (Starter). Pro ${formatEuro(plans[1].monthly)} HT/mois pour 5 utilisateurs. Tous modules inclus.`,
+          a: `Dès ${formatEuro(starter.monthly)} HT/mois . Pro ${formatEuro(plans[1].monthly)} HT/mois pour 5 utilisateurs. Tous modules inclus.`,
         },
         {
           q: "Faut-il une carte bancaire pour les 2 mois ?",

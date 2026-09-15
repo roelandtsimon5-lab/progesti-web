@@ -49,7 +49,7 @@ export default function FonctionnalitesPage() {
                     Tarifs publics
                   </p>
                   <p className="mt-2 font-sans text-2xl font-extrabold">
-                    Gratuit pour indépendants · {modules.length} modules · Starter / Pro / Premium
+                    Gratuit pour indépendants · {modules.length} modules · Gratuit / Pro / Premium
                   </p>
                   <p className="mt-2 text-sm text-white/70">
                     Essai {site.trialDays} jours sans CB · support {site.phone}

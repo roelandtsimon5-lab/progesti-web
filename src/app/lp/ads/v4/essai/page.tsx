@@ -37,7 +37,7 @@ export default function AdsV4EssaiPage() {
       productSteps={[
         { title: "Configurez 1 site", text: "Agents, fréquences, planning — le jour même." },
         { title: "Faites pointer l’équipe", text: "Mobile terrain pendant les 2 mois." },
-        { title: "Décidez au mois 3", text: "Starter, Pro, Premium — ou vous arrêtez." },
+        { title: "Décidez au mois 3", text: "Gratuit, Pro, Premium — ou vous arrêtez." },
       ]}
       faq={[
         {

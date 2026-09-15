@@ -225,7 +225,7 @@ export function HomeNew() {
               Gratuit HT / mois
             </h2>
             <p className="mt-2 text-lg text-slate">
-              Starter · Pro · Premium · Tout inclus
+              Gratuit · Pro · Premium · Tout inclus
             </p>
             <p className="mt-6 text-slate">
               Planning, pointage, facturation — pas de module en plus.

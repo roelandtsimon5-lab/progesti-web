@@ -19,7 +19,7 @@ export default function LandingEssaiPage() {
         "Friction minimale : formulaire court puis entrée dans l’app",
         "Tous les modules ouverts pendant 15 jours",
         "Idéal pour valider sur vos vrais sites clients",
-        "Passage ensuite vers Starter / Pro / Premium",
+        "Passage ensuite vers Gratuit / Pro / Premium",
       ]}
       objections={[
         {

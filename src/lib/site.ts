@@ -152,7 +152,7 @@ export function formatPlanPrice(value: number) {
   }).format(value);
 }
 
-/** Alias historique — affiche toujours les centimes pour les offres Starter/Pro/Premium. */
+/** Alias historique — affiche toujours les centimes pour les offres Gratuit/Pro/Premium. */
 export function formatEuro(value: number) {
   return formatPlanPrice(value);
 }

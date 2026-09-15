@@ -60,7 +60,7 @@ export default function AProposPage() {
             </li>
             <li>
               <p className="font-display text-2xl font-extrabold text-blue-deep">0 €</p>
-              <p className="text-xs text-slate">HT/mois dès Starter</p>
+              <p className="text-xs text-slate">HT/mois Gratuit pour indépendants</p>
             </li>
           </ul>
         </div>

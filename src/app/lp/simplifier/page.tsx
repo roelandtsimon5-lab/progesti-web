@@ -32,7 +32,7 @@ export default function LandingSimplifierPage() {
         },
         {
           q: "C’est trop cher pour un AE",
-          a: "Starter Gratuit pour indépendants, tous modules inclus.",
+          a: "Gratuit, tous modules inclus.",
         },
         {
           q: "Et si ça ne me convient pas ?",

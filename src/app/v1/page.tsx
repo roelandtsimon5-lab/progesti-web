@@ -352,7 +352,7 @@ export default function HomePageV1Archive() {
                 Prix publics, modules complets
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-muted">
-                Starter, Pro ou Premium — même périmètre. Vous choisissez selon le nombre
+                Gratuit, Pro ou Premium — même périmètre. Vous choisissez selon le nombre
                 d’utilisateurs.
               </p>
             </div>

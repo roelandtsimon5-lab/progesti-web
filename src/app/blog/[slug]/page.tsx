@@ -157,7 +157,7 @@ export default async function BlogPostPage({ params }: Props) {
                 Prêt à organiser votre nettoyage professionnel ?
               </p>
               <p className="mt-2 text-sm text-slate">
-                Gratuit pour indépendants · Starter, Pro ou Premium · essai {site.trialDays} jours sans CB
+                Gratuit pour indépendants · Gratuit, Pro ou Premium · essai {site.trialDays} jours sans CB
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <ButtonLink

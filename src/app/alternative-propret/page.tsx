@@ -36,7 +36,7 @@ const pricingRows = [
   {
     label: "Utilisateurs inclus",
     propret: "Starter 1 · Pro 5 · Premium 20",
-    progesti: "Starter 1 · Pro 5 · Premium 20",
+    progesti: "Gratuit 1 · Pro 5 · Premium 20",
   },
   {
     label: "Modules",
@@ -99,7 +99,7 @@ const faqItems = [
   },
   {
     q: "Quels modules sont inclus dans chaque offre ?",
-    a: `Les ${modules.length} modules sont inclus dès Starter : planning, pointage & télégestion, clients, devis, facturation, impayés, RH / prépaie, tableaux de bord… Pas de module surprise en fin de mois. Les paliers changent surtout le nombre d'utilisateurs (1 / 5 / 20).`,
+    a: `Les ${modules.length} modules sont inclus Gratuit pour indépendants : planning, pointage & télégestion, clients, devis, facturation, impayés, RH / prépaie, tableaux de bord… Pas de module surprise en fin de mois. Les paliers changent surtout le nombre d'utilisateurs (1 / 5 / 20).`,
   },
   {
     q: "En quoi PROGESTI se différencie concrètement ?",
@@ -463,7 +463,7 @@ export default function AlternativePropretPage() {
                 href="/tarifs"
                 className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
               >
-                Tarifs publics Starter / Pro / Premium →
+                Tarifs publics Gratuit / Pro / Premium →
               </Link>
             </li>
             <li>

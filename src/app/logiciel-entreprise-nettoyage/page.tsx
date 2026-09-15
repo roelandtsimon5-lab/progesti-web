@@ -11,7 +11,7 @@ const pageUrl = `${site.url}/logiciel-entreprise-nettoyage`;
 const pillarFaq = [
   {
     q: "Combien coûte PROGESTI pour mon entreprise de nettoyage ?",
-    a: "Gratuit pour indépendants — Starter, Pro ou Premium — tous modules inclus : planning multi-sites, pointage mobile, devis, facturation, impayés, RH, tableaux de bord. Pas de module payant en plus, pas de frais d'installation.",
+    a: "Gratuit pour indépendants — Gratuit, Pro ou Premium — tous modules inclus : planning multi-sites, pointage mobile, devis, facturation, impayés, RH, tableaux de bord. Pas de module payant en plus, pas de frais d'installation.",
   },
   {
     q: "Puis-je tester avant de m'engager ?",
