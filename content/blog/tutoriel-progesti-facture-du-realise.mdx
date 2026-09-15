@@ -1,0 +1,137 @@
+---
+title: "Tutoriel Progesti : facturer le réalisé terrain"
+slug: "tutoriel-progesti-facture-du-realise"
+category: "tutoriels"
+excerpt: "Pas à pas avec captures : générer les factures depuis les passages validés, relire les lignes, PDF client, envoi email — pour une entreprise de nettoyage."
+date: "2026-09-15"
+updatedAt: "2026-09-15"
+readingTime: 9
+seoTitle: "Tutoriel Progesti : facturer le réalisé (captures)"
+seoDescription: "Comment générer une facture depuis les passages validés du cycle, contrôler les lignes, prévisualiser le PDF et l’envoyer au client dans Progesti."
+keywords: ["tutoriel progesti", "facturer réalisé nettoyage", "générer facture passages", "logiciel facturation propreté", "facture entreprise nettoyage"]
+---
+
+# Tutoriel Progesti : facturer le réalisé terrain
+
+Facturer ce qui a vraiment été fait, pas ce qui était prévu sur un Excel du lundi matin. C’est la différence entre une trésorerie claire et des discussions interminables avec le client (« vous nous facturez un passage où l’agent n’est pas venu »).
+
+Ce tutoriel montre le parcours réel dans Progesti : liste Factures → générer depuis les passages validés du cycle → relire lignes / totaux → PDF → envoi. Captures prises sur la démo produit (données fictives Pro Nettoyage Services).
+
+Sur le terrain, la facture du réalisé sert deux choses : coller au planning pointé, et sortir le mois sans retaper les heures à la main.
+
+## 1. Ouvrir la liste Factures
+
+Dans le menu, section **VENTES** → **Factures**.
+
+En tête, le bandeau **Facturation du mois** rappelle le cycle ouvert (ex. septembre) et les alertes utiles : impayées, brouillons. Deux boutons verts mènent au même endroit : **Générer des factures**.
+
+![Liste des factures Progesti : bandeau Facturation du mois, filtre, compteur, boutons Générer des factures](/tutoriels/tutoriel-progesti-facture-du-realise/01-factures-liste.png)
+
+Vous voyez référence, client, mode de règlement, statut (**Envoyée**, brouillon…), statut de paiement (**Non réglée** / **Réglée**), date, cycle, montant HT.
+
+**Terrain :** avant de générer, filtrez le cycle en cours. Mélanger deux mois dans la même vague, c’est le meilleur moyen d’envoyer deux fois le même client.
+
+Le filtre **Payées** (ou équivalent selon la vue) sert surtout au pilotage après coup : vérifier que les virements sont bien rentrés, pas à créer la facture.
+
+![Vue filtrée des factures payées dans Progesti](/tutoriels/tutoriel-progesti-facture-du-realise/08-factures-payees.png)
+
+## 2. Générer depuis les passages validés
+
+Cliquez **Générer des factures**.
+
+La fenêtre rappelle la règle métier : Progesti crée ou recalcule les factures **à partir des passages validés du cycle**. Les passages encore **planifiés** (non validés) sont ignorés.
+
+Choisissez :
+
+1. Le **cycle de facturation** (ex. septembre 2026 — Ouvert)
+2. Un **client** précis, ou **Tous les clients**
+
+![Fenêtre Générer des factures : cycle ouvert, client, alerte passages encore planifiés](/tutoriels/tutoriel-progesti-facture-du-realise/03-generer-depuis-realise.png)
+
+Si des passages restent non validés, un bandeau jaune l’affiche clairement (ex. « 195 passage(s) encore planifiés — validez-les avant de générer »). Tant qu’ils ne sont pas validés, la génération peut sortir **0 facture** pour ces interventions.
+
+## 3. Valider les passages avant de cliquer Générer
+
+Sous l’alerte, la section **Passages non validés** liste date, site, prestation, agent et durée.
+
+Deux options :
+
+- **Tout valider** — quand vous avez déjà contrôlé le mois (pointages, remplacements, absences)
+- Valider au cas par cas — quand un site est litigieux
+
+Puis **Générer** (ou Annuler si vous n’êtes pas prêt).
+
+![Liste des passages non validés avec bouton Tout valider avant génération de factures](/tutoriels/tutoriel-progesti-facture-du-realise/04-selection-passages.png)
+
+**Scénario bureaux multi-sites :** validez d’abord les sites où le syndic / le client a déjà signé le bon de passage. Laissez de côté le site en litige qualité : mieux vaut une facture partielle propre qu’une facture complète contestée.
+
+**Scénario fin de chantier :** un passage « presque fini » encore en planifié ne doit pas partir en facture. Validez seulement quand le réceptionnaire a dit OK.
+
+## 4. Relire la fiche facture
+
+Ouvrez une facture générée (référence type `TLSCFA…`).
+
+Vous voyez le client, le cycle, le statut (**Envoyée** / brouillon), le statut de paiement, et les actions : modifier les coordonnées, repasser en brouillon et recalculer, imprimer, envoyer, créer un paiement.
+
+![Fiche facture : référence, client, statuts, alertes e-facture et planning modifié](/tutoriels/tutoriel-progesti-facture-du-realise/02-facture-detail.png)
+
+Deux alertes à prendre au sérieux quand elles apparaissent :
+
+- **Identifiants e-facture incomplets** — le PDF / l’email partent, le dépôt plateforme non. Complétez la fiche client (SIRET) avant d’industrialiser.
+- **Planning modifié depuis la génération** — de nouvelles interventions sont apparues (ou ont disparu). Utilisez **Recalculer maintenant** : la facture repasse en brouillon pour coller au terrain.
+
+Vérifiez surtout le **bon client facturable**, le **bon cycle**, et que le montant TTC est celui que vous défendrez au téléphone.
+
+## 5. Contrôler lignes et totaux
+
+Descendez à **Total prestations** puis **Lignes de facturation**.
+
+Vous devez retrouver désignation (ex. entretien bureaux horaire + site), n° de mission, quantité / heures, PU TTC, TVA, montant. Plus bas : détail des interventions et historique des envois.
+
+![Totaux HT/TTC/TVA et ligne de facturation entretien bureaux sur la fiche facture](/tutoriels/tutoriel-progesti-facture-du-realise/05-lignes-facture.png)
+
+**Checklist rapide :**
+
+- Bonne prestation (horaire vs forfait)
+- Bon site dans le libellé
+- Heures = ce qui a été validé, pas le prévisionnel du planning initial
+- TVA cohérente avec le contrat
+
+Pour le détail produit côté site marketing, voir [logiciel de facturation propreté](/logiciel-facturation-proprete).
+
+## 6. Aperçu PDF avant envoi
+
+Depuis la fiche : **Imprimer la facture** → aperçu client (ou Aperçu avant impression).
+
+Le document affiche émetteur, destinataire, adresses d’intervention, période, tableau des lignes, totaux HT / TVA / TTC, solde et restant dû. Bouton **Imprimer / PDF** en bas.
+
+![Aperçu PDF facture client : en-tête, lignes, totaux HT TVA TTC, bouton Imprimer / PDF](/tutoriels/tutoriel-progesti-facture-du-realise/06-facture-pdf.png)
+
+**Terrain :** envoyez seulement après cette relecture. Une mauvaise adresse d’intervention ou un mauvais total TTC, c’est un litige avant même le premier virement.
+
+## 7. Envoyer la facture par email
+
+Sur la fiche, ouvrez **Envoyer par email**. La fenêtre **Nouveau message** propose :
+
+- **À** — email du contact client
+- **Modèle** — ex. Factures — Envoi d’une facture
+- **Objet** — prérempli avec la référence
+- Corps avec montant TTC, dates d’émission / échéance
+- **Aperçu** à droite
+- **Envoyer** (ou Fermer)
+
+![Fenêtre Nouveau message pour envoyer la facture : destinataire, modèle, objet, aperçu, bouton Envoyer](/tutoriels/tutoriel-progesti-facture-du-realise/07-envoyer-facture.png)
+
+Après envoi réussi, le statut passe typiquement à **Envoyée**. Ensuite : suivi paiement (Non réglée → Réglée), ou relance si le virement ne tombe pas.
+
+## Pièges fréquents
+
+- **Générer sans valider les passages** → 0 facture ou mois incomplet
+- **Ignorer « planning modifié depuis la génération »** → le client reçoit un PDF déjà faux
+- **Envoyer sans PDF relu** → mauvais site ou mauvais total
+- **Tout le monde facturé d’un coup alors qu’un site est en litige** → crédit d’avoir inutile
+- **SIRET / e-facture incomplets** → OK pour PDF/email, bloqué pour le dépôt plateforme
+
+## Essayer sur votre activité
+
+Essai **15 jours** sans carte. Offre **Gratuit** pour indépendants (tous modules), Pro **49,99** € HT/mois, Premium **99,99** € HT/mois. Démo ou appel : **05 82 95 09 19**.
