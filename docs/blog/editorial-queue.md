@@ -83,12 +83,13 @@ Format d’une ligne :
   angle: Quand photographier, quoi stocker, comment facturer sans oubli.
   published: 2026-09-08
 
-- status: todo
+- status: done
   date: 2026-09-15
   slug: absences-agents-nettoyage-plan-b
   category: conseils-metier
   title: Absences agents : construire un plan B sans WhatsApp infini
   angle: Backup, sites critiques, communication client.
+  published: 2026-09-15
 
 - status: todo
   date: 2026-09-22
