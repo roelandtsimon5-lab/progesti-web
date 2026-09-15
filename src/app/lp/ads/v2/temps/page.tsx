@@ -22,7 +22,7 @@ export default function AdsV2TempsPage() {
       primaryCtaLabel="Récupérer mon temps"
       secondaryCtaLabel="Créer mon essai 2 mois"
       secondaryHref={cta.trialApp}
-      trustItems={["Sans carte bancaire", "Tous modules ouverts", "Dès 29,99€ HT/mois"]}
+      trustItems={["Sans carte bancaire", "Tous modules ouverts", "Gratuit pour indépendants"]}
       proofStrip={[
         "Conçu pour la propreté",
         "Essai 2 mois sans CB",
@@ -118,7 +118,7 @@ export default function AdsV2TempsPage() {
         },
         {
           q: "C’est pour les grosses structures seulement ?",
-          a: "Non. Starter dès 29,99€ HT/mois pour AE et petites équipes. Vous grandissez ensuite sans changer d’outil.",
+          a: "Non. Starter Gratuit pour indépendants pour AE et petites équipes. Vous grandissez ensuite sans changer d’outil.",
         },
         {
           q: "Que se passe-t-il après les 2 mois ?",

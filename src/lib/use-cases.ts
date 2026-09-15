@@ -15,7 +15,7 @@ export const productFacts = {
   headline: "Avantages produit",
   headlineSub: "pour les entreprises de propreté",
   modules: "9",
-  modulesLabel: "modules inclus · dès 29,99 € HT/mois",
+  modulesLabel: "modules inclus · Gratuit pour indépendants",
   support: "Support FR",
   supportLabel: "Équipe à Toulouse · 05 82 95 09 19",
   trial: "Essai 15 jours",
@@ -53,7 +53,7 @@ export const useCases: readonly UseCase[] = [
     problem:
       "Les ERP complexes ne sont pas faits pour une activité qui démarre avec quelques clients.",
     solution:
-      "Dès 29,99 € HT/mois, tous modules inclus. Planning et facturation dans le même outil.",
+      "Gratuit pour indépendants, tous modules inclus. Planning et facturation dans le même outil.",
     benefit: "Opérationnel dès le 1er client",
     segment: "TPE & auto-entrepreneurs",
     segmentHref: "/solutions/auto-entrepreneurs",

@@ -11,7 +11,7 @@ export default function AdsLogicielPage() {
     <AdsCaptureLanding
       campaign="ads_logiciel"
       headline="Le logiciel tout-en-un pour votre boîte de nettoyage"
-      subhead="Planning, facturation, pointage — dès 29,99€ HT/mois. Voyez la plateforme maintenant."
+      subhead="Planning, facturation, pointage — Gratuit pour indépendants. Voyez la plateforme maintenant."
       bullets={[
         "Tous modules inclus",
         "Tarifs publics transparents",

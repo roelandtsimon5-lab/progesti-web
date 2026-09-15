@@ -6,7 +6,7 @@ import { formatEuro, plans, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Logiciel nettoyage syndics & copropriétés — PROGESTI",
   description:
-    "Planning parties communes, preuves de passage et reporting syndic. Multi-immeubles. Essai 2 mois sans CB, dès 29,99 € HT/mois.",
+    "Planning parties communes, preuves de passage et reporting syndic. Multi-immeubles. Essai 2 mois sans CB, Gratuit pour indépendants.",
   robots: { index: false },
 };
 
@@ -173,7 +173,7 @@ export default function AdsV3SyndicPage() {
         },
       ]}
       finalTitle="Multi-immeubles sous contrôle. Essai 2 mois sans CB."
-      finalLead="Planning, preuves et facturation pour vos contrats syndic — dès 29,99 € HT/mois après l’essai."
+      finalLead="Planning, preuves et facturation pour vos contrats syndic — Gratuit pour indépendants après l’essai."
       guarantee={[
         `${site.trialMonths} mois sans carte bancaire`,
         "Sites et immeubles illimités",

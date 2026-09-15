@@ -4,7 +4,7 @@ import { AdsKillerLanding } from "@/components/sections/ads-v4/AdsKillerLanding"
 export const metadata: Metadata = {
   title: "Essai 2 mois gratuit — PROGESTI nettoyage",
   description:
-    "2 mois gratuits sans carte bancaire. Créez votre espace PROGESTI en 2 minutes. Dès 29,99 € HT/mois ensuite.",
+    "2 mois gratuits sans carte bancaire. Créez votre espace PROGESTI en 2 minutes. Gratuit pour indépendants ensuite.",
   robots: { index: false },
 };
 
@@ -23,9 +23,9 @@ export default function AdsV4EssaiPage() {
       bullets={[
         "Sans carte bancaire",
         "Tous modules ouverts pendant 2 mois",
-        "Puis dès 29,99 € HT/mois — résiliable",
+        "Puis Gratuit pour indépendants — résiliable",
       ]}
-      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : dès 29,99 € HT  →  Vous décidez"
+      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : Gratuit HT  →  Vous décidez"
       pains={[
         "Les concurrents offrent 7–14 jours — trop court pour valider sur le terrain",
         "Un devis opaque = vous ne savez pas ce que vous payerez",
@@ -46,7 +46,7 @@ export default function AdsV4EssaiPage() {
         },
         {
           q: "Que se passe-t-il après 2 mois ?",
-          a: "Vous choisissez une offre (dès 29,99 € HT/mois) ou vous arrêtez.",
+          a: "Vous choisissez une offre (Gratuit pour indépendants) ou vous arrêtez.",
         },
         {
           q: "Puis-je ouvrir l’app tout de suite ?",

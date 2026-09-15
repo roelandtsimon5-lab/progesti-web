@@ -4,7 +4,7 @@ import { AdsKillerLanding } from "@/components/sections/ads-v4/AdsKillerLanding"
 export const metadata: Metadata = {
   title: "Alternative Propret — Comparer PROGESTI maintenant",
   description:
-    "Vous comparez Propret ? Ouvrez PROGESTI : essai 2 mois sans CB, tarifs publics dès 29,99 € HT/mois, tous modules inclus.",
+    "Vous comparez Propret ? Ouvrez PROGESTI : essai 2 mois sans CB, tarifs publics Gratuit pour indépendants, tous modules inclus.",
   robots: { index: false },
 };
 
@@ -22,10 +22,10 @@ export default function AdsV4PropretPage() {
       subhead="Même métier nettoyage. Essai 2× plus long, prix affiché, tous modules inclus. Voyez la différence en 10 secondes."
       bullets={[
         "Essai 2 mois sans carte bancaire",
-        "Dès 29,99 € HT/mois — tarifs publics",
+        "Gratuit pour indépendants — tarifs publics",
         "Accès immédiat, pas de devis opaque",
       ]}
-      monthStrip="Eux : souvent essai court  →  PROGESTI : 2 mois offerts puis dès 29,99 € HT"
+      monthStrip="Eux : souvent essai court  →  PROGESTI : 2 mois offerts puis Gratuit HT"
       pains={[
         "Un essai trop court ne laisse pas le temps de valider sur vos vrais sites",
         "Sans prix public, impossible de comparer honnêtement",
@@ -50,7 +50,7 @@ export default function AdsV4PropretPage() {
         },
         {
           q: "Combien ça coûte ensuite ?",
-          a: "Dès 29,99 € HT/mois. Starter, Pro ou Premium — tous modules inclus.",
+          a: "Gratuit pour indépendants. Starter, Pro ou Premium — tous modules inclus.",
         },
       ]}
       finalLine="Même métier. Essai plus long. Prix affiché. Comparez maintenant."

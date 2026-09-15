@@ -22,7 +22,7 @@ export default function AdsV2ExcelPage() {
       primaryCtaLabel="Voir mon planning métier"
       secondaryCtaLabel="Créer mon essai gratuit"
       secondaryHref={cta.trialApp}
-      trustItems={["Sans double saisie", "Mobile terrain", "Dès 29,99€ HT/mois"]}
+      trustItems={["Sans double saisie", "Mobile terrain", "Gratuit pour indépendants"]}
       proofStrip={[
         "Planning agents / sites",
         "Pointage + bons",
@@ -131,7 +131,7 @@ export default function AdsV2ExcelPage() {
         "Essai 2 mois sans carte bancaire",
         "Tous modules inclus",
         "Cloud + mobile Android / iOS",
-        "Tarifs publics dès 29,99€ HT/mois",
+        "Tarifs publics Gratuit pour indépendants",
       ]}
     />
   );

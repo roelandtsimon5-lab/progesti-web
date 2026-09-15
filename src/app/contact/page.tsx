@@ -106,7 +106,7 @@ export default function ContactPage() {
 
               <li>✓ Essai {site.trialDays} jours · sans CB</li>
 
-              <li>✓ dès 29,99 € HT/mois · tout inclus</li>
+              <li>✓ Gratuit pour indépendants · tout inclus</li>
 
               <li>✓ Apps Android & iOS</li>
 

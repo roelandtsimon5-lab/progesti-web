@@ -60,7 +60,7 @@ export function PageHero({
           ) : null}
 
           <p className="mt-6 text-sm text-white/60">
-            ✓ dès 29,99 € HT/mois · ✓ Tous modules inclus · ✓ Support FR
+            ✓ Gratuit pour indépendants · ✓ Tous modules inclus · ✓ Support FR
           </p>
         </Reveal>
       </div>

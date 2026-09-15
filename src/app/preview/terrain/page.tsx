@@ -109,7 +109,7 @@ export default function PreviewTerrainPage() {
             Testez 2 mois sur vos vrais sites
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-white/90">
-            Sans carte bancaire. Dès 29,99 € HT/mois après l’essai.
+            Sans carte bancaire. Gratuit pour indépendants après l’essai.
           </p>
           <div className="mt-8">
             <ButtonLink href={cta.trialApp} size="lg" event="trial_start">

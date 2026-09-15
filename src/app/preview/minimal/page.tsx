@@ -43,7 +43,7 @@ export default function PreviewMinimalPage() {
             </ButtonLink>
           </div>
           <p className="mt-6 text-sm text-neutral-500">
-            Dès 29,99 € HT/mois ·{" "}
+            Gratuit pour indépendants ·{" "}
             <a href={cta.demo} className="underline underline-offset-4" rel="noopener noreferrer">
               Démo
             </a>

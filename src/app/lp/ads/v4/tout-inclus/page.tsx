@@ -4,7 +4,7 @@ import { AdsKillerLanding } from "@/components/sections/ads-v4/AdsKillerLanding"
 export const metadata: Metadata = {
   title: "Tout inclus — Logiciel nettoyage PROGESTI",
   description:
-    "Un prix clair, tous les modules inclus. Planning, pointage, facturation. Essai 2 mois sans CB, dès 29,99 € HT/mois.",
+    "Un prix clair, tous les modules inclus. Planning, pointage, facturation. Essai 2 mois sans CB, Gratuit pour indépendants.",
   robots: { index: false },
 };
 
@@ -19,20 +19,20 @@ export default function AdsV4ToutInclusPage() {
       ctaLabel="Voir l’offre tout inclus →"
       next="demo"
       headline="Un prix clair, tous les modules"
-      subhead="Planning, pointage et facturation inclus — sans modules surprise. Essai 2 mois sans CB pour entreprises de nettoyage, puis dès 29,99 € HT/mois."
+      subhead="Planning, pointage et facturation inclus — sans modules surprise. Essai 2 mois sans CB pour entreprises de nettoyage, puis Gratuit pour indépendants."
       bullets={[
         "Tous modules dans chaque offre",
         "2 mois gratuits sans carte bancaire",
-        "Puis dès 29,99 € HT/mois — tarifs publics",
+        "Puis Gratuit pour indépendants — tarifs publics",
       ]}
-      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : dès 29,99 € HT  →  Résiliable"
+      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : Gratuit HT  →  Résiliable"
       pains={[
         "Beaucoup d’outils vendent le planning, puis facturent le reste à part",
         "Un devis opaque cache le vrai coût une fois les modules ajoutés",
         "Vous ne voulez pas payer trois fois pour un seul métier",
       ]}
       before={["Modules extra", "Devis opaque", "Prix qui gonfle", "Surprises mois 2"]}
-      after={["Tout inclus", "Prix affiché", "Dès 29,99 € HT", "Essai 2 mois"]}
+      after={["Tout inclus", "Prix affiché", "Gratuit HT", "Essai 2 mois"]}
       productTitle="Ce qui est inclus dès le départ"
       productSteps={[
         { title: "Planning équipes / sites", text: "Affectations métier, multi-sites." },
@@ -50,7 +50,7 @@ export default function AdsV4ToutInclusPage() {
         },
         {
           q: "Quel est le prix après l’essai ?",
-          a: "Dès 29,99 € HT/mois (Starter). Pro et Premium selon le nombre d’utilisateurs.",
+          a: "Gratuit pour indépendants (Starter). Pro et Premium selon le nombre d’utilisateurs.",
         },
       ]}
       finalLine="Prix clair. Modules inclus. Testez 2 mois sans CB."

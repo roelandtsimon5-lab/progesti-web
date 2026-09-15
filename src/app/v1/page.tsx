@@ -110,7 +110,7 @@ export default function HomePageV1Archive() {
                 <span className="text-emerald-dark">✓</span> Accès immédiat
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-emerald-dark">✓</span> Dès 29,99€ HT/mois
+                <span className="text-emerald-dark">✓</span> Gratuit pour indépendants
               </li>
             </ul>
           </div>

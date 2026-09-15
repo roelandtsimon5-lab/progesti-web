@@ -24,7 +24,7 @@ export type SolutionContent = {
 
 const proofBar = [
   { value: `${site.trialDays} jours`, label: "d’essai gratuit" },
-  { value: "Dès 29,99 €", label: "HT/mois tout inclus" },
+  { value: "Gratuit", label: "HT/mois tout inclus" },
   { value: String(modules.length), label: "modules inclus" },
   { value: "0 €", label: "frais d’installation" },
 ];
@@ -203,7 +203,7 @@ export function SolutionLanding({ content }: { content: SolutionContent }) {
               Testez PROGESTI sur vos vrais sites
             </h2>
             <p className="mt-4 text-lg text-white/90">
-              <strong className="text-white">dès 29,99 € HT/mois</strong> — Starter, Pro ou Premium, tous
+              <strong className="text-white">Gratuit pour indépendants</strong> — Starter, Pro ou Premium, tous
               modules inclus — pour piloter votre activité de {content.title.toLowerCase()}.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

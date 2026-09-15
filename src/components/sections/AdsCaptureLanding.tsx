@@ -165,7 +165,7 @@ export function AdsCaptureLanding({
                 Voir la plateforme
               </h2>
               <p className="mt-3 text-sm font-medium leading-relaxed text-slate sm:text-[0.95rem]">
-                Prénom + téléphone → accès direct. Dès 29,99 € HT/mois après l’essai.
+                Prénom + téléphone → accès direct. Gratuit pour indépendants après l’essai.
               </p>
 
               <form onSubmit={onSubmit} className="mt-8 space-y-5" noValidate>

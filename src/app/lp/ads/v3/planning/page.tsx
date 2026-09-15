@@ -6,7 +6,7 @@ import { formatEuro, plans, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Logiciel planning nettoyage — Essai 2 mois PROGESTI",
   description:
-    "Planning agents et sites en 15 minutes, pas 3 heures le dimanche. Logiciel métier pour entreprises de nettoyage. Essai 2 mois sans CB, dès 29,99 € HT/mois.",
+    "Planning agents et sites en 15 minutes, pas 3 heures le dimanche. Logiciel métier pour entreprises de nettoyage. Essai 2 mois sans CB, Gratuit pour indépendants.",
   robots: { index: false },
 };
 
@@ -170,7 +170,7 @@ export default function AdsV3PlanningPage() {
         },
       ]}
       finalTitle="Arrêtez de planifier dans Excel. Testez 2 mois gratuitement."
-      finalLead="540 € de temps dirigeant économisé pour 29,99 €/mois — le planning métier se paie tout seul."
+      finalLead="540 € de temps dirigeant économisé pour Gratuit pour indépendants — le planning métier se paie tout seul."
       guarantee={[
         `${site.trialMonths} mois sans carte bancaire`,
         "Planning + pointage + facturation",

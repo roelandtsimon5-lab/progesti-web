@@ -31,7 +31,7 @@ export function LandingTemplate({
   subhead,
   primaryCta,
   secondaryCta,
-  trustLine = `Sans carte bancaire · Essai ${site.trialDays} jours · Tous modules · Dès 29,99 € HT/mois`,
+  trustLine = `Sans carte bancaire · Essai ${site.trialDays} jours · Tous modules · Gratuit pour indépendants`,
   proofPoints,
   steps,
   benefits,
@@ -165,7 +165,7 @@ export function LandingTemplate({
         <div className="container grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
           {[
             [`${site.trialDays} jours`, "d’essai gratuit"],
-            ["Dès 29,99 €", "HT/mois tout inclus"],
+            ["Gratuit", "HT/mois tout inclus"],
             ["11", "modules inclus"],
             ["0 €", "frais d’installation"],
           ].map(([v, l]) => (

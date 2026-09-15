@@ -194,12 +194,12 @@ const homeConfig = mergeIndustryConfig(defaultIndustryConfig, {
     sub: "Pointage mobile · géoloc · statuts live — le bureau voit sans appeler le terrain.",
   },
   proof: {
-    h2: "Dès 29,99 € HT/mois — tarifs publics",
+    h2: "Gratuit pour indépendants — tarifs publics",
     quote: "Un prix affiché, des modules métier, un support qui répond.",
     items: [
       {
-        title: "Prix affiché",
-        text: "Starter 29,99 · Pro 49,99 · Premium 99,99 € HT/mois. Tous modules inclus. Pas de devis à négocier.",
+        title: "Gratuit pour indépendants",
+        text: "0 € pour micro-entreprises et auto-entrepreneurs. Pro 49,99 · Premium 99,99 € HT/mois pour les équipes.",
       },
       {
         title: "Modules métier",
@@ -220,14 +220,14 @@ const homeConfig = mergeIndustryConfig(defaultIndustryConfig, {
 });
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel entreprise de nettoyage — dès 29,99 € HT/mois",
+  title: "Logiciel entreprise de nettoyage — Gratuit pour indépendants",
   description:
-    `Simplifiez et faites grandir votre entreprise de nettoyage : planning, pointage, facture. Dès 29,99 € HT/mois, tout inclus. ${trialCopy.noCard}.`,
+    `Logiciel de gestion pour entreprises de nettoyage. Gratuit pour indépendants, tous modules inclus.`,
   path: "/",
   openGraph: {
-    title: "Logiciel entreprise de nettoyage — dès 29,99 € HT/mois | PROGESTI",
+    title: "Logiciel entreprise de nettoyage — Gratuit pour indépendants | PROGESTI",
     description:
-      `Planning, pointage et facturation pour entreprises de propreté. Dès 29,99 € HT/mois tout inclus. ${trialCopy.label}.`,
+      `Planning, pointage et facturation pour entreprises de propreté. Gratuit pour indépendants.`,
   },
 });
 

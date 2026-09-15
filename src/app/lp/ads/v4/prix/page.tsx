@@ -3,9 +3,9 @@ import { AdsKillerLanding } from "@/components/sections/ads-v4/AdsKillerLanding"
 import { formatEuro, plans } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Dès 29,99 € HT/mois — Logiciel nettoyage PROGESTI",
+  title: "Gratuit pour indépendants — Logiciel nettoyage PROGESTI",
   description:
-    "Tarifs publics : dès 29,99 € HT/mois après 2 mois offerts. Pas de devis opaque. Tous modules inclus.",
+    "Tarifs publics : Gratuit pour indépendants après 2 mois offerts. Pas de devis opaque. Tous modules inclus.",
   robots: { index: false },
 };
 

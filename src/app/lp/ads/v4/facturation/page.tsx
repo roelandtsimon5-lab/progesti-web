@@ -4,7 +4,7 @@ import { AdsKillerLanding } from "@/components/sections/ads-v4/AdsKillerLanding"
 export const metadata: Metadata = {
   title: "Facturation terrain — Logiciel nettoyage PROGESTI",
   description:
-    "La facture suit le réalisé. Facturation liée au terrain pour entreprises de nettoyage. Essai 2 mois sans CB, dès 29,99 € HT/mois.",
+    "La facture suit le réalisé. Facturation liée au terrain pour entreprises de nettoyage. Essai 2 mois sans CB, Gratuit pour indépendants.",
   robots: { index: false },
 };
 
@@ -19,13 +19,13 @@ export default function AdsV4FacturationPage() {
       ctaLabel="Voir la facturation métier →"
       next="demo"
       headline="La facture suit le réalisé — sans double saisie"
-      subhead="Planning, pointage et facturation liés pour entreprises de nettoyage. Essai 2 mois sans CB, puis dès 29,99 € HT/mois. Tous modules inclus."
+      subhead="Planning, pointage et facturation liés pour entreprises de nettoyage. Essai 2 mois sans CB, puis Gratuit pour indépendants. Tous modules inclus."
       bullets={[
         "Facture alimentée par le terrain",
         "2 mois gratuits sans carte bancaire",
-        "Puis dès 29,99 € HT/mois — tout inclus",
+        "Puis Gratuit pour indépendants — tout inclus",
       ]}
-      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : dès 29,99 € HT  →  Résiliable"
+      monthStrip="Mois 1–2 : 0 €  →  Mois 3+ : Gratuit HT  →  Résiliable"
       pains={[
         "Vous ressaisissez les heures pour facturer — erreurs et retards",
         "Le réalisé terrain et la facture ne se parlent pas",
@@ -50,7 +50,7 @@ export default function AdsV4FacturationPage() {
         },
         {
           q: "Combien après l’essai ?",
-          a: "Dès 29,99 € HT/mois (Starter). Tarifs publics, tous modules inclus.",
+          a: "Gratuit pour indépendants (Starter). Tarifs publics, tous modules inclus.",
         },
       ]}
       finalLine="Facturez le réalisé — dès aujourd’hui, sans CB."

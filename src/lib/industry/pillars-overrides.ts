@@ -391,7 +391,7 @@ const autoPatches: Record<string, FeaturePatch> = {
   hub: {
     panelTitle: "Excel + WhatsApp → un seul outil",
     panelBody:
-      "Dès 29,99 € HT/mois tout inclus : sites, planning, pointage, devis et factures. Pas de module surprise, pas de devis opaque.",
+      "Gratuit pour indépendants, Pro/Premium pour équipes : tous modules inclus, pas de devis opaque.",
   },
   support: {
     panelTitle: "On vous aide à démarrer",

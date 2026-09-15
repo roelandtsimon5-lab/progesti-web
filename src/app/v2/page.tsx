@@ -234,7 +234,7 @@ export default function V2ArchiveHomePage() {
             <Eyebrow>Modules</Eyebrow>
             <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">Tout le métier, inclus</h2>
             <Lead className="mt-4">
-              Planning, RH, facturation, stock, terrain — dans chaque offre, dès 29,99 € HT/mois.
+              Planning, RH, facturation, stock, terrain — dans chaque offre, Gratuit pour indépendants.
             </Lead>
           </Reveal>
           <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

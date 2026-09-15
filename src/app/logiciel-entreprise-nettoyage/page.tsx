@@ -11,7 +11,7 @@ const pageUrl = `${site.url}/logiciel-entreprise-nettoyage`;
 const pillarFaq = [
   {
     q: "Combien coûte PROGESTI pour mon entreprise de nettoyage ?",
-    a: "Dès 29,99 € HT/mois — Starter, Pro ou Premium — tous modules inclus : planning multi-sites, pointage mobile, devis, facturation, impayés, RH, tableaux de bord. Pas de module payant en plus, pas de frais d'installation.",
+    a: "Gratuit pour indépendants — Starter, Pro ou Premium — tous modules inclus : planning multi-sites, pointage mobile, devis, facturation, impayés, RH, tableaux de bord. Pas de module payant en plus, pas de frais d'installation.",
   },
   {
     q: "Puis-je tester avant de m'engager ?",
@@ -38,12 +38,12 @@ const pillarFaq = [
 export const metadata: Metadata = pageMeta({
   title: "Logiciel entreprise de nettoyage — Du planning à la facture",
   description:
-    "Du planning au pointage puis à la facture — pour gérants d'entreprise ou société de nettoyage. Dès 29,99 € HT/mois. Essai 15 jours sans CB.",
+    "Du planning au pointage puis à la facture — pour gérants d'entreprise ou société de nettoyage. Gratuit pour indépendants. Essai 15 jours sans CB.",
   path: "/logiciel-entreprise-nettoyage",
   openGraph: {
     title: "Logiciel entreprise de nettoyage — Du planning à la facture",
     description:
-      "Du planning au pointage puis à la facture — pour gérants d'entreprise ou société de nettoyage. Dès 29,99 € HT/mois. Essai 15 jours sans CB.",
+      "Du planning au pointage puis à la facture — pour gérants d'entreprise ou société de nettoyage. Gratuit pour indépendants. Essai 15 jours sans CB.",
   },
 });
 
