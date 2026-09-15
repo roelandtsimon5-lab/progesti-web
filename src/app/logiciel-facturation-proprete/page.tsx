@@ -163,7 +163,11 @@ export default function PillarFacturationPage() {
               <div className="rounded-[3px] border border-line bg-paper p-5">
                 <p className="font-display font-bold text-ink">Fin de chantier</p>
                 <p className="mt-2 text-sm text-slate">
-                  Remise en état après travaux : facturez dès la livraison, avec les extras documentés (nettoyage vitres, évacuation déchets).
+                  Remise en état après travaux : facturez dès la livraison, avec les extras documentés. Voir aussi notre page{" "}
+                  <Link href="/solutions/fin-de-chantier" className="font-semibold text-blue-royal hover:underline">
+                    solutions fin de chantier
+                  </Link>
+                  .
                 </p>
               </div>
             </div>

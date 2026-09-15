@@ -404,7 +404,11 @@ export default function DemoPage() {
             </h2>
             <p className="mt-4 text-slate">
               Pas de rendez-vous obligatoire. Vous explorez librement, puis vous passez à l&apos;essai{" "}
-              {site.trialDays} jours si le produit matche votre organisation.
+              {site.trialDays} jours si le produit matche votre organisation. Si vous préférez un échange guidé, vous pouvez{" "}
+              <Link href="/rendez-vous" className="font-bold text-blue-royal underline-offset-2 hover:underline">
+                prendre rendez-vous
+              </Link>
+              .
             </p>
           </div>
           <ul className="space-y-4">
