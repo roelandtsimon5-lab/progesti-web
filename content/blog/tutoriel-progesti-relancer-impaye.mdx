@@ -1,0 +1,135 @@
+---
+title: "Tutoriel Progesti : relancer un impayé"
+slug: "tutoriel-progesti-relancer-impaye"
+category: "tutoriels"
+excerpt: "Pas à pas avec captures : filtrer les factures non réglées, envoyer une relance 1/2/3, puis enregistrer le règlement quand le virement tombe."
+date: "2026-09-16"
+updatedAt: "2026-09-16"
+readingTime: 8
+seoTitle: "Tutoriel Progesti : relancer un impayé (captures)"
+seoDescription: "Comment trouver les factures non réglées, envoyer une relance de paiement avec modèle, puis enregistrer le règlement dans Progesti."
+keywords: ["tutoriel progesti", "relancer facture impayée", "relance paiement nettoyage", "impayés entreprise nettoyage", "suivi trésorerie propreté"]
+---
+
+# Tutoriel Progesti : relancer un impayé
+
+Un mois facturé, c’est bien. Un mois encaissé, c’est mieux. Entre les deux, il y a les factures **Envoyée** encore **Non réglée** : le syndic qui attend la fin du conseil, le client bureau qui a « oublié » le virement, le chantier où personne ne sait qui a le PDF.
+
+Ce tutoriel montre le parcours réel dans Progesti : liste Factures → filtre Impayées → fiche → modèles de relance → enregistrement du règlement. Captures prises sur la démo produit (données fictives Pro Nettoyage Services).
+
+Sur le terrain, la relance sert à deux choses : rappeler sans refaire le mail à la main, et garder une trace quand le client dit « on n’a jamais reçu la facture ».
+
+## 1. Ouvrir Factures et voir le stock d’impayés
+
+Dans le menu, section **VENTES** → **Factures**.
+
+En tête, le bandeau **Facturation du mois** affiche le cycle ouvert et un pastille jaune du type **24 Impayées**. C’est votre file d’attente trésorerie du mois, pas un autre écran.
+
+![Liste des factures Progesti : bandeau Facturation du mois, pastille Impayées, tableau avec statut Non réglée](/tutoriels/tutoriel-progesti-relancer-impaye/01-impayes-liste.png)
+
+Vous voyez référence, client, mode de règlement, statut document (**Envoyée**), statut de paiement (**Non réglée** / **Réglée**), date, cycle, montant HT.
+
+**Terrain :** ne mélangez pas « facture envoyée » et « facture payée ». Une facture peut être **Envoyée** et toujours **Non réglée**. C’est exactement la cible d’une relance.
+
+## 2. Filtrer uniquement les Impayées
+
+Dans le filtre en haut de liste, choisissez **Impayées** (au lieu de Toutes les factures).
+
+La liste se réduit aux factures encore dues. Le compteur change (ex. 10 facture(s) visibles selon le cycle et le scroll).
+
+![Liste Factures filtrée sur Impayées : Non réglée, clients, montants HT](/tutoriels/tutoriel-progesti-relancer-impaye/06-filtre-impayes.png)
+
+**Scénario multi-sites :** commencez par les plus gros montants ou les clients qui payent d’habitude à 30 jours. Une relance générique à tout le monde le même jour, c’est du bruit. Une relance ciblée, c’est du cash.
+
+Pour le détail produit côté site marketing, voir [suivi et relance des impayés](/fonctionnalites/impayes).
+
+## 3. Ouvrir la fiche d’une facture non réglée
+
+Cliquez une ligne **Non réglée** (ex. `TLSCFA26090028`).
+
+La fiche rappelle : client, cycle, statut **Envoyée**, statut de paiement **Non réglée**, articles / montant TTC, paiements (0 si rien n’est encore ventilé).
+
+![Fiche facture non réglée : statut Envoyée, Non réglée, articles TTC, bouton Créer paiement](/tutoriels/tutoriel-progesti-relancer-impaye/02-impaye-detail.png)
+
+Deux alertes possibles à lire avant de relancer :
+
+- **Identifiants e-facture incomplets** — le PDF / l’email partent, le dépôt plateforme non. Complétez le SIRET client si vous industrialisez.
+- **Planning modifié depuis la génération** — de nouvelles interventions (ou plus aucune) depuis le PDF. Recalculez si le montant affiché n’est plus celui que vous défendrez au téléphone.
+
+**Checklist avant relance :** bon client, bon montant TTC, échéance connue, email du contact à jour.
+
+## 4. Choisir le bon modèle de relance
+
+Sur la fiche, ouvrez le menu d’envoi email (icône enveloppe).
+
+Vous avez plusieurs modèles métier, pas un seul mail générique :
+
+- Rappel avant échéance
+- Relance de paiement
+- Facture impayée — Relance 1, 2, 3
+- Recouvrement
+- Facture impayée (échue)
+- Confirmation de paiement
+
+![Menu d’envoi sur la fiche facture : Relance 1, Relance 2, Relance 3, Recouvrement](/tutoriels/tutoriel-progesti-relancer-impaye/03-relance-action.png)
+
+**Terrain :** Relance 1 = premier rappel poli. Relance 2 / 3 = ton plus ferme, toujours factuel (référence, montant, échéance). Recouvrement = dernier cran avant procédure externe. Ne sautez pas les étapes sur un client historique qui a juste 5 jours de retard.
+
+## 5. Composer et contrôler avant d’envoyer
+
+Choisissez par exemple **Impayés — Relance 1**.
+
+La fenêtre **Nouveau message** propose :
+
+1. **À** — email du contact client
+2. **Modèle** — Impayés — Relance 1 (ou 2 / 3)
+3. **Objet** — prérempli (ex. Relance 1 — Facture TLSCFA… — Progesti)
+4. Corps avec référence, montant, échéance
+5. **Aperçu** à droite (« Tel que reçu »)
+6. **Envoyer** ou **Fermer**
+
+![Fenêtre Nouveau message : modèle Impayés Relance 1, objet, aperçu, boutons Fermer et Envoyer](/tutoriels/tutoriel-progesti-relancer-impaye/04-relance-composer.png)
+
+Relisez l’aperçu. Vérifiez le destinataire (pas l’ancienne adresse du site). Puis envoyez — ou fermez si le montant n’est plus juste.
+
+**Scénario syndic :** adressez la relance au contact facturation, pas au gardien. Une mauvaise boîte, c’est 15 jours de silence en plus.
+
+## 6. Quand le virement tombe : créer le règlement
+
+Sur la même fiche, cliquez **+ Créer paiement**.
+
+La fenêtre **Nouveau règlement** enregistre l’encaissement et le ventile sur la facture :
+
+- Client
+- Facture à ventiler (solde restant)
+- Moyen (ex. Virement)
+- Dates d’opération / valeur / comptable
+- Montant
+- **Enregistrer** (ou Annuler)
+
+![Fenêtre Nouveau règlement : client, facture à ventiler, virement, montant, Enregistrer](/tutoriels/tutoriel-progesti-relancer-impaye/07-marquer-paye.png)
+
+Après enregistrement, le statut de paiement passe typiquement à **Réglée** (ou partiellement selon le montant). Sans cette étape, votre filtre Impayées reste gonflé alors que la banque a déjà reçu le virement.
+
+## 7. Suivre les règlements au global
+
+Menu **VENTES** → **Règlements**.
+
+Vous voyez la liste des encaissements (référence, client, moyen, dates, statut **Crédité**, ventilation **Ventilé**). Bouton **Export CSV** si vous devez croiser avec la banque ou l’expert-comptable.
+
+![Liste Règlements : encaissements crédités et ventilés, Export CSV](/tutoriels/tutoriel-progesti-relancer-impaye/08-export-ou-suivi.png)
+
+**Terrain :** une fois par semaine, croisez Impayées (ce qui reste dû) et Règlements (ce qui est rentré). Le trou entre les deux, c’est souvent un virement reçu non ventilé — pas un client qui « ne paie jamais ».
+
+## Pièges fréquents
+
+- **Relancer sans filtrer Impayées** → vous renvoyez une facture déjà réglée
+- **Mauvais modèle** (Relance 3 le jour J+2) → relation client cassée pour rien
+- **Mauvais destinataire** → « on n’a jamais reçu »
+- **Relancer un montant faux** (planning modifié non recalculé) → litige immédiat
+- **Virement reçu mais pas de règlement créé** → la trésorerie logicielle ment
+- **Tout relancer le même jour** → boîtes spam, zéro priorité
+
+## Essayer sur votre activité
+
+Essai **15 jours** sans carte. Offre **Gratuit** pour indépendants (tous modules), Pro **49,99** € HT/mois, Premium **99,99** € HT/mois. Démo ou appel : **05 82 95 09 19**.
