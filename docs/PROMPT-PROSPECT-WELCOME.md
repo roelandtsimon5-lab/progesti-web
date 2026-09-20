@@ -48,7 +48,7 @@ Hook possible : `LEAD_WEBHOOK_URL` déjà prévu, ou enrichissement Resend / SMS
 | Prestataire e-mail | Resend (déjà branché côté lead) |
 | Prestataire SMS | Twilio / Brevo SMS / OVH SMS — lien `sms:` ou `tel:` vers `SIMON_MOBILE` |
 
-Téléphone **public** site (standard) : `05 82 95 09 19` — **ne pas** l’utiliser pour le SMS perso ; le SMS prospect doit pointer vers le **portable de Simon**.
+Téléphone **public** site (standard) : `07 67 68 55 67` — **ne pas** l’utiliser pour le SMS perso ; le SMS prospect doit pointer vers le **portable de Simon**.
 
 ---
 

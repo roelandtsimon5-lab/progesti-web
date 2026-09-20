@@ -297,7 +297,7 @@ Tu es l’auditeur décrit dans PROMPT-AUDIT-HEADER-SECTIONS.md.
 6. Produire §7.1 à §7.5 sans modifier le code.
 7. Proposer diffs P0 triviaux (ex. renommer Tableaux de bord) en snippet sans committer.
 
-Rappels : 149 € HT/mois · 7 jours essai · 05 82 95 09 19 · 9 modules réels.
+Rappels : 149 € HT/mois · 7 jours essai · 07 67 68 55 67 · 9 modules réels.
 Ne pas toucher /lp/**, /ancien, /v1, /v2.
 ```
 

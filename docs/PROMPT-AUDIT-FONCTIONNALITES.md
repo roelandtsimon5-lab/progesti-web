@@ -276,7 +276,7 @@ Tu es l’auditeur décrit dans PROMPT-AUDIT-FONCTIONNALITES.md.
 5. Produire §7.1 à §7.5 sans modifier le code.
 6. Si un P0 est trivial (typo metadata, alt manquant), proposer le diff exact mais ne pas committer.
 
-Offre PROGESTI rappel : 149 € HT/mois · 5 users · 9 modules · essai 7 jours sans CB · tel 05 82 95 09 19.
+Offre PROGESTI rappel : 149 € HT/mois · 5 users · 9 modules · essai 7 jours sans CB · tel 07 67 68 55 67.
 
 Ne pas toucher /lp/**, /ancien, /v1, /v2.
 ```
