@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { FinalPush } from "@/components/conversion/FinalPush";
-import { HeroSocialProof, TestimonialsSection } from "@/components/conversion/TestimonialsSection";
+import { HeroSocialProof } from "@/components/conversion/TestimonialsSection";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { cta, trialAppUrl } from "@/lib/cta";
@@ -341,7 +341,105 @@ export default function SecurityLandingPage() {
         </div>
       </section>
 
-      <TestimonialsSection limit={4} />
+      <section className="section bg-paper" id="cas-usage">
+        <div className="container">
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="eyebrow">Cas d&apos;usage</p>
+              <h2 className="mt-3 font-display text-3xl font-extrabold md:text-4xl">
+                Des problèmes concrets, des solutions métier
+              </h2>
+              <p className="mt-4 text-slate">
+                Cas d&apos;usage courants pour les sociétés de sécurité — planning vacations, prise de poste et facturation.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delayMs={40}>
+            <ul className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center">
+              <li>
+                <p className="font-display text-2xl font-extrabold text-ink">9</p>
+                <p className="text-xs font-semibold text-slate">modules inclus · Gratuit pour indépendants</p>
+              </li>
+              <li>
+                <p className="font-display text-2xl font-extrabold text-ink">Support FR</p>
+                <p className="text-xs font-semibold text-slate">Équipe à Toulouse · {site.phone}</p>
+              </li>
+              <li>
+                <p className="font-display text-2xl font-extrabold text-ink">Essai {site.trialDays} jours</p>
+                <p className="text-xs font-semibold text-slate">sans carte bancaire</p>
+              </li>
+            </ul>
+          </Reveal>
+
+          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+            {[
+              {
+                title: "Moins de temps admin",
+                problem: "Excel, WhatsApp et double saisie pour le planning des vacations : des heures perdues chaque semaine.",
+                solution: "Un seul outil pour planifier, pointer et facturer. Ce qui est sur le terrain remonte automatiquement.",
+                benefit: "Gain estimé : plusieurs heures/semaine",
+                segment: "Gardiennage",
+              },
+              {
+                title: "Preuves de prise de poste",
+                problem: "Les donneurs d'ordre demandent des comptes — répondre prend du temps et crée des litiges.",
+                solution: "Historique des prises de poste et pointages accessibles en quelques clics. Fini les dossiers papier improvisés.",
+                benefit: "Moins de litiges clients",
+                segment: "Sites sensibles",
+              },
+              {
+                title: "Plusieurs sites, une seule vue",
+                problem: "Avec 10+ sites et des vacations différentes, le planning devient un chaos de messages.",
+                solution: "Vision multi-sites pour le bureau, planning mobile pour les agents. Zéro appel inutile.",
+                benefit: "Coordination simplifiée",
+                segment: "Multi-sites",
+              },
+              {
+                title: "Remplacements d'urgence",
+                problem: "Un agent absent : c'est la panique pour trouver un backup et prévenir le client.",
+                solution: "Réaffectation dans le planning, notification automatique. Le site reste couvert, le client informé.",
+                benefit: "Continuité de service",
+                segment: "Événementiel",
+              },
+            ].map((item, i) => (
+              <Reveal key={item.title} delayMs={i * 60} className="h-full">
+                <li className="h-full list-none">
+                  <article className="industry-card-lift flex h-full flex-col rounded-[2px] border border-blue-mist/80 bg-white p-6 shadow-[0_8px_28px_rgba(11,61,110,0.06)]">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex min-w-0 items-center gap-3">
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-[2px] border border-blue-mist bg-blue-deep">
+                          <svg className="h-6 w-6 text-lime-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                          </svg>
+                        </span>
+                        <div className="min-w-0">
+                          <p className="font-display text-sm font-extrabold text-blue-deep">{item.title}</p>
+                          <p className="truncate text-xs text-slate">{item.segment}</p>
+                        </div>
+                      </div>
+                      <span className="shrink-0 rounded-[2px] bg-blue-deep px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-lime-cta">
+                        {item.benefit.split(":")[0]}
+                      </span>
+                    </div>
+
+                    <div className="mt-4">
+                      <p className="text-xs font-semibold text-slate/80">Le problème</p>
+                      <p className="mt-1 text-sm leading-relaxed text-slate">{item.problem}</p>
+                    </div>
+
+                    <div className="mt-4 flex-1">
+                      <p className="text-xs font-semibold text-green-deep">La solution PROGESTI</p>
+                      <p className="mt-1 text-sm leading-relaxed text-ink">{item.solution}</p>
+                    </div>
+                  </article>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <section className="section bg-white">
         <div className="container">
