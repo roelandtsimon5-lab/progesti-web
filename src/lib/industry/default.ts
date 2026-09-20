@@ -335,6 +335,10 @@ export function mergeIndustryConfig(
       items?: IndustryPageConfig["grid"]["items"];
     };
     breadcrumbs?: IndustryPageConfig["breadcrumbs"];
+    demo?: IndustryPageConfig["demo"];
+    bodySections?: IndustryPageConfig["bodySections"];
+    ctaPrimaryLabel?: IndustryPageConfig["ctaPrimaryLabel"];
+    ctaSecondaryLabel?: IndustryPageConfig["ctaSecondaryLabel"];
   },
 ): IndustryPageConfig {
   return {
@@ -357,5 +361,9 @@ export function mergeIndustryConfig(
     pillars: patch.pillars ?? base.pillars,
     faq: patch.faq ?? base.faq,
     breadcrumbs: patch.breadcrumbs ?? base.breadcrumbs,
+    demo: patch.demo ?? base.demo,
+    bodySections: patch.bodySections ?? base.bodySections,
+    ctaPrimaryLabel: patch.ctaPrimaryLabel ?? base.ctaPrimaryLabel,
+    ctaSecondaryLabel: patch.ctaSecondaryLabel ?? base.ctaSecondaryLabel,
   };
 }

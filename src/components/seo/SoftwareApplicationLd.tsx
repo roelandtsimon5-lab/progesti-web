@@ -6,14 +6,23 @@ type Props = {
   url?: string;
   /** Pathname alternative to `url`, e.g. `/tarifs`. */
   path?: string;
+  /** Description JSON-LD (sinon site.description — propreté). */
+  description?: string;
+  /** Nom affiché (sinon site.name). */
+  name?: string;
 };
 
 /**
  * Renders SoftwareApplication JSON-LD schema.
  * Include only on product pages: homepage, /logiciel-*, /fonctionnalites*,
- * /solutions*, /tarifs, /essai-gratuit, /demo, /alternative-*.
+ * /solutions*, /tarifs, /essai-gratuit, /demo, /alternative-*, verticales marketing.
  */
-export function SoftwareApplicationLd({ url, path }: Props = {}) {
+export function SoftwareApplicationLd({
+  url,
+  path,
+  description,
+  name,
+}: Props = {}) {
   const resolvedUrl =
     url ??
     (path ? (path === "/" ? site.url : `${site.url}${path}`) : site.url);
@@ -21,10 +30,10 @@ export function SoftwareApplicationLd({ url, path }: Props = {}) {
   const softwareApplicationLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: site.name,
+    name: name ?? site.name,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web, Android, iOS",
-    description: site.description,
+    description: description ?? site.description,
     url: resolvedUrl,
     offers: {
       "@type": "AggregateOffer",

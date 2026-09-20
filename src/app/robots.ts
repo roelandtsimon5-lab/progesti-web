@@ -29,6 +29,8 @@ export default function robots(): MetadataRoute.Robots {
         "/creer-mon-espace",
         "/forgot-password",
         "/mot-de-passe-oublie",
+        "/dashboard-validation",
+        "/dashboard-validation/",
       ],
     },
     sitemap: "https://progesti.fr/sitemap.xml",

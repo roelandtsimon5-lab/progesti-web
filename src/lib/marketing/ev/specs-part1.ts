@@ -1,0 +1,920 @@
+/* eslint-disable */
+import { link, type EvPageSpec } from "./build";
+
+const d = (
+  eyebrow: string,
+  h2: string,
+  lead: string,
+  scenario: string,
+  steps: EvPageSpec["demo"]["steps"],
+  uiLabel: string,
+  uiRows: EvPageSpec["demo"]["uiRows"],
+  takeaway: string,
+  primaryCtaLabel?: string,
+  secondaryCtaLabel?: string,
+  variant?: EvPageSpec["demo"]["variant"],
+): EvPageSpec["demo"] => ({
+  eyebrow,
+  h2,
+  lead,
+  scenario,
+  steps,
+  uiLabel,
+  uiRows,
+  takeaway,
+  primaryCtaLabel,
+  secondaryCtaLabel,
+  variant,
+});
+
+const s = (label: string, detail: string) => ({ label, detail });
+const r = (left: string, right: string, status?: string) => ({ left, right, status });
+
+/** EV-01 → EV-08 */
+export const evSpecsPart1: EvPageSpec[] = [
+  {
+    id: "EV-01",
+    key: "logiciel-espace-vert",
+    path: "/logiciel-espace-vert",
+    type: "pilier",
+    primaryKw: "logiciel espace vert",
+    seoTitle: "Logiciel espaces verts PME — planning météo, preuves, facture",
+    seoDesc: "PME paysagiste 15–40 salariés : replanifiez l’orage du lundi, pointez le terrain, prouvez les passages et facturez le réalisé. Essai 15 jours sans CB — support Toulouse.",
+    crumbLabel: "Logiciel espaces verts",
+    h1Lead: "Logiciel pour entreprise d’espaces verts",
+    h1: "du planning de tonte à la facture, sans Excel ni fil WhatsApp",
+    sub: "Chez Vertigo Paysage (28 salariés, périurbain 31), le gérant ouvre PROGESTI à 7h15 le lundi d’orage : 9 tontes impraticables, 2 équipes à redistribuer, l’élagage de mercredi intouchable. Plus de tableur du dimanche soir.",
+    claimBefore: "Du chantier à la",
+    claimHighlight: "facture",
+    claimSub: "logiciel espace vert · PME & multi-sites",
+    productStrip: "Planning · pointage · preuves · factu EV",
+    empathyH2: "Lundi 7h15 : l’orage a décidé à votre place",
+    empathyBody: "Karim, gérant de Vertigo Paysage (28 salariés, 47 sites actifs), reçoit trois WhatsApp avant le café : « pelouse sous l’eau », « autoportée chez le mécano », « le syndic des Tilleuls rappelle ». Sans système, il reconstruit la semaine sur un Excel qui a déjà trois versions. Avec un vrai planning EV, les sites bloqués sont marqués, les fréquences restent attachées au contrat, et le mobile des équipes affiche le nouvel ordre avant 8h.",
+    showcaseTitle: "Une semaine EV lisible pour le bureau et le terrain",
+    showcaseSub: "Sites, fréquences saisonnières, équipes et statuts — une seule vérité partagée.",
+    showcaseBadgeLeft: { title: "Tournée S18", sub: "47 sites · 3 équipes" },
+    showcaseBadgeRight: "Passages OK",
+    proofH2: "Ce que Vertigo a gagné en 6 semaines",
+    proofQuote: "« On ne vend plus des excuses météo : on envoie le statut reporté + la date de reprise. Le conseil syndical a arrêté de nous harceler. » — Karim, gérant",
+    proofItems: [
+      {
+        title: "Fréquences tenues",
+        text: "Récurrences par site (hebdo, bihebdo, mensuel) visibles et ajustables quand la saison accélère.",
+      },
+      {
+        title: "Preuves exploitables",
+        text: "Pointages horodatés + historique : répondre au syndic ou à la collectivité sans fouiller WhatsApp.",
+      },
+      {
+        title: "Facture du réel",
+        text: "Le réalisé alimente la facturation — moins d’oublis de prestations ponctuelles.",
+      },
+    ],
+    vsTitle: "Excel & WhatsApp vs PROGESTI pour une PME espaces verts",
+    demo: d(
+      "Démo produit · pilier EV",
+      "Rejouez le lundi pluvieux sans reconstruire le planning",
+      "Walkthrough d’une replanification météo sur un portefeuille multi-clients — l’écran que le gérant ouvre à 7h15.",
+      "PME paysagiste 28 salariés, périurbain. Orage nocturne : 9 sites de tonte du lundi sont impraticables. Deux équipes (tonte + haies) doivent être redistribuées avant 8h, sans lâcher l’élagage de mercredi.",
+      [
+        s("Ouvrir la semaine", "Vue multi-sites : filtres équipe, type (tonte / haies / élagage) et commune."),
+        s("Marquer les sites bloqués", "Statut « reporté météo » — les fréquences restent attachées au contrat."),
+        s("Réaffecter", "Équipe A sur tailles de haies prioritaires syndic ; équipe B sur plantation reportable."),
+        s("Terrain informé", "Nouvel ordre visible sur mobile ; le bureau garde la trace pour le client."),
+      ],
+      "Planning EV · Lundi 7h22",
+      [
+        r("Résidence des Tilleuls — tonte", "Équipe A · reporté météo", "Report"),
+        r("ZA Les Pins — taille haies", "Équipe A · prioritaire syndic", "Affecté"),
+        r("Maison — élagage mercredi", "Équipe B · créneau tenu", "OK"),
+        r("Mairie annexe — pelouse sud", "Équipe B · basculé mardi", "Replanifié"),
+      ],
+      "En dix minutes la tournée est cohérente, le contrat n’est pas oublié, et tu as de quoi expliquer le report.",
+      "Essayer sur mon planning",
+      "Voir la démo guidée",
+      "board"
+    ),
+    bodySections: [
+      {
+        h2: "Journée type — Karim, gérant PME paysagiste 28 salariés",
+        body: "Portefeuille mixte : 32 contrats d’entretien (résidences + ZA), 8 chantiers création, 2 marchés communaux annexes. Haute saison = 3 équipes de 4 + 1 binôme élagage. Le goulot : décider en 20 minutes ce qui glisse, ce qui reste, et qui conduit l’autoportée.",
+        bullets: [
+          "7h15 — filtre « impraticable météo » sur la tournée tonte S18",
+          "7h35 — bascule équipe A sur haies prioritaires syndic (accès digicode à jour)",
+          "7h50 — notification mobile : nouvel ordre + motif report visible client",
+          "17h40 — pointages du jour + 2 photos AV/AP haies rattachées au site",
+        ],
+        h3: [
+          {
+            title: "Objection « Excel suffit »",
+            body: "Excel ne synchronise pas le mobile du chef d’équipe à 7h40, ni l’historique que le syndic exige à 17h. Ce n’est pas un problème de discipline : c’est un problème de source de vérité.",
+          },
+          {
+            title: "Livrable client / donneur d’ordre",
+            body: "Statut de passage par site, motif de report, date de reprise proposée, preuve horodatée — exportable pour un conseil syndical ou une régie.",
+          },
+        ],
+      },
+      {
+        h2: "Avant / après opérationnel (sans ROI inventé)",
+        body: "Avant : 3 fichiers « Planning_S18_final_V2 », un groupe WhatsApp « Tournées », des photos perdues dans la galerie du téléphone. Après : une semaine EV unique, des reports tracés, une facture qui reprend les prestations ponctuelles réellement faites (haies d’urgence, plantation reportée).",
+        bullets: [
+          "Planning : fréquences contrat ≠ bricolage calendrier mural",
+          "Terrain : pointage arrivée/départ + photo optionnelle",
+          "Bureau : facture alimentée par le réalisé, pas par la mémoire du commercial",
+        ],
+      },
+      {
+        h2: "Process PROGESTI sur cette page (pilier)",
+        body: "Cette page couvre le flux complet PME EV — pas un seul service. Si vous cherchez uniquement la tonte, les syndicats, ou la collectivité, les pages sœurs sont plus précises. Ici : replanif → pointage → preuve → facture.",
+        h3: [
+          {
+            title: "Par où commencer l’essai",
+            body: "Importez 10–15 sites critiques (ceux qui appellent le plus). Tenez une vraie semaine dessus. Gardez WhatsApp pour le social, plus pour le planning.",
+          },
+        ],
+      }
+    ],
+    faq: [
+      {
+        q: "On est 28 salariés multi-sites : est-ce trop « petit logiciel » ou trop « usine » ?",
+        a: "C’est exactement la cible : assez de structure pour 40–80 sites, assez simple pour qu’un chef d’équipe pointe en 15 secondes. Pas un ERP chantier BTP.",
+      },
+      {
+        q: "Que se passe-t-il concrètement un lundi d’orage ?",
+        a: "Vous marquez les sites impraticables, vous conservez la fréquence contrat, vous basculez les équipes sur du travail faisable (haies, plantations reportables), et le mobile affiche le nouvel ordre. Le client voit un report tracé, pas un silence radio.",
+      },
+      {
+        q: "Le terrain va-t-il vraiment pointer ?",
+        a: "Si le planning bureau est juste, le mobile devient l’outil qui évite les coups de fil. Adoption = moins d’appels, pas plus de process.",
+      },
+      {
+        q: "Comment facturer le réalisé sans double saisie ?",
+        a: "Les interventions clôturées (et les ponctuels ajoutés) alimentent la facturation. Les oublis de « petite haie d’urgence » diminuent parce qu’elles existent dans le planning.",
+      },
+      {
+        q: "Essai et tarif ?",
+        a: "15 jours sans CB sur vos vrais sites. Tarif dès 29,99 € HT/mois. Support humain depuis Toulouse (31).",
+      },
+    ],
+    gridItems: [
+      link("Logiciel entretien espaces verts", "Passages récurrents & preuves", "/espace-vert/entretien-espaces-verts"),
+      link("Planning équipes EV", "Affectation multi-chantiers", "/espace-vert/planning-equipes"),
+      link("Hub espaces verts", "Toutes les pages métier", "/espace-vert"),
+    ],
+    ctaPrimaryLabel: "Essai 15 jours — mes sites EV",
+    ctaSecondaryLabel: "Parler à un humain",
+  },
+  {
+    id: "EV-02",
+    key: "hub",
+    path: "/espace-vert",
+    type: "hub",
+    primaryKw: "solutions espaces verts PROGESTI",
+    seoTitle: "Espaces verts — hub solutions par métier",
+    seoDesc: "Trouvez la bonne page EV : entretien, tonte, syndic, collectivité, école, hôpital, planning, preuves, météo. 36 angles métier — zéro fourre-tout propreté.",
+    crumbLabel: "Espaces verts",
+    h1Lead: "Espaces verts — toutes les solutions PROGESTI",
+    h1: "une porte d’entrée claire, une intention par page",
+    sub: "Vous n’êtes pas « un utilisateur espaces verts » : vous êtes un gérant de tournée, un DST, un syndic pressé, ou un conducteur de travaux. Ce hub vous envoie vers la page qui parle votre journée — pas vers un catalogue générique.",
+    claimBefore: "Du besoin métier à la",
+    claimHighlight: "bonne page",
+    claimSub: "hub solutions espaces verts",
+    productStrip: "Hub EV · navigation SEO contrôlée",
+    empathyH2: "Trois personnes, trois recherches, zéro page fourre-tout",
+    empathyBody: "Mardi 9h : Sophie (DST, commune 18 000 hab.) cherche un reporting marché. 10h : Marc (gérant, 22 salariés) veut replanifier sous la pluie. 11h : Nadia (conducteur travaux syndic) veut des preuves AV/AP avant le conseil. Une seule landing « tout EV » les perd tous. Ici, chaque intent a son URL.",
+    showcaseTitle: "Cartographie des intentions EV",
+    showcaseSub: "Service, audience, process, saison, local — chaque branche a son URL.",
+    showcaseBadgeLeft: { title: "39 angles", sub: "1 intent / page" },
+    showcaseBadgeRight: "Maillage OK",
+    proofH2: "Comment utiliser ce hub",
+    proofQuote: "Choisissez votre porte — service, client, process ou saison.",
+    proofItems: [
+      { title: "Services", text: "Entretien, paysagisme, tonte, élagage, désherbage, arrosage, taille de haies…" },
+      { title: "Audiences", text: "Collectivités, syndics, sites privés, aménageurs, TPE, grands parcs." },
+      { title: "Process", text: "Planning, pointage, devis/factu, preuves, météo, engins, absences." },
+    ],
+    vsTitle: "Page fourre-tout vs hub EV structuré",
+    demo: d(
+      "Démo produit · hub",
+      "Trois parcours cliquables selon votre profil",
+      "Mini walkthrough : comment un visiteur arrive sur la bonne page fille en 2 clics — et ce qu’il voit ensuite dans le produit.",
+      "Trois personas arrivent le même jour : (1) gérant PME entretien 22 salariés, (2) responsable EV d’une commune de 18 000 hab., (3) conducteur de travaux d’un syndic qui exige des preuves de passage.",
+      [
+        s("Persona PME", "Pilier logiciel → démo replanif météo → essai sur ses sites réels."),
+        s("Persona collectivité", "Page collectivités → reporting marchés → démo historique de passages."),
+        s("Persona syndic", "Page syndics EV → preuves & photos → maillage preuves de passage."),
+      ],
+      "Hub EV · orientation",
+      [
+        r("Je gère une entreprise EV", "→ /logiciel-espace-vert", "Pilier"),
+        r("Je suis une collectivité", "→ /espace-vert/collectivites", "Audience"),
+        r("Je suis syndic / copro", "→ /espace-vert/syndics-coproprietes", "Audience"),
+        r("Je veux juste le process planning", "→ /espace-vert/planning-equipes", "Process"),
+      ],
+      "Le hub ne vend pas « tout » : il réduit le taux de rebond en envoyant chacun vers un angle précis.",
+      "Ouvrir le pilier logiciel",
+      "Voir les tarifs",
+      "split"
+    ),
+    bodySections: [
+      {
+        h2: "Comment choisir votre porte d’entrée en 30 secondes",
+        body: "Si vous vendez et exécutez de l’entretien récurrent → pilier logiciel ou page entretien. Si vous êtes donneur d’ordre (collectivité, syndic, santé, scolaire) → pages audience. Si vous souffrez d’un process (Excel, météo, engins, absences) → pages problème/process.",
+        bullets: [
+          "Service = ce que vous faites (tonte, élagage, haies, désherbage…)",
+          "Audience = pour qui vous travaillez (syndic, mairie, clinique…)",
+          "Process = comment vous tenez la boutique (planning, pointage, factu)",
+        ],
+        h3: [
+          {
+            title: "Ce hub n’est pas la propreté",
+            body: "PROGESTI a d’autres verticales. Ici vocabulaire EV uniquement : tournée, fréquence, passage, AV/AP, marché, régie, engins. Pas de « sites tertiaires » recyclés.",
+          },
+        ],
+      },
+      {
+        h2: "Carte mentale des 36 angles",
+        body: "Les pages sœurs ne se cannibalisent pas : tonte ≠ entretien global ≠ taille de haies. Multi-sites (N adresses) ≠ grands parcs (1 adresse, N zones). Preuves horodatées ≠ photos AV/AP. Parcourez, puis essayez sur 10 sites réels.",
+      },
+      {
+        h2: "Prochaine étape utile",
+        body: "Ouvrez le pilier si vous êtes dirigeant PME. Ouvrez collectivités / syndics / écoles / hôpitaux si vous êtes côté donneur d’ordre. Ouvrez « remplacer Excel » si vous voulez le contraste brutal avant/après.",
+      }
+    ],
+    faq: [
+      {
+        q: "Je gère une entreprise d’entretien EV : par où commencer ?",
+        a: "Le pilier /logiciel-espace-vert, puis entretien, planning équipes et preuves de passage. L’essai sur 10–15 sites suffit à juger.",
+      },
+      {
+        q: "Je suis une collectivité : c’est pour les prestataires ou pour la régie ?",
+        a: "Les deux cas de figure sont couverts sur la page collectivités (reporting marché, tournées, preuves). Le prestataire privé peut aussi pointer depuis le même produit.",
+      },
+      {
+        q: "Pourquoi autant de pages ?",
+        a: "Parce qu’un gérant de tonte et un DST ne posent pas la même question à Google. Une page fourre-tout fait rebondir les deux.",
+      },
+      {
+        q: "Y a-t-il un mélange avec la sécurité ou la propreté ?",
+        a: "Non. Cette verticale est 100 % espaces verts. Les autres métiers ont leurs propres hubs.",
+      },
+      {
+        q: "Quel tarif pour « logiciel espace vert » ?",
+        a: "Dès 29,99 € HT/mois, essai 15 jours sans CB — détail sur /tarifs.",
+      },
+    ],
+    gridItems: [
+      link("Logiciel espaces verts", "Pilier money — vue d’ensemble", "/logiciel-espace-vert"),
+      link("Entretien EV", "Passages & preuves", "/espace-vert/entretien-espaces-verts"),
+      link("Collectivités", "Marchés & reporting", "/espace-vert/collectivites"),
+      link("Syndics & copro", "Preuves pour conseils syndicaux", "/espace-vert/syndics-coproprietes"),
+      link("Hôpitaux & cliniques", "Créneaux & zones sensibles", "/espace-vert/hopitaux-cliniques"),
+      link("Écoles & établissements", "Hors récré + vacances", "/espace-vert/ecoles-etablissements"),
+      link("Déchets verts", "Bennes liées aux coupes", "/espace-vert/dechets-verts"),
+      link("Plantations & massifs", "Pose et reprises", "/espace-vert/plantations-massifs"),
+    ],
+    ctaPrimaryLabel: "Essai gratuit",
+    ctaSecondaryLabel: "Logiciel espaces verts",
+  },
+  {
+    id: "EV-03",
+    key: "entretien-espaces-verts",
+    path: "/espace-vert/entretien-espaces-verts",
+    type: "service",
+    primaryKw: "logiciel entretien espaces verts",
+    seoTitle: "Logiciel entretien espaces verts — fréquences & preuves",
+    seoDesc: "Contrats annuels multi-sites : fréquences bihebdo, tournées, pointage et preuves pour renew. Cas résidence 120 lots. Essai 15 jours sans CB.",
+    crumbLabel: "Entretien espaces verts",
+    h1Lead: "Logiciel d’entretien d’espaces verts",
+    h1: "tenir les passages récurrents sans oublier un site",
+    sub: "Léa, responsable d’exploitation chez Atelier des Haies (19 salariés), gère 64 contrats d’entretien. Son cauchemar : une fréquence perdue dans un PDF, un site oublié 3 semaines, un renew sans dossier de preuves.",
+    claimBefore: "Des fréquences tenues à la",
+    claimHighlight: "preuve",
+    claimSub: "logiciel entretien espaces verts",
+    productStrip: "Entretien récurrent · fréquences · preuves",
+    empathyH2: "L’entretien ce n’est pas un devis : c’est une promesse hebdomadaire",
+    empathyBody: "Le commercial a signé la résidence Les Acacias (120 lots) : tonte bihebdo mars→octobre, haies 4×/an, désherbage allées mensuel. Sans occurrency vivantes dans le planning, c’est Léa qui « se souvient » — jusqu’aux congés. Le client, lui, compte les semaines.",
+    showcaseTitle: "Portefeuille d’entretien sous contrôle",
+    showcaseSub: "Chaque site a sa fréquence, son équipe, son historique de passages.",
+    showcaseBadgeLeft: { title: "Contrat annuel", sub: "Fréquence bihebdo" },
+    showcaseBadgeRight: "Passage prouvé",
+    proofH2: "L’entretien se juge sur la régularité",
+    proofQuote: "Ce qui est promis au contrat doit être visible dans le planning — et prouvable.",
+    proofItems: [
+      { title: "Fréquences par site", text: "Hebdo, bihebdo, mensuel… ajustables en saison sans perdre le fil du contrat." },
+      { title: "Tournées", text: "Regroupez les sites proches pour limiter les km à vide." },
+      { title: "Preuve client", text: "Historique de passages quand le donneur d’ordre conteste." },
+    ],
+    vsTitle: "Calendrier mural & WhatsApp vs entretien piloté",
+    demo: d(
+      "Démo produit · entretien",
+      "Du contrat annuel à la tournée de la semaine",
+      "Cas d’usage cliquable : paramétrer un site en entretien bihebdo et voir la semaine se remplir.",
+      "Nouveau contrat : résidence 120 lots, tonte bihebdo mars→octobre, taille de haies 4×/an, désherbage des allées mensuel. Le commercial a signé ; l’exploitation doit transformer ça en planning réel sans Excel parallèle.",
+      [
+        s("Fiche site", "Créer la résidence, consignes d’accès (digicode, local tondeuses)."),
+        s("Fréquences", "Attacher tonte bihebdo + haies trimestrielles + désherbage mensuel."),
+        s("Générer la semaine", "Les occurrences apparaissent sur le planning équipes."),
+        s("Après passage", "Pointage + statut fait — prêt pour facture périodique et reporting."),
+      ],
+      "Site · Résidence Les Acacias",
+      [
+        r("Tonte pelouses", "Bihebdo · Équipe Nord", "Planifié"),
+        r("Taille haies périphériques", "Trimestriel · prochaine S22", "Contrat"),
+        r("Désherbage allées", "Mensuel · dû cette semaine", "À faire"),
+        r("Dernier passage tonte", "12/05 · pointé 08:42", "Prouvé"),
+      ],
+      "Le contrat n’est plus un PDF dans un dossier : c’est une série d’occurrences vivantes.",
+      "Tester sur un contrat réel",
+      "Voir preuves de passage",
+      "checklist"
+    ),
+    bodySections: [
+      {
+        h2: "Cas client — Résidence Les Acacias, contrat annuel 41 k€",
+        body: "Léa paramètre le site une fois : consignes d’accès, digicode, local tondeuses, fréquences par prestation. La semaine S18 se génère. Deux passages manqués (pluie) apparaissent en retard avec motif — rattrapés S19 sans perdre le fil du contrat.",
+        bullets: [
+          "Fréquences attachées au contrat, pas à la mémoire du chef d’équipe",
+          "Retards visibles avant l’appel du conseil syndical",
+          "Historique exportable pour le renew de novembre",
+        ],
+        h3: [
+          {
+            title: "Objection « le forfait se gère sur papier »",
+            body: "Le papier ne dit pas si la bihebdo de la semaine 17 a été faite. Le renew se négocie sur des preuves, pas sur une impression.",
+          },
+          {
+            title: "≠ paysagisme création, ≠ tonte seule",
+            body: "Cette page = récurrence multi-prestations. Pour un chantier one-shot, voyez paysagisme. Pour la seule tournée tonte volume, voyez tonte pelouse.",
+          },
+        ],
+      },
+      {
+        h2: "Journée type d’exploitation entretien",
+        body: "Matin : filtre « dû cette semaine » + retards. Midi : ajustement météo. Soir : clôture des pointages, photos haies rattachées, préparation facture périodique.",
+      },
+      {
+        h2: "Livrable pour le donneur d’ordre",
+        body: "Tableau des passages promis vs réalisés, motifs de report, prochain créneau — de quoi tenir un conseil syndical sans improvisation WhatsApp.",
+      }
+    ],
+    faq: [
+      {
+        q: "Peut-on gérer plusieurs fréquences sur le même site ?",
+        a: "Oui : tonte bihebdo + haies trimestrielles + désherbage mensuel cohabitent sur la fiche site et génèrent des occurrences distinctes.",
+      },
+      {
+        q: "Comment prouver un passage contesté ?",
+        a: "Pointage horodaté + historique site (+ photo si vous l’activez). Vous répondez avec un dossier, pas une capture d’écran de SMS.",
+      },
+      {
+        q: "Et les reports météo dans un forfait ?",
+        a: "Le statut « reporté météo » conserve la fréquence contrat et propose une date de reprise — visible bureau et terrain.",
+      },
+      {
+        q: "Combien de sites pour démarrer ?",
+        a: "Commencez par 10 contrats critiques (ceux qui renouvellent bientôt). Étendez ensuite.",
+      },
+      {
+        q: "Tarif essai ?",
+        a: "15 jours sans CB. Détail sur /tarifs.",
+      },
+    ],
+    gridItems: [
+      link("Paysagisme", "Devis & chantiers ponctuels", "/espace-vert/paysagisme"),
+      link("Preuves de passage", "Finir les litiges « vous n’êtes pas venus »", "/espace-vert/preuves-passages"),
+      link("Contrats annuels", "Suivre l’exécution toute l’année", "/espace-vert/contrats-annuels"),
+      link("Tonte pelouse", "Focus planning tonte multi-sites", "/espace-vert/tonte-pelouse"),
+    ],
+    ctaPrimaryLabel: "Essai — mes contrats d’entretien",
+    ctaSecondaryLabel: "Démo fréquences & preuves",
+  },
+  {
+    id: "EV-04",
+    key: "paysagisme",
+    path: "/espace-vert/paysagisme",
+    type: "service",
+    primaryKw: "logiciel paysagiste",
+    seoTitle: "Logiciel paysagisme — chantiers création, jalons, réception",
+    seoDesc: "Chantiers paysagers : devis, jalons engazonnement/plantations, engins, PV de réception avec preuves. Pour conducteurs de travaux, pas l’entretien récurrent.",
+    crumbLabel: "Paysagisme",
+    h1Lead: "Logiciel paysagiste",
+    h1: "devis, chantiers d’aménagement et facture — sans perdre le fil",
+    sub: "Nicolas, conducteur de travaux chez Terra Forma (création), jongle avec 5 chantiers ouverts, une mini-pelle surbookée et un promoteur qui veut le PV demain. Ce n’est pas de l’entretien bihebdo : ce sont des jalons.",
+    claimBefore: "Du devis chantier à la",
+    claimHighlight: "facture",
+    claimSub: "logiciel paysagiste",
+    productStrip: "Devis · chantier · preuves · factu",
+    empathyH2: "Un chantier création ne se pilote pas comme une tournée de tonte",
+    empathyBody: "Devis signé mardi, livraison terreau jeudi, engazonnement reporté pour pluie, réception partielle exigée par l’aménageur. Si tout vit dans des fils WhatsApp + un Gantt Excel perso, le commercial découvre les écarts trop tard — et la marge aussi.",
+    showcaseTitle: "Chantier paysager suivi de bout en bout",
+    showcaseSub: "Devis → planning → réalisé → facture, sans double saisie.",
+    showcaseBadgeLeft: { title: "Chantier #248", sub: "Création massifs" },
+    showcaseBadgeRight: "Devis signé",
+    proofH2: "Le paysagisme se pilote comme un projet court",
+    proofQuote: "Ce qui est vendu doit être planifié, puis facturé — avec les aléas documentés.",
+    proofItems: [
+      { title: "Devis structuré", text: "Lignes claires : préparation, plantations, évacuation, finitions." },
+      { title: "Planning chantier", text: "Affectez les bons profils (conducteur, ouvriers) sur les bons jours." },
+      { title: "Facture alignée", text: "Basez-vous sur le réalisé et les avenants, pas sur la mémoire." },
+    ],
+    vsTitle: "Devis Word + planning tête vs flux paysagiste",
+    demo: d(
+      "Démo produit · paysagisme",
+      "Du devis signé au planning de la semaine chantier",
+      "Walkthrough : transformer un devis d’aménagement en interventions planifiées et facturables.",
+      "Chantier villa : décaissement, géotextile, 42 sujets, paillage, arrosage goutte-à-goutte. 4 jours prévus, 1 mini-pelle partagée avec un autre chantier le jeudi.",
+      [
+        s("Devis", "Lignes de prestation + options (éclairage, clôture végétale)."),
+        s("Validation", "Statut accepté — le chantier devient planifiable."),
+        s("Affectation", "Jours 1–2 préparation ; jours 3–4 plantations ; mini-pelle bloquée jeudi."),
+        s("Clôture", "Pointages + photos AV/AP → facture sur base du réalisé."),
+      ],
+      "Chantier · Villa Les Oliviers",
+      [
+        r("Décaissement + évacuation", "Lun–Mar · Équipe création", "Jour 1-2"),
+        r("Plantations 42 sujets", "Mer–Jeu · 4 ouvriers", "Planifié"),
+        r("Mini-pelle", "Jeu · partagée / autre chantier", "Conflit géré"),
+        r("Facturation", "Sur réalisé + avenant haie", "Prêt"),
+      ],
+      "Le commercial et l’exploitation parlent enfin le même langage : celui du devis exécuté.",
+      "Essayer sur un devis chantier",
+      "Voir devis & facturation EV",
+      "timeline"
+    ),
+    bodySections: [
+      {
+        h2: "Cas — Lotissement Les Clarines, 3 jalons engazonnement",
+        body: "Nicolas découpe le chantier : préparation sol → engazonnement → reprises J+21. Chaque jalon a une équipe, un engin, une preuve photo. À la réception, le dossier n’est pas une chasse aux messages.",
+        bullets: [
+          "Jalons datés avec dépendances (pas de pose si fourniture absente)",
+          "Conflit mini-pelle détecté avant le mardi critique",
+          "PV réception = preuves rattachées aux jalons, pas à la galerie téléphone",
+        ],
+        h3: [
+          {
+            title: "≠ entretien annuel",
+            body: "L’entretien vit par fréquences. Le paysagisme création vit par jalons et réception. Ne mélangez pas les deux intents : pages sœurs dédiées.",
+          },
+        ],
+      },
+      {
+        h2: "Objections terrain",
+        body: "« On a déjà un CCTP » — très bien : le logiciel ne remplace pas le CCTP, il suit l’exécution. « One-shot pas besoin d’outil » — un one-shot mal tracé = litige garantie reprises.",
+      },
+      {
+        h2: "Livrable promoteur / aménageur",
+        body: "Timeline des jalons, écarts météo, photos avant/après, statut réception partielle ou totale.",
+      }
+    ],
+    faq: [
+      {
+        q: "Peut-on lier devis → chantier → facture d’avancement ?",
+        a: "Oui : le flux devis / planning / réalisé évite la double saisie et les oublis d’avenants.",
+      },
+      {
+        q: "Gestion des engins sur chantier création ?",
+        a: "Les contraintes engins apparaissent dans le planning (conflit mini-pelle, nacelle). Ce n’est pas une GMAO industrielle : c’est de l’anti-double-booking EV.",
+      },
+      {
+        q: "Et les reprises sous garantie ?",
+        a: "Planifiez un contrôle J+21 rattaché au chantier ; photo et statut restent dans le dossier réception.",
+      },
+      {
+        q: "Différence avec la page aménageurs ?",
+        a: "Ici angle exécutant paysagiste. La page aménageurs/promoteurs cible la relation jalons/réception côté ce type de clients.",
+      },
+      {
+        q: "Puis-je tester PROGESTI sur mon cas « logiciel espace vert » ?",
+        a: "15 jours sans CB — importez 1–2 chantiers réels en cours.",
+      },
+    ],
+    gridItems: [
+      link("Entretien EV", "Fréquences & passages", "/espace-vert/entretien-espaces-verts"),
+      link("Devis & facturation", "Flux commercial → facture", "/espace-vert/devis-facturation"),
+      link("Engins & matériel", "Éviter les conflits de ressources", "/espace-vert/engins-materiel"),
+      link("Photos avant/après", "Preuves visuelles chantier", "/espace-vert/photos-avant-apres"),
+    ],
+    ctaPrimaryLabel: "Essai — mes chantiers",
+    ctaSecondaryLabel: "Démo devis → facture",
+  },
+  {
+    id: "EV-05",
+    key: "tonte-pelouse",
+    path: "/espace-vert/tonte-pelouse",
+    type: "service",
+    primaryKw: "planning tonte multi-sites",
+    seoTitle: "Planning tonte pelouse multi-sites — tournées & engins",
+    seoDesc: "Optimisez les tournées de tonte : 14 pelouses, 1 autoportée, reports météo, ordre de passage. Pour exploitations volume — essai 15 jours.",
+    crumbLabel: "Tonte pelouse",
+    h1Lead: "Planning tonte multi-sites",
+    h1: "sans oublier une pelouse — même en pleine pousse",
+    sub: "Nord Tonte Services : 2 salariés + 1 apprenti, 14 pelouses le lundi, une seule autoportée. L’ordre de passage mal pensé = 40 km à vide et un client à 17h qui n’a pas été fait.",
+    claimBefore: "Des tournées de tonte",
+    claimHighlight: "tenues",
+    claimSub: "planning tonte multi-sites",
+    productStrip: "Tonte · tournées · fréquences",
+    empathyH2: "La tonte, c’est de la logistique déguisée en jardinage",
+    empathyBody: "Dès que la pousse accélère, le goulot n’est plus « savoir tondre » : c’est enchaîner les sites sans croiser l’autoportée, sans oublier la pelouse du fond de lotissement, et sans promettre mardi quand le sol est encore une éponge.",
+    showcaseTitle: "Tournée de tonte du mardi",
+    showcaseSub: "Ordre des sites, engins, équipe — et statut réel en fin de journée.",
+    showcaseBadgeLeft: { title: "Tournée T2", sub: "14 pelouses" },
+    showcaseBadgeRight: "12/14 faits",
+    proofH2: "La tonte se gagne sur la logistique",
+    proofQuote: "Moins de km à vide, moins d’oublis, plus de preuves quand le client doute.",
+    proofItems: [
+      { title: "Regroupement géographique", text: "Enchaînez les sites d’un même secteur." },
+      { title: "Fréquence saisonnière", text: "Passez de mensuel à hebdo sans tout reconstruire." },
+      { title: "Report météo", text: "Basculer une tournée mouillée sans perdre la récurrence." },
+    ],
+    vsTitle: "Liste papier de tonte vs tournée pilotée",
+    demo: d(
+      "Démo produit · tonte",
+      "Construire la tournée de tonte du mardi matin",
+      "UI mock : 14 sites de pelouse, 1 autoportée, 1 équipe de 2 — ordre optimisé et statuts live.",
+      "Secteur nord de l’agglo. Mardi typique de mai : 14 pelouses, dont 3 « clients sensibles » (syndic + mairie). L’autoportée n°2 est au garage jusqu’à 11h.",
+      [
+        s("Filtrer tonte", "Afficher uniquement les occurrences tonte du mardi."),
+        s("Ordonner", "Regrouper par zone (ZA, lotissements, mairie)."),
+        s("Contrainte engin", "Sites accessibles brouette / poussée le matin ; autoportée l’après-midi."),
+        s("Clôturer", "Pointages + 2 reports météo localisés → base facture / preuve."),
+      ],
+      "Tournée tonte · Mardi",
+      [
+        r("Lotissement Les Bleuets #1-6", "Matin · tondeuses poussée", "En cours"),
+        r("Mairie — terrain de boules", "Client sensible · 10h30", "Priorité"),
+        r("ZA Nord — bandes vertes", "Après-midi · autoportée", "Attente engins"),
+        r("Résidence Saule — +2 oubliés S17", "Rattrapage planifié", "Catch-up"),
+      ],
+      "La tournée n’est plus une liste dans la boîte à gants : elle est partagée, statusée, prouvable.",
+      "Essayer ma tournée de tonte",
+      "Voir replanif météo",
+      "board"
+    ),
+    bodySections: [
+      {
+        h2: "Cas — Lundi 14 pelouses, 1 autoportée, orage à 11h",
+        body: "Le planning ordonne les sites par secteur (nord puis ouest). À 11h, 3 pelouses sont marquées report météo ; l’équipe bascule sur 2 tailles de bordures prévues en buffer. Le client voit le report, pas un no-show.",
+        bullets: [
+          "Ordre de tournée anti km à vide",
+          "Statut pelouse impraticable sans perdre la cadence contrat",
+          "Engin unique visible : pas de fantaisie « deux équipes sur une machine »",
+        ],
+        h3: [
+          {
+            title: "≠ entretien multi-prestations",
+            body: "Ici focus volume tonte / engins / ordre de passage. L’entretien global (haies+désherbage+tonte) est la page sœur entretien.",
+          },
+        ],
+      },
+      {
+        h2: "Objections",
+        body: "« On connaît nos tournées par cœur » — jusqu’à l’arrêt maladie du conducteur. « Le GPS suffice » — le GPS ne gère pas la fréquence contrat ni la preuve de passage.",
+      },
+      {
+        h2: "Livrable",
+        body: "Feuille de tournée du jour + statuts live + reports datés pour le bureau.",
+      }
+    ],
+    faq: [
+      {
+        q: "Peut-on gérer plusieurs fréquences de tonte (hebdo / bihebdo) ?",
+        a: "Oui, par site. La tournée du jour ne montre que ce qui est dû.",
+      },
+      {
+        q: "Autoportée en panne : que faire ?",
+        a: "Marquez l’engin indispo ; les sites dépendants apparaissent à replanifier. Ce n’est pas une GMAO, c’est un garde-fou planning.",
+      },
+      {
+        q: "Photos après tonte ?",
+        a: "Optionnelles mais utiles en copro. Voir aussi la page photos AV/AP.",
+      },
+      {
+        q: "Lien avec replanification météo ?",
+        a: "Oui — page dédiée playbook orage si c’est votre douleur principale.",
+      },
+      {
+        q: "L’essai couvre-t-il vraiment « logiciel espace vert » ?",
+        a: "15 jours — chargez votre tournée du lundi réelle.",
+      },
+    ],
+    gridItems: [
+      link("Saison printemps", "Tenir le pic d’avril–juin", "/espace-vert/saison-printemps"),
+      link("Replanification météo", "Basculer une tournée mouillée", "/espace-vert/replanification-meteo"),
+      link("Engins & matériel", "Autoportée / poussée / panne", "/espace-vert/engins-materiel"),
+      link("Entretien EV", "Contrats multi-prestations", "/espace-vert/entretien-espaces-verts"),
+    ],
+    ctaPrimaryLabel: "Essai — mes tournées de tonte",
+    ctaSecondaryLabel: "Démo tournée",
+  },
+  {
+    id: "EV-06",
+    key: "elagage",
+    path: "/espace-vert/elagage",
+    type: "service",
+    primaryKw: "logiciel élagage",
+    seoTitle: "Planning élagage & grimpe — créneaux, sécurité, preuves",
+    seoDesc: "Pôle élagage : créneaux grimpe, binômes, nacelle, déchets de coupe, preuves client. Différent de la taille de haies. Essai 15 jours.",
+    crumbLabel: "Élagage",
+    h1Lead: "Logiciel élagage",
+    h1: "devis, équipes et preuves de chantier — sans zone grise",
+    sub: "Le pôle élagage de Canopée Services (grimpeur + élagueur sol + camion) ne peut pas « glisser » comme une tonte. Un créneau raté = voisinage, DICT, benne, et parfois la mairie.",
+    claimBefore: "Du devis d’élagage à la",
+    claimHighlight: "preuve",
+    claimSub: "logiciel élagage",
+    productStrip: "Élagage · devis · équipes · preuves",
+    empathyH2: "L’élagage, c’est un rendez-vous chirurgical — pas une tournée flexible",
+    empathyBody: "Autorisation d’occupation, information riverains, nacelle ou grimpe, évacuation branches sous 48h : si le planning traite ça comme une tonte déplacée, vous cumulez les risques. La page taille de haies est un autre métier.",
+    showcaseTitle: "Chantier élagage cadrée",
+    showcaseSub: "Équipe, créneau, matériel, AV/AP — tout rattaché au devis.",
+    showcaseBadgeLeft: { title: "Élagage T2", sub: "Nacelle + grimpeur" },
+    showcaseBadgeRight: "AV/AP OK",
+    proofH2: "L’élagage exige de la trace",
+    proofQuote: "Compétences, créneaux et preuves : les trois piliers d’un chantier propre.",
+    proofItems: [
+      { title: "Bon profil", text: "Affectez grimpeur / conducteur nacelle sur le bon créneau." },
+      { title: "Devis clair", text: "Volume, accès, évacuation des branchages — lignes explicites." },
+      { title: "Preuves", text: "Photos AV/AP et pointage pour clôturer sans contestation." },
+    ],
+    vsTitle: "Devis approximatif vs chantier d’élagage documenté",
+    demo: d(
+      "Démo produit · élagage",
+      "Planifier un élagage avec contrainte nacelle + grimpeur",
+      "Cas cliquable : un peuplier en bord de voie, demi-journée, évacuation inclus.",
+      "Client particulier + contrainte voisinage. Devis : taille de réduction + broyage. Nacelle louée le jeudi uniquement. Un seul grimpeur dispo cette semaine.",
+      [
+        s("Devis", "Lignes : grimpe, réduction, broyage, évacuation, balisage."),
+        s("Ressources", "Bloquer grimpeur + créneau nacelle jeudi 8h–12h."),
+        s("Consignes", "Accès rue étroite, contact voisin n°14, photos AV obligatoires."),
+        s("Clôture", "Pointage + photos AP → facture."),
+      ],
+      "Chantier élagage · Jeudi",
+      [
+        r("Peuplier — réduction", "Grimpeur M. · nacelle louée", "Confirmé"),
+        r("Broyage branchages", "Équipe sol · 10h–12h", "Planifié"),
+        r("Photos AV", "À faire à l’arrivée", "Checklist"),
+        r("Facturation", "Sur devis accepté", "Post-clôture"),
+      ],
+      "Quand la nacelle est louée à la demi-journée, le planning n’a pas droit à l’à-peu-près.",
+      "Essayer sur un chantier d’élagage",
+      "Voir photos AV/AP",
+      "timeline"
+    ),
+    bodySections: [
+      {
+        h2: "Cas — Frêne dangereux, mercredi 13h–17h, rue Pasteur",
+        body: "Créneau tenu, binôme affecté, nacelle réservée, benne planifiée pour 17h30. Pluie forte → report avec conservation du créneau prioritaire et notification riverains. Preuve photo avant/après pour l’assurance et la mairie.",
+        bullets: [
+          "Créneau + compétences (grimpe) visibles",
+          "Engin / benne liés à l’intervention",
+          "Déchets de coupe = suite logistique, pas un oubli",
+        ],
+      },
+      {
+        h2: "Objections",
+        body: "« On a un planning papier grimpe » — il ne parle pas au commercial qui vend un élagage le même créneau. « C’est trop niche » — c’est niche, et c’est exactement pour ça qu’une page dédiée existe.",
+      },
+      {
+        h2: "Livrable client",
+        body: "Compte-rendu d’élagage daté, photos, statut évacuation branches.",
+      }
+    ],
+    faq: [
+      {
+        q: "Différence avec taille de haies ?",
+        a: "Haies = volume multi-sites, accès riverains, saison courte. Élagage = créneau expert, grimpe/nacelle, risque, souvent one-shot ou annuel ciblé.",
+      },
+      {
+        q: "Gestion DICT / autorisations ?",
+        a: "Consigne sur la fiche intervention + checklist avant démarrage. Le logiciel rappelle ; il ne remplace pas vos obligations légales.",
+      },
+      {
+        q: "Benne et déchets verts ?",
+        a: "Liez une rotation benne à l’intervention — détail sur la page déchets verts.",
+      },
+      {
+        q: "Météo et sécurité grimpe ?",
+        a: "Report tracé avec motif sécurité ; le créneau prioritaire ne disparaît pas du backlog.",
+      },
+      {
+        q: "Comment démarrer un essai orienté logiciel espace vert ?",
+        a: "15 jours — planifiez votre semaine d’élagage réelle.",
+      },
+    ],
+    gridItems: [
+      link("Photos avant/après", "Preuves visuelles chantier", "/espace-vert/photos-avant-apres"),
+      link("Devis & facturation", "Du devis à la facture", "/espace-vert/devis-facturation"),
+      link("Paysagisme", "Aménagements ponctuels", "/espace-vert/paysagisme"),
+      link("Taille de haies", "Autre prestation volume", "/espace-vert/taille-haies"),
+    ],
+    ctaPrimaryLabel: "Essai — chantiers d’élagage",
+    ctaSecondaryLabel: "Démo élagage",
+  },
+  {
+    id: "EV-07",
+    key: "desherbage",
+    path: "/espace-vert/desherbage",
+    type: "service",
+    primaryKw: "planning désherbage multi-sites",
+    seoTitle: "Désherbage espaces verts — tournées, zones, preuves zéro phyto",
+    seoDesc: "Planifiez désherbage mécanique / thermique des abords : allées, terre-pleins, cimetières. Preuves pour collectivités et syndics. Essai 15 jours.",
+    crumbLabel: "Désherbage",
+    h1Lead: "Désherbage & entretien des abords",
+    h1: "des tournées multi-sites sans zones oubliées",
+    sub: "Depuis le zéro phyto, Inès (exploitation, 11 salariés) enchaîne les passages mécaniques. Sans zonage clair, l’équipe « fait ce qui se voit » et la DST reçoit des photos de trottoirs oubliés.",
+    claimBefore: "Des abords",
+    claimHighlight: "propres et prouvés",
+    claimSub: "désherbage multi-sites",
+    productStrip: "Désherbage · abords · fréquences",
+    empathyH2: "Le désherbage se juge sur les 20 mètres que personne ne regarde",
+    empathyBody: "Entrée de résidence impeccable, arrière de parking poids lourds abandonné : le donneur d’ordre finit toujours par photographier le pire angle. Il faut des zones, des fréquences, et une preuve — pas une intention.",
+    showcaseTitle: "Tournée désherbage / abords",
+    showcaseSub: "Sites, méthodes (manuel, thermique, mécanique), statuts.",
+    showcaseBadgeLeft: { title: "Abords S19", sub: "18 points" },
+    showcaseBadgeRight: "Contrôle OK",
+    proofH2: "Traiter le désherbage comme une prestation à part entière",
+    proofQuote: "Fréquence + zone + preuve : les trois infos qui manquent dans WhatsApp.",
+    proofItems: [
+      { title: "Zones précises", text: "Allées, parking, pied de clôture — pas juste « le site »." },
+      { title: "Cadence", text: "Mensuel / bimensuel selon exposition et exigence client." },
+      { title: "Trace", text: "Pointage et historique pour les contrôles donneurs d’ordre." },
+    ],
+    vsTitle: "« On désherbe si on a le temps » vs prestation planifiée",
+    demo: d(
+      "Démo produit · désherbage",
+      "Ajouter le désherbage comme fréquence distincte de la tonte",
+      "Walkthrough : même résidence, deux prestations, deux cadences — sans confusion.",
+      "Résidence : tonte bihebdo déjà en place. Le conseil syndical ajoute « désherbage des allées 1×/mois » après réclamations. Il faut l’intégrer sans polluer la tournée tonte.",
+      [
+        s("Nouvelle fréquence", "Désherbage allées — mensuel — équipe dédiée ou créneau vendredi."),
+        s("Zones", "Préciser allées A/B + local poubelles dans la fiche site."),
+        s("Tournée", "Regrouper 6 résidences du même secteur le même vendredi."),
+        s("Preuve", "Pointage + photo optionnelle si le syndic est chroniquement contestataire."),
+      ],
+      "Prestations · Résidence Les Acacias",
+      [
+        r("Tonte", "Bihebdo · Équipe Nord", "Actif"),
+        r("Désherbage allées", "Mensuel · vendredi secteur", "Nouveau"),
+        r("Zone : local poubelles", "Inclus dans le passage", "Consignes"),
+        r("Dernier désherbage", "03/05 · pointé", "Prouvé"),
+      ],
+      "Quand le désherbage a sa propre ligne de fréquence, il cesse d’être oublié « s’il reste du temps ».",
+      "Essayer sur mes abords",
+      "Voir entretien global",
+      "checklist"
+    ),
+    bodySections: [
+      {
+        h2: "Cas — Terre-pleins RD + allées copro, tournée jeudi",
+        body: "8 terre-pleins communaux + 3 résidences. Zones sensibles (école, cimetière) en priorité matinale. Statut fait/partiel avec photo du point noir. Report pluie ≠ disparition de la zone du backlog.",
+        bullets: [
+          "Zones nommément listées (pas « site entier »)",
+          "Méthode (mécanique / thermique) en consigne",
+          "Preuve visuelle du point noir, pas de la belle entrée",
+        ],
+      },
+      {
+        h2: "≠ cimetières / voirie (page sœur)",
+        body: "Si votre cœur de métier est cimetière + terre-pleins très sensibles usagers, ouvrez la page dédiée. Ici : désherbage transverse abords.",
+      },
+      {
+        h2: "Livrable DST / syndic",
+        body: "Carte des zones traitées + dates + photos des points de contrôle convenus au marché.",
+      }
+    ],
+    faq: [
+      {
+        q: "Peut-on tracer le zéro phyto / méthode utilisée ?",
+        a: "Oui via consignes d’intervention et checklist. Utile pour reporting marché public.",
+      },
+      {
+        q: "Comment éviter les zones oubliées ?",
+        a: "Découpez le site en zones ; le « fait » se coche zone par zone, pas site entier.",
+      },
+      {
+        q: "Lien avec collectivités ?",
+        a: "Oui — reporting agrégé côté page collectivités ; exécution détaillée ici.",
+      },
+      {
+        q: "Matériel thermique / balayeuse ?",
+        a: "Notez la contrainte engin sur l’intervention pour éviter le double booking.",
+      },
+      {
+        q: "Y a-t-il un essai sans engagement pour logiciel espace vert ?",
+        a: "15 jours — importez une tournée désherbage réelle.",
+      },
+    ],
+    gridItems: [
+      link("Entretien EV", "Multi-prestations récurrentes", "/espace-vert/entretien-espaces-verts"),
+      link("Collectivités", "Reporting marchés publics", "/espace-vert/collectivites"),
+      link("Syndics", "Exigences conseil syndical", "/espace-vert/syndics-coproprietes"),
+      link("Preuves de passage", "Répondre aux contestations", "/espace-vert/preuves-passages"),
+    ],
+    ctaPrimaryLabel: "Essai — tournées désherbage",
+    ctaSecondaryLabel: "Démo fréquences abords",
+  },
+  {
+    id: "EV-08",
+    key: "arrosage-irrigation",
+    path: "/espace-vert/arrosage-irrigation",
+    type: "service",
+    primaryKw: "planning arrosage espaces verts",
+    seoTitle: "Arrosage & irrigation — contrôles, pannes, tournées estivales",
+    seoDesc: "Tournées d’arrosage et contrôles irrigation : programmateurs, fuites, priorités canicule. Pour exploitations EV — essai 15 jours sans CB.",
+    crumbLabel: "Arrosage & irrigation",
+    h1Lead: "Arrosage & irrigation",
+    h1: "planifier les passages d’entretien — pas seulement les programmateurs",
+    sub: "Août, canicule : Paulo (chef d’équipe irrigation) a 22 programmateurs à contrôler et 3 fuites signalées par des syndics. Sans tournée structurée, on « passe voir » au feeling — jusqu’au massif grillé.",
+    claimBefore: "Des passages d’arrosage",
+    claimHighlight: "suivis",
+    claimSub: "planning arrosage espaces verts",
+    productStrip: "Arrosage · contrôles · fréquences",
+    empathyH2: "En canicule, l’arrosage devient un centre d’appels",
+    empathyBody: "Le client ne voit pas votre planification : il voit un massif brûlé. Contrôles, compteurs, électrovannes, exceptions manuelles : tout doit être tracé, surtout quand un intérimaire remplace Paulo.",
+    showcaseTitle: "Contrôles irrigation au planning",
+    showcaseSub: "Passages de vérification, reprises manuelles, sites sensibles.",
+    showcaseBadgeLeft: { title: "Contrôle IR", sub: "12 programmateurs" },
+    showcaseBadgeRight: "Buses OK",
+    proofH2: "L’irrigation aussi a besoin d’exécution terrain",
+    proofQuote: "Automatiser l’eau ne dispense pas de planifier les contrôles.",
+    proofItems: [
+      { title: "Passages contrôle", text: "Fréquences de vérification des programmateurs / goutte-à-goutte." },
+      { title: "Reprises", text: "Arrosages manuels ponctuels après plantation ou panne." },
+      { title: "Historique", text: "Qui a contrôlé quoi, quand — utile en litige sécheresse." },
+    ],
+    vsTitle: "« C’est automatique » vs contrôles planifiés",
+    demo: d(
+      "Démo produit · arrosage",
+      "Intégrer les contrôles irrigation dans la tournée d’été",
+      "Cas : 12 sites avec programmateurs + 3 plantations récentes en arrosage manuel temporaire.",
+      "Semaine de canicule. Le responsable d’exploitation doit garantir un contrôle rapide des programmateurs prioritaires (mairie + 2 syndics) et des reprises manuelles sur les jeunes plants.",
+      [
+        s("Liste sites irrigation", "Filtrer les sites avec prestation « contrôle arrosage »."),
+        s("Prioriser", "Clients sensibles en premier créneau du matin."),
+        s("Manuel", "3 sites plantation : passage arrosage manuel 2×/semaine pendant 4 semaines."),
+        s("Trace", "Pointage « contrôle OK / buse HS » pour déclencher SAV matériel si besoin."),
+      ],
+      "Irrigation · Semaine canicule",
+      [
+        r("Mairie — parc central", "Contrôle programmateur", "Priorité"),
+        r("Résidence Pinède", "Buse HS signalée", "SAV"),
+        r("Chantier plantation Oliviers", "Arrosage manuel ×2", "Temporaire"),
+        r("Golf partenaires — zone 3", "Contrôle bihebdo", "Planifié"),
+      ],
+      "Vous ne « gérez pas l’eau dans le cloud » : vous gérez les passages humains qui empêchent les massifs de mourir.",
+      "Essayer — contrôles irrigation",
+      "Voir saison été / canicule via printemps",
+      "list"
+    ),
+    bodySections: [
+      {
+        h2: "Cas — Semaine canicule, 22 sites irrigation",
+        body: "Tournée contrôles priorisée : massifs entrée syndic > pelouses secondaires. Fuite ZA Les Pins ouverte en ticket terrain avec photo + statut. Programmation manuelle temporaire notée pour ne pas laisser un « on verra lundi ».",
+        bullets: [
+          "Checklist contrôle (programmateur, pression, secteur)",
+          "Panne / fuite = ticket rattaché au site",
+          "Priorités visibles pour l’intérimaire du week-end",
+        ],
+      },
+      {
+        h2: "≠ plantations / massifs",
+        body: "La pose de massifs est une autre page. Ici : faire vivre l’eau après la pose.",
+      },
+      {
+        h2: "Livrable",
+        body: "Journal de contrôles + incidents ouverts/clos pour le gestionnaire de site.",
+      }
+    ],
+    faq: [
+      {
+        q: "Gère-t-on les programmateurs connectés ?",
+        a: "PROGESTI orchestre la tournée et les preuves d’intervention ; ce n’est pas un hyperviseur irrigation industriel.",
+      },
+      {
+        q: "Astreinte week-end ?",
+        a: "Affectez un binôme + liste prioritaire des sites sensibles (entrée, jeux, clinique).",
+      },
+      {
+        q: "Lien facturation eau / forfaits ?",
+        a: "Les interventions hors forfait (réparation fuite) peuvent être tracées pour facturation du réalisé.",
+      },
+      {
+        q: "Photos obligatoires ?",
+        a: "Recommandées sur fuites et compteurs — opposables en litige.",
+      },
+      {
+        q: "Puis-je essayer avant d’engager mon équipe sur logiciel espace vert ?",
+        a: "15 jours — chargez votre tournée d’août type.",
+      },
+    ],
+    gridItems: [
+      link("Paysagisme", "Chantiers & reprises post-plantation", "/espace-vert/paysagisme"),
+      link("Entretien EV", "Prestations récurrentes", "/espace-vert/entretien-espaces-verts"),
+      link("Saison printemps", "Pic d’activité global", "/espace-vert/saison-printemps"),
+      link("Multi-sites", "Portefeuille sous contrôle", "/espace-vert/multi-sites"),
+    ],
+    ctaPrimaryLabel: "Essai — passages arrosage",
+    ctaSecondaryLabel: "Démo contrôles",
+  },
+];

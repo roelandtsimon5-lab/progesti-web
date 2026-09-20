@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getActiveBlogCategories } from "@/lib/blog";
 import { glossaryTerms } from "@/lib/glossary";
+import { listAllMarketingVerticalPaths } from "@/lib/marketing";
 import { modules, site, solutions } from "@/lib/site";
 
 type Freq = MetadataRoute.Sitemap[number]["changeFrequency"];
@@ -65,6 +66,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/solutions/${s.slug}`, 0.8, "monthly"),
   );
 
+  /** Verticales EV + Sécurité (séparées de la propreté — ne pas fusionner). */
+  const verticalMarketingPages = listAllMarketingVerticalPaths().map((path) =>
+    entry(
+      path,
+      path.startsWith("/logiciel-") ? 0.9 : path === "/espace-vert" || path === "/securite" ? 0.85 : 0.75,
+      "monthly",
+    ),
+  );
+
   /**
    * URLs en 308 (next.config) ou retirées — ne pas les réindexer.
    * (Anciens posts / features fusionnées ; pas de /lp/** ici.)
@@ -97,6 +107,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...money,
     ...solutionPages,
+    ...verticalMarketingPages,
     ...featurePages,
     ...content,
     ...categoryPages,

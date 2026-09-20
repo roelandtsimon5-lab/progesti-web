@@ -60,6 +60,61 @@ export type IndustryShowcase = {
   badgeRight?: string;
 };
 
+/** Variante visuelle mock UI (différenciation page à page). */
+export type IndustryDemoVariant =
+  | "list"
+  | "board"
+  | "timeline"
+  | "checklist"
+  | "split";
+
+/** Tone statut mock UI (couleurs). */
+export type IndustryDemoTone = "ok" | "warn" | "danger" | "info" | "neutral";
+
+/** Ligne mock UI — champs optionnels rétrocompat. */
+export type IndustryDemoRow = {
+  left: string;
+  right: string;
+  status?: string;
+  /** Sous-ligne (engin, horodatage, photo…). */
+  meta?: string;
+  tone?: IndustryDemoTone;
+};
+
+/** Démo produit unique par page (walkthrough + mock UI). */
+export type IndustryDemo = {
+  eyebrow: string;
+  h2: string;
+  lead: string;
+  scenario: string;
+  steps: readonly { label: string; detail: string }[];
+  uiLabel: string;
+  uiRows: readonly IndustryDemoRow[];
+  takeaway: string;
+  primaryCtaLabel?: string;
+  secondaryCtaLabel?: string;
+  /** Layout mock UI — défaut list (rétrocompat). */
+  variant?: IndustryDemoVariant;
+  /** Barre d’outils mock (filtres, semaine, météo…). */
+  uiToolbar?: string;
+  /** Alerte bandeau (orage, conflit engin, litige…). */
+  uiAlert?: string;
+  /** En-têtes colonnes (variant list table-like). */
+  uiColumns?: readonly string[];
+  /** Micro-copy bas de mock. */
+  uiHint?: string;
+  /** Titres panneaux split (gauche / droite). */
+  uiSplitLabels?: readonly [string, string];
+};
+
+/** Blocs éditoriaux H2/H3 pour copy longue différenciée. */
+export type IndustryBodySection = {
+  h2: string;
+  body: string;
+  bullets?: readonly string[];
+  h3?: readonly { title: string; body: string }[];
+};
+
 export type IndustryPageConfig = {
   slug: string;
   seo: {
@@ -87,6 +142,13 @@ export type IndustryPageConfig = {
   breadcrumbs?: readonly { label: string; href: string }[];
   /** Titre H2 du comparatif Excel/WhatsApp (optionnel) */
   vsTitle?: string;
+  /** Section démo produit spécifique à la page */
+  demo?: IndustryDemo;
+  /** Sections éditoriales longues (SEO / E-E-A-T) */
+  bodySections?: readonly IndustryBodySection[];
+  /** CTAs hero optionnels (sinon défaut essai / démo) */
+  ctaPrimaryLabel?: string;
+  ctaSecondaryLabel?: string;
 };
 
 export type IndustrySlug =

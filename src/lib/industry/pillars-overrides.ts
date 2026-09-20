@@ -1,9 +1,11 @@
-import type { IndustryFeature, IndustryPillar } from "./types";
 import { defaultPillars } from "./default";
+import type { IndustryFeature, IndustryPillar } from "./types";
 
-type FeaturePatch = Partial<Pick<IndustryFeature, "label" | "panelTitle" | "panelBody">>;
+type FeaturePatch = Partial<
+  Pick<IndustryFeature, "label" | "panelTitle" | "panelBody" | "href">
+>;
 
-/** Applique des surcharges copy par id de feature, sans dupliquer toute la matrice 4×4. */
+/** Applique des surcharges copy (et href) par id de feature, sans dupliquer toute la matrice 4×4. */
 export function applyFeaturePatches(
   pillars: readonly IndustryPillar[],
   patches: Record<string, FeaturePatch>,

@@ -19,5 +19,5 @@ export function getIndustrySlugs(): IndustrySlug[] {
 
 export { defaultIndustryConfig, mergeIndustryConfig } from "./default";
 export { industryConfigs } from "./solutions";
-export type { IndustryPageConfig, IndustryPillar, IndustryFeature, MockKind } from "./types";
+export type { IndustryPageConfig, IndustryPillar, IndustryFeature, MockKind, IndustryDemo, IndustryBodySection } from "./types";
 export { defaultPillars } from "./default";

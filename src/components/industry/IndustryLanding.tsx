@@ -17,6 +17,31 @@ import { IndustrySectionNav } from "./IndustrySectionNav";
 import { IndustryMetierStrip } from "./IndustryMetierStrip";
 import { IndustryVsSpreadsheet } from "./IndustryVsSpreadsheet";
 import { IndustryHelpRail } from "./IndustryHelpRail";
+import { MarketingDemoSection } from "@/components/marketing/MarketingDemoSection";
+import { MarketingSecuriteDemo } from "@/components/marketing/MarketingSecuriteDemo";
+import { MarketingBodySections } from "@/components/marketing/MarketingBodySections";
+
+function isSecuritePath(path: string | undefined) {
+  if (!path) return false;
+  return path === "/securite" || path.startsWith("/securite/") || path.startsWith("/logiciel-securite");
+}
+
+function isEspaceVertPath(path: string | undefined) {
+  if (!path) return false;
+  return (
+    path === "/espace-vert" ||
+    path.startsWith("/espace-vert/") ||
+    path.startsWith("/logiciel-espace-vert")
+  );
+}
+
+type MarketingVertical = "proprete" | "espace-vert" | "securite";
+
+function detectVertical(path: string | undefined): MarketingVertical {
+  if (isSecuritePath(path)) return "securite";
+  if (isEspaceVertPath(path)) return "espace-vert";
+  return "proprete";
+}
 
 function HandMark({ className = "" }: { className?: string }) {
   return (
@@ -36,14 +61,74 @@ type Props = {
 };
 
 export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
-  const { hero, empathy, pillars, showcase, proof, grid, faq, vsTitle } = config;
+  const { hero, empathy, pillars, showcase, proof, grid, faq, vsTitle, demo, bodySections } =
+    config;
   const ctaSlug = config.slug === "default" ? "industry" : `solution_${config.slug}`;
   const solutionMeta = solutions.find((s) => s.slug === config.slug);
+  const vertical = detectVertical(config.seo.path);
+  const isMarketingVertical = vertical !== "proprete";
   const breadcrumbs =
     config.breadcrumbs ??
     (config.slug !== "default" && solutionMeta
       ? solutionBreadcrumb(solutionMeta.title, config.slug)
       : null);
+  const primaryCta = config.ctaPrimaryLabel ?? `Essai ${site.trialDays} jours gratuit`;
+  const secondaryCta = config.ctaSecondaryLabel ?? ctaLabels.demoGate;
+
+  const heroEyebrow =
+    vertical === "espace-vert"
+      ? "Logiciel espaces verts · France · prix public"
+      : vertical === "securite"
+        ? "Logiciel gardiennage & sécurité · France · prix public"
+        : solutionMeta
+          ? null
+          : "Logiciel propreté · France · prix public";
+
+  const heroChips =
+    vertical === "espace-vert"
+      ? [
+          "Planning · pointage · preuves EV",
+          `Essai ${site.trialDays} j · sans CB`,
+          "Fréquences & multi-sites",
+          `Support FR · ${site.company.city}`,
+        ]
+      : vertical === "securite"
+        ? [
+            "Vacations · rondes · preuves",
+            `Essai ${site.trialDays} j · sans CB`,
+            "Backups & reporting client",
+            `Support FR · ${site.company.city}`,
+          ]
+        : [
+            `${modules.length} modules inclus`,
+            `Essai ${site.trialDays} j · sans CB`,
+            "Prix public · pas de devis",
+            `Support FR · ${site.company.city}`,
+          ];
+
+  const heroPhoto =
+    hero.mediaPhoto ??
+    (vertical === "espace-vert"
+      ? "/hero-planning.webp"
+      : vertical === "securite"
+        ? "/screen-passages.webp"
+        : "/screen-telegestion.webp");
+  const heroPhotoAlt =
+    hero.mediaPhotoAlt ??
+    (vertical === "espace-vert"
+      ? "Planning et tournées espaces verts sur PROGESTI"
+      : vertical === "securite"
+        ? "Suivi de vacations et passages sécurité sur PROGESTI"
+        : "Équipe d’entreprise de nettoyage");
+
+  const demoBlock =
+    demo != null ? (
+      vertical === "securite" ? (
+        <MarketingSecuriteDemo demo={demo} eventSlug={ctaSlug} />
+      ) : (
+        <MarketingDemoSection demo={demo} eventSlug={ctaSlug} />
+      )
+    ) : null;
 
   return (
     <>
@@ -51,14 +136,19 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
         <div className="container relative grid items-center gap-8 pb-9 pt-7 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-10 lg:pb-11 lg:pt-6">
           <div className="industry-hero-rise relative z-10">
             {breadcrumbs ? <Breadcrumb items={breadcrumbs} dark /> : null}
-            {!solutionMeta ? (
+            {heroEyebrow ? (
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-lime-cta/90">
-                Logiciel propreté · France · prix public
+                {heroEyebrow}
               </p>
             ) : null}
-            {solutionMeta ? (
+            {solutionMeta && !isMarketingVertical ? (
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-white/55">
                 Solution · {solutionMeta.navHint}
+              </p>
+            ) : null}
+            {hero.productStripLabel && isMarketingVertical ? (
+              <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-white/55">
+                {hero.productStripLabel}
               </p>
             ) : null}
             <h1 className="font-sans text-[1.85rem] font-extrabold leading-[1.15] tracking-[-0.02em] text-white md:text-[2.25rem] lg:text-[2.4rem]">
@@ -79,7 +169,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                 event="trial_start"
                 eventPayload={{ cta: `${ctaSlug}_hero_trial` }}
               >
-                Essai {site.trialDays} jours gratuit
+                {primaryCta}
               </ButtonLink>
               <ButtonLink
                 href={cta.demo}
@@ -88,22 +178,14 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                 className="!rounded-[2px] !border-white/40 !px-8 !py-3.5 !text-[1.05rem] !font-bold sm:w-auto"
                 eventPayload={{ cta: `${ctaSlug}_hero_demo` }}
               >
-                {ctaLabels.demoGate}
+                {secondaryCta}
               </ButtonLink>
             </div>
             <p className="mt-4 text-sm text-white/55">
               Sans carte bancaire · {pricingCopy.from} · Starter, Pro ou Premium
             </p>
-            <ul
-              className="mt-5 flex flex-wrap gap-2"
-              aria-label="Points de confiance"
-            >
-              {[
-                `${modules.length} modules inclus`,
-                `Essai ${site.trialDays} j · sans CB`,
-                "Prix public · pas de devis",
-                `Support FR · ${site.company.city}`,
-              ].map((item) => (
+            <ul className="mt-5 flex flex-wrap gap-2" aria-label="Points de confiance">
+              {heroChips.map((item) => (
                 <li
                   key={item}
                   className="rounded-[2px] border border-white/15 bg-white/8 px-2.5 py-1 text-[11px] font-bold text-white/90 sm:text-xs"
@@ -112,7 +194,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                 </li>
               ))}
             </ul>
-            <HeroSocialProof />
+            {!isMarketingVertical ? <HeroSocialProof /> : null}
           </div>
 
           <div className="industry-hero-rise industry-hero-rise-delay relative">
@@ -124,13 +206,13 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
             >
               <div className="relative aspect-[16/10]">
                 <Image
-                  src={hero.mediaPhoto ?? "/screen-telegestion.webp"}
-                  alt={hero.mediaPhotoAlt ?? "Équipe d’entreprise de nettoyage"}
+                  src={heroPhoto}
+                  alt={heroPhotoAlt}
                   fill
                   priority
                   className="object-cover object-[center_22%] transition duration-700 group-hover:scale-[1.02]"
                   sizes="(max-width: 1024px) 100vw, 680px"
-                quality={95}
+                  quality={95}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/45 to-transparent" />
 
@@ -178,14 +260,20 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
 
       <div className="industry-hero-wave -mt-px bg-[var(--warm-light)]" aria-hidden />
 
-      <IndustryMetierStrip />
+      <IndustryMetierStrip vertical={vertical} />
       <IndustrySectionNav />
 
       <section className="section relative bg-white industry-anchor" id="produit">
         <div className="container">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <p className="eyebrow">Explorer produit</p>
+              <p className="eyebrow">
+                {vertical === "espace-vert"
+                  ? "Terrain espaces verts"
+                  : vertical === "securite"
+                    ? "Terrain gardiennage"
+                    : "Explorer produit"}
+              </p>
               <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-[3.1rem] md:leading-[1.05]">
                 {empathy.h2}
               </h2>
@@ -194,7 +282,14 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               </p>
             </div>
           </Reveal>
-          <div className="mt-12 md:mt-16">
+        </div>
+      </section>
+
+      {isMarketingVertical ? demoBlock : null}
+
+      <section className="relative bg-white pb-14 md:pb-20">
+        <div className="container">
+          <div className="md:mt-4">
             <IndustryProductExplorer pillars={pillars} mockContext={config.slug} />
           </div>
           <Reveal>
@@ -215,7 +310,26 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
         </div>
       </section>
 
-      <IndustryVsSpreadsheet title={vsTitle} />
+      <IndustryVsSpreadsheet
+        title={vsTitle}
+        intro={
+          vertical === "espace-vert"
+            ? {
+                href: "/logiciel-espace-vert",
+                linkLabel: "logiciel pour entreprises d’espaces verts",
+                after: `est pensé pour les tournées, fréquences et preuves terrain — prix public, modules métier, support local au ${site.phone}.`,
+              }
+            : vertical === "securite"
+              ? {
+                  href: "/logiciel-securite-gardiennage",
+                  linkLabel: "logiciel pour sociétés de gardiennage",
+                  after: `est pensé pour les vacations, rondes et preuves de présence — prix public, modules métier, support local au ${site.phone}.`,
+                }
+              : undefined
+        }
+      />
+
+      {!isMarketingVertical && demoBlock}
 
       <section className="overflow-hidden bg-white py-14 md:py-20 industry-anchor" id="showcase">
         <div className="container">
@@ -272,28 +386,41 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
         </div>
       </section>
 
-      <section className="border-y border-line bg-paper py-10">
-        <div className="container">
-          <p className="eyebrow text-center">Univers métier</p>
-          <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
-            {solutions.map((s) => (
-              <li key={s.slug}>
-                <Link
-                  href={`/solutions/${s.slug}`}
-                  className={`font-display text-base font-bold underline-offset-4 hover:text-green-deep hover:underline ${
-                    s.slug === config.slug ? "text-green-deep underline" : "text-ink/80"
-                  }`}
-                >
-                  {s.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/* Strip propreté masqué sur verticales marketing EV / Sécurité (anti-mélange SEO). */}
+      {!(
+        config.seo.path.startsWith("/securite") ||
+        config.seo.path.startsWith("/espace-vert") ||
+        config.seo.path.startsWith("/logiciel-securite") ||
+        config.seo.path.startsWith("/logiciel-espace")
+      ) ? (
+        <section className="border-y border-line bg-paper py-10">
+          <div className="container">
+            <p className="eyebrow text-center">Univers métier</p>
+            <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+              {solutions.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/solutions/${s.slug}`}
+                    className={`font-display text-base font-bold underline-offset-4 hover:text-green-deep hover:underline ${
+                      s.slug === config.slug ? "text-green-deep underline" : "text-ink/80"
+                    }`}
+                  >
+                    {s.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
 
-      <TestimonialsSection limit={4} />
-      <ClientLogoStrip />
+      {/* Témoignages / logos propreté : masqués sur EV & Sécurité (anti-fuite verticale SEO). */}
+      {!isMarketingVertical ? (
+        <>
+          <TestimonialsSection limit={4} />
+          <ClientLogoStrip />
+        </>
+      ) : null}
 
       <section className="section bg-white industry-anchor" id="preuve">
         <div className="container">
@@ -449,6 +576,8 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
           </Reveal>
         </div>
       </section>
+
+      {bodySections?.length ? <MarketingBodySections sections={bodySections} /> : null}
 
       <section className="section bg-white pb-28 industry-anchor lg:pb-16" id="faq" data-cta-sticky-safe>
         <div className="container max-w-3xl">

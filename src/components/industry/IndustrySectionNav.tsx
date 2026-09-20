@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-const sections = [
+const baseSections = [
   { id: "produit", label: "Produit" },
+  { id: "demo", label: "Démo" },
   { id: "showcase", label: "Terrain" },
+  { id: "metier-detail", label: "Détail" },
   { id: "avis", label: "Avis" },
   { id: "preuve", label: "Métier" },
   { id: "fonctionnalites", label: "Modules" },
@@ -14,8 +16,19 @@ const sections = [
 
 export function IndustrySectionNav() {
   const [active, setActive] = useState<string>("produit");
+  const [visibleIds, setVisibleIds] = useState<string[]>(["produit", "showcase", "avis", "preuve", "fonctionnalites", "tarifs", "faq"]);
+
+  const sections = useMemo(
+    () => baseSections.filter((s) => visibleIds.includes(s.id)),
+    [visibleIds],
+  );
 
   useEffect(() => {
+    const present = baseSections
+      .map((s) => s.id)
+      .filter((id) => document.getElementById(id));
+    if (present.length) setVisibleIds(present);
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -26,8 +39,8 @@ export function IndustrySectionNav() {
       { rootMargin: "-22% 0px -52% 0px", threshold: [0, 0.15, 0.35, 0.55] },
     );
 
-    for (const s of sections) {
-      const el = document.getElementById(s.id);
+    for (const id of present) {
+      const el = document.getElementById(id);
       if (el) observer.observe(el);
     }
 
