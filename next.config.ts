@@ -77,8 +77,14 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // /sécurité → /securite (security landing)
+      // Both URL-encoded and raw UTF-8 forms to handle browser/CDN variations
       {
         source: "/s%C3%A9curit%C3%A9",
+        destination: "/securite",
+        permanent: true,
+      },
+      {
+        source: "/sécurité",
         destination: "/securite",
         permanent: true,
       },

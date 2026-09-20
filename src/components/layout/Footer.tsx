@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site, solutions, modules } from "@/lib/site";
 import { cta, ctaLabels } from "@/lib/cta";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { FooterPitch, FooterHeroPitch } from "@/components/layout/FooterPitch";
 
 const columns = [
   {
@@ -59,9 +60,7 @@ export function Footer() {
         <div className="rounded-2xl bg-white/8 p-8 md:flex md:items-center md:justify-between md:gap-8">
           <div>
             <p className="font-display text-2xl font-extrabold tracking-tight">{site.name}</p>
-            <p className="mt-2 text-sm text-white/90">
-              Organisez bureaux, syndics, locaux pros et fin de chantier — du planning à la facture.
-            </p>
+            <FooterHeroPitch />
           </div>
           <div className="mt-6 flex flex-wrap gap-3 md:mt-0">
             <ButtonLink
@@ -82,8 +81,7 @@ export function Footer() {
 
         <div className="mt-12 grid gap-10 md:grid-cols-[1.25fr_repeat(4,1fr)]">
           <div>
-            <p className="text-sm uppercase tracking-[0.14em] text-[#B8F5D4]">{site.tagline}</p>
-            <p className="mt-4 max-w-sm text-sm text-white/90">{site.description}</p>
+            <FooterPitch />
             <p className="mt-6 text-sm">
               <a
                 className="font-semibold text-white underline underline-offset-2 hover:text-[#B8F5D4]"
