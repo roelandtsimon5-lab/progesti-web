@@ -40,6 +40,8 @@ export function trialAppUrl(prefill?: {
   email?: string;
   phone?: string;
   source?: string;
+  /** Pack vertical métier (ex. "security" pour gardiennage). */
+  vertical?: string;
 }): string {
   const url = new URL(cta.trialApp);
   if (prefill?.company) url.searchParams.set("company", prefill.company);
@@ -47,6 +49,7 @@ export function trialAppUrl(prefill?: {
   if (prefill?.email) url.searchParams.set("email", prefill.email);
   if (prefill?.phone) url.searchParams.set("phone", prefill.phone);
   if (prefill?.source) url.searchParams.set("source", prefill.source);
+  if (prefill?.vertical) url.searchParams.set("vertical", prefill.vertical);
   return url.toString();
 }
 

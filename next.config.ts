@@ -76,6 +76,12 @@ const nextConfig: NextConfig = {
         destination: "/fonctionnalites/:path*",
         permanent: true,
       },
+      // /sécurité → /securite (security landing)
+      {
+        source: "/s%C3%A9curit%C3%A9",
+        destination: "/securite",
+        permanent: true,
+      },
     ];
   },
   /**
