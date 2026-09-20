@@ -41,8 +41,8 @@ const planningFaq = [
 ] as const;
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel planning nettoyage — Multi-sites → pointage → facture",
-  description: `Planning nettoyage multi-sites : affectez agents et sites, gérez absences et remplacements. Du planning au pointage mobile puis à la facture. Gratuit pour indépendants, ${trialCopy.metaSuffix}`,
+  title: "Logiciel planning nettoyage — Multi-sites, remplacements, sans Excel | PROGESTI",
+  description: `Logiciel de planning pour le nettoyage : multi-sites, fréquences, absences et remplacements. Relié au pointage et à la facture. Gratuit indépendants · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} j sans CB.`,
   path: "/logiciel-planning-nettoyage",
 });
 
@@ -160,6 +160,37 @@ export default function PillarPlanningPage() {
       </section>
 
       <section className="section bg-white">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+              Vue par agent ou vue par site ?
+            </h2>
+            <p className="mt-4 text-slate">
+              Deux façons de lire le planning selon ce que vous cherchez. Vue agent : où va
+              Marc cette semaine ? Vue site : qui passe au cabinet médical lundi matin ? PROGESTI
+              bascule de l&apos;une à l&apos;autre en un clic.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5">
+                <h3 className="font-display font-bold text-blue-deep">Vue agent</h3>
+                <p className="mt-2 text-sm text-slate">
+                  L&apos;emploi du temps d&apos;un agent sur la semaine. Utile pour répartir la
+                  charge, vérifier qu&apos;il n&apos;est pas sur deux sites en même temps.
+                </p>
+              </div>
+              <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5">
+                <h3 className="font-display font-bold text-blue-deep">Vue site</h3>
+                <p className="mt-2 text-sm text-slate">
+                  Qui intervient sur ce site et quand. Utile pour répondre au client, vérifier
+                  la couverture hebdo, préparer un remplacement.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section bg-blue-sky/30">
         <div className="container max-w-4xl">
           <Reveal>
             <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">

@@ -52,12 +52,12 @@ const pillarFaq = [
 ] as const;
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel entreprise de nettoyage — Planning, pointage, facture",
-  description: `Logiciel de gestion pour entreprises de nettoyage : planning multi-sites, pointage mobile, facturation du réalisé. Gratuit pour indépendants. Essai ${site.trialDays}j sans CB · Support FR ${site.phone}.`,
+  title: "Logiciel entreprise de nettoyage — Planning, pointage, facture | PROGESTI",
+  description: `Logiciel pour entreprise de nettoyage : planning multi-sites, pointage mobile, facturation du réalisé. Gratuit 0 € HT/mois indépendants · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} j sans CB.`,
   path: "/logiciel-entreprise-nettoyage",
   openGraph: {
-    title: "Logiciel entreprise de nettoyage — Planning, pointage, facture",
-    description: `Logiciel de gestion pour entreprises de nettoyage : planning multi-sites, pointage mobile, facturation du réalisé. Gratuit pour indépendants. Essai ${site.trialDays}j sans CB.`,
+    title: "Logiciel entreprise de nettoyage — Planning, pointage, facture | PROGESTI",
+    description: `Logiciel pour entreprise de nettoyage : planning multi-sites, pointage mobile, facturation du réalisé. Gratuit 0 € HT/mois indépendants · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} j sans CB.`,
   },
 });
 
@@ -69,8 +69,8 @@ export default function PillarNettoyagePage() {
     ],
     hero: {
       h1Lead: "Logiciel pour entreprise de nettoyage",
-      h1: "Planning multi-sites → pointage mobile → facturation",
-      sub: `Vous gérez des agents sur plusieurs sites, des fréquences différentes, des remplacements de dernière minute ? PROGESTI centralise tout : du planning à la facture, en passant par les preuves terrain. Gratuit pour indépendants, essai ${site.trialDays} jours sans CB.`,
+      h1: "Planning multi-sites, pointage mobile, facturation — sans Excel ni WhatsApp",
+      sub: `Vous gérez des agents sur plusieurs sites, des fréquences différentes, des remplacements de dernière minute ? PROGESTI centralise tout : du planning à la facture, en passant par les preuves terrain. Gratuit 0 € HT/mois (indépendants) · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} jours sans CB.`,
     },
     empathy: {
       h2: "Vous êtes gérant. Votre semaine ne devrait pas ressembler à ça.",
