@@ -43,7 +43,7 @@ export function HomeNew() {
             </div>
 
             <p className="mt-8 text-sm text-white/70">
-              Essai 15 jours · Gratuit pour indépendants · 05 82 95 09 19
+              Essai 15 jours · Gratuit pour indépendants · 07 67 68 55 67
             </p>
           </div>
 

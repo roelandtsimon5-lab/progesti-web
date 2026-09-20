@@ -6,8 +6,8 @@ export const site = {
     "Logiciel de gestion pour entreprises de nettoyage et de propreté. Planifiez vos agents, pointez le terrain et facturez — bureaux, syndics, professionnels et fin de chantier.",
   url: "https://progesti.fr",
   email: "contact@progesti.fr",
-  phone: "05 82 95 09 19",
-  phoneTel: "+33582950919",
+  phone: "07 67 68 55 67",
+  phoneTel: "+33767685567",
   sameAs: [] as readonly string[],
   trialDays: 15,
   /** @deprecated Use trialDays. Kept for backward compatibility with ads pages. */

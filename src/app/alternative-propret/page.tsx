@@ -95,7 +95,7 @@ const faqItems = [
   },
   {
     q: "Je suis déjà sur Propret : la migration est-elle lourde ?",
-    a: "On reprend clients, sites et contrats. La plupart des gérants sont opérationnels en quelques heures. L'équipe Toulouse peut accompagner l'import — appelez le 05 82 95 09 19 ou démarrez l'essai 15 jours sans CB pour tester sur vos vrais sites avant de basculer.",
+    a: "On reprend clients, sites et contrats. La plupart des gérants sont opérationnels en quelques heures. L'équipe Toulouse peut accompagner l'import — appelez le 07 67 68 55 67 ou démarrez l'essai 15 jours sans CB pour tester sur vos vrais sites avant de basculer.",
   },
   {
     q: "Quels modules sont inclus dans chaque offre ?",

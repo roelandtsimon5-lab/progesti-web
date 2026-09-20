@@ -301,7 +301,7 @@ Priorité : Product Explorer (mock+texte sync) → copy unique 5 métiers → mo
 - Prix : 149 € HT/mois · 1490 €/an si toggle · 5 utilisateurs · tous modules
 - Essai : site.trialDays (7 j) · sans CB
 - USP : « Fait par des gens du nettoyage »
-- Tél : site.phone / site.phoneTel (05 82 95 09 19)
+- Tél : site.phone / site.phoneTel (07 67 68 55 67)
 - Tokens : blue-deep, green-action, trial #B8F000 — PAS le lime Jobber #A8E300 comme marque
 - Modules : uniquement src/lib/site.ts → modules[9]
 - INTERDIT : faux témoignages, 400k users, G2, −40%, AI, bookings, marketing, chat Jeanine, multi-tier pricing, features inventées
