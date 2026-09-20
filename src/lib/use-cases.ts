@@ -17,7 +17,7 @@ export const productFacts = {
   modules: "9",
   modulesLabel: "modules inclus · Gratuit pour indépendants",
   support: "Support FR",
-  supportLabel: "Équipe à Toulouse · 05 82 95 09 19",
+  supportLabel: "Équipe à Toulouse · 07 67 68 55 67",
   trial: "Essai 15 jours",
   trialLabel: "sans carte bancaire",
 } as const;

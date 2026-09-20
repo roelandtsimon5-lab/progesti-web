@@ -207,7 +207,7 @@ const homeConfig = mergeIndustryConfig(defaultIndustryConfig, {
       },
       {
         title: "Support réactif",
-        text: "Équipe MSNE SAS à Toulouse (31). Joignable au 05 82 95 09 19.",
+        text: "Équipe MSNE SAS à Toulouse (31). Joignable au 07 67 68 55 67.",
       },
     ],
   },
