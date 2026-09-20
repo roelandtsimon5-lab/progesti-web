@@ -7,6 +7,8 @@ import { HeroSocialProof, TestimonialsSection } from "@/components/conversion/Te
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { cta, trialAppUrl } from "@/lib/cta";
+
+export const dynamic = "force-static";
 import { pageMeta } from "@/lib/seo";
 import { pricingCopy, site, trialCopy } from "@/lib/site";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
