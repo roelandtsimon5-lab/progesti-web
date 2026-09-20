@@ -93,7 +93,7 @@ Référence externe : [Jobber commercial cleaning features](https://www.getjobbe
 | Users | **5** inclus |
 | Modules | **9** — aucun payant en plus |
 | Essai | **7 jours**, sans CB |
-| Tel | **05 82 95 09 19** |
+| Tel | **07 67 68 55 67** |
 | App | Cloud + Android/iOS |
 | CTA | `cta.trial` · `cta.demo` · labels `ctaLabels` |
 
@@ -432,7 +432,7 @@ LIVRABLES :
 - Score auto /10
 - P0 humains restants (screenshot produit)
 
-RAPPELS : 149€ · 7j sans CB · 5 users · tel 05 82 95 09 19
+RAPPELS : 149€ · 7j sans CB · 5 users · tel 07 67 68 55 67
 Ne pas toucher /lp/**, /ancien, /v1, /v2
 Ne pas committer
 ```

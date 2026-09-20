@@ -49,7 +49,7 @@ Tu livres une page qui :
 | Utilisateurs | **Jusqu’à 5** inclus |
 | Modules | **9 modules** — aucun payant en plus |
 | Essai | **7 jours gratuit**, sans carte bancaire |
-| Téléphone | **05 82 95 09 19** |
+| Téléphone | **07 67 68 55 67** |
 | App | Cloud + **Android & iOS** agents |
 | Marque | **PROGESTI** — logiciel entreprises de nettoyage France |
 | Funnel CTA | `cta.trial` → `/essai-gratuit` · `cta.demo` → `/demo` |
@@ -346,7 +346,7 @@ Templates par type :
 - « Combien de temps pour démarrer ? » → compte + sites en minutes  
 - « Remplace Excel ? » → oui, progressivement  
 - Question technique module (géoloc, export compta, récurrences…)  
-- « Support ? » → tel 05 82 95 09 19  
+- « Support ? » → tel 07 67 68 55 67  
 
 `FaqPageLd` avec toutes les questions.
 
@@ -515,7 +515,7 @@ Tu es le site maker décrit dans docs/PROMPT-CREATION-PAGE-FONCTIONNALITE.md.
     - P0 restants humains (screenshot produit réel, témoignage signé)
 
 RAPPELS :
-- 149 € HT/mois · 7 jours essai sans CB · 5 users · tel 05 82 95 09 19
+- 149 € HT/mois · 7 jours essai sans CB · 5 users · tel 07 67 68 55 67
 - Ne pas toucher /lp/**, /ancien, /v1, /v2
 - Ne pas committer
 - Copy 100% en français, spécifique {MODULE_TITLE}, ≥ 1200 mots visibles

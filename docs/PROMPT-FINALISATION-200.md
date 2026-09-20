@@ -6,7 +6,7 @@ Utiliser ce prompt pour une passe complète production-ready sur le site marketi
 
 - **149 € HT/mois** · **5 utilisateurs** · **essai 7 jours sans CB**
 - USP : **« Fait par des gens du nettoyage »**
-- Tél : **05 82 95 09 19** · Tokens **blue-deep** + **#B8F000**
+- Tél : **07 67 68 55 67** · Tokens **blue-deep** + **#B8F000**
 - **Interdit** : faux social proof, chat bot fake, témoignages inventés, tiers Starter/Pro/Premium sur le site principal, features absentes du produit
 
 ## Architecture cible
