@@ -12,8 +12,8 @@ import { pageMeta } from "@/lib/seo";
 import { modules, site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Alternative Propret — Logiciel nettoyage, essai 15j",
-  description: `Vous comparez une alternative à Propret ? PROGESTI structure planning, pointage et facture. Gratuit pour indépendants, essai ${site.trialDays}j sans CB · ${site.phone}.`,
+  title: "Alternative Propret 2026 — Comparatif prix, essai, modules",
+  description: `Comparez Propret et PROGESTI : même entrée gratuite (indépendants), essai ${site.trialDays}j sans CB, ${modules.length} modules inclus. Tableau comparatif factuel + avis terrain.`,
   path: "/alternative-propret",
 });
 
@@ -121,11 +121,12 @@ export default function AlternativePropretPage() {
       <SoftwareApplicationLd />
       <FaqPageLd items={[...faqItems]} />
       <IndustryPageHero
-        eyebrow="Comparaison factuelle"
-        title="Alternative à Propret pour entreprises de nettoyage"
-        lead="Même grille tarifaire publique que Propret (0 € (indépendants) / 49,99 / 99,99 € HT/mois). La différence : un outil pensé métier nettoyage — planning → pointage → facture — avec support FR à Toulouse."
+        eyebrow="Comparatif factuel 2026"
+        title="Alternative Propret : faites le bon choix pour votre entreprise"
+        lead={`Vous comparez Propret et ses concurrents ? Voici les faits publics : même entrée gratuite (indépendants), essai ${site.trialDays} jours sans CB chez PROGESTI, support FR à Toulouse. Décidez sur des critères concrets.`}
         breadcrumbs={[
           { label: "Accueil", href: "/" },
+          { label: "Comparatifs", href: "/comparatifs" },
           { label: "Alternative Propret" },
         ]}
         trialEvent="alt_propret_trial"
@@ -135,25 +136,25 @@ export default function AlternativePropretPage() {
       <section className="section bg-white">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
-            Pourquoi chercher une alternative à Propret ?
+            Pourquoi comparer avant de choisir ?
           </h2>
           <div className="prose prose-slate mt-4 max-w-none">
             <p>
               Vous gérez une entreprise de nettoyage. Excel et WhatsApp saturent : remplacements du
-              lundi, passages à tracer pour un syndic, facture à sortir avant la fin du mois. Vous
-              comparez les logiciels — Propret apparaît souvent. Cette page répond à la question
-              « alternative Propret » avec des faits publics uniquement.
+              lundi matin, passages à tracer pour un syndic, factures en retard. Vous comparez les
+              logiciels métier — Propret, Kliner et d&apos;autres apparaissent dans vos recherches.
             </p>
             <p>
-              Propret et PROGESTI ciblent le même marché et affichent la même grille publique. La
-              question n&apos;est pas « qui est moins cher » (personne ne l&apos;est sur ces paliers).
-              C&apos;est : quel outil colle à votre métier — bureaux, syndics, fin de chantier, AE —
-              et qui vous répond quand ça coince un vendredi soir.
+              <strong>Ce qui compte pour trancher :</strong> le prix d&apos;entrée, la durée d&apos;essai,
+              les modules inclus, et le support quand ça coince un vendredi soir. Cette page répond
+              avec des faits publics uniquement — pas de notes inventées ni de fonctions qu&apos;on ne
+              peut pas vérifier.
             </p>
             <p>
-              On ne liste pas les fonctions internes de Propret que nous ne pouvons pas vérifier.
-              On compare tarifs publics, durée d&apos;essai affichée, et ce que PROGESTI fait
-              concrètement sur la chaîne planning → pointage → facture.
+              Propret et PROGESTI affichent la même entrée gratuite pour indépendants. La différence
+              se joue sur l&apos;essai ({site.trialDays} jours sans CB chez PROGESTI vs 14 jours chez
+              Propret) et sur l&apos;accompagnement : support FR joignable au {site.phone}, équipe à
+              Toulouse.
             </p>
           </div>
         </div>
@@ -161,8 +162,28 @@ export default function AlternativePropretPage() {
 
       <section className="section bg-blue-sky/30">
         <div className="container max-w-4xl">
+          <div className="mb-10 rounded-[3px] border border-lime-cta/40 bg-lime-cta/10 p-5">
+            <h3 className="font-display text-lg font-bold text-blue-deep">
+              Comment choisir ? 3 critères concrets
+            </h3>
+            <ul className="mt-3 space-y-2 text-sm text-slate">
+              <li className="flex gap-2">
+                <span className="font-bold text-lime-cta">1.</span>
+                <span><strong>Durée d&apos;essai</strong> — 14 jours suffisent rarement pour tester sur vos vrais sites et vos agents. PROGESTI : {site.trialDays} jours sans CB.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-bold text-lime-cta">2.</span>
+                <span><strong>Prix d&apos;entrée</strong> — Les deux proposent une entrée gratuite pour indépendants. Pro et Premium : mêmes paliers (49,99 / 99,99 € HT/mois).</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-bold text-lime-cta">3.</span>
+                <span><strong>Support humain</strong> — Qui répond quand le planning casse un lundi matin ? PROGESTI : équipe FR au {site.phone}.</span>
+              </li>
+            </ul>
+          </div>
+
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
-            Comparaison des tarifs publics
+            Tableau comparatif des tarifs publics
           </h2>
           <p className="mt-2 text-sm text-slate">
             Tarifs HT mensuels affichés publiquement au moment de la rédaction. Vérifiez sur chaque
@@ -219,13 +240,14 @@ export default function AlternativePropretPage() {
 
           <div className="mt-6 rounded-[3px] border-l-4 border-lime-cta bg-white p-4">
             <p className="text-sm text-slate">
-              <strong className="text-blue-deep">À noter :</strong> PROGESTI offre une entrée gratuite pour indépendants, là où Propret commence à 29,99 €. Pour équipes : mêmes paliers (
-              49,99 / 99,99 € HT/mois), modules inclus des deux côtés. PROGESTI propose un essai de{" "}
-              {site.trialDays} jours <strong>sans carte bancaire</strong>. Détail des paliers sur{" "}
+              <strong className="text-blue-deep">Ce qu&apos;il faut retenir :</strong> Même entrée
+              gratuite pour indépendants chez les deux. PROGESTI se distingue sur l&apos;essai{" "}
+              <strong>({site.trialDays} jours sans CB)</strong> vs 14 jours chez Propret. Pour les
+              équipes : paliers identiques (49,99 / 99,99 € HT/mois). Le vrai différenciateur :
+              support FR joignable au {site.phone}, équipe à Toulouse.{" "}
               <Link href="/tarifs" className="font-semibold text-blue-royal hover:underline">
-                /tarifs
+                Voir tous les tarifs →
               </Link>
-              .
             </p>
           </div>
 
@@ -312,30 +334,39 @@ export default function AlternativePropretPage() {
       <section className="section bg-blue-sky/30">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
-            Trois critères pour trancher (sans blabla « moins cher »)
+            Pourquoi choisir PROGESTI plutôt que Propret ?
           </h2>
+          <p className="mt-2 text-sm text-slate">
+            Les deux outils sont sérieux. Voici ce qui fait la différence concrète :
+          </p>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
-            <div className="rounded-[3px] border border-blue-mist/70 bg-white p-5">
-              <h3 className="font-display text-lg font-bold text-blue-deep">Métier nettoyage</h3>
-              <p className="mt-2 text-sm text-slate">
-                Vocabulaire et workflows pour bureaux, syndics, locaux pros, fin de chantier et AE —
-                pas un ERP générique recollé sur la propreté.
-              </p>
-            </div>
-            <div className="rounded-[3px] border border-blue-mist/70 bg-white p-5">
-              <h3 className="font-display text-lg font-bold text-blue-deep">
-                Planning → pointage → facture
+            <div className="rounded-[3px] border-2 border-lime-cta/60 bg-white p-5">
+              <p className="text-xs font-bold uppercase tracking-wide text-lime-cta">Avantage</p>
+              <h3 className="mt-1 font-display text-lg font-bold text-blue-deep">
+                Essai {site.trialDays} jours
               </h3>
               <p className="mt-2 text-sm text-slate">
-                Ce que vous planifiez, l&apos;agent le pointe. Ce qui est pointé alimente la facture.
-                Moins de double saisie, moins de litiges « qui était où ».
+                vs 14 jours chez Propret. Testez sur vos vrais sites, avec vos agents. Sans carte
+                bancaire.
               </p>
             </div>
-            <div className="rounded-[3px] border border-blue-mist/70 bg-white p-5">
-              <h3 className="font-display text-lg font-bold text-blue-deep">Support FR Toulouse</h3>
+            <div className="rounded-[3px] border-2 border-lime-cta/60 bg-white p-5">
+              <p className="text-xs font-bold uppercase tracking-wide text-lime-cta">Avantage</p>
+              <h3 className="mt-1 font-display text-lg font-bold text-blue-deep">
+                Support humain FR
+              </h3>
               <p className="mt-2 text-sm text-slate">
-                Équipe joignable au {site.phone}. Essai {site.trialDays} jours sans CB (Propret
-                affiche 14 jours ; CB non précisée publiquement de leur côté).
+                Équipe à Toulouse, joignable au {site.phone}. Pas un chatbot ni un ticket anonyme.
+              </p>
+            </div>
+            <div className="rounded-[3px] border-2 border-lime-cta/60 bg-white p-5">
+              <p className="text-xs font-bold uppercase tracking-wide text-lime-cta">Avantage</p>
+              <h3 className="mt-1 font-display text-lg font-bold text-blue-deep">
+                Chaîne complète
+              </h3>
+              <p className="mt-2 text-sm text-slate">
+                Planning → pointage → facture. Ce qui est planifié est pointé, ce qui est pointé
+                alimente la facture. Moins de double saisie.
               </p>
             </div>
           </div>
@@ -345,67 +376,85 @@ export default function AlternativePropretPage() {
       <section className="section bg-white">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
-            Quand PROGESTI est pertinent comme alternative
+            Choisir PROGESTI : dans quels cas ?
           </h2>
           <div className="prose prose-slate mt-4 max-w-none">
             <p>
-              Si vous voulez un outil complet avec tarifs publics clairs, sans argument « on est
-              moins cher ». Gratuit (0 € pour indépendants) pour AE / solo ; Pro et Premium jusqu&apos;à
-              20 utilisateurs.
+              Vous voulez un outil avec tarifs publics clairs, sans devis opaque. Gratuit pour
+              indépendants ; Pro et Premium jusqu&apos;à 20 utilisateurs. Voici ce que PROGESTI fait
+              concrètement :
             </p>
-            <ul>
-              <li>
-                <strong>Planning multi-sites</strong> : fréquences (quotidien, hebdo, ponctuel),
-                remplacements sans ressaisir — détail sur{" "}
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5">
+              <h3 className="font-display font-bold text-blue-deep">Planning multi-sites</h3>
+              <p className="mt-2 text-sm text-slate">
+                Fréquences (quotidien, hebdo, ponctuel), remplacements d&apos;urgence sans
+                ressaisir.{" "}
                 <Link
                   href="/logiciel-planning-nettoyage"
                   className="font-semibold text-blue-royal hover:underline"
                 >
-                  logiciel planning nettoyage
+                  Détail planning →
                 </Link>
-                .
-              </li>
-              <li>
-                <strong>Pointage mobile</strong> : app Android/iOS, géolocalisation optionnelle,
-                heures qui remontent au bureau.
-              </li>
-              <li>
-                <strong>Facturation du réalisé</strong> : sans double saisie, suivi des impayés —
-                voir{" "}
+              </p>
+            </div>
+            <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5">
+              <h3 className="font-display font-bold text-blue-deep">Pointage mobile</h3>
+              <p className="mt-2 text-sm text-slate">
+                App Android/iOS, géolocalisation optionnelle. Les heures remontent au bureau sans
+                feuilles papier.
+              </p>
+            </div>
+            <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5">
+              <h3 className="font-display font-bold text-blue-deep">Facturation du réalisé</h3>
+              <p className="mt-2 text-sm text-slate">
+                Sans double saisie. Facturez ce qui a été pointé, suivez les impayés.{" "}
                 <Link
                   href="/logiciel-facturation-proprete"
                   className="font-semibold text-blue-royal hover:underline"
                 >
-                  facturation propreté
+                  Détail facturation →
                 </Link>
-                .
-              </li>
-              <li>
-                <strong>RH et prépaie</strong> : contrats, absences, variables au même endroit.
-              </li>
-            </ul>
+              </p>
+            </div>
+            <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5">
+              <h3 className="font-display font-bold text-blue-deep">RH et prépaie</h3>
+              <p className="mt-2 text-sm text-slate">
+                Contrats, absences, variables au même endroit. Prépaie centralisée pour vos exports.
+              </p>
+            </div>
+          </div>
+          <div className="prose prose-slate mt-6 max-w-none">
             <p>
-              Pour le pilier métier :{" "}
+              Pilier métier :{" "}
               <Link
                 href="/logiciel-entreprise-nettoyage"
                 className="font-semibold text-blue-royal hover:underline"
               >
                 logiciel pour entreprise de nettoyage
               </Link>
-              . Verticales{" "}
+              . Verticales :{" "}
               <Link href="/solutions/syndics" className="font-semibold text-blue-royal hover:underline">
                 syndics
               </Link>
-              ,{" "}
+              {", "}
               <Link
                 href="/solutions/fin-de-chantier"
                 className="font-semibold text-blue-royal hover:underline"
               >
                 fin de chantier
               </Link>
-              ,{" "}
+              {", "}
               <Link href="/solutions/bureaux" className="font-semibold text-blue-royal hover:underline">
                 bureaux
+              </Link>
+              {", "}
+              <Link
+                href="/solutions/auto-entrepreneurs"
+                className="font-semibold text-blue-royal hover:underline"
+              >
+                auto-entrepreneurs
               </Link>
               .
             </p>
@@ -416,10 +465,10 @@ export default function AlternativePropretPage() {
       <section className="section bg-blue-sky/30">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
-            Questions fréquentes (objections réelles)
+            Questions avant de choisir
           </h2>
           <p className="mt-2 text-sm text-slate">
-            Migration, prix, modules — sans avis inventés ni stats fantômes.
+            Migration, prix, modules — réponses factuelles, sans avis inventés.
           </p>
           <div className="mt-6">
             <IndustryFaq items={faqItems} />
@@ -489,44 +538,54 @@ export default function AlternativePropretPage() {
       <section className="section bg-blue-sky/30 pb-28 lg:pb-16">
         <div className="container max-w-4xl">
           <h2 className="font-display text-2xl font-extrabold text-blue-deep">
-            Prêt à comparer sur vos sites ?
+            Votre décision : testez sur vos vrais sites
           </h2>
           <p className="mt-2 text-slate">
-            Le meilleur comparatif reste un essai sur votre activité. {trialCopy.noCard}. Ou un
-            appel rapide avec l&apos;équipe Toulouse.
+            Le meilleur comparatif, c&apos;est un essai sur votre activité. {site.trialDays} jours
+            pour voir si le planning → pointage → facture tient sur vos sites. {trialCopy.noCard}.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink
               href={cta.trial}
               variant="trial"
+              size="lg"
               event="trial_start"
-              eventPayload={{ cta: "alt_propret_trial" }}
+              eventPayload={{ cta: "alt_propret_decision_trial" }}
             >
-              {trialCopy.free}
+              Tester {site.trialDays} jours sans CB
             </ButtonLink>
-            <ButtonLink href={cta.demo} variant="secondary" eventPayload={{ cta: "alt_propret_demo" }}>
+            <ButtonLink
+              href={cta.demo}
+              variant="secondary"
+              size="lg"
+              eventPayload={{ cta: "alt_propret_decision_demo" }}
+            >
               {ctaLabels.demoGate}
             </ButtonLink>
             <a
               href={`tel:${site.phoneTel}`}
-              className="inline-flex items-center rounded-[3px] border border-blue-mist bg-white px-4 py-2.5 text-sm font-bold text-blue-deep hover:border-blue-royal"
+              className="inline-flex items-center rounded-[3px] border border-blue-mist bg-white px-4 py-3 text-sm font-bold text-blue-deep hover:border-blue-royal"
             >
-              {site.phone}
+              Appeler {site.phone}
             </a>
+          </div>
+          <p className="mt-4 text-sm text-slate">
+            Questions sur la migration depuis Propret ?{" "}
             <Link
               href="/blog/progesti-vs-propret"
-              className="inline-flex items-center font-bold text-blue-royal underline-offset-4 hover:underline"
+              className="font-semibold text-blue-royal underline-offset-4 hover:underline"
             >
               Article détaillé
-            </Link>
-          </div>
+            </Link>{" "}
+            · Support FR inclus
+          </p>
         </div>
       </section>
 
       <FinalPush
-        title="Le meilleur comparatif, c'est votre propre essai"
-        lead={`Gratuit pour indépendants · ${trialCopy.noCard} offres payantes · Support FR ${site.phone}`}
+        title="Décidez sur vos vrais sites, pas sur des promesses"
+        lead={`Essai ${site.trialDays} jours sans CB · Gratuit pour indépendants · Support FR ${site.phone}`}
       />
       <MobileCtaBar />
     </>
