@@ -52,12 +52,22 @@ Emails invites / reset : `EMAIL_PROVIDER=brevo` + `BREVO_API_KEY` + `EMAIL_FROM`
 
 ### Hébergement recommandé : 2 services Railway
 
-| Service | Repo / dossier | Domaine |
-|---|---|---|
-| `planning-mvp` | New ERA / planning-mvp | app (ex. `app.progesti.fr`) |
-| `progesti-web` | Progesti / web | `progesti.fr` |
+| Service | Repo / dossier | Domaine | Rôle |
+|---|---|---|---|
+| `planning-mvp` | New ERA / planning-mvp | `app.progesti.fr` | Application SaaS (login, gestion) |
+| `progesti-web` | Progesti / web | `progesti.fr` | Site marketing (landing pages) |
 
 Sur le service landing : `NEXT_PUBLIC_AUTH_URL` = URL publique du service app.
+
+### Pages marketing sectorielles
+
+Les landing pages verticales (par secteur d'activité) sont servies depuis ce repo marketing :
+
+| Route | URL publique | Contenu |
+|---|---|---|
+| `/securite` | `progesti.fr/securite` | Sécurité & gardiennage |
+
+Ces pages n'existent **pas** sur `app.progesti.fr`. Les URLs correctes sont sur le domaine marketing `progesti.fr`.
 
 ## Leads
 
