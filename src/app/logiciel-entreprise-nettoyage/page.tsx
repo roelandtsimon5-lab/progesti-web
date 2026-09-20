@@ -35,7 +35,7 @@ const pillarFaq = [
   },
   {
     q: "PROGESTI convient-il à un auto-entrepreneur ou une TPE ?",
-    a: "Oui. L'offre Gratuit est conçue pour indépendants et micro-entreprises (1 admin, tous modules inclus). Pro et Premium accompagnent la croissance jusqu'à 20 utilisateurs.",
+    a: "Oui. L'offre Gratuit est conçue pour indépendants et micro-entreprises (1 admin, tous modules inclus). Pro et Premium accompagnent la croissance jusqu'à 20 utilisateurs. Voir aussi : logiciel nettoyage gratuit.",
   },
   {
     q: "Y a-t-il un engagement ou des frais cachés ?",

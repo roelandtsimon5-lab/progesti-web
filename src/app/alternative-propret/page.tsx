@@ -111,7 +111,7 @@ const faqItems = [
   },
   {
     q: "L'essai suffit-il pour une petite équipe ou un AE ?",
-    a: "Oui. L'offre Gratuit est pensée pour les indépendants et micro-entreprises (1 administrateur, tous modules inclus). Pro (5 utilisateurs) et Premium (20) accompagnent la croissance.",
+    a: "Oui. L'offre Gratuit est pensée pour les indépendants et micro-entreprises (1 administrateur, tous modules inclus). Pro (5 utilisateurs) et Premium (20) accompagnent la croissance. Voir aussi : logiciel nettoyage gratuit.",
   },
 ] as const;
 
@@ -505,6 +505,14 @@ export default function AlternativePropretPage() {
                 className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
               >
                 Logiciel de facturation propreté →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/logiciel-nettoyage-gratuit"
+                className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
+              >
+                Logiciel nettoyage gratuit (AE / indépendants) →
               </Link>
             </li>
             <li>

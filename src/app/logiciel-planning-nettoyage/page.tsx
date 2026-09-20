@@ -353,10 +353,13 @@ export default function PillarPlanningPage() {
               chaque offre, avec pointage, facturation et tous les autres modules.
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5 text-center">
+              <Link
+                href="/logiciel-nettoyage-gratuit"
+                className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5 text-center hover:border-blue-royal"
+              >
                 <p className="font-display text-2xl font-extrabold text-blue-deep">Gratuit</p>
                 <p className="text-sm text-slate">1 admin · indépendants</p>
-              </div>
+              </Link>
               <div className="rounded-[3px] border-2 border-lime-cta bg-lime-cta/10 p-5 text-center">
                 <p className="font-display text-2xl font-extrabold text-blue-deep">49,99 €</p>
                 <p className="text-sm text-slate">HT/mois · 5 utilisateurs</p>
@@ -428,6 +431,14 @@ export default function PillarPlanningPage() {
                 className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
               >
                 Alternative Propret →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/logiciel-nettoyage-gratuit"
+                className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
+              >
+                Logiciel nettoyage gratuit (indépendants) →
               </Link>
             </li>
             <li>
