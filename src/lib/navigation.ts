@@ -233,6 +233,7 @@ export const industryDarkPaths = new Set([
   "/logiciel-entreprise-nettoyage",
   "/logiciel-planning-nettoyage",
   "/logiciel-facturation-proprete",
+  "/securite",
   "/solutions",
   "/fonctionnalites",
   "/faq",
