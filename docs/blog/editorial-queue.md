@@ -91,12 +91,13 @@ Format d’une ligne :
   angle: Backup, sites critiques, communication client.
   published: 2026-09-15
 
-- status: todo
+- status: done
   date: 2026-09-22
   slug: logiciels-nettoyage-criteres-tpe-2026
   category: comparatifs
   title: Logiciel nettoyage pour TPE : 8 critères pour choisir en 2026
   angle: Prix, modules, mobile, essai — grille de décision gérant.
+  published: 2026-09-22
 
 - status: todo
   date: 2026-09-29
