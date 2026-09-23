@@ -6,15 +6,43 @@ import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
+import { IndustryFaq } from "@/components/industry/IndustryFaq";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
+import { FaqPageLd } from "@/components/seo/FaqPageLd";
 import { cta, ctaLabels } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
-import { site, trialCopy } from "@/lib/site";
+import { site, trialCopy, pricingCopy } from "@/lib/site";
+
+const planningFaq = [
+  {
+    q: "Comment fonctionne le planning multi-sites ?",
+    a: "Vous créez vos sites (bureaux, syndics, commerces), définissez les fréquences (quotidien, 2×/semaine, mensuel) et affectez vos agents. Le planning se répète automatiquement — plus besoin de reconstruire chaque semaine.",
+  },
+  {
+    q: "Comment gérer un remplacement de dernière minute ?",
+    a: "Dans le même écran que le planning. Vous voyez les agents disponibles, réaffectez le site en quelques clics. L'agent remplaçant reçoit la notification sur l'app mobile.",
+  },
+  {
+    q: "Le planning est-il relié au pointage ?",
+    a: "Oui. Ce que vous planifiez, vos agents le pointent sur mobile (arrivée, départ, géoloc). Les données remontent au bureau en temps réel — plus de feuilles papier ni d'heures contestées.",
+  },
+  {
+    q: "Peut-on facturer à partir du planning ?",
+    a: "Oui. Le flux planning → pointage → facture est automatique. Ce qui est pointé alimente la facturation, sans double saisie. Voir aussi : logiciel facturation propreté.",
+  },
+  {
+    q: "Combien coûte le module planning ?",
+    a: `Le planning est inclus dans toutes les offres (${pricingCopy.plansSummary}). Pas de module payant en plus. Essai ${site.trialDays} jours sans CB.`,
+  },
+  {
+    q: "Le planning fonctionne-t-il sur mobile ?",
+    a: "Oui. L'app mobile (Android/iOS) montre le planning de l'agent, permet de pointer arrivée et départ, et remonte les données au bureau.",
+  },
+] as const;
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel planning nettoyage — Multi-sites, remplacements",
-  description:
-    `Logiciel de planning nettoyage : multi-sites, absences et remplacements. Affectez, pointez, facturez. Gratuit pour indépendants, ${trialCopy.metaSuffix}`,
+  title: "Logiciel planning nettoyage — Multi-sites, remplacements, sans Excel | PROGESTI",
+  description: `Logiciel de planning pour le nettoyage : multi-sites, fréquences, absences et remplacements. Relié au pointage et à la facture. Gratuit indépendants · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} j sans CB.`,
   path: "/logiciel-planning-nettoyage",
 });
 
@@ -22,13 +50,15 @@ export default function PillarPlanningPage() {
   return (
     <>
       <SoftwareApplicationLd />
+      <FaqPageLd items={[...planningFaq]} />
       <IndustryPageHero
-        eyebrow="Planning propreté"
-        title="Logiciel de planning pour le nettoyage"
-        lead="Affectez le bon agent au bon site et gérez absences comme remplacements multi-sites — sans Excel ni SMS. Le planning alimente le pointage mobile puis la facture, dans le même outil conçu pour les gérants de nettoyage."
+        eyebrow="Planning multi-sites"
+        title="Logiciel de planning nettoyage : du site à la facture"
+        lead={`Affectez agents et sites, gérez absences et remplacements en quelques clics. Le planning alimente le pointage mobile puis la facture — sans double saisie. Gratuit pour indépendants, essai ${site.trialDays} jours sans CB.`}
         breadcrumbs={[
           { label: "Accueil", href: "/" },
-          { label: "Logiciel planning nettoyage" },
+          { label: "Logiciel entreprise nettoyage", href: "/logiciel-entreprise-nettoyage" },
+          { label: "Planning nettoyage" },
         ]}
         trialEvent="pillar_planning_trial"
         demoEvent="pillar_planning_demo"
@@ -133,6 +163,37 @@ export default function PillarPlanningPage() {
         <div className="container max-w-4xl">
           <Reveal>
             <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+              Vue par agent ou vue par site ?
+            </h2>
+            <p className="mt-4 text-slate">
+              Deux façons de lire le planning selon ce que vous cherchez. Vue agent : où va
+              Marc cette semaine ? Vue site : qui passe au cabinet médical lundi matin ? PROGESTI
+              bascule de l&apos;une à l&apos;autre en un clic.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5">
+                <h3 className="font-display font-bold text-blue-deep">Vue agent</h3>
+                <p className="mt-2 text-sm text-slate">
+                  L&apos;emploi du temps d&apos;un agent sur la semaine. Utile pour répartir la
+                  charge, vérifier qu&apos;il n&apos;est pas sur deux sites en même temps.
+                </p>
+              </div>
+              <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5">
+                <h3 className="font-display font-bold text-blue-deep">Vue site</h3>
+                <p className="mt-2 text-sm text-slate">
+                  Qui intervient sur ce site et quand. Utile pour répondre au client, vérifier
+                  la couverture hebdo, préparer un remplacement.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section bg-blue-sky/30">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
               Absences et remplacements : réagir sans panique
             </h2>
             <p className="mt-4 text-slate">
@@ -163,32 +224,54 @@ export default function PillarPlanningPage() {
         <div className="container max-w-4xl">
           <Reveal>
             <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
-              Du pointage terrain à la facture : un seul flux
+              Le flux complet : planning → pointage → facture
             </h2>
             <p className="mt-4 text-slate">
-              Le planning ne sert pas qu&apos;à savoir qui va où. C&apos;est la base de toute votre chaîne : ce que vous planifiez, vos agents le pointent. Ce qu&apos;ils pointent devient des heures travaillées. Ces heures alimentent vos factures.
+              Le planning n&apos;est pas un outil isolé. C&apos;est le point de départ de toute votre
+              chaîne opérationnelle : ce que vous planifiez, vos agents le pointent sur mobile. Ce
+              qu&apos;ils pointent alimente directement vos factures.
             </p>
-            <p className="mt-4 text-slate">
-              Dans PROGESTI, le lien est automatique. Quand un agent pointe son arrivée et son départ sur l&apos;application mobile, les données remontent au bureau. Vous voyez en temps réel si le passage a eu lieu, combien de temps il a duré, et si la géolocalisation confirme la présence sur site. Au moment de facturer, les heures réalisées sont déjà là — pas besoin de ressaisir, pas de risque d&apos;oublier un passage.
-            </p>
-            <ul className="mt-6 space-y-2.5">
-              {[
-                "Le planning définit ce qui doit être fait",
-                "Le pointage mobile trace ce qui a été fait",
-                "La facturation s&apos;appuie sur le réalisé terrain",
-              ].map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-slate md:text-base">
-                  <span className="font-bold text-lime-cta" aria-hidden>
-                    →
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+          </Reveal>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <Reveal delayMs={0}>
+              <div className="rounded-[3px] border-2 border-lime-cta/40 bg-white p-5">
+                <p className="text-xs font-bold uppercase tracking-wide text-lime-cta">Étape 1</p>
+                <h3 className="mt-1 font-display font-bold text-blue-deep">Planifier</h3>
+                <p className="mt-2 text-sm text-slate">
+                  Créez sites, affectez agents, définissez fréquences. Le planning se répète
+                  automatiquement sans reconstruire chaque semaine.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delayMs={50}>
+              <div className="rounded-[3px] border-2 border-lime-cta/40 bg-white p-5">
+                <p className="text-xs font-bold uppercase tracking-wide text-lime-cta">Étape 2</p>
+                <h3 className="mt-1 font-display font-bold text-blue-deep">Pointer</h3>
+                <p className="mt-2 text-sm text-slate">
+                  Les agents pointent sur mobile (arrivée, départ, géoloc). Les données remontent au
+                  bureau en temps réel. Plus de feuilles papier.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delayMs={100}>
+              <div className="rounded-[3px] border-2 border-lime-cta/40 bg-white p-5">
+                <p className="text-xs font-bold uppercase tracking-wide text-lime-cta">Étape 3</p>
+                <h3 className="mt-1 font-display font-bold text-blue-deep">Facturer</h3>
+                <p className="mt-2 text-sm text-slate">
+                  Ce qui est pointé alimente la facturation. Facturez le réalisé terrain sans
+                  ressaisir, sans oublier un passage.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delayMs={150}>
             <p className="mt-6 text-sm text-slate">
               Voir aussi :{" "}
-              <Link href="/logiciel-facturation-proprete" className="font-semibold text-blue-royal hover:underline">
-                facturation propreté
+              <Link
+                href="/logiciel-facturation-proprete"
+                className="font-semibold text-blue-royal hover:underline"
+              >
+                logiciel facturation propreté →
               </Link>
             </p>
           </Reveal>
@@ -235,42 +318,41 @@ export default function PillarPlanningPage() {
         <div className="container">
           <Reveal>
             <h2 className="text-center font-display text-2xl font-extrabold text-blue-deep">
-              Inclus dans PROGESTI
+              Ce que le planning PROGESTI gère concrètement
             </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-center text-slate">
+              Pas un simple calendrier partagé. Un outil métier relié au terrain et à la facturation.
+            </p>
           </Reveal>
           <ul className="mt-10 grid gap-5 sm:grid-cols-3">
             <Reveal delayMs={0}>
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
-                <h3 className="font-display font-extrabold text-blue-deep">Multi-sites</h3>
+                <h3 className="font-display font-extrabold text-blue-deep">Multi-sites & fréquences</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Bureaux, syndics, commerces — tous vos sites dans un seul planning lisible, avec fréquences et récurrences.
+                  Bureaux, syndics, commerces — tous vos sites. Fréquences quotidiennes, hebdo, mensuel. Récurrences automatiques sans reconstruire.
                 </p>
               </li>
             </Reveal>
             <Reveal delayMs={50}>
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
-                <h3 className="font-display font-extrabold text-blue-deep">Statuts en temps réel</h3>
+                <h3 className="font-display font-extrabold text-blue-deep">Statuts live</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  En cours, terminé, retard : le bureau voit l&apos;avancement sans appeler le terrain.
+                  En cours, terminé, retard : le bureau voit l&apos;avancement des passages sans appeler le terrain. Réagissez avant que le client ne remarque.
                 </p>
               </li>
             </Reveal>
             <Reveal delayMs={100}>
               <li className="industry-card-lift h-full rounded-[3px] border border-blue-mist/80 bg-white p-6">
-                <h3 className="font-display font-extrabold text-blue-deep">Gratuit pour indépendants</h3>
+                <h3 className="font-display font-extrabold text-blue-deep">Relié à la facture</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">
-                  Planning + pointage + facturation — pas de module en supplément. Gratuit, Pro ou Premium.
+                  Ce qui est planifié et pointé alimente la facturation. Facturez le réalisé sans double saisie, sans oubli de passage.
                 </p>
               </li>
             </Reveal>
           </ul>
           <Reveal delayMs={150}>
             <p className="mt-8 text-center text-sm text-slate">
-              Voir aussi :{" "}
-              <Link href="/logiciel-entreprise-nettoyage" className="font-semibold text-blue-royal hover:underline">
-                logiciel entreprise de nettoyage
-              </Link>
-              {" · "}
+              Univers métier :{" "}
               <Link href="/solutions/bureaux" className="font-semibold text-blue-royal hover:underline">
                 bureaux
               </Link>
@@ -278,12 +360,134 @@ export default function PillarPlanningPage() {
               <Link href="/solutions/syndics" className="font-semibold text-blue-royal hover:underline">
                 syndics
               </Link>
+              {" · "}
+              <Link href="/solutions/fin-de-chantier" className="font-semibold text-blue-royal hover:underline">
+                fin de chantier
+              </Link>
+              {" · "}
+              <Link href="/solutions/auto-entrepreneurs" className="font-semibold text-blue-royal hover:underline">
+                auto-entrepreneurs
+              </Link>
             </p>
           </Reveal>
         </div>
       </section>
 
-      <FinalPush />
+      <section className="section bg-white">
+        <div className="container max-w-4xl">
+          <Reveal>
+            <h2 className="font-display text-2xl font-extrabold text-blue-deep md:text-3xl">
+              Tarifs : planning inclus dans toutes les offres
+            </h2>
+            <p className="mt-4 text-slate">
+              Le planning multi-sites n&apos;est pas un module payant en plus. Il est inclus dans
+              chaque offre, avec pointage, facturation et tous les autres modules.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <Link
+                href="/logiciel-nettoyage-gratuit"
+                className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5 text-center hover:border-blue-royal"
+              >
+                <p className="font-display text-2xl font-extrabold text-blue-deep">Gratuit</p>
+                <p className="text-sm text-slate">1 admin · indépendants</p>
+              </Link>
+              <div className="rounded-[3px] border-2 border-lime-cta bg-lime-cta/10 p-5 text-center">
+                <p className="font-display text-2xl font-extrabold text-blue-deep">49,99 €</p>
+                <p className="text-sm text-slate">HT/mois · 5 utilisateurs</p>
+              </div>
+              <div className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5 text-center">
+                <p className="font-display text-2xl font-extrabold text-blue-deep">99,99 €</p>
+                <p className="text-sm text-slate">HT/mois · 20 utilisateurs</p>
+              </div>
+            </div>
+            <p className="mt-6 text-center text-sm text-slate">
+              Tous modules inclus · Essai {site.trialDays} jours sans CB ·{" "}
+              <Link href="/tarifs" className="font-semibold text-blue-royal hover:underline">
+                Détail des tarifs →
+              </Link>
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section bg-blue-sky/30">
+        <div className="container max-w-4xl">
+          <h2 className="font-display text-2xl font-extrabold text-blue-deep">
+            Questions fréquentes — planning nettoyage
+          </h2>
+          <div className="mt-6">
+            <IndustryFaq items={planningFaq} />
+          </div>
+          <p className="mt-6 text-sm text-slate">
+            Une autre question ?{" "}
+            <a
+              href={`tel:${site.phoneTel}`}
+              className="font-semibold text-blue-royal hover:underline"
+            >
+              {site.phone}
+            </a>{" "}
+            ·{" "}
+            <Link href="/contact" className="font-semibold text-blue-royal hover:underline">
+              Contact
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="section bg-white pb-28 lg:pb-16">
+        <div className="container max-w-4xl">
+          <h2 className="font-display text-2xl font-extrabold text-blue-deep">
+            Pour aller plus loin
+          </h2>
+          <ul className="mt-6 grid gap-4 md:grid-cols-2">
+            <li>
+              <Link
+                href="/logiciel-entreprise-nettoyage"
+                className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
+              >
+                Pilier — logiciel entreprise de nettoyage →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/logiciel-facturation-proprete"
+                className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
+              >
+                Logiciel de facturation propreté →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/alternative-propret"
+                className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
+              >
+                Alternative Propret →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/logiciel-nettoyage-gratuit"
+                className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
+              >
+                Logiciel nettoyage gratuit (indépendants) →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/essai-gratuit"
+                className="block rounded-[3px] border border-lime-cta bg-lime-cta/10 p-4 font-semibold text-blue-deep hover:bg-lime-cta/20"
+              >
+                Essai gratuit {site.trialDays} jours →
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <FinalPush
+        title="Structurez votre planning — testez sur vos vrais sites"
+        lead={`Essai ${site.trialDays} jours sans CB · Planning + pointage + facture inclus · Support FR ${site.phone}`}
+      />
       <MobileCtaBar />
     </>
   );

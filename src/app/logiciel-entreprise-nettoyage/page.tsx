@@ -11,11 +11,11 @@ const pageUrl = `${site.url}/logiciel-entreprise-nettoyage`;
 const pillarFaq = [
   {
     q: "Combien coûte PROGESTI pour mon entreprise de nettoyage ?",
-    a: "Gratuit pour indépendants — Gratuit, Pro ou Premium — tous modules inclus : planning multi-sites, pointage mobile, devis, facturation, impayés, RH, tableaux de bord. Pas de module payant en plus, pas de frais d'installation.",
+    a: "Gratuit pour indépendants et micro-entreprises (1 admin, tous modules). Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois (20 utilisateurs). Pas de module payant en plus, pas de frais d'installation.",
   },
   {
     q: "Puis-je tester avant de m'engager ?",
-    a: `Oui. Essai ${site.trialDays} jours gratuit, sans carte bancaire. Vous testez sur vos vrais sites et agents. Si ça ne convient pas, vous arrêtez sans justification.`,
+    a: `Oui. Essai ${site.trialDays} jours gratuit, sans carte bancaire. Vous testez sur vos vrais sites et vos agents. Si ça ne convient pas, vous arrêtez sans justification.`,
   },
   {
     q: "Je gère tout sur Excel et WhatsApp — la migration est-elle compliquée ?",
@@ -33,17 +33,31 @@ const pillarFaq = [
     q: "Puis-je facturer à partir du réalisé terrain sans ressaisir ?",
     a: "Oui. Le planning et le pointage alimentent directement la facturation. Vous facturez ce qui a été fait, sans double saisie ni oubli.",
   },
+  {
+    q: "PROGESTI convient-il à un auto-entrepreneur ou une TPE ?",
+    a: "Oui. L'offre Gratuit est conçue pour indépendants et micro-entreprises (1 admin, tous modules inclus). Pro et Premium accompagnent la croissance jusqu'à 20 utilisateurs. Voir aussi : logiciel nettoyage gratuit.",
+  },
+  {
+    q: "Y a-t-il un engagement ou des frais cachés ?",
+    a: "Pas d'engagement longue durée. Vous pouvez résilier selon les conditions d'abonnement. Mise en place offerte, pas de module surprise ni de frais d'installation.",
+  },
+  {
+    q: "Comment gérer un remplacement de dernière minute ?",
+    a: "Absences et remplacements se gèrent dans le même écran que le planning. Vous voyez les agents disponibles et réaffectez en quelques clics. L'agent remplaçant reçoit la notification sur mobile.",
+  },
+  {
+    q: "Comment contacter le support ?",
+    a: `Support FR inclus, équipe à Toulouse (31). Joignable au ${site.phone}. Pas un chatbot : des gens qui comprennent le métier propreté.`,
+  },
 ] as const;
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel entreprise de nettoyage — Du planning à la facture",
-  description:
-    "Du planning au pointage puis à la facture — pour gérants d'entreprise ou société de nettoyage. Gratuit pour indépendants. Essai 15 jours sans CB.",
+  title: "Logiciel entreprise de nettoyage — Planning, pointage, facture | PROGESTI",
+  description: `Logiciel pour entreprise de nettoyage : planning multi-sites, pointage mobile, facturation du réalisé. Gratuit 0 € HT/mois indépendants · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} j sans CB.`,
   path: "/logiciel-entreprise-nettoyage",
   openGraph: {
-    title: "Logiciel entreprise de nettoyage — Du planning à la facture",
-    description:
-      "Du planning au pointage puis à la facture — pour gérants d'entreprise ou société de nettoyage. Gratuit pour indépendants. Essai 15 jours sans CB.",
+    title: "Logiciel entreprise de nettoyage — Planning, pointage, facture | PROGESTI",
+    description: `Logiciel pour entreprise de nettoyage : planning multi-sites, pointage mobile, facturation du réalisé. Gratuit 0 € HT/mois indépendants · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} j sans CB.`,
   },
 });
 
@@ -56,17 +70,17 @@ export default function PillarNettoyagePage() {
     hero: {
       h1Lead: "Logiciel pour entreprise de nettoyage",
       h1: "Planning multi-sites, pointage mobile, facturation — sans Excel ni WhatsApp",
-      sub: "Vous gérez des agents sur plusieurs sites, des fréquences différentes, des remplacements de dernière minute ? PROGESTI centralise tout : du planning à la facture, en passant par les preuves terrain.",
+      sub: `Vous gérez des agents sur plusieurs sites, des fréquences différentes, des remplacements de dernière minute ? PROGESTI centralise tout : du planning à la facture, en passant par les preuves terrain. Gratuit 0 € HT/mois (indépendants) · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} jours sans CB.`,
     },
     empathy: {
       h2: "Vous êtes gérant. Votre semaine ne devrait pas ressembler à ça.",
-      body: "Dimanche soir à refaire le planning sur Excel. Lundi matin à gérer une absence par SMS. Mardi à chercher qui était sur quel site. Vendredi à facturer de mémoire parce que les feuilles de pointage sont illisibles. PROGESTI remplace ce chaos : un seul outil pour affecter, pointer, prouver et facturer — sans retaper, sans oublier.",
+      body: "Dimanche soir à refaire le planning sur Excel. Lundi matin à gérer une absence par SMS. Mardi à chercher qui était sur quel site. Vendredi à facturer de mémoire parce que les feuilles de pointage sont illisibles. PROGESTI remplace ce chaos : un seul outil pour affecter, pointer, prouver et facturer — bureaux, syndics, locaux pros, fin de chantier ou activité indépendante.",
     },
     compareNote: {
-      before: "Vous évaluez aussi une ",
+      before: "Vous comparez les alternatives ? Consultez notre ",
       href: "/alternative-propret",
-      anchor: "alternative à Propret",
-      after: " ? Comparez tarifs publics, durée d'essai et périmètre modules — sans changer d'outil pour chaque besoin.",
+      anchor: "comparatif Propret vs PROGESTI",
+      after: ` — tarifs publics, essai ${site.trialDays} jours sans CB, support FR.`,
     },
     faq: pillarFaq,
   });
