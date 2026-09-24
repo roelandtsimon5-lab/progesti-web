@@ -12,80 +12,92 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return { beforeFiles: [] as { source: string; destination: string }[] };
   },
+  /**
+   * Redirects with absolute canonical URLs.
+   *
+   * Using absolute destinations ensures the Location header is fully qualified,
+   * which is preferred by search engines. The proxy.ts provides additional
+   * handling for host canonicalization (www→apex) in a single hop when possible.
+   *
+   * Note: Vercel's edge handles http→https and www→apex redirects at platform
+   * level BEFORE these redirects run, so multi-hop chains from www/http are
+   * unavoidable. The path redirects themselves are single-hop with absolute URLs.
+   */
   async redirects() {
+    const SITE_URL = "https://progesti.fr";
     return [
       // Marketing redirects
-      { source: "/signup", destination: "/essai-gratuit", permanent: true },
-      { source: "/clients", destination: "/cas-clients", permanent: true },
-      { source: "/nouveau", destination: "/", permanent: true },
+      { source: "/signup", destination: `${SITE_URL}/essai-gratuit`, permanent: true },
+      { source: "/clients", destination: `${SITE_URL}/cas-clients`, permanent: true },
+      { source: "/nouveau", destination: SITE_URL, permanent: true },
       {
         source: "/blog/choisir-offre-starter-pro-premium",
-        destination: "/blog/tarif-unique-logiciel-nettoyage",
+        destination: `${SITE_URL}/blog/tarif-unique-logiciel-nettoyage`,
         permanent: true,
       },
       // Feature pages merged or removed in Home V2 (added 2026-08-19)
       {
         source: "/fonctionnalites/bon-intervention",
-        destination: "/fonctionnalites/pointage",
+        destination: `${SITE_URL}/fonctionnalites/pointage`,
         permanent: true,
       },
       {
         source: "/fonctionnalites/prepaie",
-        destination: "/fonctionnalites/gestion-rh",
+        destination: `${SITE_URL}/fonctionnalites/gestion-rh`,
         permanent: true,
       },
       {
         source: "/fonctionnalites/tableaux-de-bord",
-        destination: "/fonctionnalites/rentabilite",
+        destination: `${SITE_URL}/fonctionnalites/rentabilite`,
         permanent: true,
       },
       {
         source: "/fonctionnalites/contrats",
-        destination: "/fonctionnalites",
+        destination: `${SITE_URL}/fonctionnalites`,
         permanent: true,
       },
       {
         source: "/fonctionnalites/geolocalisation",
-        destination: "/fonctionnalites",
+        destination: `${SITE_URL}/fonctionnalites`,
         permanent: true,
       },
       {
         source: "/fonctionnalites/stock",
-        destination: "/fonctionnalites",
+        destination: `${SITE_URL}/fonctionnalites`,
         permanent: true,
       },
       {
         source: "/fonctionnalites/supervision",
-        destination: "/fonctionnalites",
+        destination: `${SITE_URL}/fonctionnalites`,
         permanent: true,
       },
       // Glossary page renamed
       {
         source: "/glossaire/starter-pro-premium",
-        destination: "/glossaire/offre-progesti",
+        destination: `${SITE_URL}/glossaire/offre-progesti`,
         permanent: true,
       },
       // Accented URL variants (é → e) - historically linked but never in sitemap
       {
         source: "/fonctionnalit%C3%A9s",
-        destination: "/fonctionnalites",
+        destination: `${SITE_URL}/fonctionnalites`,
         permanent: true,
       },
       {
         source: "/fonctionnalit%C3%A9s/:path*",
-        destination: "/fonctionnalites/:path*",
+        destination: `${SITE_URL}/fonctionnalites/:path*`,
         permanent: true,
       },
       // /sécurité → /securite (security landing)
       // Both URL-encoded and raw UTF-8 forms to handle browser/CDN variations
       {
         source: "/s%C3%A9curit%C3%A9",
-        destination: "/securite",
+        destination: `${SITE_URL}/securite`,
         permanent: true,
       },
       {
         source: "/sécurité",
-        destination: "/securite",
+        destination: `${SITE_URL}/securite`,
         permanent: true,
       },
     ];
