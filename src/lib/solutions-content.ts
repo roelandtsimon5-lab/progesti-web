@@ -39,7 +39,7 @@ export const solutionPages: Record<string, SolutionContent> = {
         text: "Passez du réalisé à la facture sans ressaisir les heures dans un autre fichier.",
       },
       {
-        moduleSlug: "tableaux-de-bord",
+        moduleSlug: "rentabilite",
         text: "Voyez charge et activité par site pour piloter le mois en cours.",
       },
     ],
@@ -117,16 +117,12 @@ export const solutionPages: Record<string, SolutionContent> = {
         text: "Cartographiez immeubles et fréquences ; titulaire + backup par site.",
       },
       {
-        moduleSlug: "bon-intervention",
-        text: "Bons et preuves photos conservés — utiles en cas de litige ou de contrôle.",
+        moduleSlug: "pointage",
+        text: "Bons, preuves photos et contrôle qualité conservés — utiles en cas de litige ou audit syndic.",
       },
       {
-        moduleSlug: "supervision",
-        text: "Contrôle qualité des parties communes avec suivi des passages.",
-      },
-      {
-        moduleSlug: "contrats",
-        text: "Suivez engagements multi-sites et dates de renouvellement.",
+        moduleSlug: "clients",
+        text: "Suivez engagements multi-sites et dates de renouvellement par portefeuille client.",
       },
     ],
     day: [
@@ -274,7 +270,7 @@ export const solutionPages: Record<string, SolutionContent> = {
         text: "Planifiez les créneaux ponctuels distincts de l’entretien récurrent.",
       },
       {
-        moduleSlug: "bon-intervention",
+        moduleSlug: "pointage",
         text: "Photos et signature sur place pour sécuriser la réception.",
       },
       {
@@ -282,8 +278,8 @@ export const solutionPages: Record<string, SolutionContent> = {
         text: "Facturez vite après livraison, y compris les extras documentés.",
       },
       {
-        moduleSlug: "stock",
-        text: "Suivez consommables et matériel mobilisés sur le chantier.",
+        moduleSlug: "rentabilite",
+        text: "Pilotez consommables et coûts mobilisés par chantier pour préserver la marge.",
       },
     ],
     day: [
@@ -356,7 +352,7 @@ export const solutionPages: Record<string, SolutionContent> = {
         text: "Émettez vos factures à partir du réalisé.",
       },
       {
-        moduleSlug: "tableaux-de-bord",
+        moduleSlug: "rentabilite",
         text: "Une vue simple de l’activité du mois.",
       },
     ],
