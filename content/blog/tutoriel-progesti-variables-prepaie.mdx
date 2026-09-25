@@ -1,0 +1,130 @@
+---
+title: "Tutoriel Progesti : préparer les variables de prépaie"
+slug: "tutoriel-progesti-variables-prepaie"
+category: "tutoriels"
+excerpt: "Pas à pas avec captures : pointages, absences et frais → aperçu Export paie → fichier Excel/CSV pour le cabinet, sans refaire le mois dans Excel."
+date: "2026-09-25"
+updatedAt: "2026-09-25"
+readingTime: 9
+seoTitle: "Tutoriel Progesti : variables de prépaie (captures)"
+seoDescription: "Comment préparer les variables de paie dans Progesti : heures pointées, absences validées, frais, aperçu Récap, puis export Excel ou CSV pour le cabinet."
+keywords: ["tutoriel progesti", "variables de paie nettoyage", "prépaie entreprise propreté", "export paie CSV", "heures agents nettoyage"]
+---
+
+# Tutoriel Progesti : préparer les variables de prépaie
+
+Le 28 du mois, le cabinet de paie attend un fichier propre. Vous, vous avez encore des feuilles d’heures en vrac, trois absences « à confirmer » et une note de frais sans ticket. La prépaie, ce n’est pas calculer le bulletin : c’est rassembler les **variables** (heures, absences, frais) sans tout retaper dans Excel.
+
+Ce tutoriel montre le parcours réel dans Progesti : pointages terrain → agents / absences → hub **Paie & éléments variables** → **Export paie** (aperçu Récap / Heures / Absences / Frais) → fichier cabinet. Captures prises sur la démo produit (données fictives Pro Nettoyage Services).
+
+Sur le terrain, une bonne prépaie évite deux scènes classiques : l’agent qui conteste ses heures le jour de paie, et le cabinet qui renvoie le fichier parce que les matricules ou les absences ne collent pas.
+
+## 1. Vérifier que les heures viennent du terrain
+
+Avant d’ouvrir l’export, regardez la **Télégestion**.
+
+Dans le menu : **TÉLÉGESTION** → **Télégestion**.
+
+Vous voyez les événements **Arrivée** / **Départ**, souvent issus de l’**Application mobile**, avec agent, client et horodatage. C’est la matière première des heures exportables.
+
+![Liste Télégestion Progesti : pointages Arrivée et Départ issus de l’application mobile](/tutoriels/tutoriel-progesti-variables-prepaie/08-telegestion-pointages.png)
+
+**Terrain :** une heure non pointée (ou non validée côté passages) n’apparaîtra pas correctement dans l’export. Corrigez le mois avant le 25, pas le matin où le cabinet rappelle.
+
+## 2. Contrôler la base agents
+
+Les variables partent **par salarié**. Si le matricule cabinet manque, l’export génère un code technique — utilisable, mais moins propre pour Silae / Payfit.
+
+Menu **AGENTS** → **Agents**.
+
+Vous avez la liste (code, stade, statut, contrat, temps, disponibilité, agence). C’est ici que vous vérifiez qui est actif sur le mois à exporter.
+
+![Liste Agents Progesti : 11 agents, codes, contrats CDI, disponibilité](/tutoriels/tutoriel-progesti-variables-prepaie/06-agents-liste.png)
+
+**Checklist rapide :** agent actif, contrat à jour, matricule renseigné si le cabinet l’exige, absences déclarées pour la période.
+
+Pour le détail produit côté site marketing, voir la [gestion RH et variables de paie](/fonctionnalites/gestion-rh).
+
+## 3. Déclarer (et valider) les absences côté paie
+
+Les absences vides sur le mois en cours ne veulent pas dire « rien à exporter » : l’aperçu Export paie peut déjà contenir des lignes validées sur la période choisie.
+
+Menu **AGENTS** → **Absences**.
+
+Filtres de période, motif, justification, salarié. Bouton **+ Ajouter une absence** si vous déclarez une maladie ou un congé en retard.
+
+![Écran Absences Progesti : filtres mois, recherche, bouton Ajouter une absence](/tutoriels/tutoriel-progesti-variables-prepaie/07-absences-liste.png)
+
+**Règle produit à retenir :** seules les absences **validées paie** entrent dans l’export. Une absence « déclarée » mais pas validée = oubli côté bulletin.
+
+## 4. Passer par le hub Paie & éléments variables
+
+Menu **EXPORT** → **Éléments variables** (`/paie/elements-variables`).
+
+Vous voyez d’un coup d’œil la période, les **heures exportables**, les **frais validés**, le nombre de lignes, notes de frais, trajets, primes. Les **Contrôles avant export** signalent s’il y a une erreur bloquante.
+
+![Hub Paie et éléments variables : heures exportables, frais validés, contrôles avant export](/tutoriels/tutoriel-progesti-variables-prepaie/05-elements-variables-hub.png)
+
+**Terrain :** si le bandeau dit « aucune erreur bloquante », vous pouvez ouvrir l’export cabinet. Sinon, corrigez d’abord (passages, absences, frais en attente).
+
+Le lien **Export cabinet →** mène à l’écran suivant.
+
+## 5. Ouvrir Export paie et prévisualiser le mois
+
+Menu **EXPORT** → **Export paie**.
+
+Titre écran : **Export variables de paie**. Le texte le dit clairement : fichier Excel / CSV pour le cabinet (récap salarié + détail heures, absences, frais) — **sans** calcul de bulletin ni cotisations.
+
+Choisissez :
+
+1. **Mois** (ex. septembre 2026)
+2. **Agence** (Toutes, ou une agence précise)
+3. **Profil cabinet** : Générique, Silae ou Payfit
+
+Puis **Prévisualiser**.
+
+![Export paie Progesti : période, profil cabinet, aperçu Récap agents avec heures et frais](/tutoriels/tutoriel-progesti-variables-prepaie/01-export-paie-recap.png)
+
+L’aperçu résume le stock du mois (agents, heures, absences, frais). L’onglet **Récap** affiche matricule, nom, heures normales / nuit / dimanche / férié, total heures, absences, IK et frais.
+
+**Scénario multi-sites :** un agent qui enchaîne trois immeubles le matin génère plusieurs lignes heures (agent × jour × site × type). Le Récap consolide ; l’onglet Heures détaille.
+
+## 6. Lire le détail Heures, Absences et Frais
+
+Toujours sur **Export paie**, ouvrez les onglets après prévisualisation.
+
+**Heures** — date, client, site, quantité, type, code. Utile quand un client conteste un passage ou quand une ligne « nuit » vous surprend (découpe 21 h–6 h côté règles produit).
+
+![Onglet Heures de l’export paie : lignes agent, date, client, site, type](/tutoriels/tutoriel-progesti-variables-prepaie/02-export-paie-heures.png)
+
+**Absences** — début / fin, quantité, unité, type, code. Croisez avec ce que vous avez déclaré dans Absences.
+
+![Onglet Absences de l’export paie : lignes validées pour le mois](/tutoriels/tutoriel-progesti-variables-prepaie/03-export-paie-absences.png)
+
+**Frais** — libellé, montant, km, type. Seuls les frais **validés** partent.
+
+![Onglet Frais de l’export paie : notes de frais validées par agent](/tutoriels/tutoriel-progesti-variables-prepaie/04-export-paie-frais.png)
+
+**Pièges fréquents :**
+
+- Passages non validés → heures manquantes ou durée théorique au lieu du pointage.
+- Absence non « validée paie » → absente de l’onglet Absences.
+- Frais en attente → hors export (validez d’abord).
+- Matricule vide → code technique auto ; le cabinet râle souvent.
+
+## 7. Télécharger le fichier pour le cabinet
+
+Quand l’aperçu est propre :
+
+- **Excel cabinet** — un classeur prêt à transmettre
+- **CSV cabinet (ZIP)** — pack CSV selon le profil (Générique / Silae / Payfit)
+
+Vous n’envoyez pas la paie depuis Progesti : vous envoyez les **variables**. Le logiciel de paie (ou l’expert) calcule le bulletin.
+
+**Routine gérant (fin de mois) :** Télégestion OK → Absences + frais validés → hub éléments variables sans erreur → Prévisualiser → Excel/CSV → mail au cabinet. Comptez 20–40 minutes sur un mois propre, une demi-journée si vous rattrapez trois semaines de papier.
+
+## Pour aller plus loin
+
+Progesti centralise heures terrain, absences et frais au même endroit que le planning. Ce n’est pas un logiciel de paie complet : c’est la base fiable (heures, absences, frais) que votre cabinet attend en fin de mois.
+
+Offre publique : **Gratuit** pour indépendants et micro-entreprises, **Pro** 49,99 € HT/mois, **Premium** 99,99 € HT/mois. Essai 15 jours sur les offres payantes, sans carte bancaire. Une question terrain : **07 67 68 55 67**.
