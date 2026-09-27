@@ -13,14 +13,14 @@ import { modules, site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Alternative Propret 2026 — Comparatif prix, essai, modules",
-  description: `Comparez Propret et PROGESTI : même entrée gratuite (indépendants), essai ${site.trialDays}j sans CB, ${modules.length} modules inclus. Tableau comparatif factuel + avis terrain.`,
+  description: `Comparez Propret et PROGESTI : PROGESTI gratuit pour indépendants, Propret dès 29,99 € HT/mois. Essai ${site.trialDays}j sans CB, ${modules.length} modules inclus. Tableau comparatif factuel + avis terrain.`,
   path: "/alternative-propret",
 });
 
 const pricingRows = [
   {
     label: "Formule entrée",
-    propret: "Gratuit (indépendants)",
+    propret: "29,99 € HT/mois (Starter)",
     progesti: "Gratuit (indépendants)",
   },
   {
@@ -45,7 +45,7 @@ const pricingRows = [
   },
   {
     label: "Durée d'essai",
-    propret: "14 jours",
+    propret: "Un mois offert",
     progesti: `${site.trialDays} jours`,
   },
   {
@@ -91,7 +91,7 @@ const featureRows = [
 const faqItems = [
   {
     q: "PROGESTI est-il vraiment moins cher que Propret ?",
-    a: "Non — et ce n'est pas l'argument. Les deux affichent publiquement la même grille (0 € (indépendants) / 49,99 / 99,99 € HT/mois) avec tous les modules inclus. La différence se joue sur le métier nettoyage (vocabulaire, workflows), la chaîne planning → pointage → facture, et le support FR basé à Toulouse.",
+    a: "Pas sur tous les paliers, et ce n'est pas notre principal argument. PROGESTI est gratuit pour les indépendants, les micro-entrepreneurs et les auto-entrepreneurs, puis passe à Pro à 49,99 € HT et Premium à 99,99 € HT par mois, avec un essai de 15 jours sans carte bancaire sur les offres payantes. Propret affiche publiquement une première offre à 29,99 € HT par mois, puis 49,99 € et 99,99 € HT. Au-delà du prix, la différence se joue sur le métier du nettoyage, la chaîne planning, pointage et facture, et le support en français basé à Toulouse.",
   },
   {
     q: "Je suis déjà sur Propret : la migration est-elle lourde ?",
@@ -123,7 +123,7 @@ export default function AlternativePropretPage() {
       <IndustryPageHero
         eyebrow="Comparatif factuel 2026"
         title="Alternative Propret : faites le bon choix pour votre entreprise"
-        lead={`Vous comparez Propret et ses concurrents ? Voici les faits publics : même entrée gratuite (indépendants), essai ${site.trialDays} jours sans CB chez PROGESTI, support FR à Toulouse. Décidez sur des critères concrets.`}
+        lead={`Vous comparez Propret et ses concurrents ? Voici les faits publics : PROGESTI est gratuit pour les indépendants, Propret démarre à 29,99 € HT/mois. Essai ${site.trialDays} jours sans CB chez PROGESTI, support FR à Toulouse. Décidez sur des critères concrets.`}
         breadcrumbs={[
           { label: "Accueil", href: "/" },
           { label: "Comparatifs", href: "/comparatifs" },
@@ -151,8 +151,8 @@ export default function AlternativePropretPage() {
               peut pas vérifier.
             </p>
             <p>
-              Propret et PROGESTI affichent la même entrée gratuite pour indépendants. La différence
-              se joue sur l&apos;essai ({site.trialDays} jours sans CB chez PROGESTI vs 14 jours chez
+              PROGESTI est gratuit pour les indépendants, alors que Propret démarre à 29,99 € HT/mois (Starter). La différence
+              se joue aussi sur l&apos;essai ({site.trialDays} jours sans CB chez PROGESTI vs un mois offert chez
               Propret) et sur l&apos;accompagnement : support FR joignable au {site.phone}, équipe à
               Toulouse.
             </p>
@@ -169,11 +169,11 @@ export default function AlternativePropretPage() {
             <ul className="mt-3 space-y-2 text-sm text-slate">
               <li className="flex gap-2">
                 <span className="font-bold text-lime-cta">1.</span>
-                <span><strong>Durée d&apos;essai</strong> — 14 jours suffisent rarement pour tester sur vos vrais sites et vos agents. PROGESTI : {site.trialDays} jours sans CB.</span>
+                <span><strong>Durée d&apos;essai</strong> — Propret offre un mois ; PROGESTI propose {site.trialDays} jours sans CB pour tester sur vos vrais sites et vos agents.</span>
               </li>
               <li className="flex gap-2">
                 <span className="font-bold text-lime-cta">2.</span>
-                <span><strong>Prix d&apos;entrée</strong> — Les deux proposent une entrée gratuite pour indépendants. Pro et Premium : mêmes paliers (49,99 / 99,99 € HT/mois).</span>
+                <span><strong>Prix d&apos;entrée</strong> — PROGESTI est gratuit pour les indépendants ; Propret démarre à 29,99 € HT/mois. Paliers suivants identiques (49,99 / 99,99 € HT/mois).</span>
               </li>
               <li className="flex gap-2">
                 <span className="font-bold text-lime-cta">3.</span>
@@ -187,7 +187,7 @@ export default function AlternativePropretPage() {
           </h2>
           <p className="mt-2 text-sm text-slate">
             Tarifs HT mensuels affichés publiquement au moment de la rédaction. Vérifiez sur chaque
-            site pour les conditions actuelles. Même grille ≠ même produit.
+            site pour les conditions actuelles. Des paliers proches, pas le même produit.
           </p>
 
           <div className="mt-8 md:hidden">
@@ -240,9 +240,9 @@ export default function AlternativePropretPage() {
 
           <div className="mt-6 rounded-[3px] border-l-4 border-lime-cta bg-white p-4">
             <p className="text-sm text-slate">
-              <strong className="text-blue-deep">Ce qu&apos;il faut retenir :</strong> Même entrée
-              gratuite pour indépendants chez les deux. PROGESTI se distingue sur l&apos;essai{" "}
-              <strong>({site.trialDays} jours sans CB)</strong> vs 14 jours chez Propret. Pour les
+              <strong className="text-blue-deep">Ce qu&apos;il faut retenir :</strong> PROGESTI est
+              gratuit pour les indépendants ; Propret démarre à 29,99 € HT/mois. PROGESTI propose{" "}
+              <strong>{site.trialDays} jours sans CB</strong> vs un mois offert chez Propret. Pour les
               équipes : paliers identiques (49,99 / 99,99 € HT/mois). Le vrai différenciateur :
               support FR joignable au {site.phone}, équipe à Toulouse.{" "}
               <Link href="/tarifs" className="font-semibold text-blue-royal hover:underline">
@@ -346,7 +346,7 @@ export default function AlternativePropretPage() {
                 Essai {site.trialDays} jours
               </h3>
               <p className="mt-2 text-sm text-slate">
-                vs 14 jours chez Propret. Testez sur vos vrais sites, avec vos agents. Sans carte
+                vs un mois offert chez Propret. Testez sur vos vrais sites, avec vos agents. Sans carte
                 bancaire.
               </p>
             </div>
