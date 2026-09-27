@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { getAttributionPayload } from "@/lib/attribution";
 import { demoAppUrl } from "@/lib/cta";
 import { site } from "@/lib/site";
-import { track } from "@/lib/tracking";
+import { track, trackFormSubmit } from "@/lib/tracking";
 
 type Props = {
   campaign: string;
@@ -55,6 +56,7 @@ export function AdsV2LeadForm({ campaign, submitLabel }: Props) {
     }
 
     try {
+      const attribution = getAttributionPayload();
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -66,6 +68,7 @@ export function AdsV2LeadForm({ campaign, submitLabel }: Props) {
           phone,
           company: company || "Lead Google Ads v2",
           companySize: companySize || undefined,
+          ...attribution,
         }),
       });
       if (!res.ok) throw new Error("fail");
@@ -74,7 +77,7 @@ export function AdsV2LeadForm({ campaign, submitLabel }: Props) {
         "progesti_demo",
         JSON.stringify({ name, phone, email, campaign, createdAt: Date.now() }),
       );
-      track("form_submit", { intent: "ads_v2", campaign });
+      trackFormSubmit("demo", { campaign, source: "ads_v2" });
       track("demo_view", { source: "ads_v2", campaign });
       track("signup_start", { source: "ads_v2", campaign });
       window.location.href = demoAppUrl({

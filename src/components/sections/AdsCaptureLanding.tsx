@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { getAttributionPayload } from "@/lib/attribution";
 import { demoAppUrl } from "@/lib/cta";
 import { adsProductPreview } from "@/lib/creative-assets";
 import { site } from "@/lib/site";
-import { track } from "@/lib/tracking";
+import { track, trackFormSubmit } from "@/lib/tracking";
 
 type Props = {
   campaign: string;
@@ -64,6 +65,7 @@ export function AdsCaptureLanding({
 
     try {
       const digits = phone.replace(/\D/g, "");
+      const attribution = getAttributionPayload();
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -74,6 +76,7 @@ export function AdsCaptureLanding({
           phone,
           email: `${digits}@lead.progesti.fr`,
           company: "Lead Google Ads",
+          ...attribution,
         }),
       });
       if (!res.ok) throw new Error("fail");
@@ -82,7 +85,7 @@ export function AdsCaptureLanding({
         "progesti_demo",
         JSON.stringify({ name, phone, email: `${digits}@lead.progesti.fr`, campaign, createdAt: Date.now() }),
       );
-      track("form_submit", { intent: "ads_quick", campaign });
+      trackFormSubmit("demo", { campaign, source: "ads_capture" });
       track("demo_view", { source: "ads_capture", campaign });
       track("signup_start", { source: "ads_capture", campaign });
       window.location.href = demoAppUrl({

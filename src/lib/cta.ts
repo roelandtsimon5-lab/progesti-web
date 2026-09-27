@@ -1,3 +1,4 @@
+import { getAttributionParams } from "@/lib/attribution";
 import { appUrl } from "@/lib/env";
 import { site, trialCopy } from "@/lib/site";
 
@@ -33,7 +34,7 @@ export const ctaLabels = {
   trialCreate: "Créer mon essai",
 } as const;
 
-/** Construit l'URL d'inscription avec preremplissage optionnel. */
+/** Construit l'URL d'inscription avec preremplissage optionnel + attribution marketing. */
 export function trialAppUrl(prefill?: {
   company?: string;
   name?: string;
@@ -42,6 +43,8 @@ export function trialAppUrl(prefill?: {
   source?: string;
   /** Pack vertical métier (ex. "security" pour gardiennage). */
   vertical?: string;
+  /** Skip attribution params (e.g. for server-side URLs). */
+  skipAttribution?: boolean;
 }): string {
   const url = new URL(cta.trialApp);
   if (prefill?.company) url.searchParams.set("company", prefill.company);
@@ -50,6 +53,17 @@ export function trialAppUrl(prefill?: {
   if (prefill?.phone) url.searchParams.set("phone", prefill.phone);
   if (prefill?.source) url.searchParams.set("source", prefill.source);
   if (prefill?.vertical) url.searchParams.set("vertical", prefill.vertical);
+
+  // Add first-touch attribution params (client-side only)
+  if (!prefill?.skipAttribution && typeof window !== "undefined") {
+    const attrParams = getAttributionParams();
+    for (const [key, value] of Object.entries(attrParams)) {
+      if (value && !url.searchParams.has(key)) {
+        url.searchParams.set(key, value);
+      }
+    }
+  }
+
   return url.toString();
 }
 
@@ -61,6 +75,8 @@ export function demoAppUrl(prefill?: {
   phone?: string;
   source?: string;
   next?: string;
+  /** Skip attribution params (e.g. for server-side URLs). */
+  skipAttribution?: boolean;
 }): string {
   const url = new URL(cta.demoApp);
   if (prefill?.company) url.searchParams.set("company", prefill.company);
@@ -70,5 +86,16 @@ export function demoAppUrl(prefill?: {
   if (prefill?.source) url.searchParams.set("source", prefill.source);
   else url.searchParams.set("source", "site_demo");
   url.searchParams.set("next", prefill?.next || "/demo-mvp");
+
+  // Add first-touch attribution params (client-side only)
+  if (!prefill?.skipAttribution && typeof window !== "undefined") {
+    const attrParams = getAttributionParams();
+    for (const [key, value] of Object.entries(attrParams)) {
+      if (value && !url.searchParams.has(key)) {
+        url.searchParams.set(key, value);
+      }
+    }
+  }
+
   return url.toString();
 }

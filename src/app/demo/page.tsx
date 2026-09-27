@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { getAttributionPayload } from "@/lib/attribution";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { cta, ctaLabels, demoAppUrl } from "@/lib/cta";
 import { HeroSocialProof } from "@/components/conversion/TestimonialsSection";
 import { mainPlan, modules, site } from "@/lib/site";
-import { track } from "@/lib/tracking";
+import { track, trackFormSubmit } from "@/lib/tracking";
 
 const benefits = [
   {
@@ -102,6 +103,7 @@ export default function DemoPage() {
     });
 
     // Lead en best-effort : ne bloque pas l'ouverture de la démo (sauf rate limit).
+    const attribution = getAttributionPayload();
     const controller = new AbortController();
     const leadTimeout = window.setTimeout(() => controller.abort(), 4000);
     let leadTimedOut = false;
@@ -116,6 +118,7 @@ export default function DemoPage() {
           email,
           phone,
           company,
+          ...attribution,
         }),
         signal: controller.signal,
       });
@@ -135,8 +138,7 @@ export default function DemoPage() {
       "progesti_demo",
       JSON.stringify({ name, email, phone, company, createdAt: Date.now() }),
     );
-    track("form_submit", {
-      intent: "demo",
+    trackFormSubmit("demo", {
       source: "demo_page_hero",
       ...(leadTimedOut ? { lead_timeout: true } : {}),
     });

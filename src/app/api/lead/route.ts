@@ -17,6 +17,16 @@ type LeadBody = {
   currentSoftware?: string;
   need?: string;
   website?: string; // honeypot
+  // First-touch attribution fields
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+  gclid?: string;
+  landing?: string;
+  referrer?: string;
+  channel?: string;
 };
 
 const rateMap = new Map<string, { count: number; resetAt: number }>();
@@ -118,6 +128,17 @@ export async function POST(request: Request) {
     const campaignRaw = String(body.campaign || body.source || "").trim();
     const campaign = campaignRaw || `site_${intent}`;
 
+    // First-touch attribution
+    const utmSource = body.utm_source?.trim() || null;
+    const utmMedium = body.utm_medium?.trim() || null;
+    const utmCampaign = body.utm_campaign?.trim() || null;
+    const utmContent = body.utm_content?.trim() || null;
+    const utmTerm = body.utm_term?.trim() || null;
+    const gclid = body.gclid?.trim() || null;
+    const landing = body.landing?.trim() || null;
+    const referrer = body.referrer?.trim() || null;
+    const channel = body.channel?.trim() || null;
+
     const lead = {
       at: new Date().toISOString(),
       intent,
@@ -131,6 +152,16 @@ export async function POST(request: Request) {
       need: body.need || null,
       ip,
       ua: request.headers.get("user-agent"),
+      // Attribution
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      utm_term: utmTerm,
+      gclid,
+      landing,
+      referrer,
+      channel,
     };
 
     console.info("[PROGESTI lead]", lead);
@@ -143,6 +174,14 @@ export async function POST(request: Request) {
       name: lead.name,
       company: lead.company,
       phone: lead.phone,
+      // Attribution for email/notification
+      utm_source: lead.utm_source,
+      utm_medium: lead.utm_medium,
+      utm_campaign: lead.utm_campaign,
+      gclid: lead.gclid,
+      landing: lead.landing,
+      referrer: lead.referrer,
+      channel: lead.channel,
     };
 
     // Persist + notify en arrière-plan — ne jamais bloquer la redirection démo / essai.

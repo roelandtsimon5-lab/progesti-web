@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { getAttributionPayload } from "@/lib/attribution";
 import { demoAppUrl, trialAppUrl } from "@/lib/cta";
 import { adsProductPreview } from "@/lib/creative-assets";
 import { site } from "@/lib/site";
-import { track } from "@/lib/tracking";
+import { track, trackFormSubmit } from "@/lib/tracking";
 
 export type AdsKillerContent = {
   campaign: string;
@@ -75,6 +76,7 @@ function KillerForm({
     const email = `${digits}@lead.progesti.fr`;
 
     try {
+      const attribution = getAttributionPayload();
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -85,11 +87,12 @@ function KillerForm({
           phone,
           email,
           company: "Lead Google Ads V4",
+          ...attribution,
         }),
       });
       if (!res.ok) throw new Error("fail");
 
-      track("form_submit", { intent: "ads_v4", campaign: c.campaign });
+      trackFormSubmit(c.next === "trial" ? "trial" : "demo", { campaign: c.campaign, source: "ads_v4" });
 
       if (c.next === "trial") {
         sessionStorage.setItem(

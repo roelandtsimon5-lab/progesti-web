@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { getAttributionPayload } from "@/lib/attribution";
 import { trialAppUrl } from "@/lib/cta";
 import { site } from "@/lib/site";
-import { track } from "@/lib/tracking";
+import { track, trackFormSubmit } from "@/lib/tracking";
 
 type Props = {
   campaign: string;
@@ -33,11 +34,12 @@ export function AdsV2TrialForm({
     const name = String(data.name || "");
     const email = String(data.email || "");
 
+    const attribution = getAttributionPayload();
     try {
       await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ intent: "trial", campaign, ...data }),
+        body: JSON.stringify({ intent: "trial", campaign, ...data, ...attribution }),
       });
     } catch {
       setError("Lead non enregistré — ouverture de l’inscription…");
@@ -54,7 +56,7 @@ export function AdsV2TrialForm({
       }),
     );
 
-    track("form_submit", { intent: "trial", campaign });
+    trackFormSubmit("trial", { campaign, source: "ads_v2_essai" });
     track("signup_start", { source: "ads_v2_essai", campaign });
     track("trial_start", { source: "ads_v2_essai", campaign });
 

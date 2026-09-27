@@ -42,8 +42,8 @@ export default function ConfidentialitePage() {
               .
             </p>
             <p className="mt-2">
-              Pour les données métier saisies dans l’espace client (agents, clients, pointages,
-              factures, photos d’intervention, notes de frais) : l’entreprise cliente est
+              Pour les données métier saisies dans l'espace client (agents, clients, pointages,
+              factures, photos d'intervention, notes de frais) : l'entreprise cliente est
               responsable de traitement ; {site.company.legalName} agit en sous-traitant (base
               dédiée par entreprise). Un accord de sous-traitance (DPA) peut être annexé sur
               demande.
@@ -67,33 +67,33 @@ export default function ConfidentialitePage() {
             <p className="mt-3 font-semibold text-ink">Application mobile ILICO Télégestion</p>
             <ul className="mt-1 list-disc space-y-1 pl-5">
               <li>
-                <strong>Localisation précise (GPS)</strong> — au démarrage et à la fin d’une
+                <strong>Localisation précise (GPS)</strong> — au démarrage et à la fin d'une
                 intervention, pour valider le pointage sur site (pas de suivi continu en
                 arrière-plan)
               </li>
               <li>
-                <strong>Photos et images</strong> — photos d’intervention, justificatifs de frais,
+                <strong>Photos et images</strong> — photos d'intervention, justificatifs de frais,
                 signatures client
               </li>
               <li>
-                <strong>Caméra</strong> — scan de QR codes d’accès chantier et prise de photos
+                <strong>Caméra</strong> — scan de QR codes d'accès chantier et prise de photos
               </li>
               <li>
-                <strong>NFC</strong> — lecture / programmation de tags d’accès sur site (si le
+                <strong>NFC</strong> — lecture / programmation de tags d'accès sur site (si le
                 téléphone le permet)
               </li>
               <li>
                 <strong>Identifiants techniques appareil</strong> — modèle, plateforme, version de
-                l’application
+                l'application
               </li>
               <li>
-                Contenu métier saisi par l’agent : commentaires, checklists, incidents, notes de
+                Contenu métier saisi par l'agent : commentaires, checklists, incidents, notes de
                 frais, messages
               </li>
             </ul>
             <p className="mt-2">
-              L’application mobile ne contient <strong>pas de publicités</strong>, ne revend pas de
-              données personnelles et n’utilise pas de cookies publicitaires tiers.
+              L'application mobile ne contient <strong>pas de publicités</strong>, ne revend pas de
+              données personnelles et n'utilise pas de cookies publicitaires tiers.
             </p>
           </section>
 
@@ -102,7 +102,7 @@ export default function ConfidentialitePage() {
             <ul className="mt-2 list-disc space-y-1 pl-5">
               <li>
                 <strong>Exécution du contrat</strong> — fourniture du Service (télégestion,
-                planning, support, facturation de l’abonnement)
+                planning, support, facturation de l'abonnement)
               </li>
               <li>
                 <strong>Mesures précontractuelles / intérêt légitime</strong> — réponse commerciale,
@@ -125,7 +125,7 @@ export default function ConfidentialitePage() {
               <li>Compte utilisateur : durée du contrat + 1 an</li>
               <li>
                 Données agents / planning / pointages : selon besoins du client, puis archivage
-                légal paie (jusqu’à 5 ans)
+                légal paie (jusqu'à 5 ans)
               </li>
               <li>
                 Photos, signatures et justificatifs : besoin métier client + obligations légales
@@ -148,7 +148,7 @@ export default function ConfidentialitePage() {
                 railway.app
               </a>
               ). Signature électronique (si activée) : Yousign. E-mails transactionnels : SMTP /
-              Brevo selon configuration. Mesure d’audience site : Google Tag Manager (conteneur
+              Brevo selon configuration. Mesure d'audience site : Google Tag Manager (conteneur
               GTM-K65MM8Q4) avec Consent Mode v2, uniquement après acceptation du bandeau sur les
               pages marketing.
             </p>
@@ -160,7 +160,7 @@ export default function ConfidentialitePage() {
           <section>
             <h2 className="font-extrabold text-ink">6. Transferts hors UE</h2>
             <p className="mt-2">
-              L’hébergeur peut opérer depuis les États-Unis. Les transferts s’effectuent avec les
+              L'hébergeur peut opérer depuis les États-Unis. Les transferts s'effectuent avec les
               garanties appropriées (clauses contractuelles types / mesures techniques). Les
               données métier restent isolées par base entreprise.
             </p>
@@ -171,11 +171,11 @@ export default function ConfidentialitePage() {
             <p className="mt-2">
               Accès, rectification, effacement, limitation, opposition, portabilité — dans les
               conditions du RGPD. Les salariés / agents adressent en priorité leur demande à leur
-              employeur. Demandes auprès de l’éditeur :{" "}
+              employeur. Demandes auprès de l'éditeur :{" "}
               <a className="font-semibold text-blue-royal" href={`mailto:${site.email}`}>
                 {site.email}
               </a>{" "}
-              ou via l’export RGPD dans l’application (agents). Délai de réponse : 1 mois. Vous
+              ou via l'export RGPD dans l'application (agents). Délai de réponse : 1 mois. Vous
               pouvez aussi saisir la CNIL (
               <a
                 className="font-semibold text-blue-royal"
@@ -193,7 +193,7 @@ export default function ConfidentialitePage() {
             <h2 className="font-extrabold text-ink">8. Sécurité</h2>
             <p className="mt-2">
               Isolation DB-per-tenant, mots de passe hashés, sessions et jetons sécurisés,
-              rate-limit login, sauvegardes quotidiennes par entreprise, contrôle d’accès par rôle,
+              rate-limit login, sauvegardes quotidiennes par entreprise, contrôle d'accès par rôle,
               communications chiffrées en transit (HTTPS).
             </p>
           </section>
@@ -202,9 +202,20 @@ export default function ConfidentialitePage() {
             <h2 className="font-extrabold text-ink">9. Cookies et stockage local</h2>
             <p className="mt-2">
               Le Service web utilise des cookies / stockage local strictement nécessaires à
-              l’authentification et au fonctionnement. L’application mobile stocke localement des
-              jetons de session et, le cas échéant, une file d’attente hors ligne. Pas de cookies
-              publicitaires tiers dans l’application mobile.
+              l'authentification et au fonctionnement. L'application mobile stocke localement des
+              jetons de session et, le cas échéant, une file d'attente hors ligne. Pas de cookies
+              publicitaires tiers dans l'application mobile.
+            </p>
+            <p className="mt-2">
+              <strong>Attribution marketing (first-party)</strong> — Lors de votre première visite
+              sur le site, nous stockons dans le stockage local de votre navigateur des données
+              d'attribution marketing minimales : page d'entrée, source de trafic (referrer),
+              paramètres UTM éventuels. Ces données, conservées 90 jours, servent uniquement à
+              comprendre comment les visiteurs découvrent PROGESTI et à améliorer notre
+              communication. Elles ne sont transmises qu'à nos propres serveurs lors d'une demande
+              de démo ou d'inscription, et ne sont jamais partagées avec des tiers publicitaires.
+              Ce stockage fonctionne indépendamment du consentement aux cookies analytics car il
+              s'agit de données first-party à finalité fonctionnelle interne.
             </p>
           </section>
 
