@@ -6,8 +6,8 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Conditions générales de vente",
-  description: `CGV du service SaaS ${site.name} édité par ${site.company.legalName}.`,
+  title: "CGV PROGESTI : offres, paiement, résiliation",
+  description: `Conditions générales de vente du logiciel ${site.name} : offres, paiement, résiliation, données et support. Service édité par ${site.company.legalName}.`,
   path: "/cgv",
 });
 

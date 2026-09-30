@@ -6,8 +6,8 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...pageMeta({
-    title: "Politique de confidentialité",
-    description: `Politique de confidentialité ${site.name} — site web, SaaS et application mobile ILICO Télégestion.`,
+    title: "Confidentialité et données personnelles (RGPD)",
+    description: `Quelles données ${site.name} collecte, pourquoi, combien de temps, vos droits RGPD et la sécurité : la politique de confidentialité du site et du logiciel.`,
     path: "/confidentialite",
   }),
   robots: { index: true, follow: true },
