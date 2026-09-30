@@ -6,8 +6,8 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...pageMeta({
-    title: "Support Progesti",
-    description: `Support technique et assistance PROGESTI — logiciel de planning, pointage terrain, devis et facturation pour entreprises de nettoyage.`,
+    title: "Support PROGESTI : aide, contact et horaires",
+    description: `Besoin d'aide sur le planning, le pointage, les devis ou la facturation ? Contactez le support PROGESTI, jours ouvrés 9h–18h (Paris).`,
     path: "/support",
   }),
   robots: { index: true, follow: true },

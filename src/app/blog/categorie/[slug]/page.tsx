@@ -15,6 +15,15 @@ import { cta } from "@/lib/cta";
 
 type Props = { params: Promise<{ slug: string }> };
 
+/** Titres/descriptions dédiés (catégories avec impressions) — les autres gardent le gabarit. */
+const categorySeo: Record<string, { title: string; description: string }> = {
+  comparatifs: {
+    title: "Comparatifs : alternatives logiciel nettoyage",
+    description:
+      "Comparatifs et alternatives aux logiciels de nettoyage : les articles PROGESTI pour comparer les critères avant de choisir votre outil.",
+  },
+};
+
 export function generateStaticParams() {
   return blogCategories.map((c) => ({ slug: c.slug }));
 }
@@ -24,13 +33,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!categoryExists(slug)) return {};
   const label = getCategoryLabel(slug);
   const path = `/blog/categorie/${slug}`;
+  const override = categorySeo[slug];
+  const title = override?.title ?? `Blog — ${label}`;
+  const description =
+    override?.description ??
+    `Articles PROGESTI dans la catégorie ${label} : conseils et guides pour entreprises de nettoyage.`;
   return {
-    title: `Blog — ${label}`,
-    description: `Articles PROGESTI dans la catégorie ${label} : conseils et guides pour entreprises de nettoyage.`,
+    title,
+    description,
     alternates: { canonical: `${site.url}${path}` },
     openGraph: {
-      title: `Blog — ${label} | ${site.name}`,
-      description: `Articles PROGESTI dans la catégorie ${label} : conseils et guides pour entreprises de nettoyage.`,
+      title: `${title} | ${site.name}`,
+      description,
       url: `${site.url}${path}`,
     },
   };

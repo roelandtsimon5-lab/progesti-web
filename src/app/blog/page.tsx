@@ -7,7 +7,7 @@ import { getAllPosts, getCategoryLabel, getActiveBlogCategories } from "@/lib/bl
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Blog — guides nettoyage & propreté",
+  title: "Blog nettoyage : guides, conseils et comparatifs",
   description:
     "Guides opérationnels, conseils métier, comparatifs et verticales (bureaux, syndics, fin de chantier) pour entreprises de nettoyage.",
   path: "/blog",
