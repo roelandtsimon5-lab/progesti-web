@@ -11,12 +11,12 @@ import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { FinalPush } from "@/components/conversion/FinalPush";
 import { ReviewsLd } from "@/components/seo/ReviewsLd";
 import { cta, ctaLabels } from "@/lib/cta";
-import { pricingCopy, solutions, site, trustBadges, trialCopy, modules } from "@/lib/site";
+import { pricingCopy, solutions, site, trustBadges, modules } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Tarifs — Gratuit pour indépendants",
-  description: `Tarifs PROGESTI : Gratuit pour indépendants et micro-entreprises, Pro 49,99 €, Premium 99,99 € HT/mois. Tous modules inclus. ${trialCopy.free} sur offres payantes.`,
+  title: "Tarifs du logiciel de nettoyage — dès 0 € HT/mois",
+  description: `Gratuit pour indépendants, Pro 49,99 €, Premium 99,99 € HT/mois. Tous modules inclus. Essai ${site.trialDays} jours sans CB sur les offres payantes.`,
   path: "/tarifs",
 });
 
@@ -46,8 +46,8 @@ const pricingFaq = [
     a: "Trois offres publiques : Gratuit pour indépendants (0 €, 1 admin), Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois (20 utilisateurs). Tous modules inclus.",
   },
   {
-    q: "L'offre annuelle est-elle avantageuse ?",
-    a: "Oui. Sur Pro et Premium, l'annuel équivaut à 2 mois offerts (10 mois facturés pour 12 mois d'usage).",
+    q: "Puis-je essayer avant de payer ?",
+    a: "Oui. Les offres Pro et Premium s'essaient 15 jours, sans carte bancaire. L'offre Gratuit (0 € HT/mois) est réservée aux indépendants, auto-entrepreneurs et micro-entreprises.",
   },
 ];
 

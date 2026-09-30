@@ -23,7 +23,6 @@ type LeadBody = {
   utm_campaign?: string;
   utm_content?: string;
   utm_term?: string;
-  gclid?: string;
   landing?: string;
   referrer?: string;
   channel?: string;
@@ -128,16 +127,20 @@ export async function POST(request: Request) {
     const campaignRaw = String(body.campaign || body.source || "").trim();
     const campaign = campaignRaw || `site_${intent}`;
 
-    // First-touch attribution
-    const utmSource = body.utm_source?.trim() || null;
-    const utmMedium = body.utm_medium?.trim() || null;
-    const utmCampaign = body.utm_campaign?.trim() || null;
-    const utmContent = body.utm_content?.trim() || null;
-    const utmTerm = body.utm_term?.trim() || null;
-    const gclid = body.gclid?.trim() || null;
-    const landing = body.landing?.trim() || null;
-    const referrer = body.referrer?.trim() || null;
-    const channel = body.channel?.trim() || null;
+    // Origine du visiteur : étiquettes non personnelles, nettoyées (longueur + caractères)
+    const clean = (v: unknown): string | null => {
+      if (typeof v !== "string") return null;
+      const x = v.replace(/[^\w .:/+%@-]|@/g, "").trim().slice(0, 80);
+      return x || null;
+    };
+    const utmSource = clean(body.utm_source);
+    const utmMedium = clean(body.utm_medium);
+    const utmCampaign = clean(body.utm_campaign);
+    const utmContent = clean(body.utm_content);
+    const utmTerm = clean(body.utm_term);
+    const landing = clean(body.landing);
+    const referrer = clean(body.referrer);
+    const channel = clean(body.channel);
 
     const lead = {
       at: new Date().toISOString(),
@@ -158,7 +161,6 @@ export async function POST(request: Request) {
       utm_campaign: utmCampaign,
       utm_content: utmContent,
       utm_term: utmTerm,
-      gclid,
       landing,
       referrer,
       channel,
@@ -178,7 +180,6 @@ export async function POST(request: Request) {
       utm_source: lead.utm_source,
       utm_medium: lead.utm_medium,
       utm_campaign: lead.utm_campaign,
-      gclid: lead.gclid,
       landing: lead.landing,
       referrer: lead.referrer,
       channel: lead.channel,

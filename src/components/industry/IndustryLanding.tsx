@@ -5,6 +5,7 @@ import { FinalPush } from "@/components/conversion/FinalPush";
 import { HeroSocialProof, TestimonialsSection } from "@/components/conversion/TestimonialsSection";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Reveal } from "@/components/ui/Reveal";
+import { DirectAnswer } from "@/components/seo/DirectAnswer";
 import { cta, ctaLabels } from "@/lib/cta";
 import { defaultIndustryConfig, type IndustryPageConfig } from "@/lib/industry";
 import { modules, pricingCopy, site, solutions } from "@/lib/site";
@@ -35,7 +36,7 @@ type Props = {
 };
 
 export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
-  const { hero, empathy, pillars, showcase, proof, grid, faq, vsTitle, compareNote } = config;
+  const { hero, empathy, pillars, showcase, proof, grid, faq, vsTitle, compareNote, directAnswer } = config;
   const ctaSlug = config.slug === "default" ? "industry" : `solution_${config.slug}`;
   const solutionMeta = solutions.find((s) => s.slug === config.slug);
   const breadcrumbs =
@@ -176,6 +177,8 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
       </section>
 
       <div className="industry-hero-wave -mt-px bg-[var(--warm-light)]" aria-hidden />
+
+      {directAnswer ? <DirectAnswer>{directAnswer}</DirectAnswer> : null}
 
       <IndustryMetierStrip />
       <IndustrySectionNav />
@@ -413,7 +416,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
             </h2>
             <p className="mt-3 text-lg text-slate">Gratuit, Pro ou Premium · Tous les modules · Pas de surprise</p>
             <p className="mt-2 text-sm text-slate">
-              Annuel = 2 mois offerts. Voir les{" "}
+              Essai 15 jours sans CB. Voir les{" "}
               <Link href="/tarifs" className="link-accent font-bold">
                 tarifs Gratuit / Pro / Premium
               </Link>

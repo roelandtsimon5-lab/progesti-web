@@ -6,8 +6,8 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...pageMeta({
-    title: "Politique de confidentialité",
-    description: `Politique de confidentialité ${site.name} — site web, SaaS et application mobile ILICO Télégestion.`,
+    title: "Confidentialité et données personnelles (RGPD)",
+    description: `Quelles données ${site.name} collecte, pourquoi, combien de temps, vos droits RGPD et la sécurité : la politique de confidentialité du site et du logiciel.`,
     path: "/confidentialite",
   }),
   robots: { index: true, follow: true },
@@ -19,7 +19,7 @@ export default function ConfidentialitePage() {
       <IndustryPageHero
         eyebrow="Légal"
         title="Politique de confidentialité"
-        lead="Traitement des données personnelles via le site PROGESTI, le logiciel SaaS et l'application mobile ILICO Télégestion (fr.ilico.telegestion)."
+        lead="Traitement des données personnelles via le site PROGESTI, le logiciel SaaS et l'application mobile PROGESTI Télégestion."
         breadcrumbs={[
           { label: "Accueil", href: "/" },
           { label: "Confidentialité" },
@@ -28,7 +28,7 @@ export default function ConfidentialitePage() {
       />
       <section className="section bg-white">
         <div className="container max-w-3xl space-y-8 text-sm leading-relaxed text-anthracite">
-          <p className="text-xs text-muted">Dernière mise à jour : 11 août 2026</p>
+          <p className="text-xs text-muted">Dernière mise à jour : 30 septembre 2026</p>
 
           <section>
             <h2 className="font-extrabold text-ink">1. Responsable de traitement</h2>
@@ -64,7 +64,7 @@ export default function ConfidentialitePage() {
               <li>Données de facturation et règlements</li>
               <li>Logs techniques de connexion et de sécurité</li>
             </ul>
-            <p className="mt-3 font-semibold text-ink">Application mobile ILICO Télégestion</p>
+            <p className="mt-3 font-semibold text-ink">Application mobile PROGESTI Télégestion</p>
             <ul className="mt-1 list-disc space-y-1 pl-5">
               <li>
                 <strong>Localisation précise (GPS)</strong> — au démarrage et à la fin d'une
@@ -138,7 +138,7 @@ export default function ConfidentialitePage() {
           <section>
             <h2 className="font-extrabold text-ink">5. Destinataires et sous-traitants</h2>
             <p className="mt-2">
-              Hébergement applicatif et bases de données : Railway Corp (
+              Hébergement applicatif et bases de données : Railway Corporation (
               <a
                 className="font-semibold text-blue-royal"
                 href="https://railway.app"
@@ -147,8 +147,8 @@ export default function ConfidentialitePage() {
               >
                 railway.app
               </a>
-              ). Signature électronique (si activée) : Yousign. E-mails transactionnels : SMTP /
-              Brevo selon configuration. Mesure d'audience site : Google Tag Manager (conteneur
+              ). Signature en ligne des devis : service interne PROGESTI, sans prestataire tiers de signature. E-mails transactionnels : SMTP /
+              Brevo selon configuration. Mesure d’audience site : Google Tag Manager (conteneur
               GTM-K65MM8Q4) avec Consent Mode v2, uniquement après acceptation du bandeau sur les
               pages marketing.
             </p>
@@ -207,15 +207,15 @@ export default function ConfidentialitePage() {
               publicitaires tiers dans l'application mobile.
             </p>
             <p className="mt-2">
-              <strong>Attribution marketing (first-party)</strong> — Lors de votre première visite
-              sur le site, nous stockons dans le stockage local de votre navigateur des données
-              d'attribution marketing minimales : page d'entrée, source de trafic (referrer),
-              paramètres UTM éventuels. Ces données, conservées 90 jours, servent uniquement à
-              comprendre comment les visiteurs découvrent PROGESTI et à améliorer notre
-              communication. Elles ne sont transmises qu'à nos propres serveurs lors d'une demande
-              de démo ou d'inscription, et ne sont jamais partagées avec des tiers publicitaires.
-              Ce stockage fonctionne indépendamment du consentement aux cookies analytics car il
-              s'agit de données first-party à finalité fonctionnelle interne.
+              <strong>Origine de la visite (sans cookie)</strong> — Pour savoir d'où viennent les
+              demandes de démo et d'essai, le site retient, uniquement dans la mémoire de l'onglet
+              ouvert, le domaine du site d'origine (par exemple « google.fr »), la page d'entrée
+              (sans paramètres) et les étiquettes de campagne éventuelles de l'adresse (UTM). Rien
+              n'est écrit dans votre navigateur (ni cookie, ni stockage local), aucun identifiant
+              n'est créé, et ces informations disparaissent à la fermeture de l'onglet. Elles ne
+              sont transmises à nos serveurs qu'au moment où vous envoyez vous-même une demande de
+              démo ou d'essai, sans adresse IP ni e-mail associés à cette origine, et ne sont
+              jamais partagées avec des tiers publicitaires.
             </p>
           </section>
 

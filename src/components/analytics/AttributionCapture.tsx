@@ -4,10 +4,8 @@ import { useEffect } from "react";
 import { captureFirstTouchAttribution } from "@/lib/attribution";
 
 /**
- * Captures first-touch marketing attribution on initial page load.
- * Stores referrer, UTM params, gclid, and landing path in localStorage.
- * Works regardless of analytics consent (first-party functional data).
- * Place once in the root layout.
+ * Mémorise l'origine de la visite (domaine du referrer, UTM, page d'entrée) EN MÉMOIRE de l'onglet.
+ * Aucun cookie, aucun localStorage/sessionStorage, aucun identifiant. À placer une fois dans le layout racine.
  */
 export function AttributionCapture() {
   useEffect(() => {

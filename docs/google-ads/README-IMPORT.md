@@ -49,3 +49,11 @@ V3 long-form (`/lp/ads/v3/*`) = retargeting uniquement.
 ## Support
 
 Détail stratégie : `docs/PROMPT-GOOGLE-ADS-ROI.md`
+
+---
+
+## ⚠️ URLs de destination supprimées (30/09/2026)
+
+Les landings `/lp/**` (dont `/lp/ads/v3/*` et `/lp/ads/v4/*`) ont été supprimées du site : elles affichaient d'anciennes offres (essai 2 mois, ancien prix).
+Elles répondent maintenant par une **redirection 301 vers https://progesti.fr/tarifs**. Les fichiers CSV de ce dossier pointent encore vers ces anciennes URL : ne pas les réimporter tels quels.
+Avant d'activer une campagne, remplacer les URL finales par une page actuelle (`/tarifs`, `/essai-gratuit`, `/logiciel-devis-nettoyage`…). Offre actuelle : Gratuit 0 € HT, Pro 49,99 € HT, Premium 99,99 € HT, essai 15 jours sans CB.

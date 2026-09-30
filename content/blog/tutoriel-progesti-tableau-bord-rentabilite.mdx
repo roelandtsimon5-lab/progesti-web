@@ -1,0 +1,125 @@
+---
+title: "Tutoriel Progesti : lire le tableau de bord rentabilité"
+slug: "tutoriel-progesti-tableau-bord-rentabilite"
+category: "tutoriels"
+excerpt: "Pas à pas avec captures : RAPPORTS → Rentabilité, filtres période / agence / client, mode Réel ou Prévisionnel, KPI de marge, segments et seuils de calcul."
+date: "2026-09-28"
+updatedAt: "2026-09-28"
+readingTime: 8
+seoTitle: "Tutoriel Progesti : tableau de bord rentabilité (captures)"
+seoDescription: "Comment lire la rentabilité par client dans Progesti : menu RAPPORTS, filtres, marge réelle ou prévisionnelle, classement et paramètres de calcul. Captures démo."
+keywords: ["tutoriel progesti", "tableau de bord rentabilité nettoyage", "marge client propreté", "rapport rentabilité entreprise nettoyage", "pilotage marge chantier"]
+---
+
+# Tutoriel Progesti : lire le tableau de bord rentabilité
+
+Vous facturez, vous payez les agents, vous roulez… et en fin de mois vous ne savez toujours pas **quel client vous fait gagner de l’argent**. Excel arrive trop tard. Le tableau de bord rentabilité, c’est l’écran pour voir la marge **par client**, sur la période que vous choisissez, sans refaire le calcul à la main.
+
+Ce tutoriel suit le parcours réel dans Progesti (démo Pro Nettoyage Services) : menu **RAPPORTS** → **Rentabilité** → filtres → cartes KPI → segments → classement → paramètres de calcul.
+
+Sur le terrain, l’objectif est simple : repérer les contrats déficitaires avant le prochain devis, pas après le bilan.
+
+## 1. Ouvrir Rentabilité dans RAPPORTS
+
+Dans le menu de gauche : **RAPPORTS**.
+
+Vous voyez notamment **Chiffre d’affaires**, **Heures travaillées**, **Rentabilité**, **Performance équipes**, **Recouvrement**. Cliquez **Rentabilité** (`/rapports/rentabilite`).
+
+![Menu RAPPORTS Progesti avec le lien Rentabilité sélectionnable](/tutoriels/tutoriel-progesti-tableau-bord-rentabilite/01-menu-rapports-rentabilite.png)
+
+**Terrain :** ne confondez pas l’accueil « Tableau de bord » (cockpit du jour) avec **Rentabilité**. L’un pilote l’opérationnel ; l’autre répond à « ce client me rapporte-t-il encore ? ».
+
+## 2. Lire la vue globale (marge réelle)
+
+L’écran s’intitule **Rentabilité**. Sous le titre, la période affichée (ex. année en cours) et le libellé **Marge réelle par client**.
+
+En haut : bascule **Réel** / **Prévisionnel**, puis les périodes **Mois**, **Trimestre**, **Année**, **Depuis toujours**, **Année précédente**, **Personnalisé**.
+
+En dessous : filtres **Agence**, **Secteur**, **Client**.
+
+Les cinq cartes résument la période :
+
+1. **CA HT TOTAL**
+2. **COÛT TOTAL PRODUCTION**
+3. **MARGE BRUTE**
+4. **TAUX DE MARGE**
+5. **MARGE / HEURE**
+
+![Écran Rentabilité Progesti : période Année, mode Réel, cartes CA, coût, marge et taux](/tutoriels/tutoriel-progesti-tableau-bord-rentabilite/02-rentabilite-vue-globale.png)
+
+**Terrain :** une marge négative avec un coût de production visible et un CA à zéro sur la période, ça veut souvent dire : heures / charges déjà là, facturation pas (encore) rattachée sur la même fenêtre. Vérifiez d’abord la période et le filtre client avant de paniquer.
+
+Pour le détail produit côté site marketing, voir le [module rentabilité et tableaux de bord](/fonctionnalites/rentabilite).
+
+## 3. Changer la période (Mois, Trimestre, Année)
+
+Cliquez **Mois** pour zoomer sur le mois en cours (ex. septembre). Le sous-titre passe à **Marge réelle par client — Septembre 2026** (ou le mois affiché).
+
+Même logique pour **Trimestre** ou **Année**. **Depuis toujours** élargit la fenêtre ; **Personnalisé** sert quand vous arbitrez un contrat sur une date précise (prise d’effet, avenant, fin de saison).
+
+![Filtre période Mois sur le rapport Rentabilité Progesti](/tutoriels/tutoriel-progesti-tableau-bord-rentabilite/03-filtre-periode-mois.png)
+
+**Routine utile :** chaque lundi, vue **Mois** + filtre agence. Chaque fin de trimestre, vue **Trimestre** avant les renégociations.
+
+## 4. Passer en mode Prévisionnel
+
+La bascule **Prévisionnel** change le vocabulaire des cartes : **CA HT ESTIMÉ**, **COÛT PRODUCTION ESTIMÉ**, **MARGE BRUTE ESTIMÉE**. Le sous-titre parle de **marge estimée**.
+
+![Mode Prévisionnel du rapport Rentabilité : cartes estimées pour le mois](/tutoriels/tutoriel-progesti-tableau-bord-rentabilite/04-mode-previsionnel.png)
+
+**Terrain :** **Réel** = ce qui est déjà ancré (facturé / coûté). **Prévisionnel** = ce que le planning et les hypothèses laissent venir. Utilisez le prévisionnel **avant** d’accepter un volume supplémentaire, pas pour justifier un mois déjà perdu.
+
+## 5. Filtrer par agence (ou client)
+
+Les listes **Agence**, **Secteur**, **Client** restreignent le calcul. Sur la démo, l’agence **Démo PROGESTI** est sélectionnable ; la liste client contient les comptes fictifs (Basic Fit, boulangerie, cabinets, etc.).
+
+![Filtre Agence appliqué sur le rapport Rentabilité Progesti](/tutoriels/tutoriel-progesti-tableau-bord-rentabilite/05-filtre-agence.png)
+
+**Terrain multi-sites :** commencez par l’agence qui « tire » le planning, puis isolez un client douteux. Un seul filtre à la fois évite de mélanger deux problèmes (orga locale vs prix de vente).
+
+## 6. Segmenter : Rentables, À surveiller, Déficitaires
+
+Sous les KPI, les onglets **Tous** · **Rentables** · **À surveiller** · **Déficitaires** filtrent le classement selon les seuils configurés.
+
+![Onglet Déficitaires du rapport Rentabilité Progesti](/tutoriels/tutoriel-progesti-tableau-bord-rentabilite/06-segments-deficitaires.png)
+
+**Terrain :** le lundi, ouvrez **Déficitaires** avant **Rentables**. Ce sont les dossiers qui mangent la trésorerie. **À surveiller** = encore dans le vert, mais trop près du seuil pour dormir tranquille.
+
+## 7. Lire le classement détaillé
+
+Plus bas : **Clients les plus / moins rentables**, puis **Classement détaillé** avec les colonnes **Client**, **CA HT**, **Marge €**, **Marge %**, **CA / h**, **Heures**, **Km**, **Déplacements**, **Statut**.
+
+En pied d’écran : rappel des heures (**vendues** / **planifiées** / **validées**) et le **mode coût** (ex. CHARGE).
+
+![Classement détaillé rentabilité : colonnes CA, marge, heures, km et statut](/tutoriels/tutoriel-progesti-tableau-bord-rentabilite/07-classement-detaille.png)
+
+Si le classement affiche **Aucune donnée**, ce n’est pas « le module est cassé » : CA et heures ne sont pas encore reliés sur la période / le filtre. Corrigez la fenêtre ou la facturation rattachée, puis rechargez.
+
+**Pièges fréquents :**
+
+- Mauvaise période → CA d’août lu en septembre.
+- Mode **Prévisionnel** lu comme du réalisé.
+- Seuils jamais réglés → tout le monde « À surveiller » ou rien dans **Déficitaires**.
+- Coût salarial en mode trop bas (ou trop chargé) → marge fantaisiste ; ouvrez les paramètres.
+- Comparer deux clients sans le même filtre agence.
+
+## 8. Régler seuils et méthodes de calcul
+
+En bas de l’écran Rentabilité : lien **Configurer les seuils et méthodes de calcul →** (`/parametres/rentabilite`).
+
+Vous y réglez notamment :
+
+- **Calcul du coût salarial** (taux contrat, coût chargé + charges, ou coût réel bulletins)
+- **Taux de charges patronales** (ex. 0,45)
+- **Déplacements & véhicules** (coût km société, répartition inter-clients)
+- **Seuils d’alerte** (ce qui alimente Rentables / À surveiller / Déficitaires)
+
+![Paramètres Rentabilité : mode de calcul du coût salarial, véhicules et seuils](/tutoriels/tutoriel-progesti-tableau-bord-rentabilite/08-parametres-seuils-calcul.png)
+
+**Règle gérant :** fixez le mode de coût **une fois** avec votre expert-comptable, notez-le, et ne le changez pas chaque semaine. Un changement de paramètres est versionné ; il ne doit pas réécrire l’histoire au feeling.
+
+## Pour aller plus loin
+
+Le rapport **Rentabilité** croise CA, coûts de production, heures et déplacements pour classer les clients. Ce n’est pas un bilan comptable : c’est un radar terrain pour décider où renégocier, où arrêter, où pousser.
+
+Offre publique : **Gratuit** pour indépendants et micro-entreprises, **Pro** 49,99 € HT/mois, **Premium** 99,99 € HT/mois. Essai 15 jours sur les offres payantes, sans carte bancaire. Une question terrain : **07 67 68 55 67**.

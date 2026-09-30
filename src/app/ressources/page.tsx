@@ -32,6 +32,11 @@ const pillars = [
     text: "Du réalisé terrain à la facture, sans ressaisie.",
   },
   {
+    href: "/logiciel-devis-nettoyage",
+    title: "Logiciel devis nettoyage",
+    text: "Du devis au contrat, relié au planning et à la facture.",
+  },
+  {
     href: "/alternative-propret",
     title: "Alternative à Propret",
     text: "Comparer essai, tarifs et parcours de switch.",

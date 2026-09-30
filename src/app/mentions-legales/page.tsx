@@ -52,8 +52,11 @@ export default function MentionsLegalesPage() {
             </a>
           </p>
           <p>
-            <strong className="text-blue-deep">Hébergeur du site :</strong> infrastructure cloud (déploiement type Vercel /
-            OVH selon environnement de production).
+            <strong className="text-blue-deep">Hébergeur du site :</strong> Railway Corporation —{" "}
+            <a className="font-semibold text-blue-royal hover:underline" href="https://railway.com" rel="noopener noreferrer">
+              railway.com
+            </a>
+            . Le trafic du site transite par le réseau de diffusion et de protection Cloudflare.
           </p>
           <p>
             <strong className="text-blue-deep">Directeur de la publication :</strong> {c.legalName}

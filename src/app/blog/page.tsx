@@ -7,7 +7,7 @@ import { getAllPosts, getCategoryLabel, getActiveBlogCategories } from "@/lib/bl
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Blog — guides nettoyage & propreté",
+  title: "Blog nettoyage : guides, conseils et comparatifs",
   description:
     "Guides opérationnels, conseils métier, comparatifs et verticales (bureaux, syndics, fin de chantier) pour entreprises de nettoyage.",
   path: "/blog",
@@ -58,8 +58,9 @@ export default function BlogPage() {
                   <p className="text-xs font-bold uppercase tracking-wide text-green-deep">
                     {getCategoryLabel(post.category)}
                     <span className="mx-2 text-blue-mist">·</span>
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString("fr-FR", {
+                    Mis à jour le{" "}
+                    <time dateTime={post.updatedAt}>
+                      {new Date(post.updatedAt).toLocaleDateString("fr-FR", {
                         year: "numeric",
                         month: "long",
                         day: "numeric",

@@ -88,6 +88,8 @@ export type IndustryPageConfig = {
   /** Titre H2 du comparatif Excel/WhatsApp (optionnel) */
   vsTitle?: string;
   /** Lien éditorial corps (ex. alternative concurrente) — hors footer */
+  /** Bloc « réponse directe » 40-60 mots affiché sous le hero. */
+  directAnswer?: string;
   compareNote?: {
     before: string;
     href: string;

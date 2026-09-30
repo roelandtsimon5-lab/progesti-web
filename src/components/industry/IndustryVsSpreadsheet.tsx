@@ -6,7 +6,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 
 import { cta } from "@/lib/cta";
 
-import { formatEuro, mainPlan, modules, site } from "@/lib/site";
+import { modules, site } from "@/lib/site";
 
 
 
@@ -198,25 +198,9 @@ export function IndustryVsSpreadsheet({ title }: Props) {
 
         </div>
 
-        {mainPlan.yearlyStrike != null && mainPlan.yearly > 0 ? (
-          <p className="mt-6 text-center text-sm text-slate">
-
-            Économie annuelle vs mensuel :{" "}
-
-            <span className="font-bold text-ink">
-
-              {formatEuro(mainPlan.yearlyStrike - mainPlan.yearly)} HT
-
-            </span>{" "}
-
-            (2 mois offerts · {formatEuro(mainPlan.yearly)}/an)
-
-          </p>
-        ) : (
-          <p className="mt-6 text-center text-sm text-slate">
-            <span className="font-bold text-ink">Gratuit</span> pour indépendants et micro-entreprises — tous modules inclus
-          </p>
-        )}
+        <p className="mt-6 text-center text-sm text-slate">
+          <span className="font-bold text-ink">Gratuit</span> pour indépendants et micro-entreprises — tous modules inclus
+        </p>
 
       </div>
 

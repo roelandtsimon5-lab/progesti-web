@@ -16,7 +16,6 @@ export type LeadPayload = {
   utm_source?: string | null;
   utm_medium?: string | null;
   utm_campaign?: string | null;
-  gclid?: string | null;
   landing?: string | null;
   referrer?: string | null;
   channel?: string | null;
@@ -369,7 +368,6 @@ function alertEmail(lead: LeadPayload) {
     lead.utm_source ? `UTM source   : ${lead.utm_source}` : "",
     lead.utm_medium ? `UTM medium   : ${lead.utm_medium}` : "",
     lead.utm_campaign ? `UTM campaign : ${lead.utm_campaign}` : "",
-    lead.gclid ? `GCLID        : ${lead.gclid}` : "",
     ``,
     phoneE164 ? `Appeler : tel:${phoneE164}` : "",
     `Écrire  : mailto:${lead.email}`,

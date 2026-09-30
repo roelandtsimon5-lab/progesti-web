@@ -4,9 +4,9 @@ import { defaultIndustryConfig, mergeIndustryConfig } from "./default";
 export const bureauxConfig = mergeIndustryConfig(defaultIndustryConfig, {
   slug: "bureaux",
   seo: {
-    title: "Logiciel nettoyage de bureaux — planning & facturation",
+    title: "Logiciel nettoyage bureaux : planning, factures",
     description:
-      `Organisez le ménage des bureaux et open spaces : planning multi-sites, pointage, facturation. Gratuit pour indépendants, dès 49,99 € (Pro). ${trialCopy.label}.`,
+      `Planning multi-sites, pointage et facturation pour le nettoyage de bureaux. Gratuit pour indépendants, Pro 49,99 € HT/mois. ${trialCopy.noCard}.`,
     path: "/solutions/bureaux",
   },
   hero: {
@@ -186,9 +186,9 @@ export const professionnelsConfig = mergeIndustryConfig(defaultIndustryConfig, {
 export const finDeChantierConfig = mergeIndustryConfig(defaultIndustryConfig, {
   slug: "fin-de-chantier",
   seo: {
-    title: "Logiciel remise en état & fin de chantier",
+    title: "Logiciel fin de chantier : remise en état, photos",
     description:
-      `Remise en état après travaux : planning serré, preuves photos, facturation rapide. PROGESTI gratuit pour indépendants. ${trialCopy.label}.`,
+      `Remise en état après travaux : planning serré, preuves photos, facturation rapide. Gratuit pour indépendants. ${trialCopy.noCard}.`,
     path: "/solutions/fin-de-chantier",
   },
   hero: {
@@ -244,9 +244,9 @@ export const finDeChantierConfig = mergeIndustryConfig(defaultIndustryConfig, {
 export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig, {
   slug: "auto-entrepreneurs",
   seo: {
-    title: "Logiciel gratuit pour indépendants — 0 € par mois",
+    title: "Logiciel nettoyage auto-entrepreneur : 0 €/mois",
     description:
-      `Remplacez Excel et WhatsApp : sites, planning, pointage et factures. PROGESTI tout inclus pour TPE propreté. ${trialCopy.label}.`,
+      `Indépendants, micro et auto-entrepreneurs du nettoyage : offre Gratuit à 0 € HT/mois, tous modules inclus (planning, pointage, factures).`,
     path: "/solutions/auto-entrepreneurs",
   },
   hero: {

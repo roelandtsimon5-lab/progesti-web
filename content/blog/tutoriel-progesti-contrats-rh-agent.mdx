@@ -1,0 +1,139 @@
+---
+title: "Tutoriel Progesti : créer le contrat d’un agent"
+slug: "tutoriel-progesti-contrats-rh-agent"
+category: "tutoriels"
+excerpt: "Pas à pas avec captures : fiche agent, onglet Contrat, liste CDI, fiche contrat CCN 3043, création d’un contrat et contrôle DPAE / registre unique."
+date: "2026-09-30"
+updatedAt: "2026-09-30"
+readingTime: 9
+seoTitle: "Tutoriel Progesti : contrat agent RH (captures)"
+seoDescription: "Comment créer et suivre le contrat de travail d’un agent dans Progesti : fiche agent, liste Contrats, classification IDCC 3043, DPAE et registre unique."
+keywords: ["tutoriel progesti", "contrat agent nettoyage", "CDI propreté IDCC 3043", "gestion RH entreprise nettoyage", "DPAE logiciel propreté"]
+---
+
+# Tutoriel Progesti : créer le contrat d’un agent
+
+Lundi matin. Vous embauchez (ou régularisez) un agent. Le planning peut déjà le mettre sur un hall — mais sans contrat propre, vous n’avez ni taux horaire figé, ni classification CCN, ni trace pour l’URSSAF. La DPAE « on verra demain » devient vite un contrôle.
+
+Ce tutoriel montre le parcours réel dans Progesti : liste **Agents** → fiche → onglet **Contrat** → liste **Contrats** → fiche contrat → **+ Créer un contrat** (IDCC 3043) → filtre **Sans DPAE** → **Registre unique**. Captures prises sur la démo produit (données fictives Pro Nettoyage Services).
+
+Objectif terrain : un agent = un contrat actif lisible, avec le minimum conventionnel et le suivi DPAE, sans tableur à côté.
+
+## 1. Ouvrir la liste Agents
+
+Menu **AGENTS** → **Agents** (`/employees`).
+
+Vous voyez le stock : code, stade, statut, **contrat** (CDI / …), temps, disponibilité, agence. Bouton vert **+ Ajouter un agent** si la fiche n’existe pas encore.
+
+![Liste Agents Progesti : 11 agents, colonnes contrat CDI, temps, disponibilité](/tutoriels/tutoriel-progesti-contrats-rh-agent/01-agents-liste.png)
+
+**Terrain :** créez d’abord la fiche agent (identité, matricule paie, établissement). Le contrat se rattache à un salarié déjà existant — pas l’inverse.
+
+Pour le détail produit côté site marketing, voir la [gestion RH](/fonctionnalites/gestion-rh).
+
+## 2. Ouvrir la fiche agent
+
+Cliquez une ligne (ex. **Moreau, Julien**).
+
+Onglets : **Général**, **Contrat**, Documents RH, Compétences, Mobilité, Rentabilité, Télégestion, Paie, Frais, Absences, Suivi RH, Planning. Sur **Général** : nom, matricule paie, adresse, téléphone, établissement, agence, accès application.
+
+![Fiche agent Progesti : onglets Général / Contrat, identité et établissement](/tutoriels/tutoriel-progesti-contrats-rh-agent/03-agent-fiche.png)
+
+**Checklist avant le contrat :** bon établissement, matricule renseigné si le cabinet l’exige, téléphone / email pour l’invitation mobile. Une fiche vide = contrat orphelin dans six mois.
+
+## 3. Lire l’onglet Contrat de l’agent
+
+Onglet **Contrat** (URL du type `/employees/…/contrat`).
+
+Vous voyez le **contrat actuel** : poste, type (CDI…), organisation, dates, **taux horaire**, statut **Actif**. Historique des contrats archivés en dessous. Lien **Contrat actuel** vers la fiche complète.
+
+![Onglet Contrat de la fiche agent : CDI actif, taux horaire, historique](/tutoriels/tutoriel-progesti-contrats-rh-agent/04-agent-contrat.png)
+
+**Règle produit visible :** *Un contrat actif est en cours. Terminez-le avant d’en créer un nouveau.* Pas deux CDI qui se chevauchent « pour essayer ».
+
+## 4. Passer par la liste Contrats (vue globale)
+
+Menu **AGENTS** → **Contrats** (`/contrats`).
+
+Compteur (ex. **10 contrat(s)**), recherche, case **Sans DPAE**, **Export paie…**, **+ Créer un contrat**. Colonnes : code, agent, entité, début / fin, type, intitulé, **DPAE enregistré**, statut.
+
+![Liste Contrats Progesti : 10 CDI actifs, colonne DPAE, bouton Créer un contrat](/tutoriels/tutoriel-progesti-contrats-rh-agent/02-contrats-liste.png)
+
+**Routine gérant :** une fois par mois, ouvrez cette liste. Filtrez **Sans DPAE**. Ce qui reste rouge dans votre tête, pas dans Excel.
+
+## 5. Ouvrir une fiche contrat
+
+Cliquez le **code** (ex. TLSCCT26090010) ou **Contrat actuel** depuis la fiche agent.
+
+Vous avez le détail : statut, intervenant, emploi repère, **classification CCN** (ex. EXPLOITATION · AS · ASP · Col. A), **minimum conventionnel figé**, type CDI, dates, rémunération, horaires, livre administratif (PDF contrat, avenant, attestation employeur).
+
+![Fiche contrat Progesti : classification CCN, minimum conventionnel, modalités CDI](/tutoriels/tutoriel-progesti-contrats-rh-agent/05-contrat-detail.png)
+
+**Terrain :** le minimum conventionnel est **figé** à la création (version de grille). Vous savez ce que vous avez promis — utile quand la grille propreté bouge et qu’un agent demande « pourquoi mon voisin a plus ».
+
+## 6. Créer un nouveau contrat de travail
+
+Sur la liste Contrats → **+ Créer un contrat** (`/contrats/nouveau`).
+
+Écran **Nouveau contrat de travail**, statut **Brouillon** :
+
+1. Choisissez le **salarié**
+2. **Établissement**
+3. **Type** (CDI, CDD, alternance, stage…)
+4. **Date de début** (+ case période d’essai si besoin)
+5. **Classification conventionnelle** — Propreté **IDCC 3043** : filière, catégorie (AS / AQS…), niveau, colonne A/B. Le bandeau calcule le **minimum horaire** et mensuel.
+6. **Rémunération** (temps plein / partiel, heures / semaine, taux horaire brut)
+7. Poste, lieu, jours habituels, signature
+
+Puis **Enregistrer le brouillon** ou **Créer le contrat** quand les champs obligatoires sont remplis.
+
+![Formulaire Nouveau contrat : salarié, type CDI, classification IDCC 3043 et minimum horaire](/tutoriels/tutoriel-progesti-contrats-rh-agent/06-creer-contrat.png)
+
+La section classification rappelle la grille applicable (ex. avenant / extension) et le plancher pour ne pas signer en dessous.
+
+![Création contrat : détail classification conventionnelle Propreté et minimums](/tutoriels/tutoriel-progesti-contrats-rh-agent/07-creer-contrat-classification.png)
+
+**Scénario embauche :** fiche agent le jour J → contrat brouillon le soir → signature / DPAE dans la foulée. Ne laissez pas l’agent trois semaines en planning sans ligne contrat.
+
+## 7. Contrôler les DPAE manquantes
+
+Retour liste **Contrats** → cochez **Sans DPAE**.
+
+Vous ne gardez que les contrats sans date / enregistrement DPAE. Sur la démo, plusieurs CDI actifs apparaissent encore en **Non** — c’est exactement la file à traiter avant un contrôle.
+
+![Liste Contrats filtrée Sans DPAE : contrats actifs sans déclaration](/tutoriels/tutoriel-progesti-contrats-rh-agent/09-sans-dpae.png)
+
+**Terrain :** la DPAE se fait **avant** (ou au plus tard à) l’embauche, pas « quand on aura le temps ». Cochez la case après enregistrement pour que la liste redevienne propre.
+
+## 8. Vérifier le registre unique du personnel
+
+Menu **AGENTS** → **Registre unique** (`/employees/registre`).
+
+Registre généré depuis les fiches (coffre RH pour les justificatifs). Filtres Tous / Incomplets / Expirés / Étrangers, export CSV. Destiné aux contrôles URSSAF / Inspection du travail.
+
+![Registre unique du personnel : lignes agents, contrat, statut dossier](/tutoriels/tutoriel-progesti-contrats-rh-agent/08-registre-unique.png)
+
+**Checklist :** dossier complet, dates d’entrée cohérentes avec le contrat, titre de séjour si concerné. Un registre « Incomplet » sur un agent déjà en tournée, c’est une dette administrative.
+
+## 9. (Bonus) Créer la fiche agent si elle manque
+
+Liste Agents → **+ Ajouter un agent**.
+
+Remplissez le minimum (identité, contact, établissement). Ensuite seulement : **+ Créer un contrat** rattaché à ce salarié.
+
+![Fenêtre Ajouter un agent depuis la liste Agents](/tutoriels/tutoriel-progesti-contrats-rh-agent/10-ajouter-agent.png)
+
+## Pièges fréquents
+
+- Créer le contrat sans fiche agent → vous bloquez sur « Sélectionnez un salarié ».
+- Deux contrats actifs qui se chevauchent → le produit vous rappelle de terminer l’ancien.
+- Taux sous le minimum CCN affiché → vous signez un risque, pas une économie.
+- DPAE jamais saisie → la liste **Sans DPAE** grossit ; le planning, lui, ne vous alerte pas.
+- Matricule paie vide → l’export variables de paie génère un code technique ; le cabinet râle.
+- Confondre **contrat client** (prestation) et **contrat de travail** agent : ici on parle RH salarié.
+
+## Pour aller plus loin
+
+Agents, contrats, absences et variables de paie vivent dans le même module RH. Vous gardez le fil : embauche → contrat CCN → DPAE → registre → prépaie en fin de mois.
+
+Offre publique : **Gratuit** pour indépendants et micro-entreprises, **Pro** 49,99 € HT/mois, **Premium** 99,99 € HT/mois. Essai 15 jours sur les offres payantes, sans carte bancaire. Une question terrain : **07 67 68 55 67**.

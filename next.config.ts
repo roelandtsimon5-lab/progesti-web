@@ -27,6 +27,16 @@ const nextConfig: NextConfig = {
     const SITE_URL = "https://progesti.fr";
     return [
       // Marketing redirects
+      // Ancien code supprime (2026-09-30): anciennes landings, versions d'archive et apercus.
+      // 301 explicites (statusCode) vers l'offre actuelle; destinations absolues.
+      { source: "/lp/ads/v3/:path*", destination: `${SITE_URL}/tarifs`, statusCode: 301 },
+      { source: "/lp/ads/v4/:path*", destination: `${SITE_URL}/tarifs`, statusCode: 301 },
+      { source: "/lp/:path*", destination: `${SITE_URL}/tarifs`, statusCode: 301 },
+      { source: "/v1/:path*", destination: SITE_URL, statusCode: 301 },
+      { source: "/v2/:path*", destination: SITE_URL, statusCode: 301 },
+      { source: "/v3-valide/:path*", destination: SITE_URL, statusCode: 301 },
+      { source: "/ancien/:path*", destination: SITE_URL, statusCode: 301 },
+      { source: "/preview/:path*", destination: SITE_URL, statusCode: 301 },
       { source: "/signup", destination: `${SITE_URL}/essai-gratuit`, permanent: true },
       { source: "/clients", destination: `${SITE_URL}/cas-clients`, permanent: true },
       { source: "/nouveau", destination: SITE_URL, permanent: true },

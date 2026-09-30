@@ -1,14 +1,16 @@
 /**
- * First-touch marketing attribution — captures referrer, UTM, gclid, landing on first visit.
- * Stored in localStorage (first-party, ~90-day lifetime). Works regardless of analytics consent.
+ * Origine des visiteurs (first-touch) — SANS cookie, SANS stockage navigateur, SANS identifiant.
+ *
+ * Conforme à la position CNIL : rien n'est écrit ni lu dans le terminal de l'utilisateur
+ * (ni cookie, ni localStorage, ni sessionStorage). L'origine est gardée UNIQUEMENT en mémoire
+ * de l'onglet (variable JS) et disparaît au rechargement complet ou à la fermeture de l'onglet.
+ *
+ * Données conservées : domaine du referrer, chemin de la page d'entrée (sans paramètres),
+ * UTM (étiquettes de campagne), canal déduit. Jamais : identifiant de clic (gclid), URL complète
+ * du referrer, IP, e-mail, identifiant d'appareil.
  */
 
-const STORAGE_KEY = "progesti_attribution";
-const TTL_MS = 90 * 24 * 60 * 60 * 1000; // 90 days
-
 export type Attribution = {
-  /** Raw document.referrer on first landing. */
-  referrer: string;
   /** Referrer domain only (e.g. "google.com"). */
   referrerDomain: string;
   /** Landing page path. */
@@ -23,8 +25,6 @@ export type Attribution = {
   utmContent: string;
   /** UTM term. */
   utmTerm: string;
-  /** Google Click ID. */
-  gclid: string;
   /** Derived channel: seo-google, ads-google, seo-bing, seo-chatgpt, seo-perplexity, referral, direct. */
   channel: string;
   /** Timestamp when captured. */
@@ -73,13 +73,13 @@ function deriveChannel(
   referrerDomain: string,
   utmSource: string,
   utmMedium: string,
-  gclid: string,
+  hasGclid: boolean,
 ): string {
   const lowerSource = utmSource.toLowerCase();
   const lowerMedium = utmMedium.toLowerCase();
 
   // Google Ads: gclid present OR utm_source=google with paid medium
-  if (gclid) return "ads-google";
+  if (hasGclid) return "ads-google";
   if (
     (lowerSource === "google" || lowerSource === "adwords" || lowerSource === "googleads") &&
     (lowerMedium === "cpc" || lowerMedium === "ppc" || lowerMedium === "paid" || lowerMedium === "ads")
@@ -129,19 +129,20 @@ export function captureAttribution(): Attribution | null {
   const params = new URLSearchParams(window.location.search);
   const referrer = document.referrer || "";
   const referrerDomain = extractDomain(referrer);
-  const landing = window.location.pathname;
+  const landing = window.location.pathname; // chemin seul, sans paramètres
 
   const utmSource = getUrlParam(params, "utm_source");
   const utmMedium = getUrlParam(params, "utm_medium");
   const utmCampaign = getUrlParam(params, "utm_campaign");
   const utmContent = getUrlParam(params, "utm_content");
   const utmTerm = getUrlParam(params, "utm_term");
-  const gclid = getUrlParam(params, "gclid");
+  // Présence d'un identifiant de clic Google Ads : sert UNIQUEMENT à déduire le canal.
+  // La valeur n'est ni conservée, ni transmise.
+  const hasGclid = Boolean(getUrlParam(params, "gclid"));
 
-  const channel = deriveChannel(referrerDomain, utmSource, utmMedium, gclid);
+  const channel = deriveChannel(referrerDomain, utmSource, utmMedium, hasGclid);
 
   return {
-    referrer,
     referrerDomain,
     landing,
     utmSource,
@@ -149,55 +150,26 @@ export function captureAttribution(): Attribution | null {
     utmCampaign,
     utmContent,
     utmTerm,
-    gclid,
     channel,
     capturedAt: Date.now(),
   };
 }
 
-export function storeAttribution(attr: Attribution): void {
-  if (typeof window === "undefined") return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(attr));
-  } catch {
-    // localStorage unavailable or full
-  }
-}
+/** Mémoire de l'onglet uniquement (aucune écriture dans le navigateur). */
+let memoryAttribution: Attribution | null = null;
 
 export function getStoredAttribution(): Attribution | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const attr = JSON.parse(raw) as Attribution;
-    // Expire after TTL
-    if (Date.now() - attr.capturedAt > TTL_MS) {
-      localStorage.removeItem(STORAGE_KEY);
-      return null;
-    }
-    return attr;
-  } catch {
-    return null;
-  }
-}
-
-export function hasStoredAttribution(): boolean {
-  return getStoredAttribution() !== null;
+  return memoryAttribution;
 }
 
 /**
- * Capture attribution on first landing only.
- * Call this on every page load — it no-ops if attribution already stored.
+ * Capture l'origine à la première page vue de l'onglet uniquement (mémoire, pas de stockage).
+ * Sans effet si déjà capturée.
  */
 export function captureFirstTouchAttribution(): Attribution | null {
-  if (hasStoredAttribution()) {
-    return getStoredAttribution();
-  }
-  const attr = captureAttribution();
-  if (attr) {
-    storeAttribution(attr);
-  }
-  return attr;
+  if (memoryAttribution) return memoryAttribution;
+  memoryAttribution = captureAttribution();
+  return memoryAttribution;
 }
 
 /**
@@ -214,7 +186,6 @@ export function getAttributionParams(): Record<string, string> {
   if (attr.utmCampaign) params.utm_campaign = attr.utmCampaign;
   if (attr.utmContent) params.utm_content = attr.utmContent;
   if (attr.utmTerm) params.utm_term = attr.utmTerm;
-  if (attr.gclid) params.gclid = attr.gclid;
   if (attr.landing) params.landing = attr.landing;
   if (attr.referrerDomain) params.referrer = attr.referrerDomain;
   if (attr.channel) params.channel = attr.channel;
@@ -235,7 +206,6 @@ export function getAttributionPayload(): Record<string, string | undefined> {
     utm_campaign: attr.utmCampaign || undefined,
     utm_content: attr.utmContent || undefined,
     utm_term: attr.utmTerm || undefined,
-    gclid: attr.gclid || undefined,
     landing: attr.landing || undefined,
     referrer: attr.referrerDomain || undefined,
     channel: attr.channel || undefined,

@@ -25,6 +25,7 @@ export type BlogPostMeta = {
   seoTitle: string;
   seoDescription: string;
   keywords: string[];
+  faq?: { q: string; a: string }[];
 };
 
 export type BlogPost = BlogPostMeta & {
@@ -45,12 +46,16 @@ function parseFile(filename: string): BlogPost {
     slug: String(data.slug ?? filename.replace(/\.mdx?$/, "")),
     category: String(data.category ?? "guides"),
     excerpt: String(data.excerpt ?? ""),
-    date: String(data.date ?? "2025-01-01"),
+    // `date` n'est plus affiché ni publié en JSON-LD (date d'origine inconnue) ; seule updatedAt fait foi.
+    date: String(data.date ?? data.updatedAt ?? "2025-01-01"),
     updatedAt: String(data.updatedAt ?? data.date ?? "2025-01-01"),
     readingTime: Number(data.readingTime ?? 5),
     seoTitle: String(data.seoTitle ?? data.title ?? ""),
     seoDescription: String(data.seoDescription ?? data.excerpt ?? ""),
     keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
+    faq: Array.isArray(data.faq)
+      ? data.faq.map((f: { q?: unknown; a?: unknown }) => ({ q: String(f.q ?? ""), a: String(f.a ?? "") })).filter((f: { q: string; a: string }) => f.q && f.a)
+      : undefined,
     contentHtml,
     contentMarkdown: body,
   };
@@ -63,7 +68,7 @@ export function getAllPosts(): BlogPost[] {
     .filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
     .map(parseFile)
     .filter((p) => !EXCLUDED_BLOG_SLUGS.has(p.slug))
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+    .sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1));
 }
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

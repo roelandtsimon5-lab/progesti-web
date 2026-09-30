@@ -36,7 +36,6 @@ export function track(event: TrackEvent, payload: Record<string, unknown> = {}) 
     ...(attr?.utmSource ? { utm_source: attr.utmSource } : {}),
     ...(attr?.utmMedium ? { utm_medium: attr.utmMedium } : {}),
     ...(attr?.utmCampaign ? { utm_campaign: attr.utmCampaign } : {}),
-    ...(attr?.gclid ? { gclid: attr.gclid } : {}),
     ...payload,
   });
 }
