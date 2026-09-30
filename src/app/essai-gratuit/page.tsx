@@ -1,8 +1,9 @@
 ﻿"use client";
 
 import { useRef, useState } from "react";
+import { getAttributionPayload } from "@/lib/attribution";
 import { cta, ctaLabels, trialAppUrl } from "@/lib/cta";
-import { track } from "@/lib/tracking";
+import { track, trackFormSubmit } from "@/lib/tracking";
 import { site } from "@/lib/site";
 import { TrustStrip } from "@/components/conversion/TrustStrip";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
@@ -51,6 +52,7 @@ export default function EssaiGratuitPage() {
     const phone = phoneRaw;
 
     // Lead en best-effort : ne bloque pas l'ouverture de l'essai (sauf rate limit).
+    const attribution = getAttributionPayload();
     const controller = new AbortController();
     const leadTimeout = window.setTimeout(() => controller.abort(), 4000);
     try {
@@ -64,6 +66,7 @@ export default function EssaiGratuitPage() {
           company,
           name,
           phone,
+          ...attribution,
         }),
         signal: controller.signal,
       });
@@ -84,6 +87,7 @@ export default function EssaiGratuitPage() {
       JSON.stringify({ name, email, phone, company, createdAt: Date.now() }),
     );
 
+    trackFormSubmit("trial", { source: "essai-gratuit" });
     track("signup_start", { source: "essai-gratuit" });
     track("trial_start", { source: "essai-gratuit" });
 

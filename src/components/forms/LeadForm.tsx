@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { track } from "@/lib/tracking";
+import { getAttributionPayload } from "@/lib/attribution";
+import { trackFormSubmit } from "@/lib/tracking";
 
 type Props = {
   intent: "contact" | "demo" | "callback" | "switch" | "onboarding" | "rdv" | "trial";
@@ -60,6 +61,7 @@ export function LeadForm({
     setMessage("");
 
     try {
+      const attribution = getAttributionPayload();
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -69,6 +71,7 @@ export function LeadForm({
           campaign: source,
           name: String(data.name || "").trim(),
           phone: String(data.phone || "").trim() || undefined,
+          ...attribution,
         }),
       });
       if (!res.ok) {
@@ -79,7 +82,7 @@ export function LeadForm({
         setMessage(err);
         throw new Error("fail");
       }
-      track("form_submit", { intent, source });
+      trackFormSubmit(intent, { source });
       setStatus("ok");
       setInvalidFields(new Set());
       form.reset();

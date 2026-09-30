@@ -17,6 +17,15 @@ type LeadBody = {
   currentSoftware?: string;
   need?: string;
   website?: string; // honeypot
+  // First-touch attribution fields
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+  landing?: string;
+  referrer?: string;
+  channel?: string;
 };
 
 const rateMap = new Map<string, { count: number; resetAt: number }>();
@@ -118,6 +127,21 @@ export async function POST(request: Request) {
     const campaignRaw = String(body.campaign || body.source || "").trim();
     const campaign = campaignRaw || `site_${intent}`;
 
+    // Origine du visiteur : étiquettes non personnelles, nettoyées (longueur + caractères)
+    const clean = (v: unknown): string | null => {
+      if (typeof v !== "string") return null;
+      const x = v.replace(/[^\w .:/+%@-]|@/g, "").trim().slice(0, 80);
+      return x || null;
+    };
+    const utmSource = clean(body.utm_source);
+    const utmMedium = clean(body.utm_medium);
+    const utmCampaign = clean(body.utm_campaign);
+    const utmContent = clean(body.utm_content);
+    const utmTerm = clean(body.utm_term);
+    const landing = clean(body.landing);
+    const referrer = clean(body.referrer);
+    const channel = clean(body.channel);
+
     const lead = {
       at: new Date().toISOString(),
       intent,
@@ -131,6 +155,15 @@ export async function POST(request: Request) {
       need: body.need || null,
       ip,
       ua: request.headers.get("user-agent"),
+      // Attribution
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      utm_term: utmTerm,
+      landing,
+      referrer,
+      channel,
     };
 
     console.info("[PROGESTI lead]", lead);
@@ -143,6 +176,13 @@ export async function POST(request: Request) {
       name: lead.name,
       company: lead.company,
       phone: lead.phone,
+      // Attribution for email/notification
+      utm_source: lead.utm_source,
+      utm_medium: lead.utm_medium,
+      utm_campaign: lead.utm_campaign,
+      landing: lead.landing,
+      referrer: lead.referrer,
+      channel: lead.channel,
     };
 
     // Persist + notify en arrière-plan — ne jamais bloquer la redirection démo / essai.

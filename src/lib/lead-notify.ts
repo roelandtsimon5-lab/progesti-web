@@ -12,6 +12,13 @@ export type LeadPayload = {
   name: string;
   company: string | null;
   phone: string | null;
+  // First-touch attribution
+  utm_source?: string | null;
+  utm_medium?: string | null;
+  utm_campaign?: string | null;
+  landing?: string | null;
+  referrer?: string | null;
+  channel?: string | null;
 };
 
 type ChannelResult = { channel: string; ok: boolean; skipped?: boolean; error?: string };
@@ -341,7 +348,8 @@ function welcomeEmail(lead: LeadPayload) {
 function alertEmail(lead: LeadPayload) {
   const phoneE164 = lead.phone ? toE164FR(lead.phone) : null;
   const when = formatParis(lead.at);
-  const subject = `Nouveau prospect — ${lead.name} · ${lead.phone || "sans tél"}`;
+  const channelLabel = lead.channel ? ` [${lead.channel}]` : "";
+  const subject = `Nouveau prospect${channelLabel} — ${lead.name} · ${lead.phone || "sans tél"}`;
   const lines = [
     `Nouveau prospect PROGESTI`,
     ``,
@@ -352,6 +360,14 @@ function alertEmail(lead: LeadPayload) {
     `Intent       : ${lead.intent}`,
     `Source       : ${lead.campaign || lead.intent}`,
     `Reçu le      : ${when}`,
+    ``,
+    `--- Attribution ---`,
+    `Canal        : ${lead.channel || "—"}`,
+    `Referrer     : ${lead.referrer || "—"}`,
+    `Landing      : ${lead.landing || "—"}`,
+    lead.utm_source ? `UTM source   : ${lead.utm_source}` : "",
+    lead.utm_medium ? `UTM medium   : ${lead.utm_medium}` : "",
+    lead.utm_campaign ? `UTM campaign : ${lead.utm_campaign}` : "",
     ``,
     phoneE164 ? `Appeler : tel:${phoneE164}` : "",
     `Écrire  : mailto:${lead.email}`,
@@ -375,6 +391,7 @@ function simonSms(lead: LeadPayload) {
     lead.phone || "",
     isPlaceholderEmail(lead.email) ? "" : lead.email,
     lead.company || "",
+    lead.channel ? `[${lead.channel}]` : "",
     lead.campaign ? `src:${lead.campaign}` : "",
   ].filter(Boolean);
   return parts.join("\n");
