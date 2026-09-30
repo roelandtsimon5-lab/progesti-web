@@ -1,6 +1,5 @@
 "use client";
 
-import { useId, useState } from "react";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { productMegaMenu } from "@/lib/navigation";
@@ -12,64 +11,16 @@ import {
   plans,
   pricingCopy,
   site,
-  type BillingPeriod,
 } from "@/lib/site";
 
 export function ProgestiPricing() {
-  const [period, setPeriod] = useState<BillingPeriod>("month");
-  const tabListId = useId();
-  const monthTabId = `${tabListId}-month`;
-  const yearTabId = `${tabListId}-year`;
-  const panelId = `${tabListId}-panel`;
 
   return (
     <>
-      <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <div
-          className="inline-flex rounded-[2px] border border-blue-mist bg-white p-1"
-          role="tablist"
-          aria-label="Période de facturation"
-        >
-          {(
-            [
-              ["month", "Mensuel", monthTabId] as const,
-              ["year", "Annuel", yearTabId] as const,
-            ] as const
-          ).map(([value, label, id]) => (
-            <button
-              key={value}
-              id={id}
-              type="button"
-              role="tab"
-              aria-selected={period === value}
-              aria-controls={panelId}
-              tabIndex={period === value ? 0 : -1}
-              onClick={() => setPeriod(value)}
-              className={`rounded-[2px] px-5 py-2.5 text-sm font-bold outline-none transition focus-visible:ring-2 focus-visible:ring-blue-royal focus-visible:ring-offset-2 ${
-                period === value ? "bg-blue-deep text-white" : "text-slate hover:text-blue-deep"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-        {period === "year" ? (
-          <span className="rounded-[2px] bg-lime-cta/30 px-3 py-1.5 text-xs font-bold text-blue-deep">
-            2 mois offerts sur l&apos;annuel (Pro &amp; Premium)
-          </span>
-        ) : null}
-      </div>
-
-      <div
-        id={panelId}
-        role="tabpanel"
-        aria-labelledby={period === "month" ? monthTabId : yearTabId}
-        className="grid items-stretch gap-6 lg:grid-cols-3"
-      >
+      <div className="grid items-stretch gap-6 lg:grid-cols-3">
         {plans.map((plan) => {
           const isFree = plan.isFree;
-          const price = period === "month" ? plan.monthly : plan.yearly;
-          const strike = !isFree && period === "year" ? plan.yearlyStrike : null;
+          const price = plan.monthly;
           return (
             <article
               key={plan.id}
@@ -98,9 +49,6 @@ export function ProgestiPricing() {
               <p className="mt-2 text-sm font-medium text-slate">{plan.users}</p>
 
               <div className="mt-5">
-                {strike ? (
-                  <p className="text-sm font-medium text-slate line-through">{formatEuro(strike)} HT</p>
-                ) : null}
                 {isFree ? (
                   <>
                     <p className="font-display text-4xl font-extrabold tracking-tight text-blue-deep md:text-5xl">
@@ -116,11 +64,11 @@ export function ProgestiPricing() {
                       {formatEuro(price)}
                     </p>
                     <p className="mt-2 text-sm font-semibold text-slate">
-                      HT {period === "month" ? "/ mois" : "/ an"}
+                      HT / mois
                     </p>
                   </>
                 )}
-                {plan.perUserHint && period === "month" ? (
+                {plan.perUserHint ? (
                   <p className="mt-1 text-xs text-slate">{plan.perUserHint}</p>
                 ) : null}
               </div>
@@ -153,7 +101,7 @@ export function ProgestiPricing() {
                     size="lg"
                     className="!w-full !rounded-[2px]"
                     event="trial_start"
-                    eventPayload={{ plan: plan.id, period, cta: "tarifs_card_trial" }}
+                    eventPayload={{ plan: plan.id, cta: "tarifs_card_trial" }}
                   >
                     Essai {site.trialDays} jours
                   </ButtonLink>
@@ -163,7 +111,7 @@ export function ProgestiPricing() {
                   size="lg"
                   variant="secondary"
                   className="!w-full !rounded-[2px]"
-                  eventPayload={{ plan: plan.id, period, cta: "tarifs_card_demo" }}
+                  eventPayload={{ plan: plan.id, cta: "tarifs_card_demo" }}
                 >
                   {ctaLabels.demoGate}
                 </ButtonLink>

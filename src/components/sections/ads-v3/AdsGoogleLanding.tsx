@@ -129,9 +129,6 @@ function PricingMonths() {
           </article>
         ))}
       </div>
-      <p className="mt-6 text-center text-xs text-muted">
-        Option annuelle : 2 mois offerts (10 mois facturés pour 12 mois d’usage).
-      </p>
     </section>
   );
 }
