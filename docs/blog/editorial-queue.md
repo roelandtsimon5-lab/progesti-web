@@ -99,12 +99,13 @@ Format d’une ligne :
   angle: Prix, modules, mobile, essai — grille de décision gérant.
   published: 2026-09-22
 
-- status: todo
+- status: done
   date: 2026-09-29
   slug: parties-communes-frequences-realistes-copro
   category: syndics-immobilier
   title: Fréquences réalistes pour les parties communes en copropriété
   angle: Halls, cages, locaux poubelles — caler l’offre sans sous/sur-vendre.
+  published: 2026-09-29
 
 - status: todo
   date: 2026-10-06
