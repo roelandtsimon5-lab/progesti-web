@@ -140,7 +140,6 @@ export const modules = [
   },
 ] as const;
 
-export type BillingPeriod = "month" | "year";
 
 /** Prix plan avec centimes (ex. 29,99 €). */
 export function formatPlanPrice(value: number) {
@@ -176,8 +175,6 @@ export const plans = [
     name: "Gratuit",
     users: "1 administrateur — indépendants & micro-entreprises",
     monthly: 0,
-    yearly: 0,
-    yearlyStrike: null as number | null,
     perUserHint: null as string | null,
     highlight: false,
     isFree: true,
@@ -188,8 +185,6 @@ export const plans = [
     name: "Pro",
     users: "5 utilisateurs",
     monthly: 49.99,
-    yearly: 499.9,
-    yearlyStrike: 599.88,
     perUserHint: "Soit 9,99€ HT par utilisateur",
     highlight: true,
     isFree: false,
@@ -200,8 +195,6 @@ export const plans = [
     name: "Premium",
     users: "20 utilisateurs",
     monthly: 99.99,
-    yearly: 999.9,
-    yearlyStrike: 1199.88,
     perUserHint: "Soit 4,99€ HT par utilisateur",
     highlight: false,
     isFree: false,
@@ -222,8 +215,6 @@ export const mainPlan = {
   name: freePlan.name,
   users: freePlan.users,
   monthly: freePlan.monthly,
-  yearly: freePlan.yearly,
-  yearlyStrike: freePlan.yearlyStrike,
   features: [...freePlan.features],
 } as const;
 

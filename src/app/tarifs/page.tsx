@@ -46,8 +46,8 @@ const pricingFaq = [
     a: "Trois offres publiques : Gratuit pour indépendants (0 €, 1 admin), Pro 49,99 € HT/mois (5 utilisateurs), Premium 99,99 € HT/mois (20 utilisateurs). Tous modules inclus.",
   },
   {
-    q: "L'offre annuelle est-elle avantageuse ?",
-    a: "Oui. Sur Pro et Premium, l'annuel équivaut à 2 mois offerts (10 mois facturés pour 12 mois d'usage).",
+    q: "Puis-je essayer avant de payer ?",
+    a: "Oui. Les offres Pro et Premium s'essaient 15 jours, sans carte bancaire. L'offre Gratuit (0 € HT/mois) est réservée aux indépendants, auto-entrepreneurs et micro-entreprises.",
   },
 ];
 
