@@ -180,6 +180,11 @@ export const solutionsMegaMenu: NavMegaMenu = {
           href: "/logiciel-facturation-proprete",
           hint: "Du réalisé à la facture",
         },
+        {
+          label: "Logiciel devis nettoyage",
+          href: "/logiciel-devis-nettoyage",
+          hint: "Du devis au contrat",
+        },
       ],
     },
   ],

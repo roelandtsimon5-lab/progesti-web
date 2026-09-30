@@ -58,7 +58,7 @@ export const defaultPillars: readonly IndustryPillar[] = [
         panelBody:
           "Créez et envoyez des devis structurés, rattachés au client et aux sites. Fini les Word perdus : le commercial et l’ops partagent la même base.",
         mock: "devis",
-        href: "/fonctionnalites/devis",
+        href: "/logiciel-devis-nettoyage",
       },
       {
         id: "facturation",
