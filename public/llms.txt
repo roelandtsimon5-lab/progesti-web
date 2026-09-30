@@ -8,14 +8,14 @@ PROGESTI est un logiciel conçu pour les sociétés de nettoyage professionnel (
 
 - Site : https://progesti.fr
 - Application : https://app.progesti.fr
-- Tarif : 149 € HT/mois — jusqu'à 5 utilisateurs, tous modules inclus
-- Essai : 7 jours gratuit, sans engagement
+- Tarifs : Gratuit 0 € HT/mois (indépendants, micro et auto-entrepreneurs, 1 administrateur) · Pro 49,99 € HT/mois (5 utilisateurs) · Premium 99,99 € HT/mois (20 utilisateurs) — tous modules inclus
+- Essai : 15 jours sans carte bancaire sur les offres payantes, sans engagement
 - Contact : contact@progesti.fr · Tél. 07 67 68 55 67
 
 ## Éditeur
 
 MSNE SAS  
-56 boulevard Vincent Auriol, 31170 Tournefeuille, France  
+56 boulevard Vincent Auriol, 31000 Toulouse, France  
 SIREN 106177116 · RCS Toulouse
 
 ## Pages principales
