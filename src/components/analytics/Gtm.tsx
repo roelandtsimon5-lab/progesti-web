@@ -120,23 +120,6 @@ export function GtmConsentBootstrap() {
   return null;
 }
 
-/**
- * Sur les LP Google Ads le bandeau cookies est masqué (CRO).
- * Active la mesure campagne pour attribuer les conversions Ads.
- */
-export function AdsGtmConsent() {
-  useEffect(() => {
-    try {
-      localStorage.setItem("progesti_cookie_consent", "accepted");
-    } catch {
-      /* ignore */
-    }
-    applyStoredOrForcedConsent("granted");
-    window.dispatchEvent(new CustomEvent("progesti-consent", { detail: "accepted" }));
-  }, []);
-  return null;
-}
-
 function PageviewInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
