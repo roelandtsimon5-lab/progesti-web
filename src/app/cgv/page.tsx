@@ -53,8 +53,8 @@ export default function CgvPage() {
           <section>
             <h2 className="text-lg font-extrabold text-ink">4. Paiement</h2>
             <p className="mt-2">
-              Après l’essai, l’abonnement est payable selon la périodicité choisie (mensuelle ou
-              annuelle) via prestataire de paiement sécurisé. Tout retard peut entraîner la
+              Après l’essai, l’abonnement est payable selon la périodicité indiquée lors de la
+              souscription, via prestataire de paiement sécurisé. Tout retard peut entraîner la
               suspension de l’accès.
             </p>
           </section>

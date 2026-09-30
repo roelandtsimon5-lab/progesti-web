@@ -26,7 +26,7 @@ export default function SupportPage() {
           <div className="rounded-2xl border border-blue-mist bg-white p-8 shadow-[0_16px_48px_rgba(11,61,110,0.08)]">
             <h2 className="text-xl font-extrabold text-blue-deep">Éditeur</h2>
             <p className="mt-3 text-anthracite">
-              {site.company.legalName} / ILICO
+              {site.company.legalName} — marque {site.name}
             </p>
             <p className="mt-1 text-sm text-slate">
               {site.company.address}
@@ -66,7 +66,7 @@ export default function SupportPage() {
             </h2>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-anthracite">
               <li>Logiciel de planning pour entreprises de nettoyage</li>
-              <li>Pointage terrain et télégestion (application mobile ILICO)</li>
+              <li>Pointage terrain et télégestion (application mobile PROGESTI Télégestion)</li>
               <li>Devis et facturation pour la propreté</li>
             </ul>
 
