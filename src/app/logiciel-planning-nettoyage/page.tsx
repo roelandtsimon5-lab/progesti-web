@@ -8,6 +8,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
 import { IndustryFaq } from "@/components/industry/IndustryFaq";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
+import { DirectAnswer } from "@/components/seo/DirectAnswer";
 import { FaqPageLd } from "@/components/seo/FaqPageLd";
 import { cta, ctaLabels } from "@/lib/cta";
 import { pageMeta } from "@/lib/seo";
@@ -40,11 +41,18 @@ const planningFaq = [
   },
 ] as const;
 
-export const metadata: Metadata = pageMeta({
-  title: "Logiciel planning nettoyage — Multi-sites, remplacements, sans Excel | PROGESTI",
-  description: `Logiciel de planning pour le nettoyage : multi-sites, fréquences, absences et remplacements. Relié au pointage et à la facture. Gratuit indépendants · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} j sans CB.`,
-  path: "/logiciel-planning-nettoyage",
-});
+const planningDirectAnswer =
+  "Un logiciel de planning pour le nettoyage affecte les agents aux sites selon leurs fréquences et gère absences et remplacements au même endroit. Dans PROGESTI, le planning est relié au pointage mobile puis à la facture, et inclus dans chaque offre : Gratuit, Pro 49,99 € HT/mois, Premium 99,99 € HT/mois.";
+
+export const metadata: Metadata = {
+  ...pageMeta({
+    title: "Logiciel planning nettoyage — Multi-sites, remplacements",
+    description: `Logiciel de planning nettoyage : multi-sites, fréquences, absences, remplacements. Relié au pointage et à la facture. Gratuit indépendants. Essai ${site.trialDays} j.`,
+    path: "/logiciel-planning-nettoyage",
+  }),
+  // 56 caractères, sans suffixe de marque.
+  title: { absolute: "Logiciel planning nettoyage — Multi-sites, remplacements" },
+};
 
 export default function PillarPlanningPage() {
   return (
@@ -63,6 +71,8 @@ export default function PillarPlanningPage() {
         trialEvent="pillar_planning_trial"
         demoEvent="pillar_planning_demo"
       />
+
+      <DirectAnswer>{planningDirectAnswer}</DirectAnswer>
 
       <section className="section bg-white">
         <div className="container grid items-start gap-12 lg:grid-cols-2">

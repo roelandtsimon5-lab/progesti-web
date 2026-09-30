@@ -51,15 +51,24 @@ const pillarFaq = [
   },
 ] as const;
 
-export const metadata: Metadata = pageMeta({
-  title: "Logiciel entreprise de nettoyage — Planning, pointage, facture | PROGESTI",
-  description: `Logiciel pour entreprise de nettoyage : planning multi-sites, pointage mobile, facturation du réalisé. Gratuit 0 € HT/mois indépendants · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} j sans CB.`,
-  path: "/logiciel-entreprise-nettoyage",
-  openGraph: {
-    title: "Logiciel entreprise de nettoyage — Planning, pointage, facture | PROGESTI",
-    description: `Logiciel pour entreprise de nettoyage : planning multi-sites, pointage mobile, facturation du réalisé. Gratuit 0 € HT/mois indépendants · Pro 49,99 · Premium 99,99. Essai ${site.trialDays} j sans CB.`,
-  },
-});
+const pillarDescription = `Logiciel entreprise de nettoyage : planning multi-sites, pointage, facturation du réalisé. Gratuit indépendants, Pro 49,99 €, Premium 99,99 €. Essai ${site.trialDays} j.`;
+
+const pillarDirectAnswer =
+  "Un logiciel pour entreprise de nettoyage réunit le planning des agents sur plusieurs sites, le pointage mobile et la facturation du réalisé. Dans PROGESTI, tous les modules sont inclus dans chaque offre : Gratuit pour indépendants (0 € HT/mois), Pro 49,99 € HT/mois, Premium 99,99 € HT/mois. Essai 15 jours sans carte bancaire.";
+
+export const metadata: Metadata = {
+  ...pageMeta({
+    title: "Logiciel entreprise de nettoyage — Planning et facture",
+    description: pillarDescription,
+    path: "/logiciel-entreprise-nettoyage",
+    openGraph: {
+      title: "Logiciel entreprise de nettoyage — Planning, pointage, facture | PROGESTI",
+      description: pillarDescription,
+    },
+  }),
+  // 54 caractères, sans suffixe de marque.
+  title: { absolute: "Logiciel entreprise de nettoyage — Planning et facture" },
+};
 
 export default function PillarNettoyagePage() {
   const config = mergeIndustryConfig(defaultIndustryConfig, {
@@ -83,6 +92,7 @@ export default function PillarNettoyagePage() {
       after: ` — tarifs publics, essai ${site.trialDays} jours sans CB, support FR.`,
     },
     faq: pillarFaq,
+    directAnswer: pillarDirectAnswer,
   });
 
   return (
