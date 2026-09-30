@@ -11,12 +11,12 @@ import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { FinalPush } from "@/components/conversion/FinalPush";
 import { ReviewsLd } from "@/components/seo/ReviewsLd";
 import { cta, ctaLabels } from "@/lib/cta";
-import { pricingCopy, solutions, site, trustBadges, trialCopy, modules } from "@/lib/site";
+import { pricingCopy, solutions, site, trustBadges, modules } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Tarifs — Gratuit pour indépendants",
-  description: `Tarifs PROGESTI : Gratuit pour indépendants et micro-entreprises, Pro 49,99 €, Premium 99,99 € HT/mois. Tous modules inclus. ${trialCopy.free} sur offres payantes.`,
+  title: "Tarifs du logiciel de nettoyage — dès 0 € HT/mois",
+  description: `Gratuit pour indépendants, Pro 49,99 €, Premium 99,99 € HT/mois. Tous modules inclus. Essai ${site.trialDays} jours sans CB sur les offres payantes.`,
   path: "/tarifs",
 });
 
