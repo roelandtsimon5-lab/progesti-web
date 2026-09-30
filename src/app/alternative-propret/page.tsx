@@ -12,7 +12,7 @@ import { pageMeta } from "@/lib/seo";
 import { modules, site, trialCopy } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Alternative Propret 2026 — Gratuit pour indépendants",
+  title: "Alternative Propret — Gratuit pour indépendants",
   description: `Cherchez une alternative à Propret ? PROGESTI gratuit pour indépendants, Propret dès 29,99 € HT/mois. Essai ${site.trialDays}j sans CB — comparez les faits.`,
   path: "/alternative-propret",
 });
@@ -122,7 +122,7 @@ export default function AlternativePropretPage() {
       <FaqPageLd items={[...faqItems]} />
       <IndustryPageHero
         eyebrow="Comparatif factuel 2026"
-        title="Alternative Propret : gratuit pour indépendants, Pro dès 49,99 €"
+        title="Alternative Propret : gratuit pour indépendants, Pro 49,99 € HT"
         lead={`Vous cherchez une vraie alternative à Propret ? PROGESTI est gratuit pour les indépendants et micro-entrepreneurs. Propret démarre à 29,99 € HT/mois (pas d'offre gratuite). Testez ${site.trialDays} jours sans CB, support FR à Toulouse.`}
         breadcrumbs={[
           { label: "Accueil", href: "/" },
