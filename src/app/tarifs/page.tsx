@@ -11,7 +11,7 @@ import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
 import { FinalPush } from "@/components/conversion/FinalPush";
 import { ReviewsLd } from "@/components/seo/ReviewsLd";
 import { cta, ctaLabels } from "@/lib/cta";
-import { pricingCopy, solutions, site, trustBadges, trialCopy, modules } from "@/lib/site";
+import { pricingCopy, solutions, site, trustBadges, modules } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
