@@ -12,6 +12,7 @@ import {
   getPostBySlug,
   getRelatedPosts,
 } from "@/lib/blog";
+import { FaqPageLd } from "@/components/seo/FaqPageLd";
 import { DEFAULT_OG } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -105,6 +106,8 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+
+      {post.faq?.length ? <FaqPageLd items={post.faq} /> : null}
 
       <article>
         <header className="industry-hero-bg relative overflow-hidden">
