@@ -322,7 +322,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       "Créez des devis professionnels rattachés à vos fiches clients, suivez les acceptations et convertissez en contrat et planning sans ressaisie.",
     seoTitle: "Devis nettoyage professionnel",
     seoDescription:
-      "Devis structurés pour entreprises de nettoyage, liés aux clients et sites. Conversion contrat sans ressaisie. Gratuit pour indépendants. Essai 15 jours Pro/Premium.",
+      "Devis structurés pour entreprises de nettoyage, liés aux clients et sites. Conversion en contrat sans ressaisie. Gratuit indépendants. Essai 15 j.",
     benefits: [
       { title: "Devis structurés", text: "Rattachés au client et aux sites — plus de fichiers Word éparpillés sur le bureau." },
       { title: "Envoi rapide", text: "Le commercial et l'exploitation partagent la même base client à jour." },
@@ -335,9 +335,9 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     solutionBullets: [
       "Devis rattachés à la fiche client ou prospect",
       "Modèle professionnel avec vos prestations types",
-      "Suivi des statuts : envoyé, accepté, refusé, expiré",
+      "Suivi des statuts : brouillon, envoyé, signé, accepté, refusé",
       "Conversion directe vers planning et facturation",
-      "Historique des versions et relances commerciales",
+      "Historique des devis par client et relances dans le CRM",
     ],
     excelComparison: [
       { aspect: "Création", excel: "Word + copier-coller adresse client", progesti: "Devis depuis la fiche client préremplie" },
@@ -345,7 +345,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { aspect: "Conversion ops", excel: "Ressaisie manuelle planning + compta", progesti: "Acceptation → contrat et sites automatiques" },
       { aspect: "Versions", excel: "Fichiers _v2 _final éparpillés", progesti: "Historique des devis par client" },
       { aspect: "Marge", excel: "Devis isolé du réalisé", progesti: "Lien devis → passages → rentabilité" },
-      { aspect: "Réactivité AO", excel: "Repartir de zéro à chaque appel d'offres", progesti: "Dupliquer un modèle site et ajuster" },
+      { aspect: "Réactivité AO", excel: "Repartir de zéro à chaque appel d'offres", progesti: "Prestations types paramétrables, devis rattaché au site" },
     ],
     workflow: [
       { step: "01", text: "Ouvrez la fiche prospect ou client et lancez un nouveau devis" },
@@ -355,7 +355,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     ],
     dayInLife: [
       { time: "09:00", text: "Le commercial crée un devis syndic depuis la fiche prospect créée hier." },
-      { time: "11:00", text: "Relance automatique listée : deux devis en attente depuis dix jours." },
+      { time: "11:00", text: "Deux devis en attente depuis dix jours : le commercial les relance depuis le CRM." },
       { time: "14:00", text: "Devis accepté par mail : conversion en contrat en trois clics." },
       { time: "15:00", text: "L'exploitant voit les sites et fréquences sans ressaisie." },
       { time: "17:00", text: "Le dirigeant compare devis signé et marge prévisionnelle dans Rentabilité." },
@@ -366,7 +366,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     stats: [
       ["0", "Ressaisie après acceptation"],
       ["CRM", "Suivi intégré"],
-      ["PDF", "Devis pro en 1 clic"],
+      ["PDF", "Devis prêt à envoyer"],
       ["Contrat", "→ planning direct"],
     ],
     image: "/screen-devis.webp",
@@ -375,7 +375,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
       { q: "Peut-on personnaliser le format du devis ?", a: "Oui. Devis professionnels avec votre structure de prestations et vos conditions habituelles." },
       { q: "Le devis est-il lié au CRM ?", a: "Oui. Prospects, statuts et relances sont gérés dans le module CRM intégré." },
       { q: "Que se passe-t-il quand le client accepte ?", a: "Vous convertissez en contrat : sites, fréquences et tarifs alimentent le planning sans ressaisie." },
-      { q: "Peut-on dupliquer un devis existant ?", a: "Oui. Pratique pour les appels d'offres ou les contrats similaires sur un nouveau site." },
+      { q: "Peut-on réutiliser mes prestations types dans un devis ?", a: "Vous pouvez paramétrer des modèles de devis avec vos prestations types. Le devis reste rattaché au client et à ses sites." },
       { q: "Le module est-il inclus dans le tarif ?", a: "Oui — Gratuit pour indépendants, ou Pro/Premium pour les équipes. Tous modules inclus." },
       { q: "Export PDF pour envoi client ?", a: "Oui. Envoi par mail ou export PDF depuis PROGESTI." },
     ],
@@ -384,7 +384,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
         id: "syndics",
         label: "Syndics",
         title: "Appel d'offres immeuble détaillé",
-        body: "Un appel d'offres syndic exige un devis précis : surfaces parties communes, fréquences par zone, tarif annuel indexé. PROGESTI permet de structurer le devis par site immeuble avec des prestations récurrentes claires. Le commercial duplique un modèle de copropriété type et ajuste les surfaces. Une fois le marché remporté, la conversion crée les sites et fréquences pour l'exploitation — halls, cages, parking, local poubelles. Le syndic retrouve le même détail sur la facturation. Les renouvellements partent de l'historique contractuel, pas d'un nouveau fichier Word.",
+        body: "Un appel d'offres syndic exige un devis précis : surfaces parties communes, fréquences par zone, tarif. PROGESTI permet de structurer le devis par site immeuble avec des prestations récurrentes claires. Le commercial compose les lignes par zone et par fréquence. Une fois le marché remporté, la conversion crée les sites et fréquences pour l'exploitation — halls, cages, parking, local poubelles. Le syndic retrouve le même détail sur la facturation. Les renouvellements partent de l'historique contractuel, pas d'un nouveau fichier Word.",
         mock: "devis",
         context: "syndics",
       },
@@ -392,7 +392,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
         id: "bureaux",
         label: "Bureaux",
         title: "Devis multi-étages et options",
-        body: "Un prospect bureaux demande un devis open space quotidien plus sanitaires hebdo et vitrerie mensuelle. PROGESTI compose le devis par zone avec des lignes distinctes, rattachées au futur site. Le facility manager compare facilement ; une fois signé, chaque ligne devient une fréquence planifiable. Les options — tapis, consommables — restent visibles pour la facturation. Le commercial suit le statut sans tableur parallèle. Si le client négocie une fréquence, vous versionnez le devis sans perdre l'original.",
+        body: "Un prospect bureaux demande un devis open space quotidien plus sanitaires hebdo et vitrerie mensuelle. PROGESTI compose le devis par zone avec des lignes distinctes, rattachées au futur site. Le facility manager compare facilement ; une fois signé, chaque ligne devient une fréquence planifiable. Les options — tapis, consommables — restent visibles pour la facturation. Le commercial suit le statut sans tableur parallèle. Si le client négocie une fréquence, vous ajustez les lignes avant l'envoi.",
         mock: "flux-pipeline",
         context: "bureaux",
       },
