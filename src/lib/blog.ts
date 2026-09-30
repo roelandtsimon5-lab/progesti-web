@@ -25,6 +25,7 @@ export type BlogPostMeta = {
   seoTitle: string;
   seoDescription: string;
   keywords: string[];
+  faq?: { q: string; a: string }[];
 };
 
 export type BlogPost = BlogPostMeta & {
@@ -51,6 +52,9 @@ function parseFile(filename: string): BlogPost {
     seoTitle: String(data.seoTitle ?? data.title ?? ""),
     seoDescription: String(data.seoDescription ?? data.excerpt ?? ""),
     keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
+    faq: Array.isArray(data.faq)
+      ? data.faq.map((f: { q?: unknown; a?: unknown }) => ({ q: String(f.q ?? ""), a: String(f.a ?? "") })).filter((f: { q: string; a: string }) => f.q && f.a)
+      : undefined,
     contentHtml,
     contentMarkdown: body,
   };
