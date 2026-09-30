@@ -58,8 +58,9 @@ export default function BlogPage() {
                   <p className="text-xs font-bold uppercase tracking-wide text-green-deep">
                     {getCategoryLabel(post.category)}
                     <span className="mx-2 text-blue-mist">·</span>
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString("fr-FR", {
+                    Mis à jour le{" "}
+                    <time dateTime={post.updatedAt}>
+                      {new Date(post.updatedAt).toLocaleDateString("fr-FR", {
                         year: "numeric",
                         month: "long",
                         day: "numeric",

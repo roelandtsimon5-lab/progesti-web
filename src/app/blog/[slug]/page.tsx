@@ -37,7 +37,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.excerpt,
       url: `${site.url}${path}`,
       type: "article",
-      publishedTime: post.date,
       modifiedTime: post.updatedAt,
       images: [DEFAULT_OG],
     },
@@ -63,7 +62,6 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    datePublished: post.date,
     dateModified: post.updatedAt,
     author: { "@type": "Organization", name: site.name },
     publisher: {
@@ -129,8 +127,9 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
             <p className="mt-4 text-lg text-white/80">{post.excerpt}</p>
             <p className="mt-4 text-sm text-white/55">
-              <time dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString("fr-FR", {
+              Mis à jour le{" "}
+              <time dateTime={post.updatedAt}>
+                {new Date(post.updatedAt).toLocaleDateString("fr-FR", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
@@ -138,11 +137,6 @@ export default async function BlogPostPage({ params }: Props) {
               </time>
               {" · "}
               {post.readingTime} min de lecture
-              {" · "}
-              Mis à jour{" "}
-              <time dateTime={post.updatedAt}>
-                {new Date(post.updatedAt).toLocaleDateString("fr-FR")}
-              </time>
             </p>
           </div>
           <div className="industry-hero-wave" aria-hidden />
