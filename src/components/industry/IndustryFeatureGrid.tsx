@@ -162,6 +162,7 @@ function GridIconSvg({ kind }: { kind: GridIcon }) {
 function moneyCtaLabel(href: string): string {
   if (href === "/logiciel-planning-nettoyage") return "logiciel de planning nettoyage";
   if (href === "/logiciel-facturation-proprete") return "logiciel de facturation pour la propreté";
+  if (href === "/logiciel-devis-nettoyage") return "logiciel de devis pour le nettoyage";
   return "Voir la fonctionnalité";
 }
 

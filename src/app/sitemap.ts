@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/logiciel-nettoyage-gratuit", 0.95, "weekly"),
     entry("/logiciel-planning-nettoyage", 0.9, "weekly"),
     entry("/logiciel-facturation-proprete", 0.9, "weekly"),
+    entry("/logiciel-devis-nettoyage", 0.9, "weekly"),
     entry("/alternative-propret", 0.9, "weekly"),
     entry("/tarifs", 0.9, "weekly"),
     entry("/essai-gratuit", 0.9, "weekly"),
