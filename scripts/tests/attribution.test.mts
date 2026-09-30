@@ -12,7 +12,8 @@ function setup(url: string, referrer: string) {
 }
 
 setup("https://progesti.fr/essai-gratuit?gclid=ABC123&utm_source=google&utm_medium=cpc&utm_campaign=x", "https://www.google.fr/search?q=mon+nom+prenom");
-const m = await import("../../src/lib/attribution.ts");
+const modPath = "../../src/lib/attribution.ts";
+const m = await import(modPath);
 const a = m.captureFirstTouchAttribution()!;
 assert.equal(a.channel, "ads-google");
 assert.equal(a.referrerDomain, "google.fr");
