@@ -19,7 +19,7 @@ export default function ConfidentialitePage() {
       <IndustryPageHero
         eyebrow="Légal"
         title="Politique de confidentialité"
-        lead="Traitement des données personnelles via le site PROGESTI, le logiciel SaaS et l'application mobile ILICO Télégestion (fr.ilico.telegestion)."
+        lead="Traitement des données personnelles via le site PROGESTI, le logiciel SaaS et l'application mobile PROGESTI Télégestion."
         breadcrumbs={[
           { label: "Accueil", href: "/" },
           { label: "Confidentialité" },
@@ -28,7 +28,7 @@ export default function ConfidentialitePage() {
       />
       <section className="section bg-white">
         <div className="container max-w-3xl space-y-8 text-sm leading-relaxed text-anthracite">
-          <p className="text-xs text-muted">Dernière mise à jour : 11 août 2026</p>
+          <p className="text-xs text-muted">Dernière mise à jour : 30 septembre 2026</p>
 
           <section>
             <h2 className="font-extrabold text-ink">1. Responsable de traitement</h2>
@@ -64,7 +64,7 @@ export default function ConfidentialitePage() {
               <li>Données de facturation et règlements</li>
               <li>Logs techniques de connexion et de sécurité</li>
             </ul>
-            <p className="mt-3 font-semibold text-ink">Application mobile ILICO Télégestion</p>
+            <p className="mt-3 font-semibold text-ink">Application mobile PROGESTI Télégestion</p>
             <ul className="mt-1 list-disc space-y-1 pl-5">
               <li>
                 <strong>Localisation précise (GPS)</strong> — au démarrage et à la fin d’une
@@ -138,7 +138,7 @@ export default function ConfidentialitePage() {
           <section>
             <h2 className="font-extrabold text-ink">5. Destinataires et sous-traitants</h2>
             <p className="mt-2">
-              Hébergement applicatif et bases de données : Railway Corp (
+              Hébergement applicatif et bases de données : Railway Corporation (
               <a
                 className="font-semibold text-blue-royal"
                 href="https://railway.app"
@@ -147,7 +147,7 @@ export default function ConfidentialitePage() {
               >
                 railway.app
               </a>
-              ). Signature électronique (si activée) : Yousign. E-mails transactionnels : SMTP /
+              ). Signature en ligne des devis : service interne PROGESTI, sans prestataire tiers de signature. E-mails transactionnels : SMTP /
               Brevo selon configuration. Mesure d’audience site : Google Tag Manager (conteneur
               GTM-K65MM8Q4) avec Consent Mode v2, uniquement après acceptation du bandeau sur les
               pages marketing.
