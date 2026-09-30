@@ -25,7 +25,7 @@ Test : `.\scripts\blog-on-logon.ps1 -Force`
 
 1. **Brief** — requête cible, catégorie (`blogCategories`), 2–4 liens internes (pilier / solution / module / essai).
 2. **Rédaction** — fichier `content/blog/{slug}.mdx` avec frontmatter :
-   - `title`, `slug`, `category`, `excerpt`, `date`, `updatedAt`, `readingTime`
+   - `title`, `slug`, `category`, `excerpt`, `date` (interne, non affichée), `updatedAt` (affichée « Mis à jour le », = date du dernier commit modifiant le contenu), `readingTime`
    - `seoTitle`, `seoDescription`, `keywords`
 3. **Corps** — 800–1500 mots, H2/H3, listes, CTA essai en fin d’article.
 4. **Publish** — commit + deploy ; le sitemap lit `getAllPosts()` automatiquement.

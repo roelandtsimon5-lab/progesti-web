@@ -16,7 +16,7 @@ export default function GuidesPage() {
     ...getPostsByCategory("guides"),
     ...getPostsByCategory("conseils-metier"),
     ...getPostsByCategory("tutoriels"),
-  ].sort((a, b) => (a.date < b.date ? 1 : -1));
+  ].sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1));
 
   return (
     <>
