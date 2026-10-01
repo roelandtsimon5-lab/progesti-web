@@ -113,6 +113,12 @@ export default function PillarPlanningPage() {
                 {ctaLabels.demoGate}
               </ButtonLink>
             </div>
+            <p className="mt-3 text-sm text-slate">
+              Essai {site.trialDays} jours sans CB · Gratuit (0 € HT/mois) pour indépendants, micro-entreprises et auto-entrepreneurs ·{" "}
+              <Link href="/tarifs" className="font-semibold text-blue-royal hover:underline">
+                tarif public
+              </Link>
+            </p>
           </Reveal>
           <Reveal delayMs={60}>
             <div className="overflow-hidden rounded-[3px] border border-blue-mist/60 shadow-[0_20px_56px_rgba(11,61,110,0.12)]">
@@ -403,7 +409,7 @@ export default function PillarPlanningPage() {
                 className="rounded-[3px] border border-blue-mist/70 bg-blue-sky/10 p-5 text-center hover:border-blue-royal"
               >
                 <p className="font-display text-2xl font-extrabold text-blue-deep">Gratuit</p>
-                <p className="text-sm text-slate">1 admin · indépendants</p>
+                <p className="text-sm text-slate">0 € HT/mois · 1 admin · indépendants</p>
               </Link>
               <div className="rounded-[3px] border-2 border-lime-cta bg-lime-cta/10 p-5 text-center">
                 <p className="font-display text-2xl font-extrabold text-blue-deep">49,99 €</p>
