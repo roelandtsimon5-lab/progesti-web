@@ -178,7 +178,27 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
 
       <div className="industry-hero-wave -mt-px bg-[var(--warm-light)]" aria-hidden />
 
-      {directAnswer ? <DirectAnswer>{directAnswer}</DirectAnswer> : null}
+      {directAnswer ? (
+        <>
+          <DirectAnswer>{directAnswer}</DirectAnswer>
+          <div className="bg-white pt-4">
+            <div className="container flex max-w-4xl flex-col gap-3 sm:flex-row sm:items-center">
+              <ButtonLink
+                href={cta.trial}
+                variant="trial"
+                className="!rounded-[2px]"
+                event="trial_start"
+                eventPayload={{ cta: `${ctaSlug}_after_answer_trial` }}
+              >
+                Essai {site.trialDays} jours sans carte bancaire
+              </ButtonLink>
+              <p className="text-sm text-slate">
+                Gratuit (0 € HT/mois) pour indépendants, micro-entreprises et auto-entrepreneurs.
+              </p>
+            </div>
+          </div>
+        </>
+      ) : null}
 
       <IndustryMetierStrip />
       <IndustrySectionNav />
