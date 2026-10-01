@@ -26,6 +26,7 @@ export type BlogPostMeta = {
   seoDescription: string;
   keywords: string[];
   faq?: { q: string; a: string }[];
+  related?: string[];
 };
 
 export type BlogPost = BlogPostMeta & {
@@ -53,6 +54,7 @@ function parseFile(filename: string): BlogPost {
     seoTitle: String(data.seoTitle ?? data.title ?? ""),
     seoDescription: String(data.seoDescription ?? data.excerpt ?? ""),
     keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
+    related: Array.isArray(data.related) ? data.related.map(String) : undefined,
     faq: Array.isArray(data.faq)
       ? data.faq.map((f: { q?: unknown; a?: unknown }) => ({ q: String(f.q ?? ""), a: String(f.a ?? "") })).filter((f: { q: string; a: string }) => f.q && f.a)
       : undefined,
@@ -80,6 +82,13 @@ export function getPostsByCategory(category: string): BlogPost[] {
 }
 
 export function getRelatedPosts(post: BlogPost, limit = 3): BlogPost[] {
+  if (post.related?.length) {
+    const all = getAllPosts();
+    const picked = post.related
+      .map((s) => all.find((p) => p.slug === s))
+      .filter((p): p is BlogPost => Boolean(p) && p!.slug !== post.slug);
+    if (picked.length >= limit) return picked.slice(0, limit);
+  }
   const sameCat = getAllPosts().filter(
     (p) => p.slug !== post.slug && p.category === post.category,
   );

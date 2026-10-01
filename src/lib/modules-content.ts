@@ -19,6 +19,10 @@ export type ModuleContent = {
   relatedModuleSlugs: readonly string[];
   relatedIntro: string;
   pillarLink?: { href: string; label: string };
+  /** Titre H1 « fiche écran » (remplace titre + sous-titre par défaut). */
+  heroTitle?: string;
+  /** Liens vers la page propriétaire de l'intention, rendus sous le hero. */
+  ownerNotes?: readonly { before: string; href: string; anchor: string; after: string }[];
   stats: readonly [string, string][];
   image: string;
   imageAlt: string;
@@ -320,9 +324,13 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     pillar: "Facturer",
     heroLead:
       "Créez des devis professionnels rattachés à vos fiches clients, suivez les acceptations et convertissez en contrat et planning sans ressaisie.",
-    seoTitle: "Devis nettoyage professionnel",
+    seoTitle: "Module Devis : créer un devis pas à pas",
     seoDescription:
-      "Devis structurés pour entreprises de nettoyage, liés aux clients et sites. Conversion en contrat sans ressaisie. Gratuit indépendants. Essai 15 j.",
+      "Fiche module Devis : créer un devis depuis la fiche client, l'envoyer, suivre son statut et le convertir en contrat. Inclus dans toutes les offres.",
+    heroTitle: "Module Devis : de la fiche client au contrat",
+    ownerNotes: [
+      { before: "Vous comparez des logiciels de devis ? Voir notre ", href: "/logiciel-devis-nettoyage", anchor: "logiciel de devis pour entreprise de nettoyage", after: "." },
+    ],
     benefits: [
       { title: "Devis structurés", text: "Rattachés au client et aux sites — plus de fichiers Word éparpillés sur le bureau." },
       { title: "Envoi rapide", text: "Le commercial et l'exploitation partagent la même base client à jour." },
@@ -372,7 +380,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     image: "/screen-devis.webp",
     imageAlt: "Module Devis PROGESTI — devis professionnels pour entreprises de nettoyage",
     faq: [
-      { q: "Peut-on personnaliser le format du devis ?", a: "Oui. Devis professionnels avec votre structure de prestations et vos conditions habituelles." },
+      { q: "Que peut-on personnaliser dans le devis ?", a: "Vous personnalisez le logo, les mentions (conditions, règlement) et le préfixe de numérotation." },
       { q: "Le devis est-il lié au CRM ?", a: "Oui. Prospects, statuts et relances sont gérés dans le module CRM intégré." },
       { q: "Que se passe-t-il quand le client accepte ?", a: "Vous convertissez en contrat : sites, fréquences et tarifs alimentent le planning sans ressaisie." },
       { q: "Peut-on réutiliser mes prestations types dans un devis ?", a: "Vous pouvez paramétrer des modèles de devis avec vos prestations types. Le devis reste rattaché au client et à ses sites." },
@@ -410,9 +418,14 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     pillar: "Facturer",
     heroLead:
       "Facturez ce qui a réellement été fait sur le terrain : planning et pointages alimentent vos factures, sans double saisie ni oubli de fin de mois.",
-    seoTitle: "Facturation nettoyage au réalisé",
+    seoTitle: "Module Facturation : du réalisé à la facture",
     seoDescription:
-      "Factures alignées sur le réalisé terrain pour entreprises de nettoyage. Planning et pointage intégrés. Gratuit pour indépendants. Essai 15 jours Pro/Premium.",
+      "Fiche module Facturation PROGESTI : générer une facture depuis les pointages, ajuster, envoyer, suivre les règlements. Inclus dans toutes les offres.",
+    heroTitle: "Module Facturation : du réalisé à la facture",
+    ownerNotes: [
+      { before: "Vous comparez des logiciels ? Voir notre ", href: "/logiciel-facturation-proprete", anchor: "logiciel de facturation pour la propreté", after: "." },
+      { before: "Où en est PROGESTI sur la facture électronique ? Lire le ", href: "/blog/facture-electronique-2026-2027", anchor: "guide facture électronique 2026-2027", after: "." },
+    ],
     benefits: [
       { title: "Du réalisé à la facture", text: "Planning et pointage alimentent la facturation — facturez ce qui a vraiment été fait." },
       { title: "Moins d'oublis", text: "Fin de mois sans recomptage manuel ni factures oubliées sur un site." },
@@ -453,7 +466,6 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     relatedModuleSlugs: ["pointage", "impayes", "rentabilite"],
     relatedIntro:
       "La facturation PROGESTI s'appuie sur le pointage terrain et alimente le suivi des impayés et la rentabilité.",
-    pillarLink: { href: "/logiciel-facturation-proprete", label: "logiciel de facturation pour la propreté" },
     stats: [
       ["Réalisé", "Base de facturation"],
       ["0", "Double saisie ops → compta"],
@@ -464,7 +476,7 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     imageAlt: "Facturation PROGESTI — factures alignées sur le réalisé terrain",
     faq: [
       { q: "La facturation se base-t-elle sur les pointages ?", a: "Oui. Les passages planifiés et pointés alimentent la base de facturation, ajustable avant envoi." },
-      { q: "Peut-on facturer des contrats récurrents automatiquement ?", a: "Oui. Factures périodiques alignées sur vos contrats et fréquences." },
+      { q: "Peut-on facturer des contrats récurrents ?", a: "Oui : les factures sont générées selon la fréquence définie dans le contrat." },
       { q: "Export vers mon logiciel comptable ?", a: "Consultez la page Intégrations pour les options d'export disponibles." },
       { q: "Facturation détaillée par site pour les syndics ?", a: "Oui. Ventilation par site rattaché au client." },
       { q: "Le module est-il inclus ?", a: "Oui — Gratuit pour indépendants, tous modules inclus. Pro/Premium pour les équipes." },

@@ -96,6 +96,8 @@ export type IndustryPageConfig = {
     anchor: string;
     after: string;
   };
+  /** Liens contextuels éditoriaux supplémentaires (maillage), rendus sous compareNote. */
+  extraNotes?: readonly { before: string; href: string; anchor: string; after: string }[];
 };
 
 export type IndustrySlug =

@@ -12,6 +12,8 @@ import { modules, site } from "@/lib/site";
 
 type Props = {
   title: string;
+  /** H1 « fiche écran » : remplace titre + sous-titre par défaut. */
+  h1?: string;
   slug: string;
   pillar: string;
   lead: string;
@@ -27,6 +29,7 @@ type Props = {
 
 export function ModuleHero({
   title,
+  h1,
   slug,
   pillar,
   lead,
@@ -57,10 +60,12 @@ export function ModuleHero({
             {" · "}Module inclus
           </p>
           <h1 className="mt-3 font-sans text-[1.85rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-white md:text-[2.5rem] lg:text-[2.75rem]">
-            {title}
-            <span className="mt-1 block text-[0.62em] font-bold leading-snug text-white/72">
-              pour entreprises de nettoyage
-            </span>
+            {h1 ?? title}
+            {h1 ? null : (
+              <span className="mt-1 block text-[0.62em] font-bold leading-snug text-white/72">
+                pour entreprises de nettoyage
+              </span>
+            )}
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed text-white/78 md:text-[1.05rem]">
             {lead}

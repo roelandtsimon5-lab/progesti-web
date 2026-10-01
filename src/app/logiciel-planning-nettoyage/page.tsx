@@ -17,7 +17,7 @@ import { site, trialCopy, pricingCopy } from "@/lib/site";
 const planningFaq = [
   {
     q: "Comment fonctionne le planning multi-sites ?",
-    a: "Vous créez vos sites (bureaux, syndics, commerces), définissez les fréquences (quotidien, 2×/semaine, mensuel) et affectez vos agents. Le planning se répète automatiquement — plus besoin de reconstruire chaque semaine.",
+    a: "Vous créez vos sites (bureaux, syndics, commerces), définissez les fréquences (quotidien, 2×/semaine, mensuel) et affectez vos agents. Le planning se répète automatiquement : plus besoin de reconstruire chaque semaine.",
   },
   {
     q: "Comment gérer un remplacement de dernière minute ?",
@@ -25,11 +25,11 @@ const planningFaq = [
   },
   {
     q: "Le planning est-il relié au pointage ?",
-    a: "Oui. Ce que vous planifiez, vos agents le pointent sur mobile (arrivée, départ, géoloc). Les données remontent au bureau en temps réel — plus de feuilles papier ni d'heures contestées.",
+    a: "Oui. Ce que vous planifiez, vos agents le pointent sur mobile (arrivée, départ, géoloc). Les données remontent au bureau : plus de feuilles papier ni d'heures contestées.",
   },
   {
     q: "Peut-on facturer à partir du planning ?",
-    a: "Oui. Le flux planning → pointage → facture est automatique. Ce qui est pointé alimente la facturation, sans double saisie. Voir aussi : logiciel facturation propreté.",
+    a: "Oui : ce que vous planifiez est pointé sur mobile, et ce qui est pointé alimente la facturation, sans double saisie. Voir aussi : logiciel facturation propreté.",
   },
   {
     q: "Combien coûte le module planning ?",
@@ -239,7 +239,11 @@ export default function PillarPlanningPage() {
             <p className="mt-4 text-slate">
               Le planning n&apos;est pas un outil isolé. C&apos;est le point de départ de toute votre
               chaîne opérationnelle : ce que vous planifiez, vos agents le pointent sur mobile. Ce
-              qu&apos;ils pointent alimente directement vos factures.
+              qu&apos;ils pointent alimente directement vos factures. Et tout commence par le{" "}
+              <Link href="/logiciel-devis-nettoyage" className="font-semibold text-blue-royal hover:underline">
+                devis accepté puis converti en contrat
+              </Link>
+              .
             </p>
           </Reveal>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -259,7 +263,7 @@ export default function PillarPlanningPage() {
                 <h3 className="mt-1 font-display font-bold text-blue-deep">Pointer</h3>
                 <p className="mt-2 text-sm text-slate">
                   Les agents pointent sur mobile (arrivée, départ, géoloc). Les données remontent au
-                  bureau en temps réel. Plus de feuilles papier.
+                  bureau. Plus de feuilles papier.
                 </p>
               </div>
             </Reveal>
@@ -456,6 +460,14 @@ export default function PillarPlanningPage() {
                 className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
               >
                 Pilier — logiciel entreprise de nettoyage →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/logiciel-devis-nettoyage"
+                className="block rounded-[3px] border border-blue-mist/70 bg-white p-4 font-semibold text-blue-royal hover:border-blue-royal"
+              >
+                Logiciel de devis pour le nettoyage →
               </Link>
             </li>
             <li>

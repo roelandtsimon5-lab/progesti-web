@@ -3,6 +3,9 @@ import { defaultIndustryConfig, mergeIndustryConfig } from "./default";
 
 export const bureauxConfig = mergeIndustryConfig(defaultIndustryConfig, {
   slug: "bureaux",
+  extraNotes: [
+    { before: 'Côté commercial : un ', href: '/logiciel-devis-nettoyage', anchor: 'devis pour une société de nettoyage de bureaux', after: ' reste relié au client, à ses sites et au planning.' },
+  ],
   seo: {
     title: "Logiciel nettoyage bureaux : planning, factures",
     description:
@@ -65,6 +68,9 @@ export const bureauxConfig = mergeIndustryConfig(defaultIndustryConfig, {
 
 export const syndicsConfig = mergeIndustryConfig(defaultIndustryConfig, {
   slug: "syndics",
+  extraNotes: [
+    { before: "Pour chiffrer un contrat d'immeuble, voir le ", href: '/logiciel-devis-nettoyage', anchor: 'devis pour un syndic ou une copropriété', after: ', rattaché au client et à ses sites.' },
+  ],
   seo: {
     title: "Logiciel nettoyage syndics & parties communes",
     description:
@@ -170,7 +176,7 @@ export const professionnelsConfig = mergeIndustryConfig(defaultIndustryConfig, {
     },
     {
       q: "Prix et essai ?",
-      a: `Gratuit pour indépendants, dès 49,99 € (Pro) · ${trialCopy.noCard.toLowerCase()}.`,
+      a: `Gratuit (0 € HT/mois) pour indépendants ; Pro 49,99 € HT/mois ; Premium 99,99 € HT/mois · ${trialCopy.noCard.toLowerCase()}.`,
     },
     {
       q: "Facturation depuis le terrain ?",
@@ -185,6 +191,9 @@ export const professionnelsConfig = mergeIndustryConfig(defaultIndustryConfig, {
 
 export const finDeChantierConfig = mergeIndustryConfig(defaultIndustryConfig, {
   slug: "fin-de-chantier",
+  extraNotes: [
+    { before: 'Avant le chantier, le ', href: '/logiciel-devis-nettoyage', anchor: 'devis de fin de chantier', after: ' est rattaché au client et au site, puis converti en contrat.' },
+  ],
   seo: {
     title: "Logiciel fin de chantier : remise en état, photos",
     description:

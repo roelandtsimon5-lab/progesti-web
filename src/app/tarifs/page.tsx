@@ -151,6 +151,17 @@ export default function TarifsPage() {
               reprend les heures réellement réalisées, pour facturer sans ressaisie.
             </p>
             <p className="mt-4 text-slate">
+              Pour chiffrer un contrat, le{" "}
+              <Link href="/logiciel-devis-nettoyage" className="font-semibold text-blue-royal hover:underline">
+                logiciel de devis pour le nettoyage
+              </Link>{" "}
+              est inclus lui aussi. Et pour anticiper 2027, lisez notre{" "}
+              <Link href="/blog/facture-electronique-2026-2027" className="font-semibold text-blue-royal hover:underline">
+                guide de la facture électronique 2026-2027
+              </Link>
+              .
+            </p>
+            <p className="mt-4 text-slate">
               Indépendant ou auto-entrepreneur ? L'offre Gratuit est faite pour vous : découvrez notre{" "}
               <Link href="/logiciel-nettoyage-gratuit" className="font-semibold text-blue-royal hover:underline">
                 logiciel de nettoyage gratuit

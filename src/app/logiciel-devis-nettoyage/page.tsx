@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
 import { IndustryFaq } from "@/components/industry/IndustryFaq";
+import { BreadcrumbListLd } from "@/components/seo/BreadcrumbListLd";
 import { DirectAnswer } from "@/components/seo/DirectAnswer";
 import { FaqPageLd } from "@/components/seo/FaqPageLd";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
@@ -18,8 +19,8 @@ const directAnswer =
 
 const devisFaq = [
   {
-    q: "Quel logiciel utiliser pour faire des devis de nettoyage ?",
-    a: "Un logiciel qui rattache le devis au client et aux sites, en suit le statut et le convertit en contrat. PROGESTI inclut un module Devis dans chaque offre, relié au CRM, au planning et à la facturation.",
+    q: "Que doit contenir un devis de nettoyage ?",
+    a: "Le client et les sites concernés, les prestations, la fréquence ou la date, un prix à l'heure ou au forfait avec total HT, TVA et TTC, les conditions de règlement et une date de validité (30 jours par défaut dans PROGESTI).",
   },
   {
     q: "Peut-on convertir un devis accepté en contrat sans tout ressaisir ?",
@@ -30,8 +31,8 @@ const devisFaq = [
     a: "Les statuts (brouillon, envoyé, signé, accepté, refusé) sont suivis dans l'outil, avec l'historique des devis par client. Les relances se gèrent dans le CRM intégré ; une règle de relance de devis est paramétrable et reste à activer : vous gardez la main sur le contenu et le moment.",
   },
   {
-    q: "Peut-on envoyer le devis en PDF au client ?",
-    a: "Oui, par e-mail ou en export PDF depuis PROGESTI. Le client peut aussi signer le devis en ligne via un lien : il saisit son nom et accepte, et le PDF signé est horodaté. Il s'agit de la signature en ligne interne PROGESTI.",
+    q: "Le client peut-il signer le devis en ligne ?",
+    a: "Oui : il reçoit un lien, saisit son nom et accepte le devis ; le PDF signé est horodaté et conservé avec une piste d'audit. C'est la signature en ligne interne PROGESTI. L'envoi se fait par e-mail ou en export PDF.",
   },
   {
     q: "Y a-t-il une offre gratuite pour un auto-entrepreneur du nettoyage ?",
@@ -54,6 +55,13 @@ export default function LogicielDevisNettoyagePage() {
     <>
       <SoftwareApplicationLd />
       <FaqPageLd items={[...devisFaq]} />
+      <BreadcrumbListLd
+        items={[
+          { name: "Accueil", path: "/" },
+          { name: "Logiciel entreprise nettoyage", path: "/logiciel-entreprise-nettoyage" },
+          { name: "Logiciel devis nettoyage" },
+        ]}
+      />
       <IndustryPageHero
         eyebrow="Devis propreté"
         title="Logiciel de devis pour entreprise de nettoyage"
