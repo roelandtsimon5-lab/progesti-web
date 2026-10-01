@@ -221,7 +221,7 @@ export const resourcesMegaMenu: NavMegaMenu = {
       items: [
         { label: "Tarifs", href: "/tarifs", hint: "Gratuit pour indépendants · Pro/Premium pour équipes" },
         { label: "Contact", href: "/contact", hint: site.phone },
-        { label: "À propos", href: "/a-propos", hint: "MSNE SAS · Toulouse" },
+        { label: "À propos", href: "/a-propos", hint: "PROGESTI · Toulouse" },
       ],
     },
   ],

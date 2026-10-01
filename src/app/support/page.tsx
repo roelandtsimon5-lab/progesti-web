@@ -87,7 +87,7 @@ export default function SupportPage() {
             <p className="mt-8 text-xs text-slate">
               SIREN {site.company.siren} · SIRET {site.company.siret}
               <br />
-              TVA {site.company.tva} · RCS {site.company.rcs}
+              TVA {site.company.tva} · RCS {site.company.rcs} {site.company.siren}
             </p>
           </div>
         </div>

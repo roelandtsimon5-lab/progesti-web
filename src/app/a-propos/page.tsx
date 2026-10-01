@@ -33,7 +33,7 @@ export default function AProposPage() {
   return (
     <>
       <IndustryPageHero
-        eyebrow="À propos · MSNE SAS"
+        eyebrow="À propos · PROGESTI"
         title="PROGESTI, conçu pour le terrain de la propreté"
         lead="Un logiciel simple et complet pour les entreprises de nettoyage — bureaux, syndics, professionnels, fin de chantier — qui veulent organiser le métier sans Excel ni WhatsApp comme système."
         breadcrumbs={[

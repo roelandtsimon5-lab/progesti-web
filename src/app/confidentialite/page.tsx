@@ -28,13 +28,14 @@ export default function ConfidentialitePage() {
       />
       <section className="section bg-white">
         <div className="container max-w-3xl space-y-8 text-sm leading-relaxed text-anthracite">
-          <p className="text-xs text-muted">Dernière mise à jour : 30 septembre 2026</p>
+          <p className="text-xs text-muted">Dernière mise à jour : 1er octobre 2026</p>
 
           <section>
             <h2 className="font-extrabold text-ink">1. Responsable de traitement</h2>
             <p className="mt-2">
               Pour les données de compte et de relation commerciale avec {site.company.legalName} :{" "}
-              {site.company.legalName}, SIRET {site.company.siret}, {site.company.address},{" "}
+              {site.company.legalName} (nom commercial {site.company.tradeName}), SIRET {site.company.siret},{" "}
+              {site.company.address},{" "}
               {site.company.city} —{" "}
               <a className="font-semibold text-blue-royal" href={`mailto:${site.email}`}>
                 {site.email}

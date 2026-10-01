@@ -33,7 +33,7 @@ const copy: Record<
   },
   contact: {
     title: "Une question ? On vous répond",
-    lead: "Commercial, migration, essai — équipe MSNE SAS, Toulouse (31).",
+    lead: "Commercial, migration, essai — équipe PROGESTI, Toulouse (31).",
     primary: { href: "/contact", label: "Nous contacter" },
     secondary: {
       href: cta.demo,

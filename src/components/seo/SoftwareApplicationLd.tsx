@@ -9,8 +9,8 @@ const provider = {
   address: {
     "@type": "PostalAddress" as const,
     streetAddress: site.company.address,
-    addressLocality: "Toulouse",
-    postalCode: "31000",
+    addressLocality: site.company.locality,
+    postalCode: site.company.postalCode,
     addressCountry: "FR",
   },
   ...(site.sameAs.length > 0 ? { sameAs: [...site.sameAs] } : {}),

@@ -166,7 +166,7 @@ export function ProgestiPricing() {
       </section>
 
       <p className="mt-6 text-center text-xs text-muted">
-        {modules.length} modules · {site.phone} · MSNE SAS, Toulouse (31)
+        {modules.length} modules · {site.phone} · PROGESTI, Toulouse (31)
       </p>
     </>
   );

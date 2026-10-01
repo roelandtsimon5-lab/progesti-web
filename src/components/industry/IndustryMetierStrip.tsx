@@ -13,7 +13,7 @@ export function IndustryMetierStrip() {
           généraliste
         </p>
         <p className="text-[11px] text-white/70 sm:text-xs md:text-sm">
-          {site.company.city} · MSNE SAS · Support {site.phone}
+          {site.company.city} · PROGESTI · Support {site.phone}
         </p>
       </div>
     </div>

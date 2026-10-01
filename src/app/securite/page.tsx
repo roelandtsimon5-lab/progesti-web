@@ -466,7 +466,7 @@ export default function SecurityLandingPage() {
               },
               {
                 title: "Support FR",
-                text: `${site.phone} · équipe MSNE SAS à Toulouse (31), qui parle le terrain.`,
+                text: `${site.phone} · équipe PROGESTI à Toulouse (31), qui parle le terrain.`,
               },
             ].map((item, i) => (
               <Reveal key={item.title} delayMs={i * 70}>

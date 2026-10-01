@@ -13,14 +13,20 @@ export const site = {
   /** @deprecated Use trialDays. Kept for backward compatibility with ads pages. */
   trialMonths: 2,
   company: {
-    legalName: "MSNE SAS",
-    siren: "106177116",
-    siret: "10617711600014",
-    tva: "FR44106177116",
+    // Source : registre national des entreprises (annuaire-entreprises.data.gouv.fr / INPI RNE), SIREN 951178631.
+    legalName: "ILICO SASU",
+    tradeName: "CENTRE SERVICES",
+    legalForm: "Société à responsabilité limitée à associé unique (SARLU)",
+    siren: "951178631",
+    siret: "95117863100010",
+    tva: "FR90951178631",
     rcs: "Toulouse",
-    capital: "5 000 €",
-    address: "56 boulevard Vincent Auriol",
-    city: "31000 Toulouse",
+    capital: "10 000 €",
+    address: "24 allée Maurice Sarraut",
+    city: "31300 Toulouse",
+    postalCode: "31300",
+    locality: "Toulouse",
+    manager: "Simon Roelandt",
   },
 } as const;
 

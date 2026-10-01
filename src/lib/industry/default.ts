@@ -224,7 +224,7 @@ const defaultFaq = [
   },
   {
     q: "Le support est-il en France ?",
-    a: `Oui. Support FR inclus, joignable au ${site.phone}. Société MSNE SAS, Toulouse (31).`,
+    a: `Oui. Support FR inclus, joignable au ${site.phone}. Équipe PROGESTI, Toulouse (31).`,
   },
 ] as const;
 
@@ -278,7 +278,7 @@ export const defaultIndustryConfig: IndustryPageConfig = {
       },
       {
         title: "Support FR",
-        text: `${site.phone} · équipe MSNE SAS à Toulouse (31), qui parle le terrain.`,
+        text: `${site.phone} · équipe PROGESTI à Toulouse (31), qui parle le terrain.`,
       },
     ],
   },

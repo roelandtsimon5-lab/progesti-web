@@ -300,7 +300,7 @@ export function FeatureMock({ kind, label, context }: Props) {
                 </div>
                 <div className="text-right text-[10px] leading-relaxed text-white/75">
                   <p className="font-bold text-white">Votre société de propreté</p>
-                  <p>31000 Toulouse</p>
+                  <p>31300 Toulouse</p>
                   <p>SIRET 106 177 116 00014</p>
                 </div>
               </div>
