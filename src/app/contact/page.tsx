@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMeta({
 
   title: "Contact",
 
-  description: "Contactez MSNE SAS / PROGESTI — support commercial et questions produit.",
+  description: "Contactez PROGESTI — support commercial et questions produit.",
 
   path: "/contact",
 
@@ -32,7 +32,7 @@ export default function ContactPage() {
 
       <IndustryPageHero
 
-        eyebrow="Équipe MSNE SAS · Toulouse"
+        eyebrow="Équipe PROGESTI · Toulouse"
 
         title="Parlons de votre activité"
 
