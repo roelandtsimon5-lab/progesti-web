@@ -203,6 +203,15 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
                   {compareNote.after}
                 </p>
               ) : null}
+              {config.extraNotes?.map((n) => (
+                <p key={n.href} className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate md:text-lg md:leading-relaxed">
+                  {n.before}
+                  <Link href={n.href} className="font-semibold text-blue-royal hover:underline">
+                    {n.anchor}
+                  </Link>
+                  {n.after}
+                </p>
+              ))}
             </div>
           </Reveal>
           <div className="mt-12 md:mt-16">

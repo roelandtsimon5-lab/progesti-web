@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { IndustryPageHero } from "@/components/industry/IndustryPageHero";
 import { IndustryFaq } from "@/components/industry/IndustryFaq";
+import { BreadcrumbListLd } from "@/components/seo/BreadcrumbListLd";
 import { DirectAnswer } from "@/components/seo/DirectAnswer";
 import { FaqPageLd } from "@/components/seo/FaqPageLd";
 import { SoftwareApplicationLd } from "@/components/seo/SoftwareApplicationLd";
@@ -40,7 +41,7 @@ const facturationFaq = [
   },
   {
     q: "PROGESTI est-il prêt pour la facture électronique de 2027 ?",
-    a: "Les dates officielles sont rappelées dans notre guide (source : impots.gouv.fr). Aujourd'hui, PROGESTI facture à partir du réalisé, gère les avoirs et permet d'exporter vos écritures ; le raccordement à une plateforme agréée n'est pas encore disponible, une feuille de route est en cours. Contactez-nous au 07 67 68 55 67.",
+    a: "Pas pour le raccordement à une plateforme agréée : il n'est pas disponible aujourd'hui, une feuille de route est en cours. PROGESTI facture déjà à partir du réalisé, gère les avoirs, suit les impayés et exporte vos écritures. Dates officielles : voir notre guide (source : impots.gouv.fr). Contact : 07 67 68 55 67.",
   },
 ] as const;
 
@@ -76,6 +77,13 @@ export default function PillarFacturationPage() {
     <>
       <SoftwareApplicationLd />
       <FaqPageLd items={[...facturationFaq]} />
+      <BreadcrumbListLd
+        items={[
+          { name: "Accueil", path: "/" },
+          { name: "Logiciel entreprise nettoyage", path: "/logiciel-entreprise-nettoyage" },
+          { name: "Logiciel facturation propreté" },
+        ]}
+      />
       <IndustryPageHero
         eyebrow="Facturation propreté"
         title="Logiciel de facturation pour la propreté"

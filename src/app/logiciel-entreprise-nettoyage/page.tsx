@@ -91,6 +91,10 @@ export default function PillarNettoyagePage() {
       anchor: "comparatif Propret vs PROGESTI",
       after: ` — tarifs publics, essai ${site.trialDays} jours sans CB, support FR.`,
     },
+    extraNotes: [
+      { before: "Du ", href: "/logiciel-devis-nettoyage", anchor: "logiciel de devis pour entreprise de nettoyage", after: " à la facture, le devis accepté se convertit en contrat et alimente le planning." },
+      { before: "Réforme de la facture électronique : ", href: "/blog/facture-electronique-2026-2027", anchor: "dates et marche à suivre pour une entreprise de nettoyage", after: "." },
+    ],
     faq: pillarFaq,
     directAnswer: pillarDirectAnswer,
   });

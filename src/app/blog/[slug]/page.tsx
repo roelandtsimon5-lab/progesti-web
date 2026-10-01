@@ -63,6 +63,8 @@ export default async function BlogPostPage({ params }: Props) {
     headline: post.title,
     description: post.excerpt,
     dateModified: post.updatedAt,
+    inLanguage: "fr-FR",
+    image: `${site.url}/opengraph-image`,
     author: { "@type": "Organization", name: site.name },
     publisher: {
       "@type": "Organization",

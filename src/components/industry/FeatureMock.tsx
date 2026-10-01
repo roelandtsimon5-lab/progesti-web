@@ -295,7 +295,7 @@ export function FeatureMock({ kind, label, context }: Props) {
                     Devis
                   </p>
                   <p className="mt-1 font-display text-base font-extrabold md:text-lg">
-                    D-2026-084
+                    DEV-260930-04
                   </p>
                 </div>
                 <div className="text-right text-[10px] leading-relaxed text-white/75">

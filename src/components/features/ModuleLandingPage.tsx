@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FinalPush } from "@/components/conversion/FinalPush";
 import { IndustryFaq } from "@/components/industry/IndustryFaq";
 import { FeatureUseCaseTabs } from "@/components/features/FeatureUseCaseTabs";
@@ -55,6 +56,7 @@ export function ModuleLandingPage({ mod, content, slug }: Props) {
     <>
       <ModuleHero
         title={mod.title}
+        h1={content.heroTitle}
         slug={slug}
         pillar={content.pillar}
         lead={content.heroLead ?? mod.short}
@@ -67,6 +69,22 @@ export function ModuleLandingPage({ mod, content, slug }: Props) {
         heroMock={assets?.heroMock}
         showcaseMock={assets?.showcaseMock}
       />
+
+      {content.ownerNotes?.length ? (
+        <section className="border-b border-line bg-paper" aria-label="Pages liées">
+          <div className="container space-y-1 py-3 text-sm text-slate">
+            {content.ownerNotes.map((n) => (
+              <p key={n.href}>
+                {n.before}
+                <Link href={n.href} className="font-semibold text-blue-royal hover:underline">
+                  {n.anchor}
+                </Link>
+                {n.after}
+              </p>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <ModuleTopNav
         pillarTitle={pillar?.title ?? "Module PROGESTI"}

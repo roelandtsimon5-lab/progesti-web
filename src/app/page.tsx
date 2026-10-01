@@ -185,6 +185,9 @@ const homePillars: readonly IndustryPillar[] = [
 
 const homeConfig = mergeIndustryConfig(defaultIndustryConfig, {
   pillars: homePillars,
+  extraNotes: [
+    { before: "Besoin de chiffrer un contrat ? Voyez notre ", href: "/logiciel-devis-nettoyage", anchor: "logiciel de devis pour le nettoyage", after: " : du devis au contrat planifié." },
+  ],
   empathy: {
     h2: "Planifier. Pointer. Facturer. Tout au même endroit.",
     body: "Vous gérez des agents sur plusieurs sites, des remplacements de dernière minute, et vous facturez parfois de mémoire ? PROGESTI rassemble planning, pointage terrain et facturation dans un seul logiciel — pour que chaque heure travaillée soit tracée et facturée.",

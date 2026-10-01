@@ -187,6 +187,14 @@ export default function IntegrationsPage() {
           </ul>
 
           <p className="mt-12 text-sm text-slate">
+            Facture électronique :{" "}
+            <Link href="/blog/facture-electronique-2026-2027" className="font-semibold text-blue-royal hover:underline">
+              dates et marche à suivre pour une entreprise de nettoyage
+            </Link>
+            .
+          </p>
+
+          <p className="mt-4 text-sm text-slate">
 
             Voir aussi le{" "}
 
