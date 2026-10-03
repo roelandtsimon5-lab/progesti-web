@@ -13,6 +13,8 @@ import {
 import { ModuleFaqHelp } from "@/components/features/ModuleFaqHelp";
 import { ModuleTopNav } from "@/components/features/ModuleTopNav";
 import { ModuleWhySection } from "@/components/features/ModuleWhySection";
+import { DirectAnswer } from "@/components/seo/DirectAnswer";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import type { ModuleContent } from "@/lib/modules-content";
 import { getModuleCreativeAssets, getModuleUi } from "@/lib/module-ui";
@@ -85,6 +87,22 @@ export function ModuleLandingPage({ mod, content, slug }: Props) {
             ))}
           </div>
         </section>
+      ) : null}
+
+      {content.directAnswer ? (
+        <>
+          <DirectAnswer>{content.directAnswer}</DirectAnswer>
+          <div className="container max-w-4xl bg-white pb-8 pt-5">
+            <ButtonLink
+              href={cta.trial}
+              variant="trial"
+              event="trial_start"
+              eventPayload={{ cta: "module_after_answer_trial", module: slug }}
+            >
+              Essai {site.trialDays} jours sans carte bancaire
+            </ButtonLink>
+          </div>
+        </>
       ) : null}
 
       <ModuleTopNav

@@ -21,6 +21,8 @@ export type ModuleContent = {
   pillarLink?: { href: string; label: string };
   /** Titre H1 « fiche écran » (remplace titre + sous-titre par défaut). */
   heroTitle?: string;
+  /** Bloc réponse directe (40-60 mots), affiché sous le hero. */
+  directAnswer?: string;
   /** Liens vers la page propriétaire de l'intention, rendus sous le hero. */
   ownerNotes?: readonly { before: string; href: string; anchor: string; after: string }[];
   stats: readonly [string, string][];
@@ -135,9 +137,11 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     pillar: "Organiser",
     heroLead:
       "Vos agents pointent arrivée et départ depuis leur mobile : heures horodatées, géolocalisation optionnelle et remontée bureau en direct pour la paie et la facturation.",
-    seoTitle: "Pointage & télégestion nettoyage",
+    seoTitle: "Pointage mobile nettoyage : télégestion agents",
     seoDescription:
-      "Pointage mobile avec géolocalisation pour équipes de nettoyage. Heures terrain en direct, moins de litiges. Gratuit pour indépendants. Essai 15 jours Pro/Premium.",
+      "Pointage mobile pour équipes de nettoyage : arrivée et départ horodatés par site, GPS réglable, heures reprises en facturation. Essai 15 j sans CB.",
+    directAnswer:
+      "Le pointage mobile de PROGESTI permet à chaque agent de nettoyage de pointer son arrivée et son départ sur chaque site depuis son smartphone Android ou iOS. L'heure est enregistrée, la position GPS suit le réglage que vous choisissez, et le bureau voit les passages en direct. Les heures alimentent la facturation et la paie.",
     benefits: [
       {
         title: "Arrivée / départ terrain",
@@ -197,7 +201,9 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     imageAlt: "Télégestion PROGESTI — pointages et interventions en direct",
     faq: [
       { q: "Faut-il du matériel spécifique pour pointer ?", a: "Non. Un smartphone Android ou iOS suffit. L'application PROGESTI est incluse dans l'offre." },
-      { q: "La géolocalisation est-elle obligatoire ?", a: "Non, c'est optionnel. Vous choisissez de l'activer selon vos contrats et votre politique interne." },
+      { q: "La géolocalisation est-elle obligatoire ?", a: "Cela dépend du réglage choisi dans les paramètres de votre entreprise : GPS désactivé, enregistré à titre informatif, ou exigé. Vous l'adaptez à vos contrats et à votre politique interne." },
+      { q: "Que se passe-t-il si un agent pointe loin du site ?", a: "Quand le GPS est exigé, l'agent doit indiquer un motif s'il pointe hors de la zone du site ou sans signal GPS. En mode informatif, la position est enregistrée sans bloquer le pointage." },
+      { q: "Un agent qui enchaîne plusieurs sites pointe-t-il à chaque fois ?", a: "Oui. Chaque pointage est rattaché à un site et à un passage : trois immeubles dans la matinée, ce sont trois pointages distincts, consultables par site, agent et période." },
       { q: "Les heures pointées sont-elles utilisées pour la facturation ?", a: "Oui. Les heures terrain alimentent la facturation au réalisé et le module RH pour les variables de paie." },
       { q: "Que se passe-t-il si un agent oublie de pointer ?", a: "Le bureau voit les passages sans pointage et peut corriger ou relancer l'agent depuis PROGESTI." },
       { q: "Le module est-il inclus dans le tarif ?", a: "Oui — Gratuit pour indépendants, tous modules inclus. Essai 15 jours sur Pro/Premium." },
