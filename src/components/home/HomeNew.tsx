@@ -150,7 +150,7 @@ export function HomeNew() {
                 </h2>
                 <p className="mt-4 text-lg text-slate">
                   Vos agents pointent via l'app mobile. Départ, arrivée, 
-                  géolocalisation — tout remonte automatiquement.
+                  géolocalisation réglable — le bureau voit les passages en direct.
                 </p>
                 <ul className="mt-6 space-y-3">
                   {["Pointage mobile Android & iOS", "Géolocalisation des interventions", "Historique complet"].map((item) => (

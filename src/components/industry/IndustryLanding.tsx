@@ -391,9 +391,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
             {[
               "Android",
               "iOS",
-              "Export compta",
-              "Google Agenda",
-              "Webhook leads",
+              "Export compta (CSV)",
               "Télégestion",
             ].map((item) => (
               <li
@@ -405,7 +403,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
             ))}
           </ul>
           <p className="mx-auto mt-4 max-w-xl text-center text-sm text-slate">
-            PROGESTI s&apos;interface avec vos outils comptables et métier —{" "}
+            PROGESTI exporte vos factures et règlements pour votre comptable —{" "}
             <Link href="/integrations" className="link-accent font-bold">
               voir les intégrations
             </Link>

@@ -377,8 +377,8 @@ export default function SecurityLandingPage() {
               {
                 title: "Moins de temps admin",
                 problem: "Excel, WhatsApp et double saisie pour le planning des vacations : des heures perdues chaque semaine.",
-                solution: "Un seul outil pour planifier, pointer et facturer. Ce qui est sur le terrain remonte automatiquement.",
-                benefit: "Gain estimé : plusieurs heures/semaine",
+                solution: "Un seul outil pour planifier, pointer et facturer. Ce qui est pointé sur le terrain alimente la facturation.",
+                benefit: "Moins de ressaisie",
                 segment: "Gardiennage",
               },
               {
