@@ -80,6 +80,16 @@ export default function ComparatifsPage() {
             </div>
           </Reveal>
 
+          <Reveal delayMs={30}>
+            <p className="mt-10 text-slate">
+              Vous comparez plusieurs éditeurs ? Notre{" "}
+              <Link href="/comparatif-logiciels-nettoyage" className="font-semibold text-blue-royal hover:underline">
+                comparatif des logiciels pour entreprise de nettoyage
+              </Link>{" "}
+              donne les cinq critères à vérifier et des faits relevés, datés et sourcés, sur plusieurs éditeurs.
+            </p>
+          </Reveal>
+
           <Reveal delayMs={60}>
             <div className="mt-12 rounded-[3px] border border-blue-mist bg-[#F5F8FB] p-8">
               <h2 className="font-display text-xl font-extrabold text-blue-deep">PROGESTI vs Propret</h2>

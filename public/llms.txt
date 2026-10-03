@@ -34,6 +34,7 @@ SIREN 951178631 · RCS Toulouse
 - Facture d'avoir en nettoyage (annuler ou corriger une facture après une réclamation) : https://progesti.fr/blog/avoir-facture-nettoyage-litige-client
 - Calculer le prix d'un devis de nettoyage (coût horaire chargé, marge, forfait mensuel) : https://progesti.fr/blog/calculer-prix-devis-nettoyage-taux-horaire
 - Alternative aux logiciels de propreté : https://progesti.fr/alternative-propret
+- Comparatif des logiciels pour entreprise de nettoyage (5 critères, faits datés et sourcés) : https://progesti.fr/comparatif-logiciels-nettoyage
 - Demander une démo : https://progesti.fr/demo
 - Essai gratuit : https://progesti.fr/essai-gratuit
 
