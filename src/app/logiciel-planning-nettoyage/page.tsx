@@ -288,6 +288,13 @@ export default function PillarPlanningPage() {
             <p className="mt-6 text-sm text-slate">
               Voir aussi :{" "}
               <Link
+                href="/fonctionnalites/pointage"
+                className="font-semibold text-blue-royal hover:underline"
+              >
+                pointage mobile et télégestion →
+              </Link>
+              {" · "}
+              <Link
                 href="/logiciel-facturation-proprete"
                 className="font-semibold text-blue-royal hover:underline"
               >
