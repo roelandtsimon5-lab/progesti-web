@@ -29,8 +29,8 @@ export const useCases: readonly UseCase[] = [
     problem:
       "Excel, WhatsApp et double saisie pour le planning : des heures perdues chaque semaine.",
     solution:
-      "Un seul outil pour planifier, pointer et facturer. Ce qui est sur le terrain remonte automatiquement.",
-    benefit: "Gain estimé : plusieurs heures/semaine",
+      "Un seul outil pour planifier, pointer et facturer. Ce qui est pointé sur le terrain alimente la facturation.",
+    benefit: "Moins de ressaisie",
     segment: "Bureaux & tertiaire",
     segmentHref: "/solutions/bureaux",
     icon: "time",
@@ -101,7 +101,7 @@ export const useCases: readonly UseCase[] = [
     problem:
       "Recouper feuilles de présence et heures : fastidieux et source d'erreurs.",
     solution:
-      "Le pointage remonte automatiquement. Validation et export comptable en quelques clics.",
+      "Les heures pointées remontent au bureau et alimentent le module RH pour les variables de paie.",
     benefit: "Prépaie fiabilisée",
     segment: "Multi-sites",
     segmentHref: "/logiciel-planning-nettoyage",
