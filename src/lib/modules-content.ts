@@ -324,12 +324,12 @@ export const moduleContent: Record<ModuleSlug, ModuleContent> = {
     pillar: "Facturer",
     heroLead:
       "Créez des devis professionnels rattachés à vos fiches clients, suivez les acceptations et convertissez en contrat et planning sans ressaisie.",
-    seoTitle: "Module Devis : créer un devis pas à pas",
+    seoTitle: "Écran Devis de l'app : lignes, statuts, signature",
     seoDescription:
-      "Fiche module Devis : créer un devis depuis la fiche client, l'envoyer, suivre son statut et le convertir en contrat. Inclus dans toutes les offres.",
-    heroTitle: "Module Devis : de la fiche client au contrat",
+      "Fonction Devis de l'app PROGESTI : lignes, statuts, signature en ligne, passage en contrat. Pour choisir un logiciel de devis, voir la page dédiée.",
+    heroTitle: "L'écran Devis de PROGESTI, de la fiche client au contrat",
     ownerNotes: [
-      { before: "Vous comparez des logiciels de devis ? Voir notre ", href: "/logiciel-devis-nettoyage", anchor: "logiciel de devis pour entreprise de nettoyage", after: "." },
+      { before: "Vous cherchez un logiciel de devis pour entreprise de nettoyage ? Lisez notre page ", href: "/logiciel-devis-nettoyage", anchor: "Logiciel devis nettoyage", after: " : comparatif Word/Excel, contenu d'un bon devis, tarifs et essai." },
     ],
     benefits: [
       { title: "Devis structurés", text: "Rattachés au client et aux sites — plus de fichiers Word éparpillés sur le bureau." },
