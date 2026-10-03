@@ -51,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/glossaire", 0.55, "monthly"),
     entry("/guides", 0.55, "weekly"),
     entry("/comparatifs", 0.55, "weekly"),
+    entry("/comparatif-logiciels-nettoyage", 0.6, "monthly"),
     entry("/integrations", 0.45, "monthly"),
     entry("/a-propos", 0.45, "monthly"),
   ];
