@@ -142,8 +142,15 @@ export default function LogicielDevisNettoyagePage() {
               sont calculés pour vous. Pour un contrat hebdomadaire à l&apos;heure, le montant affiché est une
               estimation sur quatre semaines, avec une note explicite. Le devis reprend les informations de votre
               société, le SIRET et le numéro de TVA du client lorsqu&apos;ils sont renseignés, et une date de validité
-              (30 jours par défaut). Pour les règles légales applicables à votre situation, rapprochez-vous de votre
-              expert-comptable ou de{" "}
+              (30 jours par défaut). Pour savoir ce qui est imposé ou seulement recommandé, lisez les{" "}
+              <Link href="/blog/mentions-obligatoires-devis-nettoyage" className="font-semibold text-blue-royal hover:underline">
+                mentions obligatoires d&apos;un devis de nettoyage
+              </Link>
+              , et pour un exemple rempli le{" "}
+              <Link href="/blog/modele-devis-nettoyage-bureaux" className="font-semibold text-blue-royal hover:underline">
+                modèle de devis de nettoyage de bureaux
+              </Link>
+              . Pour les règles légales applicables à votre situation, rapprochez-vous de votre expert-comptable ou de{" "}
               <a
                 href="https://entreprendre.service-public.gouv.fr/"
                 className="font-semibold text-blue-royal hover:underline"

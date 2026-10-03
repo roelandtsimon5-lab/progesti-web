@@ -287,6 +287,17 @@ export default function PillarFacturationPage() {
               </Link>{" "}
               : factures échues, retards, montants en jeu, historique du client sous les yeux.
             </p>
+            <p className="mt-4 text-slate">
+              Pour contrôler vos factures, deux ressources : les{" "}
+              <Link href="/blog/mentions-obligatoires-facture-nettoyage" className={linkCls}>
+                mentions obligatoires d&apos;une facture de nettoyage
+              </Link>{" "}
+              (avec les sources officielles datées) et le{" "}
+              <Link href="/blog/modele-facture-nettoyage" className={linkCls}>
+                modèle de facture de nettoyage
+              </Link>{" "}
+              avec trois exemples.
+            </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               <div className="rounded-[3px] border border-line bg-paper p-5">
                 <p className="font-display font-bold text-ink">Avoirs</p>
