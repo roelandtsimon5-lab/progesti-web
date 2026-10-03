@@ -86,7 +86,7 @@ export default function PillarFacturationPage() {
       />
       <IndustryPageHero
         eyebrow="Facturation propreté"
-        title="Logiciel de facturation pour la propreté"
+        title="Logiciel de facturation nettoyage : facturez le réalisé"
         lead="Du devis signé au règlement encaissé : facturez ce qui a été fait sur le terrain, que ce soit un contrat d'entretien récurrent ou une remise en état ponctuelle."
         breadcrumbs={[
           { label: "Accueil", href: "/" },

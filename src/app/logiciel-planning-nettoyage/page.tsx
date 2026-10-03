@@ -47,7 +47,7 @@ const planningDirectAnswer =
 export const metadata: Metadata = {
   ...pageMeta({
     title: "Logiciel planning nettoyage — Multi-sites, remplacements",
-    description: `Logiciel de planning nettoyage : multi-sites, fréquences, absences, remplacements. Relié au pointage et à la facture. Gratuit indépendants. Essai ${site.trialDays} j.`,
+    description: `Logiciel de planning nettoyage : affectez vos agents par site et par fréquence, gérez absences et remplacements. Gratuit indépendants. Essai ${site.trialDays} j sans CB.`,
     path: "/logiciel-planning-nettoyage",
   }),
   // 56 caractères, sans suffixe de marque.
@@ -61,7 +61,7 @@ export default function PillarPlanningPage() {
       <FaqPageLd items={[...planningFaq]} />
       <IndustryPageHero
         eyebrow="Planning multi-sites"
-        title="Logiciel de planning nettoyage : du site à la facture"
+        title="Logiciel de planning nettoyage : sites, équipes, remplacements"
         lead={`Affectez agents et sites, gérez absences et remplacements en quelques clics. Le planning alimente le pointage mobile puis la facture — sans double saisie. Gratuit pour indépendants, essai ${site.trialDays} jours sans CB.`}
         breadcrumbs={[
           { label: "Accueil", href: "/" },
