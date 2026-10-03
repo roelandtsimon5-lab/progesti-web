@@ -332,7 +332,31 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
         </div>
       </section>
 
-      <TestimonialsSection limit={4} />
+      {config.scenarios ? (
+        <section className="section bg-paper industry-anchor" id="cas-usage">
+          <div className="container">
+            <Reveal>
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="eyebrow">Cas concrets</p>
+                <h2 className="mt-3 font-display text-3xl font-extrabold md:text-4xl">{config.scenarios.h2}</h2>
+                <p className="mt-4 text-slate">{config.scenarios.intro}</p>
+              </div>
+            </Reveal>
+            <ul className="mt-10 grid gap-5 md:grid-cols-3">
+              {config.scenarios.items.map((item, i) => (
+                <Reveal key={item.title} delayMs={i * 60} className="h-full">
+                  <li className="h-full list-none rounded-[2px] border border-line bg-white p-6">
+                    <h3 className="font-display text-lg font-extrabold text-ink">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate md:text-[15px]">{item.text}</p>
+                  </li>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : (
+        <TestimonialsSection limit={4} />
+      )}
 
       <section className="section bg-white industry-anchor" id="preuve">
         <div className="container">
@@ -458,7 +482,7 @@ export function IndustryLanding({ config = defaultIndustryConfig }: Props) {
               ].map((line) => (
                 <li key={line} className="flex gap-2">
                   <span className="font-bold text-lime-cta" aria-hidden>
-                    ?
+                    ✓
                   </span>
                   <span>{line}</span>
                 </li>
