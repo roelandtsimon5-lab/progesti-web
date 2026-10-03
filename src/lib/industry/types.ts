@@ -90,6 +90,12 @@ export type IndustryPageConfig = {
   /** Lien éditorial corps (ex. alternative concurrente) — hors footer */
   /** Bloc « réponse directe » 40-60 mots affiché sous le hero. */
   directAnswer?: string;
+  /** Mises en situation propres au métier (remplace le bloc « cas d'usage » générique). */
+  scenarios?: {
+    h2: string;
+    intro: string;
+    items: readonly { title: string; text: string }[];
+  };
   compareNote?: {
     before: string;
     href: string;
