@@ -26,6 +26,10 @@ SIREN 951178631 · RCS Toulouse
 - Logiciel de devis pour entreprise de nettoyage : https://progesti.fr/logiciel-devis-nettoyage
 - Logiciel de facturation pour la propreté : https://progesti.fr/logiciel-facturation-proprete
 - Guide facture électronique 2026-2027 (dates, plateforme agréée, e-reporting) : https://progesti.fr/blog/facture-electronique-2026-2027
+- Mentions obligatoires d'un devis de nettoyage (imposé ou recommandé, sources officielles datées) : https://progesti.fr/blog/mentions-obligatoires-devis-nettoyage
+- Mentions obligatoires d'une facture de nettoyage (franchise de TVA, pénalités, indemnité de 40 €, sources datées) : https://progesti.fr/blog/mentions-obligatoires-facture-nettoyage
+- Modèle de devis de nettoyage de bureaux (modèle à copier et exemple fictif) : https://progesti.fr/blog/modele-devis-nettoyage-bureaux
+- Modèle de facture de nettoyage (modèle à copier et trois exemples fictifs) : https://progesti.fr/blog/modele-facture-nettoyage
 - Alternative aux logiciels de propreté : https://progesti.fr/alternative-propret
 - Demander une démo : https://progesti.fr/demo
 - Essai gratuit : https://progesti.fr/essai-gratuit
