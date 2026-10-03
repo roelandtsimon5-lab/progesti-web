@@ -184,6 +184,10 @@ const homePillars: readonly IndustryPillar[] = [
 ] as const;
 
 const homeConfig = mergeIndustryConfig(defaultIndustryConfig, {
+  hero: {
+    h1Lead: "PROGESTI, l'outil de gestion des entreprises de propreté",
+    h1: "Planifiez, pointez, facturez — sans Excel ni chaos",
+  },
   pillars: homePillars,
   extraNotes: [
     { before: "Besoin de chiffrer un contrat ? Voyez notre ", href: "/logiciel-devis-nettoyage", anchor: "logiciel de devis pour le nettoyage", after: " : du devis au contrat planifié." },
@@ -223,12 +227,12 @@ const homeConfig = mergeIndustryConfig(defaultIndustryConfig, {
 });
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel entreprise de nettoyage — Gratuit pour indépendants",
+  title: "PROGESTI — Logiciel de gestion propreté · Essai 15 jours",
   description:
-    `Logiciel de gestion pour entreprises de nettoyage. Gratuit pour indépendants, tous modules inclus.`,
+    `PROGESTI : planifiez, pointez et facturez dans un seul outil. Gratuit pour indépendants, essai 15 jours sans carte bancaire pour les équipes.`,
   path: "/",
   openGraph: {
-    title: "Logiciel entreprise de nettoyage — Gratuit pour indépendants | PROGESTI",
+    title: "PROGESTI — Logiciel de gestion propreté · Essai 15 jours",
     description:
       `Planning, pointage et facturation pour entreprises de propreté. Gratuit pour indépendants.`,
   },
