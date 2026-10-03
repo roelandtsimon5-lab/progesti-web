@@ -72,9 +72,10 @@ export function ModuleLandingPage({ mod, content, slug }: Props) {
 
       {content.ownerNotes?.length ? (
         <section className="border-b border-line bg-paper" aria-label="Pages liées">
-          <div className="container space-y-1 py-3 text-sm text-slate">
+          <div className="container space-y-1 py-4 text-base text-blue-deep">
             {content.ownerNotes.map((n) => (
               <p key={n.href}>
+                <span aria-hidden className="mr-1 font-bold text-blue-royal">→</span>
                 {n.before}
                 <Link href={n.href} className="font-semibold text-blue-royal hover:underline">
                   {n.anchor}

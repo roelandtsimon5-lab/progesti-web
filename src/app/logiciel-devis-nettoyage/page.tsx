@@ -45,8 +45,8 @@ const devisFaq = [
 ] as const;
 
 export const metadata: Metadata = pageMeta({
-  title: "Logiciel devis nettoyage — Du devis au contrat",
-  description: `Logiciel de devis pour le nettoyage : devis liés aux clients et sites, suivi des statuts, conversion en contrat. Gratuit indépendants. Essai ${site.trialDays} j sans CB.`,
+  title: "Logiciel devis nettoyage : devis signé en ligne",
+  description: `Faites vos devis de nettoyage en ligne : prestations types, total HT/TTC, signature du client en ligne. Gratuit pour indépendants, essai ${site.trialDays} j sans CB.`,
   path: "/logiciel-devis-nettoyage",
 });
 
@@ -64,7 +64,7 @@ export default function LogicielDevisNettoyagePage() {
       />
       <IndustryPageHero
         eyebrow="Devis propreté"
-        title="Logiciel de devis pour entreprise de nettoyage"
+        title="Logiciel de devis nettoyage : envoyez, faites signer, suivez"
         lead="Du devis envoyé au contrat planifié : un seul outil, relié au client, au planning et à la facture."
         breadcrumbs={[
           { label: "Accueil", href: "/" },
