@@ -408,6 +408,9 @@ export const finDeChantierConfig = mergeIndustryConfig(defaultIndustryConfig, {
 
 export const autoEntrepreneursConfig = mergeIndustryConfig(defaultIndustryConfig, {
   slug: "auto-entrepreneurs",
+  extraNotes: [
+    { before: "Toutes les conditions de l'offre, qui y a droit et ce qui change avec Pro : ", href: "/logiciel-nettoyage-gratuit", anchor: "logiciel de nettoyage gratuit", after: "." },
+  ],
   seo: {
     title: "Logiciel nettoyage auto-entrepreneur : 0 €/mois",
     description:
